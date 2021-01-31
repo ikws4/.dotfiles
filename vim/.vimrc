@@ -12,6 +12,14 @@ set nocompatible
 " Fast saving file
 nmap <leader>w :w!<cr> 
 
+" Fast yank whole file to system clipboard
+nmap <leader>y :%y*<cr>
+
+" Buffer fast switch
+nmap fn :bn<cr>
+nmap fp :bp<cr>
+nmap fd :bd<cr>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -21,6 +29,9 @@ set wildmenu
 
 " Show line numbers in the left
 set relativenumber 
+
+" Highlight curren line
+set cursorline
 
 " File exporer
 " https://shapeshed.com/vim-netrw/
