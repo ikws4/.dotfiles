@@ -18,8 +18,12 @@ nmap <leader>y :%y*<cr>
 " Buffer fast switch
 nmap fn :bn<cr>
 nmap fp :bp<cr>
-nmap fd :bd<cr>
 
+" Window switch
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
+nmap <C-H> <C-W>h
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -28,6 +32,7 @@ nmap fd :bd<cr>
 set wildmenu 
 
 " Show line numbers in the left
+set number
 set relativenumber 
 
 " Highlight curren line
@@ -38,6 +43,19 @@ set cursorline
 let g:netrw_liststyle=3
 let g:netrw_banner=0
 let g:netrw_winsize=24
+
+" Use diffrent cursor in diffrent mode
+" https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes 
+"  1 -> blinking block
+"  2 -> solid block 
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -50,6 +68,7 @@ colorscheme onedark
 
 " Java syntax highlight
 let g:java_highlight_all=1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -86,8 +105,7 @@ set cindent
 map <leader>ss :setlocal spell!<cr>
 
 
-
-
-
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" => SnipMate
+"""""""""""""""""""""""""""""""""""""""""""""""""
+let g:snipMate={ 'snippet_version' : 1 }
