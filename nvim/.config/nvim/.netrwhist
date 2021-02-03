@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/zhipingne/.dotfiles/nvim/.config/nvim/plugins'
+let g:netrw_dirhist_5='/Users/zhipingne/.dotfiles/nvim/.config/nvim'
+let g:netrw_dirhist_4='/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules'
+let g:netrw_dirhist_3='/Users/zhipingne/.config/alacritty/alacritty.yml'
+let g:netrw_dirhist_2='/Users/zhipingne/.config/nvim'
+let g:netrw_dirhist_1='/Users/zhipingne/.config/nvim/general'

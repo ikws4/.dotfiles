@@ -54,7 +54,7 @@ let g:netrw_winsize=24
 "  6 -> solid vertical bar
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
-let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
