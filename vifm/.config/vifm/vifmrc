@@ -64,7 +64,7 @@ set norunexec
 
 " Selected color scheme
 
-colorscheme zenburn_1
+colorscheme palenight
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -284,8 +284,6 @@ filetype *.pkg open
 filetype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt open -a LibreOffice.app
 fileviewer *.doc antiword -
 fileviewer *.docx docx2txt.pl %f -
-
-fileviewer * preview
 
 " Syntax highlighting in preview
 "

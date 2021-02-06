@@ -38,182 +38,203 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/Users/zhipingne/.dotfiles/vifm
-	.config
-1
-d/Users/zhipingne/.dotfiles
-	vim
+d/Users/zhipingne/.config/vifm
+	vifminfo
 4
-d/Users/zhipingne/.dotfiles/vim
-	..
-0
-d/Users/zhipingne/.dotfiles
-	vifm
-3
-d/Users/zhipingne/.dotfiles/vifm
-	.config
-1
-d/Users/zhipingne/.dotfiles/vifm/.config
-	vifm
-1
-d/Users/zhipingne/.dotfiles/vifm/.config/vifm
-	vifmrc
-5
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim
-	themes
-4
-d/Users/zhipingne/.dotfiles/nvim/.config
-	nvim
-1
-d/Users/zhipingne/.dotfiles/nvim
-	..
-0
-d/Users/zhipingne/.dotfiles
-	nvim
-2
-d/Users/zhipingne
-	Desktop
-2
 d/Users/zhipingne/.dotfiles/nvim/.config/nvim
 	init.vim
 5
-d/Users/zhipingne/.dotfiles/nvim/.config
-	nvim
-1
-d/Users/zhipingne/.dotfiles/nvim
-	..
-0
-d/Users/zhipingne/.dotfiles
-	vifm
-2
-d/Users/zhipingne/.dotfiles/vifm
-	..
-0
-d/Users/zhipingne/.dotfiles
-	vifm
-2
-d/Users/zhipingne/.dotfiles/vifm
-	.config
-1
-d/Users/zhipingne/.dotfiles/vifm/.config
-	vifm
-1
-d/Users/zhipingne/.dotfiles/vifm/.config/vifm
-	vifmrc
-5
-d/Users/zhipingne/Dev/Algorithm
-	lanqiao
-2
 d/Users/zhipingne/.config/vifm
-	vifmrc
-5
+	vifm-help.txt
+3
+d/Users/zhipingne/.config
+	vifm
+6
 d/Users/zhipingne
-	Desktop
-4
-d/Users/zhipingne/.config/vifm
-	vifm-help.txt
+	Dev
 3
-d/Users/zhipingne/Dev/Algorithm
-	)
-0
-d/Users/zhipingne/.config/vifm
-	vifm-help.txt
-3
-d/Users/zhipingne/Dev/Algorithm
-	.git
+d/Users/zhipingne/Dev
+	Algorithm
 1
-d/Users/zhipingne/.config/vifm
-	vifm-help.txt
-3
 d/Users/zhipingne/Dev/Algorithm
-	utils
-3
-d/Users/zhipingne/.config/vifm
-	vifmrc
+	LeetCode.java
 5
-d/Users/zhipingne/Dev/Algorithm
-	utils
-3
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim
-	modules
-2
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
-	coc.vim
-2
-d/Users/zhipingne/Dev/Algorithm
-	utils
-3
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim
-	modules
-2
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
-	coc.vim
-2
-d/Users/zhipingne/Dev/Algorithm
-	utils
-3
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim
-	after
-1
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim/after
-	ftplugin
-1
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim/after/ftplugin
-	..
-0
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim/after
-	ftplugin
-1
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim
-	after
-1
-d/Users/zhipingne/.dotfiles/nvim/.config
-	nvim
-1
 d/Users/zhipingne/.dotfiles/nvim/.config/nvim
 	modules
 2
 d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
 	general.vim
-3
+4
 d/Users/zhipingne/Dev/Algorithm
-	utils
-3
+	LeetCode.java
+5
 d/Users/zhipingne/.dotfiles/nvim/.config/nvim
 	modules
 2
 d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
 	keymapping.vim
-4
-d/Users/zhipingne/Dev/Algorithm
-	utils
-3
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim
-	modules
-2
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
-	coc.vim
-2
-d/Users/zhipingne/Dev/Algorithm
-	utils
-3
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim
-	modules
-2
-d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
-	coc.vim
-2
-d/Users/zhipingne/Dev/Algorithm
-	utils
-3
-d/Users/zhipingne/.config/vifm
-	vifmrc
 5
 d/Users/zhipingne/Dev/Algorithm
+	LeetCode.java
+5
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	init.vim
+5
+d/Users/zhipingne/.dotfiles/nvim/.config
+	nvim
+1
+d/Users/zhipingne/.dotfiles/nvim
+	..
+0
+d/Users/zhipingne/.dotfiles
+	vim
+4
+d/Users/zhipingne/.dotfiles/vim
+	.vimrc
+1
+d/Users/zhipingne/Dev/Algorithm
+	LeetCode.java
+7
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	init.vim
+6
+d/Users/zhipingne/Dev/Algorithm
+	LeetCode.java
+7
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	init.vim
+6
+d/Users/zhipingne/Dev/Algorithm
+	InputScanner.class
+6
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	keymapping.vim
+5
+d/Users/zhipingne/Dev/Algorithm
+	Greetor.class
+5
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	coc.vim
+3
+d/Users/zhipingne/Dev/Algorithm
+	Greetor.class
+5
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	keymapping.vim
+5
+d/Users/zhipingne/Dev/Algorithm
+	Greetor.class
+5
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	coc.vim
+3
+d/Users/zhipingne/Dev/Algorithm
+	Greetor.class
+5
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	plugins
+3
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/plugins
+	plugins.vim
+2
+d/Users/zhipingne/Dev/Algorithm
+	Greetor.class
+5
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	plugins
+3
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/plugins
+	plugins.vim
+2
+d/Users/zhipingne/Dev/Algorithm
 	utils
+3
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	themes
+4
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/themes
+	nord.vim
+1
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	plugins
+3
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/plugins
+	plugged
+1
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	alacritty.vim
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config
+	nvim
+1
+d/Users/zhipingne/.dotfiles/nvim
+	.config
+1
+d/Users/zhipingne/.dotfiles
+	alacritty
+2
+d/Users/zhipingne/.dotfiles/alacritty
+	.config
+1
+d/Users/zhipingne/.dotfiles/alacritty/.config
+	alacritty
+1
+d/Users/zhipingne/.dotfiles/alacritty/.config/alacritty
+	dracula.yml
+2
+d/Users/zhipingne/Dev/Algorithm
+	Greetor.class
+5
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	plugins
+3
+d/Users/zhipingne/.config/vifm
+	vifm-help.txt
 3
 d/Users/zhipingne/.dotfiles/nvim/.config/nvim
 	init.vim
+7
+d/Users/zhipingne/.dotfiles/nvim/.config
+	nvim
+1
+d/Users/zhipingne/.dotfiles/nvim
+	.config
+1
+d/Users/zhipingne/.dotfiles
+	alacritty
+2
+d/Users/zhipingne/.dotfiles/alacritty
+	.config
+1
+d/Users/zhipingne/.dotfiles/alacritty/.config
+	alacritty
+1
+d/Users/zhipingne/.dotfiles/alacritty/.config/alacritty
+	alacritty.yml
+1
+d/Users/zhipingne/Dev/Algorithm
+	Main.java
+10
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	coc-settings.json
 6
 d/Users/zhipingne/.dotfiles/nvim/.config
 	nvim
@@ -221,65 +242,26 @@ d/Users/zhipingne/.dotfiles/nvim/.config
 d/Users/zhipingne/.dotfiles/nvim
 	.config
 1
-d/Users/zhipingne/.dotfiles
+d/Users/zhipingne/.dotfiles/nvim/.config
 	nvim
+1
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
 2
-d/Users/zhipingne
-	.config
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	coc.vim
+3
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	themes
 4
-d/Users/zhipingne/.config
-	clash
-3
-d/Users/zhipingne/.config/clash
-	..
-0
-d/Users/zhipingne/.config
-	clash
-3
-d/Users/zhipingne/.config/clash
-	..
-0
-d/Users/zhipingne/.config
-	alacritty
-2
-d/Users/zhipingne/.config/alacritty
-	alacritty.yml
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/themes
+	nord.vim
 1
 d/Users/zhipingne/Dev/Algorithm
-	utils
-3
-d/Users/zhipingne/.config/vifm
-	vifm-help.txt
-3
-d/Users/zhipingne/.config
-	coc
-4
-d/Users/zhipingne/.config/coc
-	extensions
-1
-d/Users/zhipingne/.config/coc/extensions
-	node_modules
-2
-d/Users/zhipingne/.config/coc/extensions/node_modules
-	coc-java
-1
-d/Users/zhipingne/.config/coc/extensions/node_modules/coc-java
-	lib
-2
-d/Users/zhipingne/.config/coc/extensions/node_modules
-	coc-java
-1
-d/Users/zhipingne/.config/coc/extensions
-	node_modules
-2
-d/Users/zhipingne/.config/coc
-	extensions
-1
-d/Users/zhipingne/.config
-	..
-0
+	Main.java
+10
 d/Users/zhipingne/.dotfiles/nvim/.config/nvim
-	init.vim
+	coc-settings.json
 6
 d/Users/zhipingne/.dotfiles/nvim/.config
 	nvim
@@ -294,50 +276,68 @@ d/Users/zhipingne/.dotfiles/alacritty
 	.config
 1
 d/Users/zhipingne/.dotfiles/alacritty/.config
-	..
-0
-d/Users/zhipingne/.dotfiles/alacritty
-	.config
+	alacritty
 1
-d/Users/zhipingne/.dotfiles
-	..
-0
-d/Users/zhipingne/.config/vifm
-	..
-0
-d/Users/zhipingne/.config
-	clash
+d/Users/zhipingne/.dotfiles/alacritty/.config/alacritty
+	alacritty.yml
+1
+d/Users/zhipingne/Dev/Algorithm
+	Matrix.class
+11
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
 2
-d/Users/zhipingne/.dotfiles
-	..
-0
-d/Users/zhipingne
-	.docker
-7
-d/Users/zhipingne/.config/vifm
-	..
-0
-d/Users/zhipingne/.config
-	clash
-3
-d/Users/zhipingne
-	.zsh_sessions
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	general.vim
 4
-d/Users
-	Guest
+d/Users/zhipingne/Dev/Algorithm
+	Pair.class
+12
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	after
 1
-d/
-	Users
-4
-d/Users
-	Guest
-1
-d/
-	Users
-4
-d/Users
-	zhipingne
+d/Users/zhipingne/Dev/Algorithm
+	Pair.class
+12
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	coc.vim
 3
+d/Users/zhipingne/Dev/Algorithm
+	Pair.class
+12
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	plugins
+3
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/plugins
+	plugged
+1
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	general.vim
+4
+d/Users/zhipingne
+	Dev
+4
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	coc.vim
+3
+d/Users/zhipingne/Dev/Algorithm
+	Pair.class
+12
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	modules
+2
+d/Users/zhipingne/.dotfiles/nvim/.config/nvim/modules
+	airline.vim
+1
 d
 
 # Right window history (oldest to newest):
@@ -360,8 +360,20 @@ D/Users
 	zhipingne
 5
 D/Users/zhipingne
+	Google Deive
+6
+D/Users
+	zhipingne
+3
+D/Users/zhipingne
 	Dev
 3
+D/Users/zhipingne/.config/vifm
+	vifm-help.txt
+3
+D/Users/zhipingne/.dotfiles/nvim/.config/nvim
+	init.vim
+5
 D
 
 # Command line history (oldest to newest):
@@ -400,6 +412,12 @@ D
 :help move
 :mkdir alacritty
 :mkdir .config
+:wq<rc>
+:wq
+:h space
+:help <space>
+:help
+:set spell
 :q
 
 # Search history (oldest to newest):
@@ -409,11 +427,13 @@ D
 /.con
 
 # Prompt history (oldest to newest):
+p:q
+planqiao
 
 # Local filter history (oldest to newest):
 
 # Registers:
-""/Users/zhipingne/.local/share/vifm/Trash/000_.zshrc~
+""/Users/zhipingne/.local/share/vifm/Trash/000_英文大字幕 - 苹果Apple创始人：史蒂夫·乔布斯 - Stanford Commencement斯坦福毕业典礼-0001.png
 
 # Directory stack (oldest to newest):
 
@@ -524,6 +544,12 @@ t/Users/zhipingne/.local/share/vifm/Trash/000_.zcompdump-zhipingne-5.8
 	/Users/zhipingne/.zcompdump-zhipingne-5.8
 t/Users/zhipingne/.local/share/vifm/Trash/000_.zshrc~
 	/Users/zhipingne/.zshrc~
+t/Users/zhipingne/.local/share/vifm/Trash/000_.ipynb_checkpoints
+	/Users/zhipingne/Dev/.ipynb_checkpoints
+t/Users/zhipingne/.local/share/vifm/Trash/000_plugged
+	/Users/zhipingne/.dotfiles/nvim/.config/nvim/plugins/plugged
+t/Users/zhipingne/.local/share/vifm/Trash/000_英文大字幕 - 苹果Apple创始人：史蒂夫·乔布斯 - Stanford Commencement斯坦福毕业典礼-0001.png
+	/Users/zhipingne/Pictures/Screenshots/英文大字幕 - 苹果Apple创始人：史蒂夫·乔布斯 - Stanford Commencement斯坦福毕业典礼-0001.png
 
 # State:
 f

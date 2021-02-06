@@ -1,16 +1,28 @@
+# Import additional configuration files
+#
+# Imports are loaded in order, skipping all missing files, with the importing
+# file being loaded last. If a field is already present in a previous import, it
+# will be replaced.
+#
+# All imports must either be absolute paths starting with `/`, or paths relative
+# to the user's home directory starting with `~/`.
+import:
+  - ~/.config/alacritty/nord.yml
+
+env:
+  TERM: xterm-256color
+
 # Window Customizations
 window:
   dimensions:
     columns: 140
     lines: 38
-  padding:
-    x: 10
-    y: 10
-  decorations: none
+  dynamic_padding: true
+  # decorations: none
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 0.9
+background_opacity: 0.96
 
 # Font configuration
 font:
@@ -23,10 +35,5 @@ font:
   italic: 
     family: Fira Code
     style: Italic
-  size: 14.0
-draw_bold_text_with_bright_colors: true
-
-# Color scheme
-import:
-  #  - ~/.config/alacritty/dracula.yml
-  - ~/.config/alacritty/onedark.yml
+  size: 18.0
+draw_bold_text_with_bright_colors: false
