@@ -27,4 +27,4 @@ alt - p : yabai -m window --toggle sticky;\
 alt - e : yabai -m window --toggle split
 
 # Open alacritty
-cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty

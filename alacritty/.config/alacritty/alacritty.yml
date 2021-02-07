@@ -18,11 +18,11 @@ window:
     columns: 140
     lines: 38
   dynamic_padding: true
-  # decorations: none
+  decorations: none
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 0.96
+background_opacity: 1.0
 
 # Font configuration
 font:

@@ -3,6 +3,7 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
     Plug 'vifm/vifm.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'mhinz/vim-startify'
+    Plug 'plasticboy/vim-markdown'
 
 " Themes
     Plug 'arcticicestudio/nord-vim'

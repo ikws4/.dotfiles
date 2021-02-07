@@ -23,3 +23,4 @@ neofetch
 # Aliases
 alias vim='nvim'
 alias home='cd ~'
+alias blog='cd ~/Dev/Github/blog/'
