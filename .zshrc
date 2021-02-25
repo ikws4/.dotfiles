@@ -24,3 +24,16 @@ neofetch
 alias vim='nvim'
 alias home='cd ~'
 alias blog='cd ~/Dev/Github/blog/'
+
+# Vi keybinding
+bindkey -v
+
+# Locale
+export LANG=""
+export LC_COLLATE="C"
+export LC_CTYPE="UTF-8"
+export LC_MESSAGES="C"
+export LC_MONETARY="C"
+export LC_NUMERIC="C"
+export LC_TIME="C"
+export LC_ALL=

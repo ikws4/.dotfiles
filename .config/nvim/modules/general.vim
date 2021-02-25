@@ -4,8 +4,6 @@ let g:mapleader = "'"
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set nowrap                              " Display long lines as just one line
-set encoding=UTF-8                      " The encoding displayed
-set fileencoding=UFT-8
 set cmdheight=2                         " Give more space for displaying messages
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set splitbelow                          " Horizontal splits will automatically be below
@@ -23,6 +21,9 @@ set nowritebackup                       " This is recommended by coc
 set spelllang=en_us                     " Spell check
 set hls is                              " Making sure search hilights words as we type them
 set ic                                  " Ignore case in search pattern
-set cursorline
+set cursorline                          
+set foldmethod=syntax
+set encoding=UTF-8
+set fileencoding=UTF-8
 
 au BufWritePost $MYVIMRC source $MYVIMRC

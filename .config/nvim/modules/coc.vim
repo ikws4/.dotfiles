@@ -94,6 +94,11 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Find file in the current dirctory by fuzzy
+nnoremap <silent><nowait> <space>f  :<C-u>CocList files<cr>
 
 " Use <tab> for jump to next placeholder.
 let g:coc_snippet_next = '<tab>'
+
+" Launch coc-explorer
+nnoremap <space>e :CocCommand explorer<CR>
