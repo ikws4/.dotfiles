@@ -8,6 +8,12 @@ alt - l : yabai -m window --focus east
 alt - tab : yabai -m space --focus next || yabai -m space --focus first
 alt + shift - tab : yabai -m space --focus prev || yabai -m space --focus last
 
+# space
+alt - 1 : yabai -m space --focus dev
+alt - 2 : yabai -m space --focus music
+alt - 3 : yabai -m space --focus chat
+alt - 4 : yabai -m space --focus other
+
 # toggle window zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
 
@@ -25,6 +31,3 @@ alt - p : yabai -m window --toggle sticky;\
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
-
-# Open alacritty
-alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
