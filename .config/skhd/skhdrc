@@ -22,7 +22,7 @@ alt - x : yabai -m window --swap recent
 
 # float / unfloat window and center on screen
 alt - c : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+          yabai -m window --grid 11:7:1:1:5:9
 
 # toggle sticky(+float), topmost, picture-in-picture
 alt - p : yabai -m window --toggle sticky;\
@@ -31,3 +31,9 @@ alt - p : yabai -m window --toggle sticky;\
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
+
+# swap window
+alt - s : yabai -m window --swap mouse
+
+# focus windows
+alt - m : yabai -m window --focus first

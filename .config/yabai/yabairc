@@ -22,11 +22,11 @@ yabai -m config auto_balance                 on
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  12
-yabai -m config bottom_padding               12
-yabai -m config left_padding                 12
-yabai -m config right_padding                12
-yabai -m config window_gap                   12
+yabai -m config top_padding                  8 
+yabai -m config bottom_padding               8
+yabai -m config left_padding                 8
+yabai -m config right_padding                8
+yabai -m config window_gap                   8
 
 # Spaces settings
 yabai -m space 1 --label dev
@@ -35,8 +35,9 @@ yabai -m space 3 --label chat  --layout float
 yabai -m space 4 --label other --layout float 
 
 # floating app
-yabai -m rule --add app="QQ" space=^3 manage=off
-yabai -m rule --add app="WeChat" space=^3 manage=off
-yabai -m rule --add app="NeteaseMusic" space=^2 manage=off
-yabai -m rule --add app="^System Preferences$" space=^4 manage=off
-yabai -m rule --add app="^Tecent Lemon$" space=4 manage=off
+yabai -m rule --add app="Dash" space=^1 grid=7:7:1:1:5:5 manage=off
+yabai -m rule --add app="NeteaseMusic" space=^2
+yabai -m rule --add app="QQ" space=^3
+yabai -m rule --add app="WeChat" space=^3
+yabai -m rule --add app="^System Preferences$" space=^4
+yabai -m rule --add app="^Tecent Lemon$" space=^4

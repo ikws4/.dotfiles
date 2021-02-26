@@ -18,9 +18,9 @@ window:
     columns: 140
     lines: 38
   padding:
-    x: 2
-    y: 2
-  dynamic_padding: true
+    x: 0
+    y: 0
+  dynamic_padding: false
   # decorations: none
 scrolling:
   history: 10000
