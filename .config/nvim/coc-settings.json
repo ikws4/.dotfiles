@@ -2,7 +2,7 @@
   "java.saveActions.organizeImports": true,
 
   "explorer.icon.enableNerdfont": true,
-  "explorer.git.enable": false,
+  "explorer.git.enable": true,
   "explorer.file.showHiddenFiles": true,
 
   "git.addedSign.hlGroup": "GitGutterAdd",

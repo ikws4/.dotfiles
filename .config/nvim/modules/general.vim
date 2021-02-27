@@ -22,8 +22,8 @@ set spelllang=en_us                     " Spell check
 set hls is                              " Making sure search hilights words as we type them
 set ic                                  " Ignore case in search pattern
 set cursorline                          
-set foldmethod=syntax
 set encoding=UTF-8
 set fileencoding=UTF-8
+set termguicolors
 
 au BufWritePost $MYVIMRC source $MYVIMRC
