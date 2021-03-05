@@ -3,8 +3,8 @@ source $HOME/.config/nvim/modules/general.vim
 source $HOME/.config/nvim/modules/keymapping.vim
 source $HOME/.config/nvim/modules/alacritty.vim
 source $HOME/.config/nvim/modules/coc.vim
-source $HOME/.config/nvim/modules/airline.vim
-source $HOME/.config/nvim/modules/startify.vim
 source $HOME/.config/nvim/modules/treesitter.vim
-luafile $HOME/.config/nvim/lua/treesitter.lua
+source $HOME/.config/nvim/modules/kommentary.vim
+source $HOME/.config/nvim/modules/airline.vim
+source $HOME/.config/nvim/modules/telescope.vim
 source $HOME/.config/nvim/themes/nord.vim

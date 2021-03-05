@@ -1,22 +1,31 @@
 call plug#begin('$HOME/.config/nvim/plugins/plugged')
-" Themes
-    Plug 'arcticicestudio/nord-vim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'sainnhe/sonokai'
-    
-" Tools
-    Plug 'vifm/vifm.vim'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'mhinz/vim-startify'
-    Plug 'plasticboy/vim-markdown'
-    Plug 'tfnico/vim-gradle'
-    Plug 'tpope/vim-commentary'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'tpope/vim-surround'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/playground'
 
-" Icon
-    Plug 'ryanoasis/vim-devicons'
+  " Appearance
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'mhinz/vim-startify'
+    
+  " Tools
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'vifm/vifm.vim'
+  Plug 'plasticboy/vim-markdown'
+
+  " Telecope
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'nvim-telescope/telescope.nvim'
+
+  " Motions and operators improvement
+  Plug 'b3nj5m1n/kommentary'
+  Plug 'tpope/vim-surround'
+  Plug 'christoomey/vim-system-copy'
+
+  " Treesitter
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/playground'
+  Plug 'nvim-treesitter/nvim-treesitter-refactor'
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 call plug#end()

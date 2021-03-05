@@ -35,9 +35,12 @@ yabai -m space 3 --label chat  --layout float
 yabai -m space 4 --label other --layout float 
 
 # floating app
-yabai -m rule --add app="Dash" space=^1 grid=7:7:1:1:5:5 manage=off
+yabai -m rule --add app="Dash" space=^1 grid=11:7:1:1:5:9 manage=off
+yabai -m rule --add app="^Font Book$" space=^1 grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="NeteaseMusic" space=^2
 yabai -m rule --add app="QQ" space=^3
 yabai -m rule --add app="WeChat" space=^3
 yabai -m rule --add app="^System Preferences$" space=^4
 yabai -m rule --add app="^Tecent Lemon$" space=^4
+yabai -m rule --add app="Finder" grid=11:7:1:1:5:9 manage=off
+yabai -m rule --add app="^Android Studio$" manage=off
