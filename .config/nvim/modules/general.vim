@@ -25,10 +25,10 @@ set relativenumber
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set autoindent
-set smartindent
-set smarttab
-set cindent
+" set autoindent
+" set smartindent
+" set smarttab
+" set cindent
 
 " Encoding
 set encoding=UTF-8

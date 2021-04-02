@@ -12,7 +12,8 @@ alt + shift - tab : yabai -m space --focus prev || yabai -m space --focus last
 alt - 1 : yabai -m space --focus dev
 alt - 2 : yabai -m space --focus music
 alt - 3 : yabai -m space --focus chat
-alt - 4 : yabai -m space --focus other
+alt - 4 : yabai -m space --focus android
+alt - 5 : yabai -m space --focus other
 
 # toggle window zoom
 alt - f : yabai -m window --toggle zoom-fullscreen

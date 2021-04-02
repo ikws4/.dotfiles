@@ -1,0 +1,48 @@
+""" Map leader to space ---------------------
+let mapleader="'"
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Common settings -------------------------
+set showmode
+set incsearch
+set so=0
+set nu
+set relativenumber
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+imap jk <Esc>
+
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(GotoDeclaration)
+
+nmap <TAB> <Action>(NextTab)
+nmap <S-TAB> <Action>(PreviousTab)
+
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>a <Action>(ShowIntentionActions)
+
+nmap <space>e <Action>(ActivateProjectToolWindow)
+nmap <space>f <Action>(GotoFile)
+nmap <space>o <Action>(ActivateStructureToolWindow)
+nmap <space>z <Action>(ToggleDistractionFreeMode)
+
+""" Custom commands -------------------------
+command! Format action ReformatCode
