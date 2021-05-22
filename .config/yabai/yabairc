@@ -22,23 +22,27 @@ yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
 yabai -m config window_shadow                float
 yabai -m config auto_balance                 on
+yabai -m config window_border                on 
+yabai -m config window_border_width          4
+yabai -m config normal_window_border_color   0xFF1B222D
+yabai -m config active_window_border_color   0xFF39465E
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  26 
-yabai -m config bottom_padding               16
-yabai -m config left_padding                 16
-yabai -m config right_padding                16
-yabai -m config window_gap                   16
-
-# Spaces settings
-yabai -m space 1 --label Term
-yabai -m space 2 --label Music 
-yabai -m space 3 --label Chat 
-yabai -m space 4 --label Android 
-yabai -m space 5 --label Other --layout float
+yabai -m config top_padding                  14
+yabai -m config bottom_padding               4
+yabai -m config left_padding                 4
+yabai -m config right_padding                4
+yabai -m config window_gap                   4
+# Spaces settings 
+yabai -m space 1 --label "[1] Term"
+yabai -m space 2 --label "[2] Music"
+yabai -m space 3 --label "[3] Study"
+yabai -m space 4 --label "[4] Android"
+yabai -m space 5 --label "[5] Other" --layout float
 
 # floating app
+yabai -m rule --add app="LearnOpenGL" manage=off
 yabai -m rule --add app="Dash" grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="^Font Book$" space=^5 grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="NeteaseMusic" space=^2 manage=off
@@ -48,6 +52,7 @@ yabai -m rule --add app="^System Preferences$" space=^5 manage=off
 yabai -m rule --add app="^Tecent Lemon$" space=^5 manage=off
 yabai -m rule --add app="Finder" grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="^Android Studio$" space=^4 manage=off
+yabai -m rule --add app="Processing" manage=off
 
 # Refresh spaces widget on space change
 yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"

@@ -48,7 +48,7 @@ require('nvim-treesitter.configs').setup {
       },
     },
     move = {
-      enable = true,
+      enable = false,
       goto_next_start = {
         ["f"] = "@function.inner",
       },

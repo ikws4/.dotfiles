@@ -18,7 +18,7 @@ window:
     columns: 140
     lines: 38
   padding:
-    x: 0
+    x: 2
     y: 0
   dynamic_padding: false
   # decorations: none
@@ -41,5 +41,5 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
-  size: 18.0
+  size: 14.0
 draw_bold_text_with_bright_colors: false
