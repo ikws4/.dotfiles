@@ -36,9 +36,9 @@ yabai -m config right_padding                4
 yabai -m config window_gap                   4
 # Spaces settings 
 yabai -m space 1 --label "[1] Term"
-yabai -m space 2 --label "[2] Music"
-yabai -m space 3 --label "[3] Study"
-yabai -m space 4 --label "[4] Android"
+yabai -m space 2 --label "[2] Web"
+yabai -m space 3 --label "[3] Music & Chat"
+yabai -m space 4 --label "[4] Dev"
 yabai -m space 5 --label "[5] Other" --layout float
 
 # floating app
@@ -53,6 +53,8 @@ yabai -m rule --add app="^Tecent Lemon$" space=^5 manage=off
 yabai -m rule --add app="Finder" grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="^Android Studio$" space=^4 manage=off
 yabai -m rule --add app="Processing" manage=off
+yabai -m rule --add app="^Digital Color Meter$" manage=off
+yabai -m rule --add app="^Google Chrome$" space=2
 
 # Refresh spaces widget on space change
 yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"

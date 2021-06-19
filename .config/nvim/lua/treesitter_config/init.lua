@@ -16,7 +16,7 @@ require('nvim-treesitter.configs').setup {
     },
   },
   indent = {
-    enable = true,
+    enable = false,
   },
   query_linter = {
     enable = true,
@@ -31,7 +31,7 @@ require('nvim-treesitter.configs').setup {
   },
   refactor = {
     smart_rename = {
-      enable = true,
+      enable = false,
       keymaps = {
         smart_rename = "grn",
       },
