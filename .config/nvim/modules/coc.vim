@@ -78,7 +78,7 @@ nnoremap <silent><nowait> <space>f  :<C-u>CocList files<cr>
 nnoremap <silent><nowait> <space>b  :<C-u>CocList buffers<cr>
 
 " Launch coc-explorer
-nnoremap <space>e :CocCommand explorer<CR>
+" nnoremap <space>e :CocCommand explorer<CR>
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')

@@ -9,14 +9,11 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
     
   " Tools
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'vifm/vifm.vim'
   Plug 'plasticboy/vim-markdown'
 
-  " Telecope
-  " Plug 'nvim-lua/popup.nvim'
-  " Plug 'nvim-lua/plenary.nvim'
-  " Plug 'kyazdani42/nvim-web-devicons'
-  " Plug 'nvim-telescope/telescope.nvim'
+  " File explore
+  Plug 'kyazdani42/nvim-web-devicons' " for file icons
+  Plug 'kyazdani42/nvim-tree.lua'
 
   " Motions and operators improvement
   Plug 'b3nj5m1n/kommentary'

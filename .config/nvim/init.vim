@@ -6,4 +6,5 @@ source $HOME/.config/nvim/modules/coc.vim
 source $HOME/.config/nvim/modules/treesitter.vim
 source $HOME/.config/nvim/modules/kommentary.vim
 source $HOME/.config/nvim/modules/airline.vim
+source $HOME/.config/nvim/modules/nvim-tree.vim
 source $HOME/.config/nvim/themes/nord.vim
