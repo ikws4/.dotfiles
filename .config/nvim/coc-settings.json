@@ -76,5 +76,10 @@
     // emmet
     "emmet.includeLanguages": {
         "axml": "html"
+    },
+
+    // coc-explorer
+    "explorer.keyMappings.global": {
+        "<tab>": "open:previousWindow"
     }
 }

@@ -4,8 +4,8 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
   Plug 'arcticicestudio/nord-vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'mhinz/vim-startify'
+  Plug 'ryanoasis/vim-devicons'
     
   " Tools
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -13,10 +13,10 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
   Plug 'plasticboy/vim-markdown'
 
   " Telecope
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'nvim-telescope/telescope.nvim'
+  " Plug 'nvim-lua/popup.nvim'
+  " Plug 'nvim-lua/plenary.nvim'
+  " Plug 'kyazdani42/nvim-web-devicons'
+  " Plug 'nvim-telescope/telescope.nvim'
 
   " Motions and operators improvement
   Plug 'b3nj5m1n/kommentary'
@@ -28,4 +28,5 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
   Plug 'nvim-treesitter/playground'
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 call plug#end()
