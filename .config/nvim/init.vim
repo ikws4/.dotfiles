@@ -1,9 +1,6 @@
 source $HOME/.config/nvim/plugins/plugins.vim
 source $HOME/.config/nvim/modules/general.vim
 source $HOME/.config/nvim/modules/keymapping.vim
-" source $HOME/.config/nvim/modules/coc.vim
-" source $HOME/.config/nvim/modules/treesitter.vim
-" source $HOME/.config/nvim/modules/kommentary.vim
 source $HOME/.config/nvim/modules/airline.vim
 source $HOME/.config/nvim/modules/nvim-tree.vim
 source $HOME/.config/nvim/themes/nord.vim
@@ -13,3 +10,4 @@ lua require('myconfig/lspconfig')
 lua require('myconfig/compe')
 lua require('myconfig/bufferline')
 lua require('myconfig/kommentary')
+lua require('myconfig/trouble')

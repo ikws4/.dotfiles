@@ -20,6 +20,8 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
     Plug 'neovim/nvim-lspconfig' 
     Plug 'hrsh7th/nvim-compe'
     Plug 'kabouzeid/nvim-lspinstall'
+    Plug 'folke/lsp-colors.nvim'
+    Plug 'folke/trouble.nvim'
 
     " File explore
     Plug 'kyazdani42/nvim-tree.lua'
