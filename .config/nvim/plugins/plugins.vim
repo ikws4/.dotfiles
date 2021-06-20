@@ -10,10 +10,16 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
     Plug 'akinsho/nvim-bufferline.lua'
 
     " Tools
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'plasticboy/vim-markdown'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'famiu/nvim-reload'
+    Plug 'famiu/bufdelete.nvim'
+
+    " LSP & Completion
+    Plug 'neovim/nvim-lspconfig' 
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'kabouzeid/nvim-lspinstall'
 
     " File explore
     Plug 'kyazdani42/nvim-tree.lua'
@@ -25,8 +31,5 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
 
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/playground'
-    Plug 'nvim-treesitter/nvim-treesitter-refactor'
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 call plug#end()

@@ -14,7 +14,9 @@ set nowritebackup                       " This is recommended by coc
 set spelllang=en_us                     " Spell check
 set hls is                              " Making sure search hilights words as we type them
 set ic                                  " Ignore case in search pattern
-set cursorline                          
+set completeopt=menuone,noselect        " for nvim-compe
+set mouse=a                             " Mouse support
+set cursorline                           
 set termguicolors
 
 " Number line

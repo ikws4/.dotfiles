@@ -1,6 +1,7 @@
-lua require('nvimtree_config')
+lua require('myconfig/nvimtree')
 
-let g:nvim_tree_width = 40 "30 by default let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
+let g:nvim_tree_width = 40 "30 by default
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 let g:nvim_tree_gitignore = 1 "0 by default
 let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
 let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
@@ -34,37 +35,7 @@ let g:nvim_tree_show_icons = {
     \ 'folder_arrows': 1,
     \ }
 
-let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
-    \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
-    \   },
-    \   'lsp': {
-    \     'hint': "",
-    \     'info': "",
-    \     'warning': "",
-    \     'error': "",
-    \   }
-    \ }
-
-nnoremap <space>e :NvimTreeToggle<CR>
+nnoremap ge :NvimTreeToggle<CR>
 
 " a list of groups can be found at `:help nvim_tree_highlight`
 highlight NvimTreeFolderIcon guibg=blue
