@@ -18,6 +18,7 @@ set completeopt=menuone,noselect        " for nvim-compe
 set mouse=a                             " Mouse support
 set cursorline                           
 set termguicolors
+set signcolumn=yes
 
 " Number line
 set number 
