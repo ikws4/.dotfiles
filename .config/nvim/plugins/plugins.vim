@@ -8,6 +8,8 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'akinsho/nvim-bufferline.lua'
+    Plug 'sainnhe/sonokai'
+    Plug 'sainnhe/edge'
 
     " Tools
     " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -15,6 +17,7 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'famiu/nvim-reload'
     Plug 'famiu/bufdelete.nvim'
+    Plug 'windwp/nvim-autopairs'
 
     " LSP & Completion
     Plug 'neovim/nvim-lspconfig' 
@@ -33,5 +36,6 @@ call plug#begin('$HOME/.config/nvim/plugins/plugged')
 
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 call plug#end()

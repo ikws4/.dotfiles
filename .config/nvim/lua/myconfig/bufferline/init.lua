@@ -1,24 +1,21 @@
 require('bufferline').setup{
     options = {
         mappings = false,
-        left_mouse_command = function(bufnum)
-            require('bufdelete').bufdelete(bufnum, false)
-        end,
         offsets = {
             {
                 filetype = 'NvimTree',
                 text = ' File Explore',
                 text_align = 'left',
-                padding = 1
+                padding = 1 
             }
         },
-        indicator_icon = '|',
+        indicator_icon = '',
         show_buffer_icons = true,
-        show_buffer_close_icons = true,
-        show_close_icon = true,
+        show_buffer_close_icons = false,
+        show_close_icon = false,
         show_tab_indicators = true,
         persist_buffer_sort = true,
-        separator_style = "slant" or "padded_slant",
+        separator_style = 'thick' or 'padded_thick',
         enforce_regular_tabs = false,
         always_show_bufferline = true,
         sort_by = function(a, b)
