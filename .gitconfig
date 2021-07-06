@@ -24,4 +24,4 @@
 [merge]
 	conflictstyle = diff3
 [http]
-    proxy = socks5://127.0.0.1:7891
+    proxy = socks5://127.0.0.1:7890

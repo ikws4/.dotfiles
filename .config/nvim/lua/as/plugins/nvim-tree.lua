@@ -45,4 +45,5 @@ return function()
   }
 
   as.nnoremap("<c-n>", "<cmd>NvimTreeToggle<CR>")
+  as.nnoremap("<leader>x", "<cmd>bp<CR><cmd>bd #<CR>")
 end

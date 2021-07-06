@@ -77,24 +77,9 @@ vim.opt.formatoptions = {
 -- Folds {{{1
 -----------------------------------------------------------------------------//
 vim.opt.foldopen = vim.opt.foldopen + "search"
-vim.opt.foldlevelstart = 1
+vim.opt.foldlevelstart = 2
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldmethod = "expr"
------------------------------------------------------------------------------//
--- Quickfix {{{1
------------------------------------------------------------------------------//
-vim.o.quickfixtextfunc = "v:lua.as.qftf"
------------------------------------------------------------------------------//
--- Grepprg {{{1
------------------------------------------------------------------------------//
--- Use faster grep alternatives if possible
-if as.executable "rg" then
-  vim.o.grepprg = [[rg --hidden --glob "!.git" --no-heading --smart-case --vimgrep --follow $*]]
-  vim.opt.grepformat = vim.opt.grepformat ^ { "%f:%l:%c:%m" }
-elseif as.executable "ag" then
-  vim.o.grepprg = [[ag --nogroup --nocolor --vimgrep]]
-  vim.opt.grepformat = vim.opt.grepformat ^ { "%f:%l:%c:%m" }
-end
 -----------------------------------------------------------------------------//
 -- Wild and file globbing stuff in command mode {{{1
 -----------------------------------------------------------------------------//
@@ -182,7 +167,6 @@ vim.opt.pumheight = 15
 vim.opt.confirm = true -- make vim prompt me to save before doing destructive things
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.hlsearch = false
-vim.opt.autowriteall = true -- automatically :write before running commands and changing files
 vim.opt.laststatus = 2
 vim.opt.termguicolors = true
 -----------------------------------------------------------------------------//
@@ -216,7 +200,7 @@ vim.opt.writebackup = false
 if fn.isdirectory(vim.o.undodir) == 0 then
   fn.mkdir(vim.o.undodir, "p")
 end
-vim.opt.undofile = true
+vim.opt.undofile = false
 vim.opt.swapfile = true
 -- The // at the end tells Vim to use the absolute path to the file to create the swap file.
 -- This will ensure that swap file name is unique, so there are no collisions between files
