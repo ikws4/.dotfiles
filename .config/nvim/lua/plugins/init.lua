@@ -75,6 +75,12 @@ return require("packer").startup(
       "windwp/nvim-autopairs",
       config = function()
         require("nvim-autopairs").setup()
+        require("nvim-autopairs.completion.compe").setup(
+          {
+            map_cr = true,
+            map_complete = true
+          }
+        )
       end
     }
 

@@ -119,6 +119,4 @@ return function()
   map("s", "<Tab>", "v:lua.tab_complete()", opts)
   map("i", "<S-Tab>", "v:lua.s_tab_complete()", opts)
   map("s", "<S-Tab>", "v:lua.s_tab_complete()", opts)
-  map("i", "<cr>", 'compe#confirm("<cr>")', opts)
-  map("i", "<c-space>", "compe#complete()", opts)
 end
