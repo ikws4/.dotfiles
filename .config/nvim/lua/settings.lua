@@ -15,6 +15,9 @@ o.hlsearch = false
 o.ignorecase = true
 o.smartcase = true
 
+-- wild
+o.wildignorecase = true
+
 -- tab
 o.tabstop = 2
 o.shiftwidth = 2
