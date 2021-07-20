@@ -29,3 +29,8 @@ set -U fish_pager_color_progress      'brwhite' '--background=cyan'
 
 function fish_greeting
 end
+
+function fish_user_key_bindings
+  fish_vi_key_bindings
+  bind -M insert -m default jk backward-char force-repaint
+end
