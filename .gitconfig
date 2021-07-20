@@ -23,5 +23,7 @@
 	ui = auto
 [merge]
 	conflictstyle = diff3
-[http]
-    proxy = socks5://127.0.0.1:7890
+; [http]
+;   proxy = socks5://127.0.0.1:7890
+; [https]
+;   proxy = socks5://127.0.0.1:7890

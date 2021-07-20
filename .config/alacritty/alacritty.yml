@@ -7,7 +7,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/nord.yml
+  - ~/.config/alacritty/sonokai.yml
 
 env:
   TERM: xterm-256color
@@ -21,7 +21,7 @@ window:
     x: 2
     y: 0
   dynamic_padding: false
-  # decorations: none
+  decorations: none
 scrolling:
   history: 10000
   multiplier: 3
@@ -41,5 +41,5 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
-  size: 14.0
+  size: 15.0
 draw_bold_text_with_bright_colors: false
