@@ -4,6 +4,7 @@ return function()
   vim.g.sonokai_cursor = "auto"
   vim.g.sonokai_show_eob = 0
   vim.g.sonokai_enable_italic = 1
+  vim.g.sonokai_disable_italic_comment = 1
   vim.g.lightline = {
     colorscheme = "sonokai"
   }
