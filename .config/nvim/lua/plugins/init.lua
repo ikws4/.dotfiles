@@ -43,7 +43,8 @@ return require("packer").startup {
       config = conf("telescope"),
       requires = {
         "nvim-lua/popup.nvim",
-        "nvim-lua/plenary.nvim"
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-project.nvim"
       }
     }
     use {
