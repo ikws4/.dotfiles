@@ -1,8 +1,10 @@
 local o = vim.o
+local bo = vim.bo
 
 o.termguicolors = true
 o.showmode = false
 o.hidden = true
+bo.swapfile = false
 
 -- cmd
 o.cmdheight = 2
