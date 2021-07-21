@@ -12,7 +12,7 @@ local function conf(name)
   return require("plugins." .. name)
 end
 
-return require("packer").startup(
+return require("packer").startup {
   function(use)
     use "wbthomason/packer.nvim"
 
@@ -106,5 +106,8 @@ return require("packer").startup(
         "folke/lua-dev.nvim"
       }
     }
-  end
-)
+  end,
+  config = {
+    compile_path = vim.fn.stdpath("data") .. "/packer/packer_compiled.lua"
+  }
+}
