@@ -13,7 +13,12 @@ return function()
 
   local map = vim.api.nvim_set_keymap
   local opts = {noremap = true, silent = true}
-  map("n", "<leader><space>", [[<cmd>Telescope buffers<CR>]], opts)
+  map(
+    "n",
+    "<leader><space>",
+    [[<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown())<CR>]],
+    opts
+  )
   map(
     "n",
     "<leader>sf",
