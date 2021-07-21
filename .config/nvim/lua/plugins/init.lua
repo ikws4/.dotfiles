@@ -106,8 +106,5 @@ return require("packer").startup {
         "folke/lua-dev.nvim"
       }
     }
-  end,
-  config = {
-    compile_path = vim.fn.stdpath("data") .. "/packer/packer_compiled.lua"
-  }
+  end
 }
