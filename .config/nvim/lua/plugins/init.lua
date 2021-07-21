@@ -71,6 +71,15 @@ return require("packer").startup {
         "nvim-lua/plenary.nvim"
       }
     }
+    use {
+      "TimUntersberger/neogit",
+      config = function()
+        require("neogit").setupr()
+      end,
+      requires = {
+        "nvim-lua/plenary.nvim"
+      }
+    }
 
     -- Utils
     use "b3nj5m1n/kommentary"
