@@ -1,6 +1,6 @@
 starship init fish | source
 
-set -U fish_color_autosuggestion      brblack
+set -U fish_color_autosuggestion      '#61667e'
 set -U fish_color_cancel              -r
 set -U fish_color_command             brgreen
 set -U fish_color_comment             brmagenta
