@@ -21,7 +21,14 @@ return require("packer").startup {
       "sainnhe/sonokai",
       config = conf("sonokai")
     }
-    use "itchyny/lightline.vim"
+    -- use "itchyny/lightline.vim"
+    use {
+      "hoob3rt/lualine.nvim",
+      config = conf("lualine"),
+      requires = {
+        "kyazdani42/nvim-web-devicons"
+      }
+    }
 
     -- Tool
     use {
