@@ -4,6 +4,9 @@ o.termguicolors = true
 o.showmode = false
 o.hidden = true
 
+-- cmd
+o.cmdheight = 2
+
 -- number line
 o.number = true
 o.relativenumber = true
