@@ -46,10 +46,21 @@ return require("packer").startup(
         "kyazdani42/nvim-web-devicons"
       }
     }
+    use {
+      "glepnir/dashboard-nvim",
+      config = conf("dashboard")
+    }
+    use {
+      "numtostr/FTerm.nvim",
+      config = conf("FTerm")
+    }
 
     -- Utils
     use "b3nj5m1n/kommentary"
-    use "lukas-reineke/indent-blankline.nvim"
+    use {
+      "lukas-reineke/indent-blankline.nvim",
+      config = conf("indent-blankline")
+    }
     use "christoomey/vim-system-copy"
     use {
       "mhartington/formatter.nvim",

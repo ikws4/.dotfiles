@@ -1,5 +1,6 @@
 local o = vim.o
 
+o.termguicolors = true
 o.showmode = false
 o.hidden = true
 
@@ -7,8 +8,9 @@ o.hidden = true
 o.number = true
 o.relativenumber = true
 
--- indent
+-- indent and wrap
 o.breakindent = true
+o.wrap = false
 
 -- search
 o.hlsearch = false
