@@ -62,6 +62,15 @@ return require("packer").startup {
       "numtostr/FTerm.nvim",
       config = conf("FTerm")
     }
+    use {
+      "lewis6991/gitsigns.nvim",
+      config = function()
+        require("gitsigns").setup()
+      end,
+      requires = {
+        "nvim-lua/plenary.nvim"
+      }
+    }
 
     -- Utils
     use "b3nj5m1n/kommentary"
