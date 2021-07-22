@@ -27,6 +27,8 @@ set -U fish_pager_color_description   yellow
 set -U fish_pager_color_prefix        'white' '--bold' '--underline'
 set -U fish_pager_color_progress      'brwhite' '--background=cyan'
 
+set -gx NO_PROXY localhost,127.0.0.1
+
 function fish_greeting
 end
 
