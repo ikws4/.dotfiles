@@ -15,6 +15,9 @@ end
 return require("packer").startup {
   function(use)
     use "wbthomason/packer.nvim"
+    use "nvim-lua/plenary.nvim"
+    use "kyazdani42/nvim-web-devicons"
+    use "nvim-lua/popup.nvim"
 
     -- Theme
     use {
@@ -24,10 +27,7 @@ return require("packer").startup {
     -- use "itchyny/lightline.vim"
     use {
       "hoob3rt/lualine.nvim",
-      config = conf("lualine"),
-      requires = {
-        "kyazdani42/nvim-web-devicons"
-      }
+      config = conf("lualine")
     }
 
     -- Tool
@@ -42,17 +42,12 @@ return require("packer").startup {
       "nvim-telescope/telescope.nvim",
       config = conf("telescope"),
       requires = {
-        "nvim-lua/popup.nvim",
-        "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-project.nvim"
       }
     }
     use {
       "kyazdani42/nvim-tree.lua",
-      config = conf("tree"),
-      requires = {
-        "kyazdani42/nvim-web-devicons"
-      }
+      config = conf("tree")
     }
     use {
       "glepnir/dashboard-nvim",
@@ -66,19 +61,13 @@ return require("packer").startup {
       "lewis6991/gitsigns.nvim",
       config = function()
         require("gitsigns").setup()
-      end,
-      requires = {
-        "nvim-lua/plenary.nvim"
-      }
+      end
     }
     use {
       "TimUntersberger/neogit",
       config = function()
         require("neogit").setup()
-      end,
-      requires = {
-        "nvim-lua/plenary.nvim"
-      }
+      end
     }
 
     -- Utils
@@ -128,7 +117,6 @@ return require("packer").startup {
       requires = {
         "kabouzeid/nvim-lspinstall",
         "hrsh7th/nvim-compe",
-        "L3MON4D3/LuaSnip",
         "folke/lua-dev.nvim"
       }
     }
@@ -147,10 +135,7 @@ return require("packer").startup {
       "akinsho/flutter-tools.nvim",
       config = function()
         require("flutter-tools").setup()
-      end,
-      requires = {
-        "nvim-lua/plenary.nvim"
-      }
+      end
     }
   end
 }
