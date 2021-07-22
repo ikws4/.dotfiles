@@ -24,7 +24,6 @@ return require("packer").startup {
       "sainnhe/sonokai",
       config = conf("sonokai")
     }
-    -- use "itchyny/lightline.vim"
     use {
       "hoob3rt/lualine.nvim",
       config = conf("lualine")
