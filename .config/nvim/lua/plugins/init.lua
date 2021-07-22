@@ -133,6 +133,17 @@ return require("packer").startup {
       }
     }
     use {
+      "simrat39/symbols-outline.nvim",
+      config = function()
+        vim.g.symbols_outline = {
+          highlight_hovered_item = false,
+          show_guides = true,
+          auto_preview = false,
+          show_symbol_details = true
+        }
+      end
+    }
+    use {
       "akinsho/flutter-tools.nvim",
       config = function()
         require("flutter-tools").setup()

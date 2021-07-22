@@ -4,6 +4,7 @@ return function()
     "dashboard",
     "NvimTree",
     "help",
-    "packer"
+    "packer",
+    "Outline"
   }
 end
