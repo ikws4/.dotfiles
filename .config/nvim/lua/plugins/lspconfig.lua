@@ -52,6 +52,13 @@ return function()
   end
   setup_servers()
 
+  -- flutter-tools
+  require("flutter-tools").setup {
+    lsp = {
+      on_attach = on_attach
+    }
+  }
+
   -- Compe
   vim.o.completeopt = "menuone,noselect"
 
