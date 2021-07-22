@@ -1,8 +1,11 @@
 return function()
+  local lspconfig = require "lspconfig"
+  local lspinstall = require "lspinstall"
+
   local map = vim.api.nvim_set_keymap
   local bmap = vim.api.nvim_buf_set_keymap
 
-  local on_attach = function(_, bufnr)
+  local on_attach = function(client, bufnr)
     vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
     local opts = {noremap = true, silent = true}
@@ -19,13 +22,15 @@ return function()
     bmap(bufnr, "n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     bmap(bufnr, "n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    if client.resolved_capabilities.document_formatting then
+        vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+    end
   end
 
   -- lsp-install
   local function setup_servers()
-    require("lspinstall").setup()
-    local lspconfig = require("lspconfig")
-    local servers = require("lspinstall").installed_servers()
+    lspinstall.setup()
+    local servers = lspinstall.installed_servers()
     for _, server in pairs(servers) do
       local config = {
         on_attach = on_attach
@@ -91,13 +96,13 @@ return function()
   -- Use (s-)tab to:
   --- move to prev/next item in completion menuone
   --- jump to prev/next snippet's placeholder
-  local luasnip = require "luasnip"
+  -- local luasnip = require "luasnip"
 
   _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then
       return t "<C-n>"
-    elseif luasnip.expand_or_jumpable() then
-      return t "<Plug>luasnip-expand-or-jump"
+    --[[ elseif luasnip.expand_or_jumpable() then
+      return t "<Plug>luasnip-expand-or-jump" ]]
     elseif check_back_space() then
       return t "<Tab>"
     else
@@ -108,8 +113,8 @@ return function()
   _G.s_tab_complete = function()
     if vim.fn.pumvisible() == 1 then
       return t "<C-p>"
-    elseif luasnip.jumpable(-1) then
-      return t "<Plug>luasnip-jump-prev"
+    --[[ elseif luasnip.jumpable(-1) then
+      return t "<Plug>luasnip-jump-prev" ]]
     else
       return t "<S-Tab>"
     end
