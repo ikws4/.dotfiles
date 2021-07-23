@@ -16,10 +16,7 @@ return function()
 					return {
 						exe = "stylua",
 						args = {
-							"--indent-width",
-							2,
-							"--indent-type",
-							"Spaces",
+							"--search-parent-directories",
 							"--stdin-filepath",
 							vim.api.nvim_buf_get_name(0),
 							"-",
