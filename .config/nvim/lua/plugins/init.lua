@@ -28,10 +28,10 @@ return require("packer").startup {
       "hoob3rt/lualine.nvim",
       config = conf "lualine",
     }
-    use {
+    --[[ use {
       "akinsho/nvim-bufferline.lua",
       config = conf "bufferline",
-    }
+    } ]]
 
     -- Tool
     use {
