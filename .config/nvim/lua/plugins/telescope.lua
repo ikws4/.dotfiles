@@ -38,10 +38,4 @@ return function()
   map("n", "<leader>sd", [[<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>]], opts)
   map("n", "<leader>sb", [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], opts)
   map("n", "<leader>sp", [[<cmd>lua require('telescope').extensions.project.project({})<CR>]], opts)
-  map(
-    "n",
-    "<leader>n",
-    [[<cmd>lua require('telescope.builtin').file_browser(require('telescope.themes').get_dropdown())<CR>]],
-    opts
-  )
 end
