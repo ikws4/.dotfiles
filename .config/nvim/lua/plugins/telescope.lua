@@ -19,12 +19,6 @@ return function()
   local opts = { noremap = true, silent = true }
   map(
     "n",
-    "<leader><space>",
-    [[<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown())<CR>]],
-    opts
-  )
-  map(
-    "n",
     "<leader>sf",
     [[<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({previewer = false}))<CR>]],
     opts
