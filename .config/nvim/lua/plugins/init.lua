@@ -44,10 +44,10 @@ return require("packer").startup {
         "nvim-telescope/telescope-project.nvim"
       }
     }
-    use {
+    --[[ use {
       "kyazdani42/nvim-tree.lua",
       config = conf("tree")
-    }
+    } ]]
     use {
       "glepnir/dashboard-nvim",
       config = conf("dashboard")
