@@ -1,48 +1,47 @@
-""" Map leader to space ---------------------
-let mapleader="'"
-
-""" Plugins  --------------------------------
-set surround
-set multiple-cursors
-set commentary
-set argtextobj
-set easymotion
-set textobj-entire
-set ReplaceWithRegister
-
-""" Plugin settings -------------------------
-let g:argtextobj_pairs="[:],(:),<:>"
-
-""" Common settings -------------------------
+" Opt
 set showmode
 set incsearch
 set so=0
-set nu
+set number
 set relativenumber
 
-""" Idea specific settings ------------------
-set ideajoin
-set ideastatusicon=gray
-set idearefactormode=keep
+" Plugins
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
 
-""" Mappings --------------------------------
-imap jk <Esc>
+" Maps
+let mapleader=" "
 
-nmap gd <Action>(GotoDeclaration)
-nmap gD <Action>(GotoTypeDeclaration)
-nmap gi <Action>(GotoImplementation)
-nmap gr <Action>(GotoDeclaration)
+inoremap jk <Esc>
 
-nmap <TAB> <Action>(NextTab)
-nmap <S-TAB> <Action>(PreviousTab)
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
 
-nmap <leader>rn <Action>(RenameElement)
-nmap <leader>a <Action>(ShowIntentionActions)
+nmap [b :action PreviousTab<CR>
+nmap ]b :action NextTab<CR>
 
-nmap <space>e <Action>(ActivateProjectToolWindow)
-nmap <space>f <Action>(GotoFile)
-nmap <space>o <Action>(ActivateStructureToolWindow)
-nmap <space>z <Action>(ToggleDistractionFreeMode)
+nmap K :action QuickJavaDoc<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap gD :action GotoTypeDeclaration<CR>
+nmap gi :action GotoImplementation<CR>
+nmap gr :action GotoDeclaration<CR>
 
-""" Custom commands -------------------------
+nmap <leader>rn :action RenameElement<CR>
+nmap <leader>ca :action ShowIntentionActions<CR>
+
+nmap <leader>sf :action GotoFile<CR>
+nmap <leader>z :action ToggleDistractionFreeMode<CR>
+
+" Highlight on yank
+let g:highlightedyank_highlight_duration = "200"
+let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+
+" Tree
+nmap <leader>n :NERDTreeFocus<CR>
+
+" Commands
 command! Format action ReformatCode
