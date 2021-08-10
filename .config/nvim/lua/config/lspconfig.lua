@@ -1,21 +1,22 @@
 local lspconfig = require "lspconfig"
 local lspinstall = require "lspinstall"
+local lspstatus = require "lsp-status"
 
 vim.fn.sign_define(
   "LspDiagnosticsSignError",
-  { texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
+  { texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
 )
 vim.fn.sign_define(
   "LspDiagnosticsSignWarning",
-  { texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
+  { texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
 )
 vim.fn.sign_define(
   "LspDiagnosticsSignHint",
-  { texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
+  { texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
 )
 vim.fn.sign_define(
   "LspDiagnosticsSignInformation",
-  { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
+  { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
 )
 
 vim.lsp.protocol.CompletionItemKind = {
@@ -46,17 +47,20 @@ vim.lsp.protocol.CompletionItemKind = {
   "   (TypeParameter)",
 }
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
+  lspstatus.on_attach(client)
+
   local bmap = vim.api.nvim_buf_set_keymap
   local opts = { noremap = true, silent = true }
   bmap(bufnr, "n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   bmap(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
   bmap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   bmap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  bmap(bufnr, "n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
   bmap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
   bmap(bufnr, "n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  bmap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  bmap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  bmap(bufnr, "n", "<leader>rn", "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
+  bmap(bufnr, "n", "<leader>ca", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
   bmap(bufnr, "n", "<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
   bmap(bufnr, "n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
   bmap(bufnr, "n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
@@ -86,6 +90,7 @@ local function setup_servers()
       }
     end
 
+    config.capabilities = vim.tbl_extend("keep", config.capabilities or {}, lspstatus.capabilities)
     lspconfig[server].setup(config)
   end
 end
@@ -93,6 +98,12 @@ setup_servers()
 
 -- flutter-tools
 require("flutter-tools").setup {
+  decorations = {
+    statusline = {
+      app_version = true,
+      device = true,
+    },
+  },
   lsp = {
     on_attach = on_attach,
   },

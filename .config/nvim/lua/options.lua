@@ -21,7 +21,7 @@ wo.signcolumn = "yes"
 o.clipboard = "unnamedplus"
 
 -- cmd
-o.cmdheight = 2
+o.cmdheight = 1
 o.showmode = false
 
 -- number line

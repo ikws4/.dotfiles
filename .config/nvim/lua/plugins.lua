@@ -12,9 +12,9 @@ local function plugins(use)
     end,
   }
   use {
-    "hoob3rt/lualine.nvim",
+    "glepnir/galaxyline.nvim",
     config = function()
-      require "config.lualine"
+      require "config.statusline"
     end,
   }
 
@@ -40,12 +40,12 @@ local function plugins(use)
       require "config.tree"
     end,
   }
-  use {
-    "glepnir/dashboard-nvim",
-    config = function()
-      require "config.dashboard"
-    end,
-  }
+  -- use {
+  --   "glepnir/dashboard-nvim",
+  --   config = function()
+  --     require "config.dashboard"
+  --   end,
+  -- }
   use {
     "numtostr/FTerm.nvim",
     config = function()
@@ -87,7 +87,9 @@ local function plugins(use)
   use {
     "blackCauldron7/surround.nvim",
     config = function()
-      require("surround").setup {}
+      require("surround").setup {
+        mappings_style = "surround",
+      }
     end,
   }
   use {
@@ -100,6 +102,13 @@ local function plugins(use)
       }
     end,
   }
+  use {
+    "hrsh7th/vim-vsnip",
+    requires = {
+      "hrsh7th/vim-vsnip-integ",
+      "rafamadriz/friendly-snippets",
+    },
+  }
 
   -- LSP
   use {
@@ -111,6 +120,32 @@ local function plugins(use)
       "kabouzeid/nvim-lspinstall",
       "folke/lua-dev.nvim",
     },
+  }
+  use {
+    "nvim-lua/lsp-status.nvim",
+    config = function()
+      require("lsp-status").register_progress()
+    end,
+  }
+  use {
+    "glepnir/lspsaga.nvim",
+    config = function()
+      require("lspsaga").init_lsp_saga {
+        use_saga_diagnostic_sign = false,
+        code_action_prompt = {
+          enable = false,
+        },
+        rename_prompt_prefix = ">",
+        code_action_keys = {
+          quit = "<esc>",
+          exec = "<CR>",
+        },
+        rename_action_keys = {
+          quit = "<esc>",
+          exec = "<CR>",
+        },
+      }
+    end,
   }
   use {
     "hrsh7th/nvim-compe",
@@ -138,11 +173,22 @@ local function plugins(use)
 end
 
 local fn = vim.fn
-local install_path = fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+local compile_path = fn.stdpath "config" .. "/packer/packer_compiled.lua"
 if fn.empty(fn.glob(install_path)) > 0 then
   vim.notify "Downloading packer..."
-  vim.nnotify(fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
+  vim.notify(fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
   vim.cmd [[packadd packer.nvim]]
 end
 
-require("packer").startup(plugins)
+require("packer").startup {
+  plugins,
+  config = {
+    compile_path = compile_path,
+  },
+}
+
+if not vim.g.compile_path_loaded and not vim.g.vscode then
+  vim.cmd("source " .. compile_path)
+  vim.g.compile_path_loaded = true
+end
