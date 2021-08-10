@@ -1,12 +1,12 @@
-# window
+# window navigation
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
 # mission controll
-alt - tab : yabai -m space --focus next || yabai -m space --focus first
-alt + shift - tab : yabai -m space --focus prev || yabai -m space --focus last
+alt - n : yabai -m space --focus next || yabai -m space --focus first
+alt - p : yabai -m space --focus prev || yabai -m space --focus last
 
 # space
 alt - 1 : yabai -m space --focus 1
@@ -25,11 +25,6 @@ alt - x : yabai -m window --swap recent
 # float / unfloat window and center on screen
 alt - c : yabai -m window --toggle float;\
           yabai -m window --grid 11:7:1:1:5:9
-
-# toggle sticky(+float), topmost, picture-in-picture
-alt - p : yabai -m window --toggle sticky;\
-         yabai -m window --toggle topmost;\
-         yabai -m window --toggle pip
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
