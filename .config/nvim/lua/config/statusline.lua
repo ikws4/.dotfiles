@@ -271,3 +271,12 @@ gls.right[6] = {
     highlight = { colors.green, colors.black, "bold" },
   },
 }
+
+gls.short_line_left[1] = {
+  BufferType = {
+    provider = function()
+      return " "
+    end,
+    highlight = { colors.grey, colors.black },
+  },
+}
