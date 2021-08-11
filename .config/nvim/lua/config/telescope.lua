@@ -17,6 +17,7 @@ require("telescope").setup {
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 map("n", "<leader><leader>", [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
+map("n", "<leader>sw", [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
 map(
   "n",
   "<leader>sf",
