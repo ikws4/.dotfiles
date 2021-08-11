@@ -62,16 +62,17 @@ gls.left[1] = {
   },
 }
 
--- gls.left[2] = {
---   BufferNumber = {
---     provider = function()
---       return require("galaxyline.provider_buffer").get_buffer_number()
---     end,
---     separator = "  ",
---     separator_highlight = { colors.black, colors.black },
---     highlight = { colors.blue, colors.black, "bold" },
---   },
--- }
+gls.left[2] = {
+  BufferNumber = {
+    provider = function()
+      return require("galaxyline.provider_buffer").get_buffer_number()
+    end,
+    separator = "  ",
+    condition = condition.buffer_not_empty,
+    separator_highlight = { colors.black, colors.black },
+    highlight = { colors.blue, colors.black, "bold" },
+  },
+}
 
 gls.left[3] = {
   VimMode = {
@@ -92,6 +93,7 @@ gls.left[4] = {
       return vim.trim(size)
     end,
     separator = "  ",
+    condition = condition.buffer_not_empty,
     separator_highlight = { colors.black, colors.black },
     highlight = { colors.grey, colors.black },
   },
@@ -104,6 +106,7 @@ gls.left[5] = {
       vim.cmd("hi GalaxyFileTypeIcon guifg=" .. fileinfo.get_file_icon_color())
       return fileinfo.get_file_icon()
     end,
+    condition = condition.buffer_not_empty,
     highlight = { colors.black, colors.black, "bold" },
   },
 }
@@ -121,7 +124,7 @@ gls.left[6] = {
         return ""
       end
     end,
-    highlight = { colors.blackk, colors.black, "bold" },
+    highlight = { colors.black, colors.black, "bold" },
   },
 }
 
@@ -156,7 +159,12 @@ gls.left[8] = {
         vim.cmd("hi GalaxyFileName guifg=" .. colors.grey)
       end
 
-      return vim.fn.expand "%:t"
+      local file_name = vim.fn.expand "%:t"
+      if file_name == "" then
+        return "[No Name]"
+      else
+        return file_name
+      end
     end,
     separator = "  ",
     separator_highlight = { colors.black, colors.black },
