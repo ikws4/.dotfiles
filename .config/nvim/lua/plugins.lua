@@ -40,12 +40,12 @@ local function plugins(use)
       require "config.tree"
     end,
   }
-  -- use {
-  --   "glepnir/dashboard-nvim",
-  --   config = function()
-  --     require "config.dashboard"
-  --   end,
-  -- }
+  use {
+    "glepnir/dashboard-nvim",
+    config = function()
+      require "config.dashboard"
+    end,
+  }
   use {
     "numtostr/FTerm.nvim",
     config = function()
