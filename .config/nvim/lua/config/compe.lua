@@ -6,6 +6,7 @@ require("compe").setup {
     vsnip = { priority = 101 },
     nvim_lsp = { priority = 100 },
     path = { priority = 99 },
+    neorg = true,
   },
 }
 
