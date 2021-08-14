@@ -4,7 +4,7 @@ wk.register {
   ["<leader>"] = {
     f = {
       name = "+file",
-      f = { "<cmd>Telescope find_files<CR>", "Find File" },
+      f = { "<cmd>Telescope find_files hidden=true<CR>", "Find File" },
       r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
     },
     b = {
