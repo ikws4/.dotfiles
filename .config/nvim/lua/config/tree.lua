@@ -16,15 +16,35 @@ vim.g.nvim_tree_auto_close = 1
 vim.g.nvim_tree_follow = 1
 vim.g.nvim_tree_width = 30
 vim.g.nvim_tree_width_allow_resize = 1
-vim.g.nvim_tree_disable_netrw = 0
-vim.g.nvim_tree_hijack_netrw = 0
 vim.g.nvim_tree_root_folder_modifier = ":t"
 vim.g.nvim_tree_ignore = { ".DS_Store", ".git", "node_modules" }
 vim.g.nvim_tree_highlight_opened_files = 1
+vim.g.nvim_tree_disable_default_keybindings = 1
 vim.g.nvim_tree_bindings = {
+  { key = "q", cb = tree_cb "close" },
+
+  { key = "<Tab>", cb = tree_cb "preview" },
+
+  { key = "a", cb = tree_cb "create" },
+  { key = "d", cb = tree_cb "remove" },
+  { key = "r", cb = tree_cb "rename" },
+  { key = "x", cb = tree_cb "cut" },
+  { key = "c", cb = tree_cb "copy" },
+  { key = "p", cb = tree_cb "paste" },
+
+  { key = "y", cb = tree_cb "copy_name" },
+  { key = "Y", cb = tree_cb "copy_path" },
+
+  { key = "v", cb = tree_cb "vsplit" },
+  { key = "s", cb = tree_cb "split" },
+
+  { key = "R", cb = tree_cb "refresh" },
+
+  { key = "o", cb = tree_cb "edit" },
   { key = "-", cb = tree_cb "dir_up" },
   { key = "+", cb = tree_cb "cd" },
   { key = ".", cb = tree_cb "toggle_dotfiles" },
+  { key = "?", cb = tree_cb "toggle_help" },
 }
 vim.gnvim_tree_icons = {
   default = "",
