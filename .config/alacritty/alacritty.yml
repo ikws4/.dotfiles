@@ -43,3 +43,6 @@ font:
     style: Bold Italic
   size: 16.0
 draw_bold_text_with_bright_colors: false
+
+key_bindings:
+  - { key: A, mods: Command, chars: "\x1ba"}
