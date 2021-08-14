@@ -46,3 +46,7 @@ draw_bold_text_with_bright_colors: false
 
 key_bindings:
   - { key: A, mods: Command, chars: "\x1ba"}
+  - { key: H,              mods: Command,                    action: None                  }
+  - { key: M,              mods: Command,                    action: None                  }
+  - { key: Q,              mods: Command,                    action: None                  }
+  - { key: W,              mods: Command,                    action: None                  }
