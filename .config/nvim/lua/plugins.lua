@@ -183,6 +183,7 @@ local function plugins(use)
     "TimUntersberger/neogit",
     config = function()
       require("neogit").setup {
+        disable_commit_confirmation = true,
         signs = {
           section = { "", "" },
           item = { "", "" },
