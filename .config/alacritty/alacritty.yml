@@ -18,14 +18,14 @@ window:
     columns: 140
     lines: 38
   padding:
-    x: 2
-    y: 0
+    x: 3
+    y: 3
   dynamic_padding: false
   decorations: none
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 1.0
+background_opacity: 0.92
 
 # Font configuration
 font:
