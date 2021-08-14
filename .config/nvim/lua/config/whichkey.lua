@@ -1,62 +1,85 @@
-vim.g.timeoutlen = 500
+local wk = require "which-key"
 
-require("which-key").setup {
-  plugins = {
-    marks = true, -- shows a list of your marks on ' and `
-    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-    spelling = {
-      enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-      suggestions = 20, -- how many suggestions should be shown in the list?
+wk.register {
+  ["<leader>"] = {
+    f = {
+      name = "+file",
+      f = { "<cmd>Telescope find_files<CR>", "Find File" },
+      r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
     },
-    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-    -- No actual key bindings are created
-    presets = {
-      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-      motions = true, -- adds help for motions
-      text_objects = true, -- help for text objects triggered after entering an operator
-      windows = true, -- default bindings on <c-w>
-      nav = true, -- misc bindings to work with windows
-      z = true, -- bindings for folds, spelling and others prefixed with z
-      g = true, -- bindings for prefixed with g
+    b = {
+      name = "+buffer",
+      b = { "<cmd>Telescope buffers<CR>", "Switch buffer" },
     },
-  },
-  -- add operators that will trigger motion and text object completion
-  -- to enable all native operators, set the preset / operators plugin above
-  operators = { gc = "Comments" },
-  key_labels = {
-    -- override the label used to display some keys. It doesn't effect WK in any other way.
-    -- For example:
-    ["<space>"] = "SPC",
-    ["<cr>"] = "RET",
-    ["<tab>"] = "TAB",
-  },
-  icons = {
-    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-    separator = "➜", -- symbol used between a key and it's label
-    group = "+", -- symbol prepended to a group
-  },
-  window = {
-    border = "none", -- none, single, double, shadow
-    position = "bottom", -- bottom, top
-    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-  },
-  layout = {
-    height = { min = 4, max = 25 }, -- min and max height of the columns
-    width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 3, -- spacing between columns
-    align = "left", -- align columns left, center or right
-  },
-  ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-  show_help = true, -- show help message on the command line when the popup is visible
-  triggers = "auto", -- automatically setup triggers
-  -- triggers = {"<leader>"} -- or specify a list manually
-  triggers_blacklist = {
-    -- list of mode / prefixes that should never be hooked by WhichKey
-    -- this is mostly relevant for key maps that start with a native binding
-    -- most people should not need to change this
-    i = { "j", "k" },
-    v = { "j", "k" },
+    g = {
+      name = "+git",
+      g = { "<cmd>Neogit<CR>", "Neogit status" },
+      b = { "<cmd>Neogit branch<CR>", "Neogit branch" },
+      ["["] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Jump to previous hunk", expr = true },
+      ["]"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Jump to next hunk", expr = true },
+      s = { "<cmd>Gitsigns stage_hunk<CR>", "Git stage hunk" },
+      u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "Git unstage hunk" },
+      r = { "<cmd>Gitsigns reset_stage_hunk<CR>", "Revert hunk" },
+      R = { "<cmd>Gitsigns reset_buffer<CR>", "Revert file" },
+    },
+    s = {
+      name = "+search",
+      b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search buffer" },
+      B = { "<cmd>lua require('telescope.builtin').live_grep({ grep_open_files = true })<CR>", "Search all open buffers" },
+      p = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Search project" },
+    },
+    w = {
+      name = "+window",
+      s = "Split window",
+      v = "Split window vertically",
+      w = "Switch windows",
+      q = "Quit a window",
+      T = "Break out into a new tab",
+      x = "Swap current with next",
+      ["-"] = "Decrease height",
+      ["+"] = "Increase height",
+      ["<lt>"] = "Decrease width",
+      [">"] = "Increase width",
+      ["|"] = "Max out the width",
+      ["="] = "Equally high and wide",
+      h = "Go to the left window",
+      l = "Go to the right window",
+      k = "Go to the up window",
+      j = "Go to the down window",
+    },
+    z = { "<cmd>ZenMode<CR>", "Toggle zen mode" },
   },
 }
+
+wk.setup {
+  plugins = {
+    marks = true,
+    registers = true,
+    presets = {
+      operators = true,
+      motions = true,
+      text_objects = true,
+      windows = false,
+      nav = true,
+      z = true,
+      g = true,
+    },
+  },
+}
+
+-- map("n", "<leader><leader>", [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
+-- map("n", "<leader>sw", [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
+-- map(
+--   "n",
+--   "<leader>sf",
+--   [[<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({previewer = false}))<CR>]],
+--   opts
+-- )
+-- map(
+--   "n",
+--   "<leader>sh",
+--   [[<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({previewer = false}))<CR>]],
+--   opts
+-- )
+-- map("n", "<leader>sd", [[<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>]], opts)
+-- map("n", "<leader>sb", [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], opts)

@@ -7,7 +7,10 @@ vim.g.mapleader = " "
 
 o.termguicolors = true
 
-wo.scrolloff = 8
+-- wo.scrolloff = 8
+
+-- tabline
+o.showtabline = 0
 
 -- buffer switch and back
 o.hidden = true

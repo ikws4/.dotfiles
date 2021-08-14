@@ -12,9 +12,9 @@ local function plugins(use)
     end,
   }
   use {
-    "glepnir/galaxyline.nvim",
+    "hoob3rt/lualine.nvim",
     config = function()
-      require "config.statusline"
+      require "config.lualine"
     end,
   }
 
@@ -34,28 +34,23 @@ local function plugins(use)
       require "config.telescope"
     end,
   }
+  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use {
     "kyazdani42/nvim-tree.lua",
     config = function()
       require "config.tree"
     end,
   }
-  use {
-    "glepnir/dashboard-nvim",
-    config = function()
-      require "config.dashboard"
-    end,
-  }
+  -- use {
+  --   "glepnir/dashboard-nvim",
+  --   config = function()
+  --     require "config.dashboard"
+  --   end,
+  -- }
   use {
     "numtostr/FTerm.nvim",
     config = function()
       require "config.terminal"
-    end,
-  }
-  use {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
     end,
   }
   use {
@@ -114,6 +109,74 @@ local function plugins(use)
       "hrsh7th/vim-vsnip-integ",
       "rafamadriz/friendly-snippets",
     },
+  }
+  use {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup {
+        window = {
+          backdrop = 1,
+          width = 0.8,
+          height = 1,
+          options = {
+            signcolumn = "no",
+            number = true,
+            relativenumber = true,
+            cursorline = false,
+            cursorcolumn = false,
+            foldcolumn = "0",
+            list = false,
+          },
+        },
+        plugins = {
+          gitsigns = { enabled = false },
+          tmux = { enabled = true },
+        },
+      }
+    end,
+  }
+
+  -- Git
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup {
+        signs = {
+          add = { hl = "GitSignsAdd", text = "┃", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+          change = { hl = "GitSignsChange", text = "┃", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+          delete = { hl = "GitSignsDelete", text = "┃", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+          topdelete = { hl = "GitSignsDelete", text = "┃", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+          changedelete = { hl = "GitSignsChange", text = "┃", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+        },
+        keymaps = {
+          noremap = true,
+          ["v <leader>gs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+          ["v <leader>gr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+
+          -- Text objects
+          ["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+          ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+        },
+      }
+    end,
+  }
+  use {
+    "TimUntersberger/neogit",
+    config = function()
+      require("neogit").setup {
+        signs = {
+          section = { "", "" },
+          item = { "", "" },
+          hunk = { "", "" },
+        },
+        mappings = {
+          status = {
+            ["o"] = "Toggle",
+            ["g"] = "RefreshBuffer",
+          },
+        },
+      }
+    end,
   }
 
   -- LSP
@@ -191,6 +254,11 @@ require("packer").startup {
   plugins,
   config = {
     compile_path = compile_path,
+    display = {
+      open_fn = function()
+        return require("packer.util").float { border = "single" }
+      end,
+    },
   },
 }
 
@@ -198,3 +266,5 @@ if not vim.g.compile_path_loaded and not vim.g.vscode then
   vim.cmd("source " .. compile_path)
   vim.g.compile_path_loaded = true
 end
+
+vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
