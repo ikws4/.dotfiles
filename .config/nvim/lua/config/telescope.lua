@@ -9,6 +9,11 @@ require("telescope").setup {
       i = {
         ["<esc>"] = actions.close,
       },
+      n = {
+        ["<esc>"] = actions.close,
+        ["q"] = actions.close,
+      },
+    },
     borderchars = {
       { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
