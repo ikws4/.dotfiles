@@ -1,3 +1,5 @@
+local lspstatus = require "lsp-status"
+
 local colors = {
   black = "#232633",
   darkblack = "#282C3C",
@@ -177,6 +179,19 @@ require("lualine").setup {
     lualine_x = {},
     lualine_y = {},
     lualine_z = {
+      -- lsp status
+      {
+        function()
+          local p = lspstatus.status_progress()
+          if p == "" then
+            return ""
+          else
+            return p
+          end
+        end,
+        right_padding = 2,
+        color = { bg = colors.black, fg = colors.blue, gui = "bold" },
+      },
       {
         function()
           return vim.bo.filetype
@@ -313,11 +328,23 @@ require("lualine").setup {
     lualine_x = {},
     lualine_y = {},
     lualine_z = {
+      -- lsp status
+      {
+        function()
+          local p = lspstatus.status_progress()
+          if p == "" then
+            return ""
+          else
+            return p
+          end
+        end,
+        right_padding = 1,
+      },
       {
         function()
           return vim.bo.filetype
         end,
-        right_padding = 1,
+        right_padding = 2,
       },
       -- git
       {
