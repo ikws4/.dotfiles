@@ -14,7 +14,7 @@ local function plugins(use)
   use {
     "hoob3rt/lualine.nvim",
     config = function()
-      require "config.lualine"
+      require "config.statusline"
     end,
   }
 
