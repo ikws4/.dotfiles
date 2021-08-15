@@ -20,7 +20,7 @@ require("telescope").setup {
       results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     },
-    prompt_prefix = " ",
+    prompt_prefix = "❯ ",
     selection_caret = " ",
   },
   extensions = {
