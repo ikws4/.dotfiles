@@ -252,7 +252,7 @@ require("lualine").setup {
           return "┃"
         end,
         right_padding = 1,
-        color = { bg = colors.darkblack, fg = colors.white },
+        color = { bg = colors.darkblack, fg = colors.darkgray },
       },
       {
         function()
