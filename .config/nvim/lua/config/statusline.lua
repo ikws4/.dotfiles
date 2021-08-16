@@ -5,11 +5,11 @@ local colors = {
   darkblack = "#282C3C",
   white = "#FFFFFF",
 
-  red = "#ED6073",
-  green = "#CBE697",
-  blue = "#9CDCFB",
+  red = "#f07178",
+  green = "#C3E88D",
+  blue = "#89DDFF",
   yellow = "#F8CC7A",
-  purple = "#CBA9EA",
+  purple = "#C792EA",
 
   gray = "#A9AECC",
   darkgray = "#686E92",
