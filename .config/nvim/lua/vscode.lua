@@ -10,8 +10,14 @@ map("n", "<leader>m", "<Cmd>call VSCodeNotify('workbench.action.terminal.toggleT
 map("n", "<leader>n", "<Cmd>call VSCodeNotify('workbench.files.action.focusFilesExplorer')<CR>", opts)
 
 -- list
-map("n", "<leader><leader>", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>", opts)
-map("n", "<leader>sf", "<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>", opts)
+map("n", "<leader>bb", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>", opts)
+map("n", "<leader>ff", "<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>", opts)
+
+--
+map("n", "<leader>wh", "<Cmd>call VSCodeNotify('workbench.action.navigateLeft')<CR>", opts)
+map("n", "<leader>wj", "<Cmd>call VSCodeNotify('workbench.action.navigateDown')<CR>", opts)
+map("n", "<leader>wk", "<Cmd>call VSCodeNotify('workbench.action.navigateUp')<CR>", opts)
+map("n", "<leader>wl", "<Cmd>call VSCodeNotify('workbench.action.navigateRight')<CR>", opts)
 
 -- lsp
 map("n", "gD", "<Cmd>call VSCodeNotify('editor.action.goToDeclaration')<CR>", opts)
