@@ -12,7 +12,7 @@ vim.fn.sign_define(
 )
 vim.fn.sign_define(
   "LspDiagnosticsSignHint",
-  { texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
+  { texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
 )
 vim.fn.sign_define(
   "LspDiagnosticsSignInformation",
