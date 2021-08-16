@@ -241,11 +241,24 @@ local function plugins(use)
     "kosayoda/nvim-lightbulb",
     config = function()
       vim.o.updatetime = 250
-      vim.fn.sign_define(
-        "LightBulbSign",
-        { texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
-      )
-      vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+      vim.cmd [[autocmd CursorHold,CursorHoldI * lua Lightbulb()]]
+      Lightbulb = function()
+        require("nvim-lightbulb").update_lightbulb {
+          sign = {
+            enabled = false,
+          },
+          float = {
+            enabled = true,
+            text = "💡",
+            win_opts = {
+              offset_x = -4,
+              offset_y = -2,
+              border = "none",
+              winblend = 0,
+            },
+          },
+        }
+      end
     end,
   }
   use {
