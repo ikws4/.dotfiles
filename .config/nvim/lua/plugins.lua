@@ -167,7 +167,12 @@ local function plugins(use)
           change = { hl = "GitSignsChange", text = "┃", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
           delete = { hl = "GitSignsDelete", text = "┃", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
           topdelete = { hl = "GitSignsDelete", text = "┃", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-          changedelete = { hl = "GitSignsChange", text = "┃", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+          changedelete = {
+            hl = "GitSignsChangeDelete",
+            text = "┃",
+            numhl = "GitSignsChangeNr",
+            linehl = "GitSignsChangeLn",
+          },
         },
         keymaps = {
           noremap = true,
