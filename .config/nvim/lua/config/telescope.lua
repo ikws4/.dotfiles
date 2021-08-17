@@ -1,4 +1,11 @@
 local actions = require "telescope.actions"
+local themes = require "telescope.themes"
+
+local lsp_preview_theme = themes.get_ivy {
+  layout_config = {
+    height = 0.4,
+  },
+}
 
 require("telescope").setup {
   defaults = {
@@ -22,6 +29,12 @@ require("telescope").setup {
     },
     prompt_prefix = "❯ ",
     selection_caret = " ",
+  },
+  pickers = {
+    lsp_references = lsp_preview_theme,
+    lsp_definitions = lsp_preview_theme,
+    lsp_implementations = lsp_preview_theme,
+    lsp_workspace_diagnostics = lsp_preview_theme,
   },
   extensions = {
     fzf = {
