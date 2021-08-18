@@ -5,7 +5,7 @@
 	autocrlf = input
 	excludesfile = /Users/zhipingne/.gitignore_global
 	editor = nvim
-	pager = cat
+	pager = less
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
