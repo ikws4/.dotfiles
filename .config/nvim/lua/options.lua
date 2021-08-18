@@ -9,6 +9,8 @@ o.termguicolors = true
 
 -- wo.scrolloff = 8
 
+o.mouse = "a"
+
 -- tabline
 o.showtabline = 0
 
