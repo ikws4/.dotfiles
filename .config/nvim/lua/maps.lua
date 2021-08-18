@@ -6,3 +6,5 @@ map("i", "jk", "<esc>", opts)
 
 -- window navigation
 map("n", "<leader>w", "<c-w>", opts)
+
+map("n", ";", ":", opts)
