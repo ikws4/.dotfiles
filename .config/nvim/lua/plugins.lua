@@ -67,12 +67,12 @@ local function plugins(use)
       require "config.kommentary"
     end,
   }
-  use {
-    "mhartington/formatter.nvim",
-    config = function()
-      require "config.formatter"
-    end,
-  }
+  -- use {
+  --   "mhartington/formatter.nvim",
+  --   config = function()
+  --     require "config.formatter"
+  --   end,
+  -- }
   use {
     "norcalli/nvim-colorizer.lua",
     config = function()
@@ -210,12 +210,15 @@ local function plugins(use)
   use {
     "neovim/nvim-lspconfig",
     config = function()
-      require "config.lspconfig"
+      require "config.lsp"
     end,
     requires = {
       "kabouzeid/nvim-lspinstall",
       "folke/lua-dev.nvim",
     },
+  }
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
   }
   use {
     "nvim-lua/lsp-status.nvim",
