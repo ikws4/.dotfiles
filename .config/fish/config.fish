@@ -29,6 +29,8 @@ set -U fish_pager_color_prefix        'white' '--bold' '--underline'
 set -U fish_pager_color_progress      'brwhite' '--background=cyan'
 
 set -gx NO_PROXY localhost,127.0.0.1
+set -gx MANPAGER 'nvim +Man!'
+set -gx MANWIDTH 999
 
 function fish_greeting
 end
