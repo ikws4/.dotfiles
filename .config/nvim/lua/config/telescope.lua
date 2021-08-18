@@ -35,6 +35,7 @@ require("telescope").setup {
     lsp_definitions = lsp_preview_theme,
     lsp_implementations = lsp_preview_theme,
     lsp_workspace_diagnostics = lsp_preview_theme,
+    lsp_code_actions = themes.get_cursor(),
   },
   extensions = {
     fzf = {
