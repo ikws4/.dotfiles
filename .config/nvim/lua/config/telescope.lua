@@ -9,6 +9,16 @@ local lsp_preview_theme = themes.get_ivy {
 
 require("telescope").setup {
   defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--hidden',
+      '--smart-case',
+    },
     file_ignore_patterns = {
       "node_modules",
       ".git"
