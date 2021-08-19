@@ -2,7 +2,7 @@ local lspstatus = require "lsp-status"
 
 local colors = {
   black = "#232633",
-  darkblack = "#282C3C",
+  darkblack = "#2B2D3B",
   white = "#FFFFFF",
 
   red = "#f07178",

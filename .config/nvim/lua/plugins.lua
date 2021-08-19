@@ -12,6 +12,14 @@ local function plugins(use)
     end,
   }
   use {
+    "sunjon/Shade.nvim",
+    config = function()
+      require("shade").setup {
+        overlay_opacity = 50,
+      }
+    end,
+  }
+  use {
     "hoob3rt/lualine.nvim",
     config = function()
       require "config.statusline"
@@ -134,6 +142,12 @@ local function plugins(use)
           gitsigns = { enabled = false },
           tmux = { enabled = true },
         },
+        on_open = function(_)
+          require("shade").toggle()
+        end,
+        on_close = function()
+          require("shade").toggle()
+        end,
       }
     end,
   }

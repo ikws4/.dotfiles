@@ -1,12 +1,12 @@
 vim.o.fillchars = "eob: ,"
-vim.g.sonokai_style = "atlantis"
+vim.g.sonokai_style = "andromeda"
 vim.g.sonokai_show_eob = 0
-vim.g.sonokai_transparent_background = 1
+vim.g.sonokai_transparent_background = 0
 
 function _G.sonokai_custom()
-  vim.cmd "hi! VertSplit guifg=#282B3C"
-  vim.cmd "hi! StatusLine guibg=#232633"
-  vim.cmd "hi! StatusLineNC guibg=NONE"
+  vim.cmd "hi! VertSplit guibg=#33364A guifg=#33364A"
+
+  vim.cmd "hi! WhichKeyFloat guibg=#232633"
 
   -- WhickKey
   vim.cmd "hi! link WhichKeyFloat StatusLine"
