@@ -6,7 +6,6 @@ wk.register {
       name = "+file",
       f = { "<cmd>Telescope find_files hidden=true<CR>", "Find File" },
       r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
-      w = { "<cmd>Telescope live_grep<CR>", "Find words" },
       h = { "<cmd>Telescope help_tags<CR>", "Find help"}
     },
     b = {
