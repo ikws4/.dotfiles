@@ -35,12 +35,12 @@ local function plugins(use)
     end,
   }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-  use {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require "config.tree"
-    end,
-  }
+  -- use {
+  --   "kyazdani42/nvim-tree.lua",
+  --   config = function()
+  --     require "config.tree"
+  --   end,
+  -- }
   -- use {
   --   "glepnir/dashboard-nvim",
   --   config = function()
