@@ -71,4 +71,4 @@ vim.g.loaded_matchit = 1
 vim.g.loaded_matchparen = 1
 
 -- Highlight on yank
-cmd "autocmd TextYankPost * lua vim.highlight.on_yank { timeout = 200 }"
+cmd "autocmd TextYankPost * lua vim.highlight.on_yank { higroup = 'Visual',timeout = 250 }"
