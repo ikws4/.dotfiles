@@ -300,5 +300,3 @@ if not vim.g.compile_path_loaded and not vim.g.vscode then
   vim.cmd("source " .. compile_path)
   vim.g.compile_path_loaded = true
 end
-
-vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
