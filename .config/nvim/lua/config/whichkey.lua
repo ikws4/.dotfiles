@@ -67,20 +67,3 @@ wk.setup {
     },
   },
 }
-
--- map("n", "<leader><leader>", [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
--- map("n", "<leader>sw", [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
--- map(
---   "n",
---   "<leader>sf",
---   [[<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({previewer = false}))<CR>]],
---   opts
--- )
--- map(
---   "n",
---   "<leader>sh",
---   [[<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({previewer = false}))<CR>]],
---   opts
--- )
--- map("n", "<leader>sd", [[<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>]], opts)
--- map("n", "<leader>sb", [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], opts)
