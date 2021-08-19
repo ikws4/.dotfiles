@@ -5,6 +5,7 @@ vim.g.sonokai_transparent_background = 0
 
 function _G.sonokai_custom()
   vim.cmd "hi! VertSplit guibg=#33364A guifg=#33364A"
+  vim.cmd "hi! StatusLine guibg=#33364A"
 
   -- WhickKey
   vim.cmd "hi! WhichKeyFloat guibg=#232633"
