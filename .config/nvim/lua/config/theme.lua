@@ -6,10 +6,8 @@ vim.g.sonokai_transparent_background = 0
 function _G.sonokai_custom()
   vim.cmd "hi! VertSplit guibg=#33364A guifg=#33364A"
 
-  vim.cmd "hi! WhichKeyFloat guibg=#232633"
-
   -- WhickKey
-  vim.cmd "hi! link WhichKeyFloat StatusLine"
+  vim.cmd "hi! WhichKeyFloat guibg=#232633"
 
   -- Neogit
   vim.cmd "hi! NeogitDiffContextHighlight guibg=#282B3C guifg=#686E92"
