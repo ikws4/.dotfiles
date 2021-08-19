@@ -6,7 +6,6 @@ wk.register {
       name = "+file",
       f = { "<cmd>Telescope find_files hidden=true<CR>", "Find File" },
       r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
-      h = { "<cmd>Telescope help_tags<CR>", "Find help"}
     },
     b = {
       name = "+buffer",
@@ -25,6 +24,7 @@ wk.register {
     },
     s = {
       name = "+search",
+      h = { "<cmd>Telescope help_tags<CR>", "Search help" },
       b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search buffer" },
       B = { "<cmd>lua require('telescope.builtin').live_grep({ grep_open_files = true })<CR>", "Search all open buffers" },
       p = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Search project" },
