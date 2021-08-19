@@ -10,18 +10,18 @@ local lsp_preview_theme = themes.get_ivy {
 require("telescope").setup {
   defaults = {
     vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--hidden',
-      '--smart-case',
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--hidden",
+      "--smart-case",
     },
     file_ignore_patterns = {
       "node_modules",
-      ".git"
+      ".git",
     },
     mappings = {
       i = {
@@ -47,6 +47,13 @@ require("telescope").setup {
     lsp_implementations = lsp_preview_theme,
     lsp_workspace_diagnostics = lsp_preview_theme,
     lsp_code_actions = themes.get_cursor(),
+    file_browser = {
+      sorting_strategy = "ascending",
+      hidden = true,
+      layout_config = {
+        prompt_position = 'top',
+      },
+    },
   },
   extensions = {
     fzf = {

@@ -49,6 +49,7 @@ wk.register {
       j = "Go to the down window",
     },
     z = { "<cmd>ZenMode<CR>", "Toggle zen mode" },
+    n = { "<cmd>Telescope file_browser<CR>", "Open file browser"}
   },
 }
 
