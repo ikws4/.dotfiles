@@ -2,7 +2,7 @@ vim.o.fillchars = "eob: ,"
 vim.g.sonokai_style = "andromeda"
 vim.g.sonokai_show_eob = 0
 vim.g.sonokai_transparent_background = 0
-
+vim.g.sonokai_menu_selection_background = 'green'
 function _G.sonokai_custom()
   vim.cmd "hi! VertSplit guibg=#33364A guifg=#33364A"
   vim.cmd "hi! StatusLine guibg=#33364A"
