@@ -13,7 +13,7 @@ wk.register {
     },
     g = {
       name = "+git",
-      g = { "<cmd>Neogit<CR>", "Neogit status" },
+      g = { "<cmd>Neogit kind=split_above<CR>", "Neogit status" },
       b = { "<cmd>Neogit branch<CR>", "Neogit branch" },
       ["["] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Jump to previous hunk", expr = true },
       ["]"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Jump to next hunk", expr = true },
