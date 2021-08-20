@@ -1,6 +1,7 @@
 local lspconfig = require "lspconfig"
 local lspinstall = require "lspinstall"
 local lspstatus = require "lsp-status"
+local lsp_signature = require "lsp_signature"
 local flutter_tools = require "flutter-tools"
 local null_ls = require "null-ls"
 
@@ -15,6 +16,13 @@ local lsp_diagnostic_signs = {
 
 local on_attach = function(client, bufnr)
   lspstatus.on_attach(client)
+  lsp_signature.on_attach {
+    bind = true,
+    floating_window = false,
+    hint_enable = true,
+    hint_scheme = "Green",
+    hint_prefix = "כֿ ",
+  }
 
   wk.register {
     gD = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "LSP Declaration", buffer = bufnr },
@@ -44,9 +52,9 @@ null_ls.setup {
   sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.diagnostics.eslint
+    null_ls.builtins.diagnostics.eslint,
   },
-  on_attach = on_attach
+  on_attach = on_attach,
 }
 
 -- general servers

@@ -241,6 +241,10 @@ local function plugins(use)
     end,
   }
   use {
+    "ray-x/lsp_signature.nvim",
+
+  }
+  use {
     "kosayoda/nvim-lightbulb",
     config = function()
       vim.o.updatetime = 250
