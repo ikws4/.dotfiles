@@ -8,10 +8,10 @@ local null_ls = require "null-ls"
 local wk = require "which-key"
 
 local lsp_diagnostic_signs = {
-  Error = { text = "", hl = "LspDiagnosticsSignError" },
-  Warning = { text = "", hl = "LspDiagnosticsSignWarning" },
-  Information = { text = "", hl = "LspDiagnosticsSignInformation" },
-  Hint = { text = "", hl = "LspDiagnosticsSignHint" },
+  Error = { text = "", hl = "LspDiagnosticsSignError" },
+  Warning = { text = "", hl = "LspDiagnosticsSignWarning" },
+  Information = { text = "", hl = "LspDiagnosticsSignInformation" },
+  Hint = { text = "", hl = "LspDiagnosticsSignHint" },
 }
 
 local on_attach = function(client, bufnr)
