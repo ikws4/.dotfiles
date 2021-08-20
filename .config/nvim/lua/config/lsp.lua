@@ -1,6 +1,6 @@
 local lspconfig = require "lspconfig"
 local lspinstall = require "lspinstall"
-local lspstatus = require "lsp-status"
+local lsp_status = require "lsp-status"
 local lsp_signature = require "lsp_signature"
 local flutter_tools = require "flutter-tools"
 local null_ls = require "null-ls"
@@ -15,7 +15,7 @@ local lsp_diagnostic_signs = {
 }
 
 local on_attach = function(client, bufnr)
-  lspstatus.on_attach(client)
+  lsp_status.on_attach(client)
   lsp_signature.on_attach {
     bind = true,
     floating_window = false,
@@ -39,7 +39,7 @@ local on_attach = function(client, bufnr)
 end
 
 --- Setup lsp servers
-local capabilities = lspstatus.capabilities
+local capabilities = lsp_status.capabilities
 
 -- specific servers
 flutter_tools.setup {
