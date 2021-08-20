@@ -17,3 +17,7 @@ map("i", ",", ",<c-g>u", opts)
 map("i", ".", ".<c-g>u", opts)
 map("v", "J", ":m '>+1<CR>gv=gv", opts)
 map("v", "K", ":m '<-2<CR>gv=gv", opts)
+
+-- Save buffer
+map("n", "<m-s>", ":w<CR>", opts)
+map("i", "<m-s>", "<c-[>:w<CR>a", opts)
