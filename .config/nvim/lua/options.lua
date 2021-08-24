@@ -69,6 +69,3 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_matchit = 1
 vim.g.loaded_matchparen = 1
-
--- Highlight on yank
-cmd "autocmd TextYankPost * lua vim.highlight.on_yank { higroup = 'Visual',timeout = 250 }"
