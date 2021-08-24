@@ -4,7 +4,8 @@ SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_gcm:git\x20commit\x20\x2dm
 SETUVAR _fish_abbr_glog:git\x20log\x20\x2d\x2ddecorate\x20\x2d\x2dgraph\x20\x2d\x2dsimplify\x2dby\x2ddecoration\x20\x2d\x2doneline\x20\x5b\x2d\x2dall\x5d
 SETUVAR _fish_abbr_gst:git\x20status
-SETUVAR _fish_abbr_ls:exa\x20\x2da\x20\x2dl\x20\x2d\x2dsort\x3dtype
+SETUVAR _fish_abbr_ll:exa\x20\x2dal\x20\x2d\x2dsort\x3dtype
+SETUVAR _fish_abbr_ls:exa
 SETUVAR _fish_abbr_tat:tmux\x20at\x20\x2dt
 SETUVAR _fish_abbr_tls:tmux\x20ls
 SETUVAR _fish_abbr_tns:tmux\x20new\x20\x2ds
