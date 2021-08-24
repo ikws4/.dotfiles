@@ -58,6 +58,11 @@ local function plugins(use)
   --   end,
   -- }
   use {
+    "mhinz/vim-startify",
+    config = function()
+    end
+  }
+  use {
     "numtostr/FTerm.nvim",
     config = function()
       require "config.terminal"
