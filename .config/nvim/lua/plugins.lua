@@ -5,6 +5,8 @@ local function plugins(use)
   use "kyazdani42/nvim-web-devicons"
   use "nvim-lua/popup.nvim"
 
+  use { "ThePrimeagen/vim-be-good" }
+
   use {
     "sainnhe/sonokai",
     config = function()
@@ -242,7 +244,6 @@ local function plugins(use)
   }
   use {
     "ray-x/lsp_signature.nvim",
-
   }
   use {
     "kosayoda/nvim-lightbulb",
