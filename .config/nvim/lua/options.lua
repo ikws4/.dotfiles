@@ -7,8 +7,6 @@ vim.g.mapleader = " "
 
 o.termguicolors = true
 
-wo.cursorline = true
-
 -- wo.scrolloff = 8
 
 o.mouse = "a"
