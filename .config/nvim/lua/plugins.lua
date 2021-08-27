@@ -7,10 +7,23 @@ local function plugins(use)
 
   use { "ThePrimeagen/vim-be-good" }
 
+  -- use {
+  --   "sainnhe/sonokai",
+  --   config = function()
+  --     require "config.theme"
+  --   end,
+  -- }
   use {
-    "sainnhe/sonokai",
+    "rose-pine/neovim",
+    as = "rose-pine",
     config = function()
       require "config.theme"
+    end,
+  }
+  use {
+    "mvllow/modes.nvim",
+    config = function()
+      require("modes").setup()
     end,
   }
   use {
@@ -59,8 +72,7 @@ local function plugins(use)
   -- }
   use {
     "mhinz/vim-startify",
-    config = function()
-    end
+    config = function() end,
   }
   use {
     "numtostr/FTerm.nvim",

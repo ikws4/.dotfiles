@@ -7,7 +7,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/sonokai.yml
+  - ~/.config/alacritty/rose-pine.yml
 
 env:
   TERM: xterm-256color
@@ -25,7 +25,7 @@ window:
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 0.92
+background_opacity: 1
 
 # Font configuration
 font:
@@ -41,7 +41,7 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
-  size: 16.0
+  size: 15.5
 draw_bold_text_with_bright_colors: false
 
 cursor:
