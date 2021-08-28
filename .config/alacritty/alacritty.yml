@@ -49,9 +49,9 @@ cursor:
     blinking: Always 
 
 key_bindings:
-  - { key: A, mods: Command, chars: "\x1ba"}
-  - { key: S, mods: Command, chars: "\x1bs"}
-  - { key: H,              mods: Command,                    action: None                  }
-  - { key: M,              mods: Command,                    action: None                  }
-  - { key: Q,              mods: Command,                    action: None                  }
-  - { key: W,              mods: Command,                    action: None                  }
+  - { key: A, mods: Command, chars: "\x1ba" }
+  - { key: S, mods: Command, chars: "\x1bs" }
+  - { key: H, mods: Command, action: None }
+  - { key: M, mods: Command, action: None }
+  - { key: Q, mods: Command, action: None }
+  - { key: W, mods: Command, action: None }
