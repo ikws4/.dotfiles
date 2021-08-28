@@ -1,3 +1,4 @@
+vim.o.fillchars = "eob: ,"
 vim.g.rose_pine_variant = 'moon'
 
 -- Highlight on yank
@@ -18,7 +19,6 @@ vim.cmd('colorscheme rose-pine')
 
 -- local cmd = vim.cmd
 
--- vim.o.fillchars = "eob: ,"
 -- vim.g.sonokai_style = "andromeda"
 -- vim.g.sonokai_show_eob = 0
 -- vim.g.sonokai_transparent_background = 0
