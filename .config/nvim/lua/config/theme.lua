@@ -1,5 +1,13 @@
 vim.g.rose_pine_variant = 'moon'
 
+-- Highlight on yank
+vim.cmd [[
+  augroup TextyankPostAutoGroup
+    autocmd!
+    autocmd TextYankPost * lua vim.highlight.on_yank { higroup = 'Visual',timeout = 350 }
+  augroup END
+]]
+
 vim.cmd('colorscheme rose-pine')
 
 
@@ -38,13 +46,6 @@ vim.cmd('colorscheme rose-pine')
 --   augroup END
 -- ]]
 
--- -- Highlight on yank
--- cmd [[
---   augroup TextyankPostAutoGroup
---     autocmd!
---     autocmd TextYankPost * lua vim.highlight.on_yank { higroup = 'Visual',timeout = 350 }
---   augroup END
--- ]]
 
 -- cmd [[colorscheme sonokai]]
 
