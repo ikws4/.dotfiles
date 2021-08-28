@@ -8,10 +8,10 @@ local null_ls = require "null-ls"
 local wk = require "which-key"
 
 local lsp_diagnostic_signs = {
-  Error = { text = "", hl = "LspDiagnosticsSignError" },
-  Warning = { text = "", hl = "LspDiagnosticsSignWarning" },
-  Information = { text = "", hl = "LspDiagnosticsSignInformation" },
-  Hint = { text = "", hl = "LspDiagnosticsSignHint" },
+  Error = { text = "E", hl = "LspDiagnosticsSignError" },
+  Warning = { text = "W", hl = "LspDiagnosticsSignWarning" },
+  Information = { text = "I", hl = "LspDiagnosticsSignInformation" },
+  Hint = { text = "H", hl = "LspDiagnosticsSignHint" },
 }
 
 local on_attach = function(client, bufnr)
@@ -83,6 +83,6 @@ for k, v in pairs(lsp_diagnostic_signs) do
   vim.fn.sign_define("LspDiagnosticsSign" .. k, {
     text = v.text,
     texhl = v.hl,
-    numhl = v.hl,
+    -- numhl = v.hl,
   })
 end

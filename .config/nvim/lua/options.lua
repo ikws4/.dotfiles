@@ -20,7 +20,7 @@ bo.undofile = true
 bo.swapfile = false
 
 -- sign
-wo.signcolumn = "yes"
+wo.signcolumn = "yes:2"
 
 -- sync with system clipboard
 o.clipboard = "unnamedplus"
