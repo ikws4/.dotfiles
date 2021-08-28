@@ -9,7 +9,7 @@ SETUVAR _fish_abbr_ls:exa
 SETUVAR _fish_abbr_tat:tmux\x20at\x20\x2dt
 SETUVAR _fish_abbr_tls:tmux\x20ls
 SETUVAR _fish_abbr_tns:tmux\x20new\x20\x2ds
-SETUVAR fish_color_autosuggestion:\x23434C5E
+SETUVAR fish_color_autosuggestion:black
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:brgreen
 SETUVAR fish_color_comment:brmagenta
