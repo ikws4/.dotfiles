@@ -40,6 +40,7 @@ end
 
 --- Setup lsp servers
 local capabilities = lsp_status.capabilities
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- specific servers
 flutter_tools.setup {

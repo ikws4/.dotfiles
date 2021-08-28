@@ -126,10 +126,10 @@ local function plugins(use)
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup()
-      require("nvim-autopairs.completion.compe").setup {
-        map_cr = true,
-        map_complete = true,
-      }
+      -- require("nvim-autopairs.completion.compe").setup {
+      --   map_cr = true,
+      --   map_complete = true,
+      -- }
     end,
   }
   use {
@@ -286,10 +286,32 @@ local function plugins(use)
       end
     end,
   }
+  -- use {
+  --   "hrsh7th/nvim-compe",
+  --   config = function()
+  --     require "config.compe"
+  --   end,
+  -- }
   use {
-    "hrsh7th/nvim-compe",
+    "mortepau/codicons.nvim",
+  }
+  use {
+    "onsails/lspkind-nvim",
     config = function()
-      require "config.compe"
+      require("lspkind").init {
+        with_text = false,
+      }
+    end,
+  }
+  use {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-vsnip",
+    },
+    config = function()
+      require "config.cmp"
     end,
   }
   use {
