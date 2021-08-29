@@ -250,7 +250,7 @@ local function plugins(use)
     config = function()
       require("hop").setup()
       require("which-key").register {
-        F = { "<Cmd>HopChar2AC<CR>", "Hop 2 char before" },
+        F = { "<Cmd>HopChar2BC<CR>", "Hop 2 char before" },
         f = { "<Cmd>HopChar2AC<CR>", "Hop 2 char after" },
       }
     end,
