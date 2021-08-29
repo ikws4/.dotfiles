@@ -53,6 +53,7 @@ local function plugins(use)
   use {
     "kyazdani42/nvim-tree.lua",
     cmd = "NvimTreeToggle",
+    keys = "<leader>n",
     config = function()
       require "ikws4.config.nvim_tree"
     end,

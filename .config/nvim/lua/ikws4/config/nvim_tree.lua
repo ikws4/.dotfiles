@@ -1,4 +1,5 @@
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
+local wk = require "which-key"
 
 vim.g.nvim_tree_show_icons = {
   git = 1,
@@ -59,4 +60,6 @@ vim.gnvim_tree_icons = {
   },
 }
 
-vim.api.nvim_set_keymap("n", "<leader>n", [[<cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true })
+wk.register({
+  ["<leader>n"] = { "<Cmd>NvimTreeToggle<CR>", "Open file explore"}
+})
