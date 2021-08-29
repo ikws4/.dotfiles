@@ -295,7 +295,6 @@ local function plugins(use)
           },
           float = {
             enabled = true,
-            -- text = "💡",
             text = require("codicons").get("lightbulb", "icon"),
             win_opts = {
               offset_x = -4,
@@ -307,6 +306,7 @@ local function plugins(use)
         }
       end
 
+      vim.cmd [[hi LightBulbFloatWin guifg=#FFCC01]]
       vim.cmd [[
         augroup LightbulbAutoGroup
           autocmd!
