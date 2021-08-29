@@ -176,14 +176,6 @@ local function plugins(use)
           },
           g = {
             name = "+git",
-            g = { "<cmd>Neogit kind=split_above<CR>", "Neogit status" },
-            b = { "<cmd>Neogit branch<CR>", "Neogit branch" },
-            ["["] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Jump to previous hunk", expr = true },
-            ["]"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Jump to next hunk", expr = true },
-            s = { "<cmd>Gitsigns stage_hunk<CR>", "Git stage hunk" },
-            u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "Git unstage hunk" },
-            r = { "<cmd>Gitsigns reset_stage_hunk<CR>", "Revert hunk" },
-            R = { "<cmd>Gitsigns reset_buffer<CR>", "Revert file" },
           },
           s = {
             name = "+search",
@@ -332,26 +324,32 @@ local function plugins(use)
     config = function()
       require("gitsigns").setup {
         signs = {
-          -- add = { hl = "GitSignsAdd", text = "┃", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-          -- change = { hl = "GitSignsChange", text = "┃", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-          -- delete = { hl = "GitSignsDelete", text = "┃", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-          -- topdelete = { hl = "GitSignsDelete", text = "┃", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-          -- changedelete = {
-          --   hl = "GitSignsChangeDelete",
-          --   text = "┃",
-          --   numhl = "GitSignsChangeNr",
-          --   linehl = "GitSignsChangeLn",
-          -- },
+          add = { hl = "GitSignsAdd", text = "┃" },
+          change = { hl = "GitSignsChange", text = "┃" },
+          delete = { hl = "GitSignsDelete", text = "┃" },
+          topdelete = { hl = "GitSignsDelete", text = "┃" },
+          changedelete = { hl = "GitSignsChangeDelete", text = "┃", },
         },
-        -- keymaps = {
-        --   noremap = true,
-        --   ["v <leader>gs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        --   ["v <leader>gr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+        keymaps = {
+          noremap = true,
+          ["v <leader>gs"] = '<Cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+          ["v <leader>gr"] = '<Cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
 
-        --   -- Text objects
-        --   ["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-        --   ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-        -- },
+          -- Text objects
+          ["o ih"] = '<Cmd><C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+          ["x ih"] = '<Cmd><C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+        },
+
+        require("which-key").register {
+          ["<leader>g"] = {
+            ["["] = { "&diff ? '[c' : '<Cmd>Gitsigns prev_hunk<CR>'", "Jump to previous hunk", expr = true },
+            ["]"] = { "&diff ? ']c' : '<Cmd>Gitsigns next_hunk<CR>'", "Jump to next hunk", expr = true },
+            s = { "<Cmd>Gitsigns stage_hunk<CR>", "Git stage hunk" },
+            u = { "<Cmd>Gitsigns undo_stage_hunk<CR>", "Git unstage hunk" },
+            r = { "<Cmd>Gitsigns reset_stage_hunk<CR>", "Revert hunk" },
+            R = { "<Cmd>Gitsigns reset_buffer<CR>", "Revert file" },
+          },
+        },
       }
     end,
   }
@@ -360,6 +358,7 @@ local function plugins(use)
   use {
     "TimUntersberger/neogit",
     cmd = "Neogit",
+    keys = { "<leader>gg", "<leader>gb" },
     config = function()
       require("neogit").setup {
         disable_commit_confirmation = true,
@@ -367,6 +366,12 @@ local function plugins(use)
           section = { "", "" },
           item = { "", "" },
           hunk = { "", "" },
+        },
+      }
+      require("which-key").register {
+        ["<leader>g"] = {
+          g = { "<Cmd>Neogit kind=split_above<CR>", "Neogit status" },
+          b = { "<Cmd>Neogit branch<CR>", "Neogit branch" },
         },
       }
     end,
