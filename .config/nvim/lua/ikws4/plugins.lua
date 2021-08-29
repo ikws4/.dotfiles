@@ -28,6 +28,7 @@ local function plugins(use)
   use {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
+    keys = "<leader>z",
     config = function()
       require "ikws4.config.zen_mode"
     end,
@@ -163,30 +164,28 @@ local function plugins(use)
     config = function()
       local wk = require "which-key"
 
+      wk.setup {
+        plugins = {
+          marks = true,
+          registers = true,
+          presets = {
+            operators = true,
+            motions = true,
+            text_objects = true,
+            windows = false,
+            nav = true,
+            z = true,
+            g = true,
+          },
+        },
+      }
+
       wk.register {
         ["<leader>"] = {
-          f = {
-            name = "+file",
-            f = { "<cmd>Telescope find_files hidden=true<CR>", "Find File" },
-            r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
-          },
-          b = {
-            name = "+buffer",
-            b = { "<cmd>Telescope buffers<CR>", "Switch buffer" },
-          },
-          g = {
-            name = "+git",
-          },
-          s = {
-            name = "+search",
-            h = { "<cmd>Telescope help_tags<CR>", "Search help" },
-            b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search buffer" },
-            B = {
-              "<cmd>lua require('telescope.builtin').live_grep({ grep_open_files = true })<CR>",
-              "Search all open buffers",
-            },
-            p = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Search project" },
-          },
+          f = { name = "+file" },
+          b = { name = "+buffer" },
+          g = { name = "+git" },
+          s = { name = "+search", },
           w = {
             name = "+window",
             s = "Split window",
@@ -205,24 +204,6 @@ local function plugins(use)
             l = "Go to the right window",
             k = "Go to the up window",
             j = "Go to the down window",
-          },
-          z = { "<cmd>ZenMode<CR>", "Toggle zen mode" },
-          -- n = { "<cmd>Telescope file_browser<CR>", "Open file browser"}
-        },
-      }
-
-      wk.setup {
-        plugins = {
-          marks = true,
-          registers = true,
-          presets = {
-            operators = true,
-            motions = true,
-            text_objects = true,
-            windows = false,
-            nav = true,
-            z = true,
-            g = true,
           },
         },
       }

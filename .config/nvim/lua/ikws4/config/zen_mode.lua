@@ -1,4 +1,5 @@
 local shade = require "shade"
+local wk = require "which-key"
 
 require("zen-mode").setup {
   window = {
@@ -24,4 +25,8 @@ require("zen-mode").setup {
   on_close = function()
     shade.toggle()
   end,
+}
+
+wk.register {
+  ["<leader>z"] = { "<Cmd>ZenMode<CR>", "Toggle zen mode" },
 }
