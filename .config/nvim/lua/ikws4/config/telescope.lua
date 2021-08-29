@@ -26,11 +26,7 @@ telescope.setup {
     },
     mappings = {
       i = {
-        ["<esc>"] = actions.close,
-      },
-      n = {
-        ["<esc>"] = actions.close,
-        ["q"] = actions.close,
+        ["<Esc>"] = actions.close,
       },
     },
     borderchars = {
@@ -39,8 +35,8 @@ telescope.setup {
       results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     },
-    prompt_prefix = "❯ ",
-    selection_caret = " ",
+    prompt_prefix = " ",
+    selection_caret = " ",
   },
   pickers = {
     lsp_references = lsp_preview_theme,
