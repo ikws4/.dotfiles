@@ -27,6 +27,7 @@ local function plugins(use)
   -- Distraction-free coding for Neovim
   use {
     "folke/zen-mode.nvim",
+    cmd = "ZenMode",
     config = function()
       require "ikws4.config.zen_mode"
     end,
@@ -38,6 +39,7 @@ local function plugins(use)
   use {
     "numtostr/FTerm.nvim",
     after = "which-key.nvim",
+    keys = "<leader>m",
     config = function()
       require("FTerm").setup()
       require("which-key").register {
@@ -50,6 +52,7 @@ local function plugins(use)
   -- A file explorer tree for neovim written in lua
   use {
     "kyazdani42/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
     config = function()
       require "ikws4.config.nvim_tree"
     end,
@@ -108,6 +111,7 @@ local function plugins(use)
   -- A super powerful autopairs for Neovim. It support multiple character.
   use {
     "windwp/nvim-autopairs",
+    event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup()
       require("nvim-autopairs.completion.cmp").setup {
@@ -283,7 +287,9 @@ local function plugins(use)
   }
 
   -- Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
-  use { "folke/lua-dev.nvim" }
+  use {
+    "folke/lua-dev.nvim",
+  }
 
   -- VSCode 💡 for neovim's built-in LSP.
   use {
@@ -352,6 +358,7 @@ local function plugins(use)
   -- magit for neovim
   use {
     "TimUntersberger/neogit",
+    cmd = "Neogit",
     config = function()
       require("neogit").setup {
         disable_commit_confirmation = true,
