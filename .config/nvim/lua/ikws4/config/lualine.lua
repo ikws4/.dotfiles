@@ -1,4 +1,4 @@
-local lsp_status = require "lsp_status"
+local lsp_status = require "lsp-status"
 
 require("lualine").setup {
   options = {

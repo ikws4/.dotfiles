@@ -11,7 +11,6 @@ local function plugins(use)
   -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
   use {
     "hoob3rt/lualine.nvim",
-    after = "lsp-status.nvim",
     config = function()
       require "ikws4.config.lualine"
     end,
