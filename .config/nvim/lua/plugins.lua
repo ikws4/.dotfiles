@@ -58,12 +58,12 @@ local function plugins(use)
     end,
   }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-  -- use {
-  --   "kyazdani42/nvim-tree.lua",
-  --   config = function()
-  --     require "config.tree"
-  --   end,
-  -- }
+  use {
+    "kyazdani42/nvim-tree.lua",
+    config = function()
+      require "config.tree"
+    end,
+  }
   -- use {
   --   "glepnir/dashboard-nvim",
   --   config = function()
@@ -309,6 +309,7 @@ local function plugins(use)
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-vsnip",
+      "hrsh7th/cmp-path"
     },
     config = function()
       require "config.cmp"
@@ -359,9 +360,9 @@ if not vim.g.compile_path_loaded and not vim.g.vscode then
   vim.g.compile_path_loaded = true
 end
 
-vim.cmd [[
-  augroup PackerCompileAutoGroup
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup END
-]]
+-- vim.cmd [[
+--   augroup PackerCompileAutoGroup
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+--   augroup END
+-- ]]

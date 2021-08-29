@@ -1,5 +1,4 @@
 local cmp = require "cmp"
-local compare = require "cmp.config.compare"
 local lspkind = require "lspkind"
 
 local t = function(str)
@@ -58,18 +57,6 @@ cmp.setup {
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
-  sorting = {
-    priority_weight = 2,
-    comparators = {
-      compare.offset,
-      compare.exact,
-      compare.score,
-      compare.kind,
-      compare.sort_text,
-      compare.length,
-      compare.order,
-    },
-  },
   formatting = {
     format = function(_, vim_item)
       vim_item.kind = lspkind.presets.codicons[vim_item.kind]
@@ -80,6 +67,6 @@ cmp.setup {
     { name = "buffer" },
     { name = "nvim_lsp" },
     { name = "vsnip" },
-    { name = "lua" }
+    { name = "lua" },
   },
 }
