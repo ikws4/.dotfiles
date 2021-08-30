@@ -338,7 +338,6 @@ local function plugins(use)
   -- magit for neovim
   use {
     "TimUntersberger/neogit",
-    cmd = "Neogit",
     keys = { "<leader>gg", "<leader>gb" },
     config = function()
       require("neogit").setup {
@@ -351,8 +350,8 @@ local function plugins(use)
       }
       require("which-key").register {
         ["<leader>g"] = {
-          g = { "<Cmd>Neogit kind=split_above<CR>", "Neogit status" },
-          b = { "<Cmd>Neogit branch<CR>", "Neogit branch" },
+          g = { "<Cmd>lua require('neogit').open({kind = 'split_above'})<CR>", "Neogit status" },
+          b = { "<Cmd>lua require('neogit').open({'branch'})<CR>", "Neogit branch" },
         },
       }
     end,
