@@ -27,7 +27,13 @@ telescope.setup {
     },
     mappings = {
       i = {
-        ["<Esc>"] = actions.close,
+        ["<C-x>"] = false,
+        ["<C-s>"] = actions.file_split,
+      },
+      n = {
+        ["q"] = actions.close,
+        ["<C-x>"] = false,
+        ["<C-s>"] = actions.file_split,
       },
     },
     borderchars = {
@@ -71,6 +77,7 @@ wk.register {
   ["<leader>bb"] = { "<Cmd>Telescope buffers<CR>", "Switch buffer" },
   ["<leader>sh"] = { "<Cmd>Telescope help_tags<CR>", "Search help" },
   ["<leader>sb"] = { "<Cmd>Telescope current_buffer_fuzzy_find<CR>", "Search buffer" },
+  ["/"] = { "<Cmd>Telescope current_buffer_fuzzy_find theme=get_ivy<CR>", "Search buffer" },
   ["<leader>sB"] = { "<cmd>Telescope live_grep grep_open_files=true<CR>", "Search all open buffers" },
   ["<leader>sp"] = { "<Cmd>Telescope live_grep<CR>", "Search project" },
 }
