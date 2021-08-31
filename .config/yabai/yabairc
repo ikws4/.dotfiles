@@ -33,16 +33,13 @@ yabai -m config window_gap                   0
 # Spaces settings 
 yabai -m space 1 --label "[1] Term"
 yabai -m space 2 --label "[2] Web"
-yabai -m space 3 --label "[3] Music & Chat"
+yabai -m space 3 --label "[3] Work"
 yabai -m space 4 --label "[4] Dev"
-yabai -m space 5 --label "[5] Other"
+yabai -m space 5 --label "[5] Music & Chat"
 
 
 # floating app
 yabai -m rule --add app="^Google Chrome$" space=^2
-
-yabai -m rule --add app="QQ" space=^3 manage=off
-yabai -m rule --add app="WeChat" space=^3 manage=off
 
 yabai -m rule --add app="Finder" grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="^Font Book$" grid=11:7:1:1:5:9 manage=off
@@ -52,3 +49,6 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="Dash" grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="Processing" manage=off
 yabai -m rule --add app="MacZip" manage=off
+
+yabai -m rule --add app="QQ" space=^5 manage=off
+yabai -m rule --add app="WeChat" space=^5 manage=off
