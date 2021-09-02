@@ -21,3 +21,6 @@ map("v", "K", ":m '<-2<CR>gv=gv", opts)
 -- Save buffer
 map("n", "<M-s>", ":w<CR>", opts)
 map("i", "<M-s>", "<C-[>:w<CR>a", opts)
+
+-- Toggle folding
+map("n", "<Tab>", "za", opts)
