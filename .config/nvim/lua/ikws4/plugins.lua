@@ -112,7 +112,7 @@ local function plugins(use)
         },
       }
       require("which-key").register {
-        ["<leader>st"] = {"<Cmd>TodoTelescope<CR>", "Search todos"}
+        ["<leader>st"] = { "<Cmd>TodoTelescope<CR>", "Search todos" },
       }
     end,
   }
@@ -326,6 +326,7 @@ local function plugins(use)
   -- Super fast git decorations implemented purely in lua/teal.
   use {
     "lewis6991/gitsigns.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
     config = function()
       require("gitsigns").setup {
         signs = {
@@ -344,16 +345,16 @@ local function plugins(use)
           ["o ih"] = '<Cmd><C-U>lua require"gitsigns.actions".select_hunk()<CR>',
           ["x ih"] = '<Cmd><C-U>lua require"gitsigns.actions".select_hunk()<CR>',
         },
+      }
 
-        require("which-key").register {
-          ["<leader>g"] = {
-            ["["] = { "&diff ? '[c' : '<Cmd>Gitsigns prev_hunk<CR>'", "Jump to previous hunk", expr = true },
-            ["]"] = { "&diff ? ']c' : '<Cmd>Gitsigns next_hunk<CR>'", "Jump to next hunk", expr = true },
-            s = { "<Cmd>Gitsigns stage_hunk<CR>", "Git stage hunk" },
-            u = { "<Cmd>Gitsigns undo_stage_hunk<CR>", "Git unstage hunk" },
-            r = { "<Cmd>Gitsigns reset_stage_hunk<CR>", "Revert hunk" },
-            R = { "<Cmd>Gitsigns reset_buffer<CR>", "Revert file" },
-          },
+      require("which-key").register {
+        ["<leader>g"] = {
+          ["["] = { "&diff ? '[c' : '<Cmd>Gitsigns prev_hunk<CR>'", "Jump to previous hunk", expr = true },
+          ["]"] = { "&diff ? ']c' : '<Cmd>Gitsigns next_hunk<CR>'", "Jump to next hunk", expr = true },
+          s = { "<Cmd>Gitsigns stage_hunk<CR>", "Git stage hunk" },
+          u = { "<Cmd>Gitsigns undo_stage_hunk<CR>", "Git unstage hunk" },
+          r = { "<Cmd>Gitsigns reset_stage_hunk<CR>", "Revert hunk" },
+          R = { "<Cmd>Gitsigns reset_buffer<CR>", "Revert file" },
         },
       }
     end,
