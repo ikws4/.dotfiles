@@ -94,6 +94,29 @@ local function plugins(use)
   use "mortepau/codicons.nvim"
   use "kyazdani42/nvim-web-devicons"
 
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        signs = false,
+        highlight = {
+          keyword = "fg",
+        },
+        colors = {
+          error = { "LspDiagnosticsDefaultError" },
+          warning = { "LspDiagnosticsDefaultWarning" },
+          info = { "LspDiagnosticsDefaultInformation" },
+          hint = { "LspDiagnosticsDefaultHint" },
+          default = { "Identifier" },
+        },
+      }
+      require("which-key").register {
+        ["<leader>st"] = {"<Cmd>TodoTelescope<CR>", "Search todos"}
+      }
+    end,
+  }
+
   -- Neovim commenting plugin, written in lua.
   use {
     "b3nj5m1n/kommentary",
@@ -186,7 +209,7 @@ local function plugins(use)
           f = { name = "+file" },
           b = { name = "+buffer" },
           g = { name = "+git" },
-          s = { name = "+search", },
+          s = { name = "+search" },
           w = {
             name = "+window",
             s = "Split window",
