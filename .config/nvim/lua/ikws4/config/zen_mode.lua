@@ -3,8 +3,8 @@ local wk = require "which-key"
 
 require("zen-mode").setup {
   window = {
-    backdrop = 1,
-    width = 0.7,
+    backdrop = 0.92,
+    width = 0.85,
     options = {
       signcolumn = "no",
       number = true,
