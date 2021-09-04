@@ -345,6 +345,12 @@ local function plugins(use)
           ["o ih"] = '<Cmd><C-U>lua require"gitsigns.actions".select_hunk()<CR>',
           ["x ih"] = '<Cmd><C-U>lua require"gitsigns.actions".select_hunk()<CR>',
         },
+        current_line_blame = true,
+        current_line_blame_opts = {
+          virt_text = true,
+          virt_text_pos = "eol",
+          delay = 500,
+        },
       }
 
       require("which-key").register {
