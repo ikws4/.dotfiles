@@ -19,6 +19,7 @@ local function plugins(use)
   -- Highlight UI elements based on current mode.
   use {
     "mvllow/modes.nvim",
+    event = "BufRead",
     config = function()
       require("modes").setup()
     end,
