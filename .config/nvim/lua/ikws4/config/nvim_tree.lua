@@ -12,6 +12,7 @@ vim.g.nvim_tree_lsp_diagnostics = 0
 vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_group_empty = 1
 vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_highlight_opened_files = 0
 vim.g.nvim_tree_auto_open = 0
 vim.g.nvim_tree_auto_close = 1
 vim.g.nvim_tree_follow = 1
@@ -19,7 +20,6 @@ vim.g.nvim_tree_width = 30
 vim.g.nvim_tree_width_allow_resize = 1
 vim.g.nvim_tree_root_folder_modifier = ":t"
 vim.g.nvim_tree_ignore = { ".DS_Store", ".git", "node_modules" }
-vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_disable_default_keybindings = 1
 vim.g.nvim_tree_bindings = {
   { key = "q", cb = tree_cb "close" },
