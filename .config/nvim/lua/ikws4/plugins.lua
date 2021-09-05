@@ -77,8 +77,8 @@ local function plugins(use)
     "rcarriga/nvim-notify",
     event = "ColorScheme",
     config = function()
-      local icons = require("codicons")
-      local notify = require("notify")
+      local icons = require "codicons"
+      local notify = require "notify"
 
       notify.setup {
         stages = "fade_in_slide_out",
@@ -248,11 +248,11 @@ local function plugins(use)
           },
           q = {
             name = "+Quickfix",
-            o = { "<Cmd>copen<CR>", "Open quickfix"},
-            c = { "<Cmd>cclose<CR>", "Close quickfix"},
+            o = { "<Cmd>copen<CR>", "Open quickfix" },
+            c = { "<Cmd>cclose<CR>", "Close quickfix" },
             n = { "<Cmd>cnext<CR>", "Cycle next quickfix" },
             p = { "<Cmd>cprev<CR>", "Cycle prev quickfix" },
-          }
+          },
         },
       }
     end,
@@ -297,7 +297,12 @@ local function plugins(use)
   -- Lsp {{{
   use { "neovim/nvim-lspconfig" }
   use { "kabouzeid/nvim-lspinstall" }
-  use { "nvim-lua/lsp-status.nvim" }
+  use {
+    "nvim-lua/lsp-status.nvim",
+    config = function()
+      require "lsp-status".register_progress()
+    end,
+  }
   use { "ray-x/lsp_signature.nvim" }
   use { "onsails/lspkind-nvim" }
   use { "jose-elias-alvarez/null-ls.nvim" }
