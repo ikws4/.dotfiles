@@ -75,8 +75,25 @@ local function plugins(use)
   -- A fancy, configurable, notification manager for NeoVim
   use {
     "rcarriga/nvim-notify",
+    event = "ColorScheme",
     config = function()
-      -- vim.notify = require "notify"
+      local icons = require("codicons")
+      local notify = require("notify")
+
+      notify.setup {
+        stages = "fade_in_slide_out",
+        background_colour = "Normal",
+        timeout = 1000,
+        icons = {
+          ERROR = icons.get("error", "icon"),
+          WARN = icons.get("warning", "icon"),
+          INFO = icons.get("info", "icon"),
+          DEBUG = icons.get("debug", "icon"),
+          TRACE = icons.get("dashboard", "icon"),
+        },
+      }
+
+      vim.notify = notify
     end,
   }
 
