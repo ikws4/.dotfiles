@@ -21,6 +21,7 @@ vim.g.nvim_tree_width_allow_resize = 1
 vim.g.nvim_tree_root_folder_modifier = ":t"
 vim.g.nvim_tree_ignore = { ".DS_Store", ".git", "node_modules" }
 vim.g.nvim_tree_disable_default_keybindings = 1
+vim.g.nvim_tree_update_cwd = 1
 vim.g.nvim_tree_bindings = {
   { key = "q", cb = tree_cb "close" },
 
