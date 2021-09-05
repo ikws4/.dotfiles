@@ -81,7 +81,7 @@ local function plugins(use)
       local notify = require "notify"
 
       notify.setup {
-        stages = "fade_in_slide_out",
+        stages = "static",
         background_colour = "Normal",
         timeout = 1000,
         icons = {
