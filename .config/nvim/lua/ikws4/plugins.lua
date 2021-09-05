@@ -440,6 +440,7 @@ end
 vim.cmd [[
   augroup PackerCompileAutoGroup
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost */ikws4/*.lua source <afile> | PackerCompile
+    autocmd User PackerCompileDone lua vim.notify("Plugins compiled", "info", { title = "Packer" })
   augroup END
 ]]
