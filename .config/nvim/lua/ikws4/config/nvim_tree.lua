@@ -46,20 +46,7 @@ vim.g.nvim_tree_bindings = {
   { key = ".", cb = tree_cb "toggle_dotfiles" },
   { key = "?", cb = tree_cb "toggle_help" },
 }
-vim.gnvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "✗",
-    staged = "✓",
-    unmerged = "",
-    renamed = "➜",
-    untracked = "★",
-    deleted = "",
-    ignored = "◌",
-  },
-}
 
-wk.register({
-  ["<leader>n"] = { "<Cmd>NvimTreeToggle<CR>", "Open file explore"}
-})
+wk.register {
+  ["<leader>n"] = { "<Cmd>NvimTreeToggle<CR>", "Open file explore" },
+}
