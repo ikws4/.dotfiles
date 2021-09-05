@@ -246,6 +246,13 @@ local function plugins(use)
             k = "Go to the up window",
             j = "Go to the down window",
           },
+          q = {
+            name = "+Quickfix",
+            o = { "<Cmd>copen<CR>", "Open quickfix"},
+            c = { "<Cmd>cclose<CR>", "Close quickfix"},
+            n = { "<Cmd>cnext<CR>", "Cycle next quickfix" },
+            p = { "<Cmd>cprev<CR>", "Cycle prev quickfix" },
+          }
         },
       }
     end,
