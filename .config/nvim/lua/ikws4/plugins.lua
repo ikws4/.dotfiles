@@ -83,7 +83,7 @@ local function plugins(use)
       notify.setup {
         stages = "static",
         background_colour = "Normal",
-        timeout = 1000,
+        timeout = 2500,
         icons = {
           ERROR = icons.get("error", "icon"),
           WARN = icons.get("warning", "icon"),
