@@ -322,6 +322,7 @@ local function plugins(use)
   -- VSCode 💡 for neovim's built-in LSP.
   use {
     "kosayoda/nvim-lightbulb",
+    event = { "CursorHold", "CursorHoldI" },
     config = function()
       _G.lightbulb = function()
         require("nvim-lightbulb").update_lightbulb {
