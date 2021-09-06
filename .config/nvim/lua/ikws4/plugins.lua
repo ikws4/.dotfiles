@@ -279,8 +279,9 @@ local function plugins(use)
     config = function()
       require("hop").setup()
       require("which-key").register {
-        F = { "<Cmd>HopChar2BC<CR>", "Hop 2 char before" },
-        f = { "<Cmd>HopChar2AC<CR>", "Hop 2 char after" },
+        F = { "<Cmd>HopChar1BC<CR>", "Hop 1 char before" },
+        f = { "<Cmd>HopChar1AC<CR>", "Hop 1 char after" },
+        s = { "<Cmd>HopChar2<CR>", "Hop 2 char" },
       }
     end,
   }
@@ -300,7 +301,7 @@ local function plugins(use)
   use {
     "nvim-lua/lsp-status.nvim",
     config = function()
-      require "lsp-status".register_progress()
+      require("lsp-status").register_progress()
     end,
   }
   use { "ray-x/lsp_signature.nvim" }
