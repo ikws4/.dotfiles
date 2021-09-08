@@ -80,7 +80,7 @@ local function plugins(use)
       local notify = require "notify"
 
       notify.setup {
-        stages = "static",
+        stages = "slide",
         background_colour = "Normal",
         timeout = 2500,
         icons = {
