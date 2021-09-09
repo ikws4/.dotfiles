@@ -110,6 +110,22 @@ local function plugins(use)
   use "mortepau/codicons.nvim"
   use "kyazdani42/nvim-web-devicons"
 
+  -- Interact with Jupyter from NeoVim.
+  use {
+    "dccsillag/magma-nvim",
+    ft = "python",
+    run = "<Cmd>UpdateRemotePlugins",
+    config = function()
+      require("which-key").register {
+        ["<leader>ee"] = { ":<C-u>MagmaEvaluateVisual<CR>", "Evaluate", buffer = 0, mode = "x" },
+        ["<leader>el"] = { "<Cmd>MagmaEvaluateLine<CR>", "Evaluate line", buffer = 0 },
+        ["<leader>ec"] = { "<Cmd>MagmaReevaluateCell<CR>", "Reevaluate cell", buffer = 0 },
+        ["<leader>eo"] = { "<Cmd>MagmaShowOutput<CR>", "Show output", buffer = 0 },
+      }
+      vim.g.magma_automatically_open_output = false
+    end,
+  }
+
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -226,6 +242,7 @@ local function plugins(use)
           b = { name = "+buffer" },
           g = { name = "+git" },
           s = { name = "+search" },
+          e = { name = "+eval" },
           w = {
             name = "+window",
             s = "Split window",
