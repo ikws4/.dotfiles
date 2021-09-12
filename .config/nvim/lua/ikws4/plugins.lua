@@ -117,11 +117,21 @@ local function plugins(use)
     run = "<Cmd>UpdateRemotePlugins",
     config = function()
       require("which-key").register {
-        ["<leader>ee"] = { ":<C-u>MagmaEvaluateVisual<CR>", "Evaluate", buffer = 0, mode = "x" },
-        ["<leader>el"] = { "<Cmd>MagmaEvaluateLine<CR>", "Evaluate line", buffer = 0 },
-        ["<leader>ec"] = { "<Cmd>MagmaReevaluateCell<CR>", "Reevaluate cell", buffer = 0 },
-        ["<leader>eo"] = { "<Cmd>MagmaShowOutput<CR>", "Show output", buffer = 0 },
+        ["<localleader>e"] = { "nvim_exec('MagmaEvaluateOperator', v:true)", "Evaluate line", buffer = 0, expr = true },
+        ["<localleader>ee"] = { "<Cmd>MagmaEvaluateLine<CR>", "Evaluate line", buffer = 0 },
+        ["<localleader>ed"] = { "<Cmd>MagmaDelete<CR>", "Delete evaluate output", buffer = 0 },
+        ["<localleader>ec"] = { "<Cmd>MagmaReevaluateCell<CR>", "Reevaluate cell", buffer = 0 },
+        ["<localleader>eo"] = { "<Cmd>MagmaShowOutput<CR>", "Show output", buffer = 0 },
       }
+
+      vim.api.nvim_buf_set_keymap(
+        0,
+        "x",
+        "<localleader>e",
+        ":<C-u>MagmaEvaluateVisual<CR>",
+        { noremap = true, silent = true }
+      )
+
       vim.g.magma_automatically_open_output = false
     end,
   }
@@ -242,7 +252,6 @@ local function plugins(use)
           b = { name = "+buffer" },
           g = { name = "+git" },
           s = { name = "+search" },
-          e = { name = "+eval" },
           w = {
             name = "+window",
             s = "Split window",
