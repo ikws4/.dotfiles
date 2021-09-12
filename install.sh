@@ -2,9 +2,11 @@
 
 DOTFILES="
   alacritty
+  clash
   fish
   git
   ideavim
+  karabiner
   nvim
   skhd
   tmux
@@ -15,10 +17,10 @@ DOTFILES="
 "
 
 for dir in $DOTFILES; do
-  if [ -d $dir ]
-  then
+  if [ -d $dir ]; then
     # stow $dir
     echo "Install $dir"
+    stow -R $dir
   else
     echo "$dir does not exist"
   fi
