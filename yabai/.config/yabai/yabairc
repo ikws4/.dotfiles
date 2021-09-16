@@ -39,7 +39,7 @@ yabai -m space 5 --label "[5] Music & Chat"
 
 
 # floating app
-yabai -m rule --add app="^Google Chrome$" space=^2
+yabai -m rule --add app="^Google Chrome$"
 
 yabai -m rule --add app="Finder" grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="^Font Book$" grid=11:7:1:1:5:9 manage=off
