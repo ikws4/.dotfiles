@@ -117,7 +117,12 @@ local function plugins(use)
     run = "<Cmd>UpdateRemotePlugins",
     config = function()
       require("which-key").register {
-        ["<localleader>e"] = { "nvim_exec('MagmaEvaluateOperator', v:true)", "Evaluate line", buffer = 0, expr = true },
+        ["<localleader>e"] = {
+          "nvim_exec('MagmaEvaluateOperator', v:true)",
+          "Evaluate line",
+          buffer = 0,
+          expr = true,
+        },
         ["<localleader>ee"] = { "<Cmd>MagmaEvaluateLine<CR>", "Evaluate line", buffer = 0 },
         ["<localleader>ed"] = { "<Cmd>MagmaDelete<CR>", "Delete evaluate output", buffer = 0 },
         ["<localleader>ec"] = { "<Cmd>MagmaReevaluateCell<CR>", "Reevaluate cell", buffer = 0 },
@@ -450,6 +455,8 @@ local function plugins(use)
   -- Modernity meets insane extensibility. The future of organizing your life in Neovim.
   use {
     "nvim-neorg/neorg",
+    branch = "unstable",
+    requires = "nvim-lua/plenary.nvim",
     config = function()
       require("neorg").setup {
         -- Tell Neorg what modules to load
@@ -459,14 +466,18 @@ local function plugins(use)
           ["core.norg.dirman"] = { -- Manage your directories with Neorg
             config = {
               workspaces = {
-                my_workspace = "~/Dev/GitHub/neorg",
+                default = "~/Dev/GitHub/notes",
               },
+            },
+          },
+          ["core.norg.completion"] = {
+            config = {
+              engine = "nvim-cmp", -- We current support nvim-compe and nvim-cmp only
             },
           },
         },
       }
     end,
-    requires = "nvim-lua/plenary.nvim",
   }
   --}}}
 end
