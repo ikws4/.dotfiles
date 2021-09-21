@@ -146,11 +146,11 @@ local function plugins(use)
           keyword = "fg",
         },
         colors = {
-          error = { "LspDiagnosticsDefaultError" },
-          warning = { "LspDiagnosticsDefaultWarning" },
-          info = { "LspDiagnosticsDefaultInformation" },
-          hint = { "LspDiagnosticsDefaultHint" },
-          default = { "Identifier" },
+          error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
+          warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
+          info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
+          hint = { "LspDiagnosticsDefaultHint", "#10B981" },
+          default = { "Identifier", "#7C3AED" },
         },
       }
       require("which-key").register {
@@ -443,6 +443,30 @@ local function plugins(use)
         },
       }
     end,
+  }
+  --}}}
+
+  -- Note taking {{{
+  -- Modernity meets insane extensibility. The future of organizing your life in Neovim.
+  use {
+    "nvim-neorg/neorg",
+    config = function()
+      require("neorg").setup {
+        -- Tell Neorg what modules to load
+        load = {
+          ["core.defaults"] = {}, -- Load all the default modules
+          ["core.norg.concealer"] = {}, -- Allows for use of icons
+          ["core.norg.dirman"] = { -- Manage your directories with Neorg
+            config = {
+              workspaces = {
+                my_workspace = "~/Dev/GitHub/neorg",
+              },
+            },
+          },
+        },
+      }
+    end,
+    requires = "nvim-lua/plenary.nvim",
   }
   --}}}
 end
