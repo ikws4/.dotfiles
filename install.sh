@@ -16,6 +16,10 @@ DOTFILES="
   zsh
 "
 
+# Add tmux-256color (with strikethrough)
+echo "Add tmux-256color (with strikethrough support)"
+sudo tic -xe tmux-256color terminfo/tmux-256color.info
+
 for dir in $DOTFILES; do
   if [ -d $dir ]; then
     # stow $dir
