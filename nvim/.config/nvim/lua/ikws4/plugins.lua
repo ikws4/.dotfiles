@@ -203,6 +203,7 @@ local function plugins(use)
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-vsnip",
       "hrsh7th/cmp-path",
+      "f3fora/cmp-spell",
     },
     config = function()
       require "ikws4.config.nvim_cmp"

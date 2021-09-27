@@ -59,6 +59,9 @@ wo.foldmethod = "marker"
 o.splitbelow = true
 o.splitright = true
 
+-- spell
+bo.spelloptions = "camel"
+
 -- don't load the plugins below
 vim.g.loaded_gzip = 1
 vim.g.loaded_tar = 1

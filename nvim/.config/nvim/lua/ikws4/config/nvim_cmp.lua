@@ -68,5 +68,6 @@ cmp.setup {
     { name = "vsnip" },
     { name = "neorg" },
     { name = "path" },
+    { name = "spell" },
   },
 }
