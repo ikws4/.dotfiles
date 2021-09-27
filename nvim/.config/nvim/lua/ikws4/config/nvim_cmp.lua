@@ -15,10 +15,18 @@ local check_back_space = function()
 end
 
 cmp.setup {
+  experimental = {
+    cusom_menu = true,
+    ghost_text = true,
+  },
+  completion = {
+    completeopt = "menu,menuone,noselect",
+  },
   mapping = {
     ["<tab>"] = cmp.mapping(function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(t "<C-n>", "n")
+      if cmp.visible() then
+        -- vim.fn.feedkeys(t "<C-n>", "n")
+        cmp.select_next_item()
       elseif vim.fn["vsnip#available"](1) == 1 then
         vim.fn.feedkeys(t "<Plug>(vsnip-expand-or-jump)", "")
       elseif check_back_space() then
@@ -31,8 +39,9 @@ cmp.setup {
       "s",
     }),
     ["<S-tab>"] = cmp.mapping(function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(t "<C-p>", "n")
+      if cmp.visible() then
+        -- vim.fn.feedkeys(t "<C-p>", "n")
+        cmp.select_prev_item()
       elseif vim.fn["vsnip#jumpable"](-1) == 1 then
         vim.fn.feedkeys(t "<Plug>(vsnip-jump-prev)", "")
       else

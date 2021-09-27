@@ -8,7 +8,6 @@ o.termguicolors = true
 
 o.mouse = "a"
 
-
 o.updatetime = 250
 
 -- tabline
