@@ -1,4 +1,5 @@
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
+local lib = require'nvim-tree.lib'
 local wk = require "which-key"
 
 vim.g.nvim_tree_show_icons = {
@@ -17,26 +18,24 @@ vim.g.nvim_tree_width_allow_resize = 1
 vim.g.nvim_tree_root_folder_modifier = ":t"
 vim.g.nvim_tree_ignore = { ".DS_Store", ".git", "node_modules" }
 
+function _G.system_open()
+local node = lib.get_node_at_cursor()
+  vim.fn.system { "qlmanage", "-p", node.link_to or node.absolute_path }
+end
+
 require("nvim-tree").setup {
   hijack_cursor = true,
   update_cwd = true,
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
-    enable = false,
+    enable = true,
     -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
     -- only relevant when `update_focused_file.enable` is true
-    update_cwd = false,
+    update_cwd = true,
     -- list of buffer names / filetypes that will not update the cwd if the file isn't found under the current root directory
     -- only relevant when `update_focused_file.update_cwd` is true and `update_focused_file.enable` is true
     ignore_list = {},
-  },
-  -- configuration options for the system open command (`s` in the tree by default)
-  system_open = {
-    -- the command to run this, leaving nil should work in most cases
-    cmd = "",
-    -- the command arguments as a list
-    args = {},
   },
 
   view = {
@@ -49,6 +48,10 @@ require("nvim-tree").setup {
 
         { key = "<Tab>", cb = tree_cb "edit" },
 
+        {
+          key = "o",
+          cb = "<Cmd>lua system_open()<CR>",
+        },
         { key = "a", cb = tree_cb "create" },
         { key = "d", cb = tree_cb "remove" },
         { key = "r", cb = tree_cb "rename" },
