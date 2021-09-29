@@ -1,10 +1,18 @@
 local lsp_status = require "lsp-status"
 
+local disable_filetypes = { "NvimTree" }
+
 require("lualine").setup {
   options = {
     section_separators = { "", "" },
     component_separators = { "", "" },
     theme = "rose-pine",
+  },
+  extensions = {
+    {
+      filetypes = disable_filetypes,
+      sections = {},
+    },
   },
   sections = {
     lualine_a = {
