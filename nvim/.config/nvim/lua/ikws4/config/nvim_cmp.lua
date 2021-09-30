@@ -78,5 +78,6 @@ cmp.setup {
     { name = "neorg" },
     { name = "path" },
     { name = "spell" },
+    { name = "buffer" },
   },
 }
