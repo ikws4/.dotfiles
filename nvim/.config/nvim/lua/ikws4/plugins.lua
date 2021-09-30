@@ -307,7 +307,7 @@ local function plugins(use)
   -- document with as few keystrokes as possible.
   use {
     "phaazon/hop.nvim",
-    after = "which-key.nvim",
+    opt = true,
     config = function()
       require("hop").setup()
       require("which-key").register {
