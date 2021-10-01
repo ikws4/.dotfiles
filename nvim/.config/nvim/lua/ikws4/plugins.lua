@@ -20,6 +20,7 @@ local function plugins(use)
   use {
     "mvllow/modes.nvim",
     event = "BufRead",
+    disable = true,
     config = function()
       require("modes").setup()
     end,
@@ -325,7 +326,7 @@ local function plugins(use)
   -- document with as few keystrokes as possible.
   use {
     "phaazon/hop.nvim",
-    opt = true,
+    disable = true,
     config = function()
       require("hop").setup()
       require("which-key").register {
