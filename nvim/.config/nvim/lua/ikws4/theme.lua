@@ -1,6 +1,9 @@
-vim.o.fillchars = "eob: ,"
-vim.g.rose_pine_variant = 'moon'
+vim.o.fillchars = "eob: ,vert: "
+vim.g.rose_pine_variant = "moon"
 vim.g.rose_pine_bold_vertical_split_line = true
+
+function _G.themeOverride()
+end
 
 -- Highlight on yank
 vim.cmd [[
@@ -10,4 +13,12 @@ vim.cmd [[
   augroup END
 ]]
 
-vim.cmd('colorscheme rose-pine')
+-- Theme Override
+vim.cmd [[
+  augroup ThemeOverride
+    autocmd!
+    autocmd ColorScheme rose-pine lua themeOverride()
+  augroup END
+]]
+
+vim.cmd "colorscheme rose-pine"

@@ -114,7 +114,7 @@ local function plugins(use)
     keys = "<leader>wm",
     config = function()
       require("winshift").setup {
-        focused_hl_group = "CursorLine",
+        focused_hl_group = "DarkenedPanel",
       }
       require("which-key").register {
         ["<leader>wm"] = { "<Cmd>WinShift<CR>", "Move windows" },
