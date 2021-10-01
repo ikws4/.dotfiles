@@ -260,7 +260,7 @@ local function plugins(use)
           marks = true,
           registers = true,
           presets = {
-            operators = true,
+            operators = false,
             motions = true,
             text_objects = true,
             windows = false,
