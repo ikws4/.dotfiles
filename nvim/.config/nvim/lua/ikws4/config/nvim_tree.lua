@@ -1,6 +1,9 @@
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
-local lib = require'nvim-tree.lib'
+local lib = require "nvim-tree.lib"
 local wk = require "which-key"
+
+-- Override winhl
+require("nvim-tree.view").View.winopts.winhl = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
 
 vim.g.nvim_tree_show_icons = {
   git = 1,
@@ -19,7 +22,7 @@ vim.g.nvim_tree_root_folder_modifier = ":t"
 vim.g.nvim_tree_ignore = { ".DS_Store", ".git", "node_modules" }
 
 function _G.system_open()
-local node = lib.get_node_at_cursor()
+  local node = lib.get_node_at_cursor()
   vim.fn.system { "qlmanage", "-p", node.link_to or node.absolute_path }
 end
 

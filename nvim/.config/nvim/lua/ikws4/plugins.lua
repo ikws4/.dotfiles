@@ -11,6 +11,7 @@ local function plugins(use)
   -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
   use {
     "hoob3rt/lualine.nvim",
+    event = "ColorScheme",
     config = function()
       require "ikws4.config.lualine"
     end,
@@ -103,8 +104,38 @@ local function plugins(use)
   -- An Nvim lua plugin that dims your inactive windows
   use {
     "sunjon/Shade.nvim",
+    disable = true,
     config = function()
       require("shade").setup { overlay_opacity = 15 }
+    end,
+  }
+
+  use {
+    "beauwilliams/focus.nvim",
+    config = function()
+      require("focus").setup {
+        cursorline = false,
+        signcolumn = true,
+        winhighlight = true,
+        bufnew = true,
+      }
+
+      require("which-key").register {
+        ["<leader>wn"] = { "<Cmd>FocusSplitNicely<CR>", "Split nicely" },
+        ["<leader>wf"] = { "<Cmd>FocusMaximise<CR>", "Fullscreen" },
+        ["<leader>w="] = { "<Cmd>FocusEqualise<CR>", "Equally high and wide" },
+      }
+
+      vim.cmd "hi link UnfocusedWindow DarkenedPanel"
+      vim.cmd "hi link FocusedWindow Normal"
+
+      vim.cmd [[
+        augroup focus_signcolumn_override
+          autocmd!
+          autocmd BufEnter,WinEnter NvimTree setlocal signcolumn=yes
+          autocmd BufLeave,WinLeave NvimTree setlocal signcolumn=yes
+        augroup END
+      ]]
     end,
   }
 

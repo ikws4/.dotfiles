@@ -3,12 +3,15 @@ vim.g.rose_pine_variant = "moon"
 vim.g.rose_pine_bold_vertical_split_line = true
 
 function _G.themeOverride()
+  local p = require "rose-pine.palette"
+  local hi = require("rose-pine.util").highlight
+
   -- TODO: Make PR to rose-pine
-  vim.cmd("hi FloatBorder guibg=#232136 guifg=#59546d")
-  vim.cmd("hi TelescopeBorder guifg=#59546d")
-  vim.cmd("hi StatusLine guifg=#e0def4 guibg=#232136")
-  vim.cmd("hi StatusLineNC guifg=#817c9c guibg=#232136")
-  vim.cmd("hi! link NvimTreeNormal DarkenedPanel")
+  hi("FloatBorder", { fg = p.inactive })
+  hi("TelescopeBorder", { fg = p.inactive })
+  hi("StatusLine", { fg = p.text, bg = p.surface })
+  hi("StatusLineNC", { fg = p.subtle, bg = p.surface })
+  -- vim.cmd("hi NvimTreeNormal guibg=#1f1d30")
 end
 
 -- Highlight on yank
