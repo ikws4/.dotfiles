@@ -106,6 +106,21 @@ local function plugins(use)
       require("shade").setup { overlay_opacity = 35 }
     end,
   }
+
+  -- Rearrange your windows with ease.
+  use {
+    "sindrets/winshift.nvim",
+    cmd = "WinShift",
+    keys = "<leader>wm",
+    config = function()
+      require("winshift").setup {
+        focused_hl_group = "CursorLine",
+      }
+      require("which-key").register {
+        ["<leader>wm"] = { "<Cmd>WinShift<CR>", "Move windows" },
+      }
+    end,
+  }
   -- }}}
 
   -- Util {{{
