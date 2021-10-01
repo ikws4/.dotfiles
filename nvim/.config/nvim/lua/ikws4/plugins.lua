@@ -495,7 +495,7 @@ local function plugins(use)
       }
       require("which-key").register {
         ["<leader>g"] = {
-          g = { "<Cmd>lua require('neogit').open({kind = 'split_above'})<CR>", "Neogit status" },
+          g = { "<Cmd>lua require('neogit').open()<CR>", "Neogit status" },
           b = { "<Cmd>lua require('neogit').open({'branch'})<CR>", "Neogit branch" },
         },
       }
