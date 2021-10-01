@@ -96,6 +96,9 @@ local function plugins(use)
     end,
   }
 
+  --}}}
+
+  -- Window {{{
   -- An Nvim lua plugin that dims your inactive windows
   use {
     "sunjon/Shade.nvim",
@@ -103,7 +106,7 @@ local function plugins(use)
       require("shade").setup { overlay_opacity = 35 }
     end,
   }
-  --}}}
+  -- }}}
 
   -- Util {{{
   -- Icons
