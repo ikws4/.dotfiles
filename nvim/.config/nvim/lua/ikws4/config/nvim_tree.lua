@@ -3,7 +3,7 @@ local lib = require "nvim-tree.lib"
 local wk = require "which-key"
 
 -- Override winhl
-require("nvim-tree.view").View.winopts.winhl = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
+require("nvim-tree.view").View.winopts.winhl = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,EndOfBuffer:NvimTreeEndOfBuffer,CursorLine:NvimTreeCursorLine,VertSplit:NvimTreeVertSplit,SignColumn:NvimTreeNormal"
 
 vim.g.nvim_tree_show_icons = {
   git = 1,
