@@ -45,6 +45,15 @@ local function plugins(use)
     after = "which-key.nvim",
     keys = "<leader>m",
     config = function()
+      require("FTerm").setup {
+        hl = "NormalFloat",
+        dimensions = {
+          height = 0.9,
+          width = 0.8,
+          x = 0.5,
+          y = 0.4,
+        },
+      }
       require("which-key").register {
         ["<leader>m"] = { "<Cmd>lua require('FTerm').open()<CR>", "Open floating terminal" },
         ["<Esc>"] = { "<cmd>lua require('FTerm').close()<CR>", "Open floating terminal", mode = "t" },

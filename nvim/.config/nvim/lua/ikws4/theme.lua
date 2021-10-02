@@ -7,8 +7,11 @@ function _G.themeOverride()
   local hi = require("rose-pine.util").highlight
 
   -- TODO: Make PR to rose-pine
-  hi("FloatBorder", { fg = p.inactive })
-  hi("TelescopeBorder", { fg = p.inactive })
+  hi("FloatBorder", { fg = p.inactive, bg = p.surface })
+  hi("NormalFloat", { bg = p.surface })
+  hi("TelescopeBorder", { link = "FloatBorder" })
+  hi("TelescopeNormal", { link = "NormalFloat" })
+  hi("TelescopePreviewNormal", { link = "NormalFloat" })
   hi("StatusLine", { fg = p.text, bg = p.surface })
   hi("StatusLineNC", { fg = p.subtle, bg = p.surface })
 end
