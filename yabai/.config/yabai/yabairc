@@ -35,10 +35,10 @@ yabai -m space 3 --label "[3] Work"
 yabai -m space 4 --label "[4] Dev"
 yabai -m space 5 --label "[5] Music & Chat"
 
+# non border app
+yabai -m rule --add app="Alacritty" border=off
 
 # floating app
-yabai -m rule --add app="^Google Chrome$"
-
 yabai -m rule --add app="Finder" grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="^Font Book$" grid=11:7:1:1:5:9 manage=off
 yabai -m rule --add app="^Digital Color Meter$" manage=off
