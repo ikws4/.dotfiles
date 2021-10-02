@@ -88,20 +88,12 @@ local function plugins(use)
     "rcarriga/nvim-notify",
     event = "ColorScheme",
     config = function()
-      local icons = require "codicons"
       local notify = require "notify"
 
       notify.setup {
         stages = "slide",
         background_colour = "Normal",
         timeout = 2500,
-        icons = {
-          ERROR = icons.get("error", "icon"),
-          WARN = icons.get("warning", "icon"),
-          INFO = icons.get("info", "icon"),
-          DEBUG = icons.get("debug", "icon"),
-          TRACE = icons.get("dashboard", "icon"),
-        },
       }
 
       vim.notify = notify
