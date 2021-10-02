@@ -115,7 +115,7 @@ local function plugins(use)
     config = function()
       require("focus").setup {
         cursorline = false,
-        signcolumn = true,
+        signcolumn = false,
         winhighlight = true,
         bufnew = true,
       }
@@ -128,14 +128,7 @@ local function plugins(use)
 
       vim.cmd "hi link UnfocusedWindow DarkenedPanel"
       vim.cmd "hi link FocusedWindow Normal"
-
-      vim.cmd [[
-        augroup focus_signcolumn_override
-          autocmd!
-          autocmd BufEnter,WinEnter NvimTree setlocal signcolumn=yes
-          autocmd BufLeave,WinLeave NvimTree setlocal signcolumn=yes
-        augroup END
-      ]]
+      vim.wo.winhighlight = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
     end,
   }
 

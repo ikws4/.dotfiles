@@ -11,7 +11,6 @@ function _G.themeOverride()
   hi("TelescopeBorder", { fg = p.inactive })
   hi("StatusLine", { fg = p.text, bg = p.surface })
   hi("StatusLineNC", { fg = p.subtle, bg = p.surface })
-  -- vim.cmd("hi NvimTreeNormal guibg=#1f1d30")
 end
 
 -- Highlight on yank
