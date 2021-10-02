@@ -46,12 +46,13 @@ local function plugins(use)
     keys = "<leader>m",
     config = function()
       require("FTerm").setup {
-        hl = "NormalFloat",
+        hl = "Normal",
+        border = "solid",
         dimensions = {
-          height = 0.9,
-          width = 0.8,
-          x = 0.5,
-          y = 0.4,
+          height = 0.88,
+          width = 0.78,
+          x = 0.45,
+          y = 0.3,
         },
       }
       require("which-key").register {
@@ -558,7 +559,7 @@ require("packer").startup {
           border = "single",
         }
 
-        vim.api.nvim_win_set_option(win, 'winhighlight', 'Normal:NormalFloat')
+        vim.api.nvim_win_set_option(win, "winhighlight", "Normal:NormalFloat")
 
         return succeed, win, buf
       end,

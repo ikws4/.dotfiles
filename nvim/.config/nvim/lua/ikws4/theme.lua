@@ -8,11 +8,12 @@ function _G.themeOverride()
 
   -- TODO: Make PR to rose-pine
   hi("VertSplit", { fg = p.inactive, bg = p.surface })
-  hi("FloatBorder", { fg = p.inactive, bg = p.surface })
+  hi("FloatBorder", { fg = p.base, bg = p.base })
   hi("NormalFloat", { bg = p.surface })
-  hi("TelescopeBorder", { link = "FloatBorder" })
-  hi("TelescopeNormal", { link = "NormalFloat" })
-  hi("TelescopePreviewNormal", { link = "NormalFloat" })
+  hi("TelescopeBorder", { fg = p.base, bg = p.base })
+  -- hi("TelescopeBorder", { link = "FloatBorder" })
+  -- hi("TelescopeNormal", { link = "NormalFloat" })
+  -- hi("TelescopePreviewNormal", { link = "NormalFloat" })
   hi("StatusLine", { fg = p.text, bg = p.surface })
   hi("StatusLineNC", { fg = p.subtle, bg = p.surface })
 end
