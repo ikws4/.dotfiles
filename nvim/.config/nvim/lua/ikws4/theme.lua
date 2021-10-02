@@ -1,12 +1,13 @@
-vim.o.fillchars = "eob: ,vert: "
+vim.o.fillchars = "eob: ,vert:|"
 vim.g.rose_pine_variant = "moon"
-vim.g.rose_pine_bold_vertical_split_line = true
+vim.g.rose_pine_bold_vertical_split_line = false
 
 function _G.themeOverride()
   local p = require "rose-pine.palette"
   local hi = require("rose-pine.util").highlight
 
   -- TODO: Make PR to rose-pine
+  hi("VertSplit", { fg = p.inactive, bg = p.surface })
   hi("FloatBorder", { fg = p.inactive, bg = p.surface })
   hi("NormalFloat", { bg = p.surface })
   hi("TelescopeBorder", { link = "FloatBorder" })
