@@ -356,6 +356,8 @@ local function plugins(use)
     requires = { "nvim-treesitter/nvim-treesitter-textobjects" },
   }
 
+  use "nathom/filetype.nvim"
+
   --}}}
 
   -- Motion {{{
