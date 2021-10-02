@@ -561,13 +561,9 @@ require("packer").startup {
     compile_path = compile_path,
     display = {
       open_fn = function()
-        local succeed, win, buf = require("packer.util").float {
-          border = "single",
+        return require("packer.util").float {
+          border = "solid",
         }
-
-        vim.api.nvim_win_set_option(win, "winhighlight", "Normal:NormalFloat")
-
-        return succeed, win, buf
       end,
     },
   },
