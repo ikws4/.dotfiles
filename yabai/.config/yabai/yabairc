@@ -16,10 +16,8 @@ yabai -m config window_shadow                float
 
 yabai -m config window_border                on
 yabai -m config window_border_width          6
-
-yabai -m config normal_window_border_color   0xFF1B222D
-yabai -m config active_window_border_color   0xFF2B354B
-
+yabai -m config normal_window_border_color   0XFF232136
+yabai -m config active_window_border_color   0XFF3F3C53
 
 # general space settings
 yabai -m config layout                       bsp
