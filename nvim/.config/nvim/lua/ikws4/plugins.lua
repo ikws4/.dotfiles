@@ -278,7 +278,10 @@ local function plugins(use)
     "hrsh7th/vim-vsnip",
     requires = { "rafamadriz/friendly-snippets" },
     config = function ()
-      vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
+      vim.g.vsnip_snippet_dirs = {
+        vim.fn.stdpath "data" .. "/site/pack/packer/start/friendly-snippets/snippets",
+        vim.fn.stdpath("config") .. "/snippets"
+      }
     end
   }
 
