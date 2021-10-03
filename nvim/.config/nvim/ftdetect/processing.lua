@@ -1,3 +1,8 @@
 vim.cmd [[
- autocmd BufRead,BufNewFile *.pde set filetype=processing
+  augroup ProcessingInit
+    autocmd!
+    autocmd BufRead,BufNewFile *.pde set filetype=processing
+    autocmd BufRead,BufNewFile *.pde compiler processing 
+    autocmd BufRead,BufNewFile *.pde execute "!yabai -m rule --add app='" expand("%:p:h:t") .. "' manage=off"
+  augroup END
 ]]
