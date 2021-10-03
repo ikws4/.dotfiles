@@ -8,6 +8,9 @@ parser_configs.norg = {
   },
 }
 
+
+parser_configs.java.used_by = "processing"
+
 require("nvim-treesitter.configs").setup {
   ensure_installed = {
     "java",
