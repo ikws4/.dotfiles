@@ -148,6 +148,13 @@
     ],
     "description": "stroke"
   },
+  "noStroke": {
+    "prefix": "noStroke",
+    "body": [
+      "noStroke();"
+    ],
+    "description": "noStroke"
+  },
   "strokeWeight": {
     "prefix": "strokeWeight",
     "body": [
