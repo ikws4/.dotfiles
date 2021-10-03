@@ -1,4 +1,58 @@
 {
+  "fori": {
+    "prefix": "fori",
+    "body": [
+      "for (int ${1:i} = 0; ${1:i} < ${2:arr.length}; ${1:i}++) {",
+      "\t$3",
+      "}"
+    ],
+    "description": "for loop"
+  },
+  "foreach": {
+    "prefix": "for",
+    "body": [
+      "for ($1) {",
+      "\t$2",
+      "}"
+    ],
+    "description": "for each loop"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ($1) {",
+      "\t$2",
+      "}"
+    ],
+    "description": "if"
+  },
+  "elif": {
+    "prefix": "elif",
+    "body": [
+      "else if ($1) {",
+      "\t$2",
+      "}"
+    ],
+    "description": "else if"
+  },
+  "else": {
+    "prefix": "else",
+    "body": [
+      "else {",
+      "\t$1",
+      "}"
+    ],
+    "description": "else"
+  },
+  "function": {
+    "prefix": "fun",
+    "body": [
+      "${1:void} ${2:name}($3) {",
+      "\t$4",
+      "}"
+    ],
+    "description": "function"
+  },
   "init": {
     "prefix": "init",
     "body": [
