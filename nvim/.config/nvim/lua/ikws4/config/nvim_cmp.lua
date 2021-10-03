@@ -23,11 +23,29 @@ cmp.setup {
     completeopt = "menu,menuone,noselect",
   },
   mapping = {
+    ["<M-l>"] = cmp.mapping(function(fallback)
+      if vim.fn["vsnip#available"](1) == 1 then
+        vim.fn.feedkeys(t "<Plug>(vsnip-expand-or-jump)", "")
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<M-L>"] = cmp.mapping(function(fallback)
+      if vim.fn["vsnip#jumpable"](-1) == 1 then
+        vim.fn.feedkeys(t "<Plug>(vsnip-jump-prev)", "")
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
     ["<tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif vim.fn["vsnip#available"](1) == 1 then
-        vim.fn.feedkeys(t "<Plug>(vsnip-expand-or-jump)", "")
       elseif check_back_space() then
         vim.fn.feedkeys(t "<tab>", "n")
       else
@@ -40,8 +58,6 @@ cmp.setup {
     ["<S-tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-        vim.fn.feedkeys(t "<Plug>(vsnip-jump-prev)", "")
       else
         fallback()
       end

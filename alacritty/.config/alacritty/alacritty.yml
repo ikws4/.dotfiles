@@ -52,6 +52,8 @@ cursor:
 key_bindings:
   - { key: A, mods: Command, chars: "\x1ba" }
   - { key: S, mods: Command, chars: "\x1bs" }
+  - { key: L, mods: Command, chars: "\x1bl" }
+  - { key: L, mods: Command|Shift, chars: "\x1bL" }
   - { key: H, mods: Command, action: None }
   - { key: M, mods: Command, action: None }
   - { key: Q, mods: Command, action: None }
