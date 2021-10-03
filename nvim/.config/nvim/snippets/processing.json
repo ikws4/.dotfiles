@@ -3,7 +3,7 @@
     "prefix": "init",
     "body": [
       "// imports {{{",
-      "import java.util.*",
+      "import java.util.*;",
       "// }}}",
       "",
       "// rose-pine colorscheme {{{",
