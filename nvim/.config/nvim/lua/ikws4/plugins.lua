@@ -356,7 +356,12 @@ local function plugins(use)
     requires = { "nvim-treesitter/nvim-treesitter-textobjects" },
   }
 
-  use "nathom/filetype.nvim"
+  -- This will break the ftdetect
+  -- https://github.com/nathom/filetype.nvim/issues/9
+  use {
+    "nathom/filetype.nvim",
+    disable = true,
+  }
 
   --}}}
 
