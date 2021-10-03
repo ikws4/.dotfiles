@@ -398,6 +398,7 @@ local function plugins(use)
     "blackCauldron7/surround.nvim",
     config = function()
       require("surround").setup { mappings_style = "surround" }
+      vim.api.nvim_del_keymap("v", "s")
     end,
   }
   --}}}
