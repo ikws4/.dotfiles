@@ -235,6 +235,11 @@ local function plugins(use)
         single_line_comment_string = "//",
         prefer_single_line_comments = true,
       })
+
+      kommentary.configure_language("processing", {
+        single_line_comment_string = "//",
+        prefer_single_line_comments = true,
+      })
     end,
   }
 
