@@ -272,6 +272,9 @@ local function plugins(use)
   use {
     "hrsh7th/vim-vsnip",
     requires = { "rafamadriz/friendly-snippets" },
+    config = function ()
+      vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
+    end
   }
 
   -- The fastest Neovim colorizer.
