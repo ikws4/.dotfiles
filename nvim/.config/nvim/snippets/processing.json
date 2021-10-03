@@ -85,7 +85,7 @@
       "}",
       "",
       "void draw() {",
-      "\tbackground(255);",
+      "\tbackground(p_base);",
       "}"
     ],
     "description": "Init processing setup"
