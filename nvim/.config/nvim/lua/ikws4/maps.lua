@@ -25,3 +25,5 @@ map("i", "<M-s>", "<C-[>:w<CR>a", opts)
 
 -- Toggle folding
 map("n", "<Tab>", "za", opts)
+
+map("n", "<localleader>s", "<Cmd>lua vim.o.spell = not vim.o.spell<CR>", opts)
