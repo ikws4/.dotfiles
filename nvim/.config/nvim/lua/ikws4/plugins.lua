@@ -32,6 +32,7 @@ local function plugins(use)
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     keys = "<leader>z",
+    disable = true,
     config = function()
       require "ikws4.config.zen_mode"
     end,
@@ -158,6 +159,7 @@ local function plugins(use)
   -- Interact with Jupyter from NeoVim.
   use {
     "dccsillag/magma-nvim",
+    disable = true,
     ft = "python",
     run = "<Cmd>UpdateRemotePlugins",
     config = function()
@@ -396,6 +398,7 @@ local function plugins(use)
   -- A surround text object plugin for neovim written in lua.
   use {
     "blackCauldron7/surround.nvim",
+    disable = true,
     config = function()
       require("surround").setup { mappings_style = "surround" }
       vim.api.nvim_del_keymap("v", "s")
