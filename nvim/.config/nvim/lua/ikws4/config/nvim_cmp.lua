@@ -87,8 +87,8 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "nvim_lsp" },
     { name = "vsnip" },
+    { name = "nvim_lsp" },
     { name = "neorg" },
     { name = "path" },
     { name = "spell" },
