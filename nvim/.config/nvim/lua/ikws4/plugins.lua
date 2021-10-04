@@ -279,12 +279,12 @@ local function plugins(use)
   use {
     "hrsh7th/vim-vsnip",
     requires = { "rafamadriz/friendly-snippets" },
-    config = function ()
+    config = function()
       vim.g.vsnip_snippet_dirs = {
         vim.fn.stdpath "data" .. "/site/pack/packer/start/friendly-snippets/snippets",
-        vim.fn.stdpath("config") .. "/snippets"
+        vim.fn.stdpath "config" .. "/snippets",
       }
-    end
+    end,
   }
 
   -- The fastest Neovim colorizer.
@@ -543,6 +543,31 @@ local function plugins(use)
         -- Tell Neorg what modules to load
         load = {
           ["core.defaults"] = {}, -- Load all the default modules
+          ["core.integrations.treesitter"] = {
+            config = {
+              highlights = {
+                Tag = {
+                  Name = {
+                    [""] = "+TSKeyword",
+                  },
+                  Content = "guibg=NONE",
+                },
+                CarryoverTag = {
+                  Name = {
+                    [""] = "+TSLabel",
+                  },
+                },
+                Marker = {
+                  Title = "+TSLabel",
+                },
+              },
+              dim = {
+                CodeBlock = {
+                  reference = "",
+                },
+              },
+            },
+          },
           ["core.norg.concealer"] = {}, -- Allows for use of icons
           ["core.norg.dirman"] = { -- Manage your directories with Neorg
             config = {
