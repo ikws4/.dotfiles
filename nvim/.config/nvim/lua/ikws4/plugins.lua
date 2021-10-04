@@ -503,6 +503,7 @@ local function plugins(use)
           u = { "<Cmd>Gitsigns undo_stage_hunk<CR>", "Git unstage hunk" },
           r = { "<Cmd>Gitsigns reset_stage_hunk<CR>", "Revert hunk" },
           R = { "<Cmd>Gitsigns reset_buffer<CR>", "Revert file" },
+          b = { "<Cmd>Gitsigns blame_line<CR>", "Blame current line" },
         },
       }
     end,
@@ -525,7 +526,6 @@ local function plugins(use)
       require("which-key").register {
         ["<leader>g"] = {
           g = { "<Cmd>lua require('neogit').open()<CR>", "Neogit status" },
-          b = { "<Cmd>lua require('neogit').open({'branch'})<CR>", "Neogit branch" },
         },
       }
     end,
