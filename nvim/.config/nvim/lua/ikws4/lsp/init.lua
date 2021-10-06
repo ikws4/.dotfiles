@@ -56,6 +56,10 @@ null_ls.setup {
   },
   on_attach = on_attach,
 }
+lspconfig["gdscript"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 -- general servers
 lspinstall.setup()
