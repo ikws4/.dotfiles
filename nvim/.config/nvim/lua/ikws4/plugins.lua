@@ -366,7 +366,7 @@ local function plugins(use)
       require "ikws4.config.nvim_treesitter"
     end,
     run = "<Cmd>TSUpdate",
-    requires = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    requires = { "nvim-treesitter/nvim-treesitter-textobjects", "nvim-treesitter/nvim-treesitter-refactor" },
   }
 
   -- This will break the ftdetect
