@@ -563,7 +563,8 @@ local function plugins(use)
               },
               dim = {
                 CodeBlock = {
-                  reference = "",
+                  reference = "UnfocusedWindow",
+                  percentage = 0,
                 },
               },
             },
