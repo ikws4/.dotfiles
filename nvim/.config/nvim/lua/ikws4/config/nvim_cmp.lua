@@ -81,10 +81,7 @@ cmp.setup {
     end,
   },
   formatting = {
-    format = function(_, vim_item)
-      vim_item.kind = lspkind.presets.codicons[vim_item.kind]
-      return vim_item
-    end,
+    format = lspkind.cmp_format { preset = "codicons", with_text = false },
   },
   sources = {
     { name = "vsnip" },
