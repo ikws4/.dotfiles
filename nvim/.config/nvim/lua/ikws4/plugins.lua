@@ -262,7 +262,6 @@ local function plugins(use)
   -- A completion plugin for neovim coded in Lua.
   use {
     "hrsh7th/nvim-cmp",
-    branch = "custom-menu",
     requires = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
