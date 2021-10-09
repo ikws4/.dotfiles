@@ -35,6 +35,7 @@ set -gx MANWIDTH 999
 set -gx LANG 'en_US.UTF-8'
 
 fish_add_path /Users/zhipingne/.cargo/bin
+fish_add_path /Users/zhipingne/.npm-global/bin
 
 function fish_greeting
 end
