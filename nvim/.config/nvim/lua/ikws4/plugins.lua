@@ -32,7 +32,6 @@ local function plugins(use)
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     keys = "<leader>z",
-    disable = true,
     config = function()
       require "ikws4.config.zen_mode"
     end,

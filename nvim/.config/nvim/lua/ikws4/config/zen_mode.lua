@@ -1,12 +1,13 @@
-local shade = require "shade"
+-- local shade = require "shade"
 local wk = require "which-key"
 
 require("zen-mode").setup {
   window = {
     backdrop = 0.92,
-    width = 0.85,
+    width = 0.78,
+    height = 0.88,
     options = {
-      signcolumn = "no",
+      signcolumn = "yes:1",
       number = true,
       relativenumber = true,
       cursorline = false,
@@ -16,15 +17,15 @@ require("zen-mode").setup {
     },
   },
   plugins = {
-    gitsigns = { enabled = false },
+    gitsigns = { enabled = true },
     tmux = { enabled = true },
   },
-  on_open = function(_)
-    shade.toggle()
-  end,
-  on_close = function()
-    shade.toggle()
-  end,
+  -- on_open = function(_)
+  --   shade.toggle()
+  -- end,
+  -- on_close = function()
+  --   shade.toggle()
+  -- end,
 }
 
 wk.register {
