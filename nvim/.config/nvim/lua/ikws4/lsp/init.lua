@@ -14,6 +14,11 @@ local lsp_diagnostic_signs = {
 }
 
 local on_attach = function(client, bufnr)
+  -- Disable builtin formating
+  -- TODO: should add more formatter in null_ls
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
+
   lsp_status.on_attach(client)
   lsp_signature.on_attach {
     bind = true,
