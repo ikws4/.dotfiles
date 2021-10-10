@@ -393,6 +393,10 @@ local function plugins(use)
     end,
   }
 
+  use {
+    "ggandor/lightspeed.nvim",
+  }
+
   -- A surround text object plugin for neovim written in lua.
   use {
     "blackCauldron7/surround.nvim",
