@@ -3,9 +3,9 @@ local actions = require "telescope.actions"
 local themes = require "telescope.themes"
 local wk = require "which-key"
 
-local lsp_preview_theme = themes.get_ivy {
+local ivy_theme = themes.get_ivy {
   layout_config = {
-    height = 0.4,
+    height = 0.55,
   },
 }
 
@@ -37,16 +37,18 @@ telescope.setup {
       },
     },
     -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-    borderchars = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙", },
+    -- borderchars = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙", },
+    borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
     prompt_prefix = " ",
     selection_caret = " ",
   },
   pickers = {
-    lsp_references = lsp_preview_theme,
-    lsp_definitions = lsp_preview_theme,
-    lsp_implementations = lsp_preview_theme,
-    lsp_workspace_diagnostics = lsp_preview_theme,
+    lsp_references = ivy_theme,
+    lsp_definitions = ivy_theme,
+    lsp_implementations = ivy_theme,
+    lsp_workspace_diagnostics = ivy_theme,
     lsp_code_actions = themes.get_cursor(),
+    current_buffer_fuzzy_find = ivy_theme,
     file_browser = {
       sorting_strategy = "ascending",
       hidden = true,
@@ -73,7 +75,7 @@ wk.register {
   ["<leader>bb"] = { "<Cmd>Telescope buffers<CR>", "Switch buffer" },
   ["<leader>sh"] = { "<Cmd>Telescope help_tags<CR>", "Search help" },
   ["<leader>sb"] = { "<Cmd>Telescope current_buffer_fuzzy_find<CR>", "Search buffer" },
-  ["/"] = { "<Cmd>Telescope current_buffer_fuzzy_find theme=get_ivy<CR>", "Search buffer" },
+  ["/"] = { "<Cmd>Telescope current_buffer_fuzzy_find<CR>", "Search buffer" },
   ["<leader>sB"] = { "<cmd>Telescope live_grep grep_open_files=true<CR>", "Search all open buffers" },
   ["<leader>sp"] = { "<Cmd>Telescope live_grep<CR>", "Search project" },
 }
