@@ -36,6 +36,7 @@ set -gx LANG 'en_US.UTF-8'
 
 fish_add_path /Users/zhipingne/.cargo/bin
 fish_add_path /Users/zhipingne/.npm-global/bin
+fish_add_path /Users/zhipingne/.gem/ruby/2.6.0/bin
 
 function fish_greeting
 end
