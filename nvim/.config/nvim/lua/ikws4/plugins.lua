@@ -114,6 +114,7 @@ local function plugins(use)
 
   use {
     "beauwilliams/focus.nvim",
+    event = "ColorScheme",
     config = function()
       require("focus").setup {
         cursorline = false,
@@ -128,8 +129,6 @@ local function plugins(use)
         ["<leader>w="] = { "<Cmd>FocusEqualise<CR>", "Equally high and wide" },
       }
 
-      vim.cmd "hi link UnfocusedWindow DarkenedPanel"
-      vim.cmd "hi link FocusedWindow Normal"
       vim.wo.winhighlight = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
     end,
   }

@@ -16,6 +16,9 @@ function _G.themeOverride()
   -- hi("TelescopePreviewNormal", { link = "NormalFloat" })
   hi("StatusLine", { fg = p.text, bg = p.surface })
   hi("StatusLineNC", { fg = p.subtle, bg = p.surface })
+
+  hi("UnfocusedWindow", { link = "DarkenedPanel" })
+  hi("FocusedWindow", { link = "Normal" })
 end
 
 -- Highlight on yank
