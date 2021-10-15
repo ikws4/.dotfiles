@@ -513,7 +513,7 @@ local function plugins(use)
   -- magit for neovim
   use {
     "TimUntersberger/neogit",
-    keys = { "<leader>gg", "<leader>gb" },
+    keys = { "<leader>gg" },
     config = function()
       require("neogit").setup {
         disable_commit_confirmation = true,
