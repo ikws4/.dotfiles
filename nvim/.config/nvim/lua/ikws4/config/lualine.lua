@@ -30,9 +30,9 @@ local theme = {
     c = { bg = p.base, fg = p.text },
   },
   inactive = {
-    a = { bg = p.surface, fg = p.inactive, gui = "bold" },
-    b = { bg = p.surface, fg = p.inactive },
-    c = { bg = p.surface, fg = p.inactive },
+    a = { bg = p.base, fg = p.inactive, gui = "bold" },
+    b = { bg = p.base, fg = p.inactive },
+    c = { bg = p.base, fg = p.inactive },
   },
 }
 
