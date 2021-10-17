@@ -1,5 +1,6 @@
 local lspconfig = require "lspconfig"
-local lspinstall = require "lspinstall"
+-- local lspinstall = require "lspinstall"
+local lsp_installer = require "nvim-lsp-installer"
 local lsp_status = require "lsp-status"
 local lsp_signature = require "lsp_signature"
 local flutter_tools = require "flutter-tools"
@@ -67,14 +68,34 @@ lspconfig["gdscript"].setup {
 }
 
 -- general servers
-lspinstall.setup()
-for _, server in pairs(lspinstall.installed_servers()) do
-  local config = {
+-- lspinstall.setup()
+-- for _, server in pairs(lspinstall.installed_servers()) do
+--   local config = {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--   }
+
+--   if server == "lua" then
+--     local res = require("lua-dev").setup {
+--       library = {
+--         vimruntime = true,
+--         types = true,
+--         plugins = true,
+--       },
+--     }
+--     config = vim.tbl_deep_extend("force", res, config)
+--   end
+
+--   lspconfig[server].setup(config)
+-- end
+
+lsp_installer.on_server_ready(function(server)
+  local opts = {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 
-  if server == "lua" then
+  if server.name == "lua" then
     local res = require("lua-dev").setup {
       library = {
         vimruntime = true,
@@ -82,11 +103,12 @@ for _, server in pairs(lspinstall.installed_servers()) do
         plugins = true,
       },
     }
-    config = vim.tbl_deep_extend("force", res, config)
+    opts = vim.tbl_deep_extend("force", res, opts)
   end
 
-  lspconfig[server].setup(config)
-end
+  server:setup(opts)
+  vim.cmd [[ do User LspAttachBuffers ]]
+end)
 
 --- Define diagnostic signs
 for k, v in pairs(lsp_diagnostic_signs) do
