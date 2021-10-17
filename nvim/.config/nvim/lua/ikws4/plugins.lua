@@ -124,7 +124,7 @@ local function plugins(use)
       }
 
       require("which-key").register {
-        ["<leader>wn"] = { "<Cmd>FocusSplitNicely<CR>", "Split nicely" },
+        ["<leader>wn"] = { "<Cmd>FocusSplitNicely<CR><Cmd>Telescope find_files hidden=true<CR>", "Split nicely" },
         ["<leader>wf"] = { "<Cmd>FocusMaximise<CR>", "Fullscreen" },
         ["<leader>w="] = { "<Cmd>FocusEqualise<CR>", "Equally high and wide" },
       }
