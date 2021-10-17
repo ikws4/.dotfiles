@@ -1,3 +1,4 @@
+---@diagnostic disable: different-requires
 local function plugins(use)
   use "wbthomason/packer.nvim"
 
@@ -37,7 +38,10 @@ local function plugins(use)
     end,
   }
 
-  use { "mhinz/vim-startify" }
+  use {
+    "mhinz/vim-startify",
+    disable = true,
+  }
 
   -- No-nonsense floating terminal plugin for neovim
   use {
