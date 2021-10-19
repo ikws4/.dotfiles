@@ -38,10 +38,7 @@ local function plugins(use)
     end,
   }
 
-  use {
-    "mhinz/vim-startify",
-    disable = true,
-  }
+  use { "mhinz/vim-startify" }
 
   -- No-nonsense floating terminal plugin for neovim
   use {
