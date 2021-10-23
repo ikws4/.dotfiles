@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
-map("i", "jk", "<Esc>", opts)
+-- map("i", "jk", "<Esc>", opts)
 
 -- window navigation
 map("n", "<leader>w", "<C-w>", opts)
