@@ -9,6 +9,13 @@ local function plugins(use)
     as = "rose-pine",
   }
 
+  use {
+    'glepnir/dashboard-nvim',
+    config = function()
+      require "ikws4.config.dashboard"
+    end
+  }
+
   -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
   use {
     "hoob3rt/lualine.nvim",
@@ -155,7 +162,10 @@ local function plugins(use)
 
   -- Util {{{
   -- Icons
-  use "mortepau/codicons.nvim"
+  use {
+    "mortepau/codicons.nvim",
+    module = "codicons",
+  }
   use "kyazdani42/nvim-web-devicons"
 
   -- Interact with Jupyter from NeoVim.
@@ -247,6 +257,19 @@ local function plugins(use)
     end,
   }
 
+  use {
+    "rafamadriz/friendly-snippets",
+    event = "InsertEnter",
+  }
+
+  -- A completion plugin for neovim coded in Lua.
+  use {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require "ikws4.config.nvim_cmp"
+    end,
+  }
+
   -- A super powerful autopairs for Neovim. It support multiple character.
   use {
     "windwp/nvim-autopairs",
@@ -261,31 +284,42 @@ local function plugins(use)
     end,
   }
 
-  -- A completion plugin for neovim coded in Lua.
-  use {
-    "hrsh7th/nvim-cmp",
-    requires = {
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/cmp-path",
-      "f3fora/cmp-spell",
-    },
-    config = function()
-      require "ikws4.config.nvim_cmp"
-    end,
-  }
-
   -- Snippet plugin for vim/nvim that supports LSP/VSCode's snippet format.
   use {
     "hrsh7th/vim-vsnip",
-    requires = { "rafamadriz/friendly-snippets" },
+    wants = "friendly-snippets",
+    after = "nvim-cmp",
     config = function()
       vim.g.vsnip_snippet_dirs = {
         vim.fn.stdpath "data" .. "/site/pack/packer/start/friendly-snippets/snippets",
         vim.fn.stdpath "config" .. "/snippets",
       }
     end,
+  }
+
+  use {
+    "hrsh7th/cmp-vsnip",
+    after = "vim-vsnip",
+  }
+
+  use {
+    "hrsh7th/cmp-buffer",
+    after = "cmp-vsnip",
+  }
+
+  use {
+    "hrsh7th/cmp-nvim-lsp",
+    after = "cmp-buffer",
+  }
+
+  use {
+    "hrsh7th/cmp-path",
+    after = "cmp-nvim-lsp",
+  }
+
+  use {
+    "f3fora/cmp-spell",
+    after = "cmp-path",
   }
 
   -- The fastest Neovim colorizer.
