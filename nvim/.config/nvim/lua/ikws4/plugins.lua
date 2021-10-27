@@ -424,7 +424,6 @@ local function plugins(use)
 
   -- Lsp {{{
   use { "neovim/nvim-lspconfig" }
-  -- use { "kabouzeid/nvim-lspinstall" }
   use { "williamboman/nvim-lsp-installer" }
   use {
     "nvim-lua/lsp-status.nvim",
@@ -432,13 +431,17 @@ local function plugins(use)
       require("lsp-status").register_progress()
     end,
   }
-  use { "ray-x/lsp_signature.nvim" }
+  use {
+    "ray-x/lsp_signature.nvim",
+    disable = true,
+  }
   use { "onsails/lspkind-nvim" }
   use { "jose-elias-alvarez/null-ls.nvim" }
 
   -- Tools to help create flutter apps in neovim using the native lsp
   use {
     "akinsho/flutter-tools.nvim",
+    disable = true,
     requires = "nvim-lua/plenary.nvim",
   }
 
