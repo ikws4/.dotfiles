@@ -38,7 +38,10 @@ local function plugins(use)
     end,
   }
 
-  use { "mhinz/vim-startify" }
+  use {
+    "mhinz/vim-startify",
+    disable = true,
+  }
 
   -- No-nonsense floating terminal plugin for neovim
   use {
@@ -288,6 +291,7 @@ local function plugins(use)
   -- The fastest Neovim colorizer.
   use {
     "norcalli/nvim-colorizer.lua",
+    event = "BufRead",
     config = function()
       require("colorizer").setup({
         "*",
@@ -376,6 +380,7 @@ local function plugins(use)
 
   use {
     "max397574/better-escape.nvim",
+    event = "InsertEnter",
     config = function()
       require("better_escape").setup {
         mapping = { "jk" },

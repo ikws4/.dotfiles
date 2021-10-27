@@ -54,13 +54,15 @@ flutter_tools.setup {
     capabilities = capabilities,
   },
 }
-null_ls.setup {
+null_ls.config {
   sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.autopep8,
   },
-  on_attach = on_attach,
+}
+lspconfig["null-ls"].setup {
+  on_attach = on_attach, 
 }
 lspconfig["gdscript"].setup {
   on_attach = on_attach,
