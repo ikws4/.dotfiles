@@ -473,7 +473,6 @@ local function plugins(use)
         }
       end
 
-      vim.cmd [[hi LightBulbFloatWin guifg=#FFCC01]]
       vim.cmd [[
         augroup LightbulbAutoGroup
           autocmd!

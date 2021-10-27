@@ -19,6 +19,8 @@ function _G.themeOverride()
 
   hi("UnfocusedWindow", { link = "DarkenedPanel" })
   hi("FocusedWindow", { link = "Normal" })
+
+  hi("LightBulbFloatWin", { fg = "#FFCC01" })
 end
 
 -- Highlight on yank
