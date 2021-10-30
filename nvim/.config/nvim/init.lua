@@ -1,9 +1,8 @@
-if not vim.g.vscode then
-  require "ikws4.maps"
-  require "ikws4.options"
-  require "ikws4.plugins"
-  require "ikws4.theme"
-  require "ikws4.lsp"
-else
-  require "ikws4.vscode"
-end
+local cmd = vim.cmd
+
+cmd [[ runtime plugin/astronauta.vim ]]
+
+require "ikws4.disable_builtin"
+require "ikws4.setting"
+require "ikws4.mapping"
+require "ikws4.plugin"

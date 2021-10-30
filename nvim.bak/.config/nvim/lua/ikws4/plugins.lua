@@ -26,16 +26,6 @@ local function plugins(use)
     end,
   }
 
-  -- Highlight UI elements based on current mode.
-  use {
-    "mvllow/modes.nvim",
-    event = "BufRead",
-    disable = true,
-    config = function()
-      require("modes").setup()
-    end,
-  }
-
   -- Distraction-free coding for Neovim
   use {
     "folke/zen-mode.nvim",
@@ -44,11 +34,6 @@ local function plugins(use)
     config = function()
       require "ikws4.config.zen_mode"
     end,
-  }
-
-  use {
-    "mhinz/vim-startify",
-    disable = true,
   }
 
   -- No-nonsense floating terminal plugin for neovim
@@ -87,11 +72,14 @@ local function plugins(use)
   -- Find, Filter, Preview, Pick. All lua, all the time.
   use {
     "nvim-telescope/telescope.nvim",
-    requires = {
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-    },
+    module = "telescope",
+    cmd = "Telescope",
+    requires = { { "nvim-telescope/telescope-fzf-native.nvim", run = "make" } },
+    setup = function()
+      require("ikws4.config.telescope").setup()
+    end,
     config = function()
-      require "ikws4.config.telescope"
+      require("ikws4.config.telescope").config()
     end,
   }
 
@@ -115,15 +103,6 @@ local function plugins(use)
   --}}}
 
   -- Window {{{
-  -- An Nvim lua plugin that dims your inactive windows
-  use {
-    "sunjon/Shade.nvim",
-    disable = true,
-    config = function()
-      require("shade").setup { overlay_opacity = 15 }
-    end,
-  }
-
   use {
     "beauwilliams/focus.nvim",
     event = "ColorScheme",
@@ -163,107 +142,17 @@ local function plugins(use)
 
   -- Util {{{
   -- Icons
-  use {
-    "mortepau/codicons.nvim",
-    module = "codicons",
-  }
+  use "mortepau/codicons.nvim"
   use "kyazdani42/nvim-web-devicons"
 
-  -- Interact with Jupyter from NeoVim.
   use {
-    "dccsillag/magma-nvim",
-    disable = true,
-    ft = "python",
-    run = "<Cmd>UpdateRemotePlugins",
+    "numToStr/Comment.nvim",
     config = function()
-      require("which-key").register {
-        ["<localleader>e"] = {
-          "nvim_exec('MagmaEvaluateOperator', v:true)",
-          "Evaluate line",
-          buffer = 0,
-          expr = true,
-        },
-        ["<localleader>ee"] = { "<Cmd>MagmaEvaluateLine<CR>", "Evaluate line", buffer = 0 },
-        ["<localleader>ed"] = { "<Cmd>MagmaDelete<CR>", "Delete evaluate output", buffer = 0 },
-        ["<localleader>ec"] = { "<Cmd>MagmaReevaluateCell<CR>", "Reevaluate cell", buffer = 0 },
-        ["<localleader>eo"] = { "<Cmd>MagmaShowOutput<CR>", "Show output", buffer = 0 },
-      }
-
-      vim.api.nvim_buf_set_keymap(
-        0,
-        "x",
-        "<localleader>e",
-        ":<C-u>MagmaEvaluateVisual<CR>",
-        { noremap = true, silent = true }
-      )
-
-      vim.g.magma_automatically_open_output = false
-    end,
-  }
-
-  use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    disable = true,
-    config = function()
-      require("todo-comments").setup {
-        signs = false,
-        keywords = {
-          FIX = {
-            icon = "",
-            color = "error",
-            alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
-          },
-          TODO = { icon = "", color = "info" },
-          HACK = { icon = "", color = "warning" },
-          WARN = { icon = "", color = "warning", alt = { "WARNING", "XXX" } },
-          PERF = { icon = "", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-          NOTE = { icon = "", color = "hint", alt = { "INFO" } },
-        },
-        highlight = {
-          keyword = "fg",
-        },
-        colors = {
-          error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
-          warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
-          info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
-          hint = { "LspDiagnosticsDefaultHint", "#10B981" },
-          default = { "Identifier", "#7C3AED" },
+      require("Comment").setup {
+        mappings = {
+          extra = false,
         },
       }
-      require("which-key").register {
-        ["<leader>st"] = { "<Cmd>TodoTelescope<CR>", "Search todos" },
-      }
-    end,
-  }
-
-  -- Neovim commenting plugin, written in lua.
-  use {
-    "b3nj5m1n/kommentary",
-    disable = true,
-    config = function()
-      local kommentary = require "kommentary.config"
-
-      kommentary.configure_language("default", {
-        prefer_single_line_comments = true,
-      })
-
-      kommentary.configure_language("dart", {
-        single_line_comment_string = "//",
-        prefer_single_line_comments = true,
-      })
-
-      kommentary.configure_language("processing", {
-        single_line_comment_string = "//",
-        prefer_single_line_comments = true,
-      })
-    end,
-  }
-
-  use {
-    "terrortylor/nvim-comment",
-    config = function()
-      require("nvim_comment").setup()
     end,
   }
 
@@ -286,11 +175,6 @@ local function plugins(use)
     event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup()
-      -- require("nvim-autopairs.completion.cmp").setup {
-      --   map_cr = true, --  map <CR> on insert mode
-      --   map_complete = true, -- it will auto insert `(` after select function or method item
-      --   auto_select = false, -- automatically select the first item
-      -- }
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
       local cmp = require "cmp"
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
@@ -340,11 +224,7 @@ local function plugins(use)
     "norcalli/nvim-colorizer.lua",
     event = "BufRead",
     config = function()
-      require("colorizer").setup({
-        "*",
-      }, {
-        names = false,
-      })
+      require("colorizer").setup({ "*" }, { names = false })
     end,
   }
 
@@ -354,58 +234,7 @@ local function plugins(use)
   use {
     "folke/which-key.nvim",
     config = function()
-      local wk = require "which-key"
-
-      wk.setup {
-        plugins = {
-          marks = true,
-          registers = true,
-          presets = {
-            operators = false,
-            motions = true,
-            text_objects = true,
-            windows = false,
-            nav = true,
-            z = true,
-            g = true,
-          },
-        },
-      }
-
-      wk.register {
-        ["<leader>"] = {
-          f = { name = "+file" },
-          b = { name = "+buffer" },
-          g = { name = "+git" },
-          s = { name = "+search" },
-          w = {
-            name = "+window",
-            s = "Split window",
-            v = "Split window vertically",
-            w = "Switch windows",
-            q = "Quit a window",
-            T = "Break out into a new tab",
-            x = "Swap current with next",
-            ["-"] = "Decrease height",
-            ["+"] = "Increase height",
-            ["<lt>"] = "Decrease width",
-            [">"] = "Increase width",
-            ["|"] = "Max out the width",
-            ["="] = "Equally high and wide",
-            h = "Go to the left window",
-            l = "Go to the right window",
-            k = "Go to the up window",
-            j = "Go to the down window",
-          },
-          q = {
-            name = "+Quickfix",
-            o = { "<Cmd>copen<CR>", "Open quickfix" },
-            c = { "<Cmd>cclose<CR>", "Close quickfix" },
-            n = { "<Cmd>cnext<CR>", "Cycle next quickfix" },
-            p = { "<Cmd>cprev<CR>", "Cycle prev quickfix" },
-          },
-        },
-      }
+      require "ikws4.config.which-key"
     end,
   }
 
@@ -438,60 +267,16 @@ local function plugins(use)
   --}}}
 
   -- Motion {{{
-
-  -- Hop is an EasyMotion-like plugin allowing you to jump anywhere in a
-  -- document with as few keystrokes as possible.
-  use {
-    "phaazon/hop.nvim",
-    disable = true,
-    config = function()
-      require("hop").setup()
-      require("which-key").register {
-        F = { "<Cmd>HopChar1BC<CR>", "Hop 1 char before" },
-        f = { "<Cmd>HopChar1AC<CR>", "Hop 1 char after" },
-        s = { "<Cmd>HopChar2<CR>", "Hop 2 char" },
-      }
-    end,
-  }
-
   use {
     "ggandor/lightspeed.nvim",
-  }
-
-  -- A surround text object plugin for neovim written in lua.
-  use {
-    "blackCauldron7/surround.nvim",
-    disable = true,
-    config = function()
-      require("surround").setup { mappings_style = "surround" }
-      vim.api.nvim_del_keymap("v", "s")
-    end,
   }
   --}}}
 
   -- Lsp {{{
   use { "neovim/nvim-lspconfig" }
   use { "williamboman/nvim-lsp-installer" }
-  use {
-    "nvim-lua/lsp-status.nvim",
-    disable = true,
-    config = function()
-      require("lsp-status").register_progress()
-    end,
-  }
-  use {
-    "ray-x/lsp_signature.nvim",
-    disable = true,
-  }
   use { "onsails/lspkind-nvim" }
   use { "jose-elias-alvarez/null-ls.nvim" }
-
-  -- Tools to help create flutter apps in neovim using the native lsp
-  use {
-    "akinsho/flutter-tools.nvim",
-    disable = true,
-    requires = "nvim-lua/plenary.nvim",
-  }
 
   -- Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
   use {
@@ -522,60 +307,16 @@ local function plugins(use)
       end
 
       vim.cmd [[
-            augroup LightbulbAutoGroup
-            autocmd!
-            autocmd CursorHold,CursorHoldI * call v:lua.lightbulb()
-            augroup END
-            ]]
+        augroup LightbulbAutoGroup
+          autocmd!
+          autocmd CursorHold,CursorHoldI * call v:lua.lightbulb()
+        augroup END
+      ]]
     end,
   }
   --}}}
 
   -- Git {{{
-  -- Super fast git decorations implemented purely in lua/teal.
-  use {
-    "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("gitsigns").setup {
-        signs = {
-          add = { hl = "GitSignsAdd", text = "┃" },
-          change = { hl = "GitSignsChange", text = "┃" },
-          delete = { hl = "GitSignsDelete", text = "┃" },
-          topdelete = { hl = "GitSignsDelete", text = "┃" },
-          changedelete = { hl = "GitSignsChangeDelete", text = "┃" },
-        },
-        keymaps = {
-          noremap = true,
-          ["v <leader>gs"] = '<Cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-          ["v <leader>gr"] = '<Cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-
-          -- Text objects
-          ["o ih"] = '<Cmd><C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-          ["x ih"] = '<Cmd><C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-        },
-        current_line_blame = false,
-        current_line_blame_opts = {
-          virt_text = true,
-          virt_text_pos = "eol",
-          delay = 500,
-        },
-      }
-
-      require("which-key").register {
-        ["<leader>g"] = {
-          ["["] = { "&diff ? '[c' : '<Cmd>Gitsigns prev_hunk<CR>'", "Jump to previous hunk", expr = true },
-          ["]"] = { "&diff ? ']c' : '<Cmd>Gitsigns next_hunk<CR>'", "Jump to next hunk", expr = true },
-          s = { "<Cmd>Gitsigns stage_hunk<CR>", "Git stage hunk" },
-          u = { "<Cmd>Gitsigns undo_stage_hunk<CR>", "Git unstage hunk" },
-          r = { "<Cmd>Gitsigns reset_stage_hunk<CR>", "Revert hunk" },
-          R = { "<Cmd>Gitsigns reset_buffer<CR>", "Revert file" },
-          b = { "<Cmd>Gitsigns blame_line<CR>", "Blame current line" },
-        },
-      }
-    end,
-  }
-
   -- magit for neovim
   use {
     "TimUntersberger/neogit",
@@ -691,6 +432,6 @@ end
 vim.cmd [[
   augroup PackerCompileAutoGroup
     autocmd!
-    autocmd BufWritePost */ikws4/*.lua source <afile> | PackerCompile
+    autocmd BufWritePost */nvim/lua/ikws4/*.lua source <afile> | PackerCompile
   augroup END
 ]]
