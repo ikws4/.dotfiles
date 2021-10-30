@@ -75,7 +75,7 @@ _G.packer_plugins = {
     path = "/Users/zhipingne/.local/share/nvim/site/pack/packer/start/Comment.nvim"
   },
   ["FTerm.nvim"] = {
-    config = { "\27LJ\2\n§\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15dimensions\1\0\4\nwidth\4ˆ—˙\b¬Î£ˇ\3\vheight\4©∏Ωî\fı—∞ˇ\3\6x\4Õô≥Ê\fÃôÛ˛\3\6y\4≥ÊÃô\3≥ÊÃ˛\3\1\0\2\vborder\nsolid\ahl\vNormal\nsetup\nFTerm\frequire\0" },
+    config = { "\27LJ\2\n§\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15dimensions\1\0\4\vheight\4©∏Ωî\fı—∞ˇ\3\6x\4Õô≥Ê\fÃôÛ˛\3\6y\4≥ÊÃô\3≥ÊÃ˛\3\nwidth\4ˆ—˙\b¬Î£ˇ\3\1\0\2\ahl\vNormal\vborder\nsolid\nsetup\nFTerm\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -121,7 +121,7 @@ _G.packer_plugins = {
   },
   ["focus.nvim"] = {
     commands = { "FocusSplitNicely", "FocusMaximise", "FocusEqualise" },
-    config = { "\27LJ\2\n‘\1\0\0\3\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\1\a\0=\1\6\0K\0\1\0LNormal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal\17winhighlight\awo\bvim\1\0\4\15signcolumn\1\vbufnew\2\17winhighlight\2\15cursorline\1\nsetup\nfocus\frequire\0" },
+    config = { "\27LJ\2\n‘\1\0\0\3\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\1\a\0=\1\6\0K\0\1\0LNormal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal\17winhighlight\awo\bvim\1\0\4\15signcolumn\1\17winhighlight\2\15cursorline\1\vbufnew\2\nsetup\nfocus\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -150,7 +150,7 @@ _G.packer_plugins = {
   },
   neogit = {
     commands = { "Neogit" },
-    config = { "\27LJ\2\n–\1\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\nsigns\thunk\1\3\0\0\5\5\titem\1\3\0\0\bÔÑÅ\bÔÑÉ\fsection\1\0\0\1\3\0\0\bÔÑÖ\bÔÑá\1\0\2 disable_commit_confirmation\2\"disable_builtin_notifications\2\nsetup\vneogit\frequire\0" },
+    config = { "\27LJ\2\n–\1\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\nsigns\thunk\1\3\0\0\5\5\titem\1\3\0\0\bÔÑÅ\bÔÑÉ\fsection\1\0\0\1\3\0\0\bÔÑÖ\bÔÑá\1\0\2\"disable_builtin_notifications\2 disable_commit_confirmation\2\nsetup\vneogit\frequire\0" },
     loaded = false,
     needs_bufread = true,
     only_cond = false,
@@ -202,7 +202,7 @@ _G.packer_plugins = {
     path = "/Users/zhipingne/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    after = { "nvim-treesitter-refactor", "nvim-treesitter-textobjects" },
+    after = { "nvim-treesitter-textobjects", "nvim-treesitter-refactor" },
     config = { "require('ikws4.plugin.config.nvim_treesitter')" },
     loaded = false,
     needs_bufread = true,
@@ -294,10 +294,6 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Setup for: telescope.nvim
-time([[Setup for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n¿\3\0\0\4\0\n\0\0256\0\0\0009\0\1\0009\0\2\0\18\1\0\0005\3\3\0B\1\2\1\18\1\0\0005\3\4\0B\1\2\1\18\1\0\0005\3\5\0B\1\2\1\18\1\0\0005\3\6\0B\1\2\1\18\1\0\0005\3\a\0B\1\2\1\18\1\0\0005\3\b\0B\1\2\1\18\1\0\0005\3\t\0B\1\2\1K\0\1\0\1\3\0\0\6/1<cmd>Telescope current_buffer_fuzzy_find<cr>\1\3\0\0\15<leader>sm\29<cmd>Telescope marks<cr>\1\3\0\0\15<leader>sp!<cmd>Telescope live_grep<cr>\1\3\0\0\15<leader>sh!<cmd>Telescope help_tags<cr>\1\3\0\0\15<leader>bb\31<cmd>Telescope buffers<cr>\1\3\0\0\15<leader>fr <cmd>Telescope oldfiles<cr>\1\3\0\0\15<leader>ff.<cmd>Telescope find_files hidden=true<cr>\rnnoremap\vkeymap\bvim\0", "setup", "telescope.nvim")
-time([[Setup for telescope.nvim]], false)
 -- Setup for: FTerm.nvim
 time([[Setup for FTerm.nvim]], true)
 try_loadstring("\27LJ\2\n≥\1\0\0\3\0\6\0\v6\0\0\0009\0\1\0009\0\2\0005\2\3\0B\0\2\0016\0\0\0009\0\1\0009\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\3\0\0\n<esc>*<cmd>lua require('FTerm').close()<cr>\rtnoremap\1\3\0\0\14<leader>m)<cmd>lua require('FTerm').open()<cr>\rnnoremap\vkeymap\bvim\0", "setup", "FTerm.nvim")
@@ -306,40 +302,54 @@ time([[Setup for FTerm.nvim]], false)
 time([[Setup for neogit]], true)
 try_loadstring("\27LJ\2\nR\0\0\3\0\4\0\0066\0\0\0009\0\1\0009\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\3\0\0\15<leader>gg\20<cmd>Neogit<cr>\rnnoremap\vkeymap\bvim\0", "setup", "neogit")
 time([[Setup for neogit]], false)
--- Setup for: winshift.nvim
-time([[Setup for winshift.nvim]], true)
-try_loadstring("\27LJ\2\nT\0\0\3\0\4\0\0066\0\0\0009\0\1\0009\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\3\0\0\15<leader>wm\22<cmd>WinShift<cr>\rnnoremap\vkeymap\bvim\0", "setup", "winshift.nvim")
-time([[Setup for winshift.nvim]], false)
 -- Setup for: nvim-tree.lua
 time([[Setup for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\nY\0\0\3\0\4\0\0066\0\0\0009\0\1\0009\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\3\0\0\14<leader>n\28<cmd>NvimTreeToggle<cr>\rnnoremap\vkeymap\bvim\0", "setup", "nvim-tree.lua")
 time([[Setup for nvim-tree.lua]], false)
+-- Setup for: telescope.nvim
+time([[Setup for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n¿\3\0\0\4\0\n\0\0256\0\0\0009\0\1\0009\0\2\0\18\1\0\0005\3\3\0B\1\2\1\18\1\0\0005\3\4\0B\1\2\1\18\1\0\0005\3\5\0B\1\2\1\18\1\0\0005\3\6\0B\1\2\1\18\1\0\0005\3\a\0B\1\2\1\18\1\0\0005\3\b\0B\1\2\1\18\1\0\0005\3\t\0B\1\2\1K\0\1\0\1\3\0\0\6/1<cmd>Telescope current_buffer_fuzzy_find<cr>\1\3\0\0\15<leader>sm\29<cmd>Telescope marks<cr>\1\3\0\0\15<leader>sp!<cmd>Telescope live_grep<cr>\1\3\0\0\15<leader>sh!<cmd>Telescope help_tags<cr>\1\3\0\0\15<leader>bb\31<cmd>Telescope buffers<cr>\1\3\0\0\15<leader>fr <cmd>Telescope oldfiles<cr>\1\3\0\0\15<leader>ff.<cmd>Telescope find_files hidden=true<cr>\rnnoremap\vkeymap\bvim\0", "setup", "telescope.nvim")
+time([[Setup for telescope.nvim]], false)
+-- Setup for: winshift.nvim
+time([[Setup for winshift.nvim]], true)
+try_loadstring("\27LJ\2\nT\0\0\3\0\4\0\0066\0\0\0009\0\1\0009\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\3\0\0\15<leader>wm\22<cmd>WinShift<cr>\rnnoremap\vkeymap\bvim\0", "setup", "winshift.nvim")
+time([[Setup for winshift.nvim]], false)
 -- Setup for: focus.nvim
 time([[Setup for focus.nvim]], true)
 try_loadstring("\27LJ\2\n’\2\0\0\4\0\t\0\0176\0\0\0009\0\1\0009\0\2\0\18\1\0\0005\3\3\0B\1\2\1\18\1\0\0005\3\4\0B\1\2\1\18\1\0\0005\3\5\0B\1\2\0016\1\0\0009\1\6\1'\2\b\0=\2\a\1K\0\1\0LNormal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal\17winhighlight\awo\1\3\0\0\15<leader>w=\27<cmd>FocusEqualise<cr>\1\3\0\0\15<leader>wf\27<cmd>FocusMaximise<cr>\1\3\0\0\15<leader>wnG<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>\rnnoremap\vkeymap\bvim\0", "setup", "focus.nvim")
 time([[Setup for focus.nvim]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-require('ikws4.plugin.config.dashboard')
-time([[Config for dashboard-nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('ikws4.plugin.config.luasnip')
-time([[Config for LuaSnip]], false)
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-require('ikws4.plugin.config.theme')
-time([[Config for rose-pine]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('ikws4.plugin.config.nvim_cmp')
 time([[Config for nvim-cmp]], false)
+-- Config for: rose-pine
+time([[Config for rose-pine]], true)
+require('ikws4.plugin.config.theme')
+time([[Config for rose-pine]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+require('ikws4.plugin.config.dashboard')
+time([[Config for dashboard-nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\nW\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\rmappings\1\0\0\1\0\1\nextra\1\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('ikws4.plugin.config.luasnip')
+time([[Config for LuaSnip]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
+vim.cmd [[ packadd lualine.nvim ]]
+
+-- Config for: lualine.nvim
+require('ikws4.plugin.config.statusline')
+
+vim.cmd [[ packadd nvim-autopairs ]]
+
+-- Config for: nvim-autopairs
+try_loadstring("\27LJ\2\nÿ\1\0\0\n\0\f\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0026\1\0\0'\3\4\0B\1\2\0029\2\5\1\18\4\2\0009\2\6\2'\5\a\0009\6\b\0005\b\n\0005\t\t\0=\t\v\bB\6\2\0A\2\2\1K\0\1\0\rmap_char\1\0\0\1\0\1\btex\5\20on_confirm_done\17confirm_done\aon\nevent\bcmp\"nvim-autopairs.completion.cmp\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+
 vim.cmd [[ packadd null-ls.nvim ]]
 
 -- Config for: null-ls.nvim
@@ -350,35 +360,25 @@ vim.cmd [[ packadd nvim-lsp-installer ]]
 -- Config for: nvim-lsp-installer
 require('ikws4.plugin.config.lsp')
 
-vim.cmd [[ packadd nvim-autopairs ]]
-
--- Config for: nvim-autopairs
-try_loadstring("\27LJ\2\nÿ\1\0\0\n\0\f\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0026\1\0\0'\3\4\0B\1\2\0029\2\5\1\18\4\2\0009\2\6\2'\5\a\0009\6\b\0005\b\n\0005\t\t\0=\t\v\bB\6\2\0A\2\2\1K\0\1\0\rmap_char\1\0\0\1\0\1\btex\5\20on_confirm_done\17confirm_done\aon\nevent\bcmp\"nvim-autopairs.completion.cmp\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-
-vim.cmd [[ packadd lualine.nvim ]]
-
--- Config for: lualine.nvim
-require('ikws4.plugin.config.statusline')
-
 time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file WinShift lua require("packer.load")({'winshift.nvim'}, { cmd = "WinShift", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file FocusSplitNicely lua require("packer.load")({'focus.nvim'}, { cmd = "FocusSplitNicely", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file FocusMaximise lua require("packer.load")({'focus.nvim'}, { cmd = "FocusMaximise", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file FocusEqualise lua require("packer.load")({'focus.nvim'}, { cmd = "FocusEqualise", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file WinShift lua require("packer.load")({'winshift.nvim'}, { cmd = "WinShift", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'nvim-colorizer.lua'}, { event = "BufRead *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'better-escape.nvim', 'friendly-snippets'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-colorizer.lua', 'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
