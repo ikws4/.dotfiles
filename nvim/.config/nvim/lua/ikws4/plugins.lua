@@ -1,6 +1,7 @@
 ---@diagnostic disable: different-requires
 local function plugins(use)
   use "wbthomason/packer.nvim"
+  use "nvim-lua/plenary.nvim"
 
   -- UI {{{
   -- Currently used theme for my entire terminal
@@ -10,10 +11,10 @@ local function plugins(use)
   }
 
   use {
-    'glepnir/dashboard-nvim',
+    "glepnir/dashboard-nvim",
     config = function()
       require "ikws4.config.dashboard"
-    end
+    end,
   }
 
   -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
@@ -239,6 +240,7 @@ local function plugins(use)
   -- Neovim commenting plugin, written in lua.
   use {
     "b3nj5m1n/kommentary",
+    disable = true,
     config = function()
       local kommentary = require "kommentary.config"
 
@@ -255,6 +257,13 @@ local function plugins(use)
         single_line_comment_string = "//",
         prefer_single_line_comments = true,
       })
+    end,
+  }
+
+  use {
+    "terrortylor/nvim-comment",
+    config = function()
+      require("nvim_comment").setup()
     end,
   }
 
@@ -282,9 +291,9 @@ local function plugins(use)
       --   map_complete = true, -- it will auto insert `(` after select function or method item
       --   auto_select = false, -- automatically select the first item
       -- }
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
-      cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      local cmp = require "cmp"
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
     end,
   }
 
@@ -513,11 +522,11 @@ local function plugins(use)
       end
 
       vim.cmd [[
-        augroup LightbulbAutoGroup
-          autocmd!
-          autocmd CursorHold,CursorHoldI * call v:lua.lightbulb()
-        augroup END
-      ]]
+            augroup LightbulbAutoGroup
+            autocmd!
+            autocmd CursorHold,CursorHoldI * call v:lua.lightbulb()
+            augroup END
+            ]]
     end,
   }
   --}}}
