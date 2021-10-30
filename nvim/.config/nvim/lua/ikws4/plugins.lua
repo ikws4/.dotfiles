@@ -203,6 +203,7 @@ local function plugins(use)
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
+    disable = true,
     config = function()
       require("todo-comments").setup {
         signs = false,
@@ -276,11 +277,14 @@ local function plugins(use)
     event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup()
-      require("nvim-autopairs.completion.cmp").setup {
-        map_cr = true, --  map <CR> on insert mode
-        map_complete = true, -- it will auto insert `(` after select function or method item
-        auto_select = false, -- automatically select the first item
-      }
+      -- require("nvim-autopairs.completion.cmp").setup {
+      --   map_cr = true, --  map <CR> on insert mode
+      --   map_complete = true, -- it will auto insert `(` after select function or method item
+      --   auto_select = false, -- automatically select the first item
+      -- }
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local cmp = require('cmp')
+      cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
     end,
   }
 
@@ -461,6 +465,7 @@ local function plugins(use)
   use { "williamboman/nvim-lsp-installer" }
   use {
     "nvim-lua/lsp-status.nvim",
+    disable = true,
     config = function()
       require("lsp-status").register_progress()
     end,

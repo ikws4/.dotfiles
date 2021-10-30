@@ -1,4 +1,4 @@
-local lsp_status = require "lsp-status"
+-- local lsp_status = require "lsp-status"
 local p = require "rose-pine.palette"
 
 local disable_filetypes = { "NvimTree" }
@@ -70,7 +70,7 @@ require("lualine").setup {
       "progress",
     },
     lualine_x = {
-      lsp_status.status_progress,
+      -- lsp_status.status_progress,
       "filetype",
       {
         "diagnostics",

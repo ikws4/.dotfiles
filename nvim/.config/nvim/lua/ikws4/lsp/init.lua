@@ -1,6 +1,6 @@
 local lspconfig = require "lspconfig"
 local lsp_installer = require "nvim-lsp-installer"
-local lsp_status = require "lsp-status"
+-- local lsp_status = require "lsp-status"
 local null_ls = require "null-ls"
 local wk = require "which-key"
 
@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
   client.resolved_capabilities.document_formatting = false
   client.resolved_capabilities.document_range_formatting = false
 
-  lsp_status.on_attach(client)
+  -- lsp_status.on_attach(client)
 
   wk.register {
     gD = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "LSP Declaration", buffer = bufnr },
@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
 end
 
 --- Setup lsp servers
-local capabilities = lsp_status.capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, { snippetSupport = false })
 
 -- specific servers
