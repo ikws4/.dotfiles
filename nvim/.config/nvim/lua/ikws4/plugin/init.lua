@@ -171,9 +171,9 @@ return packer.startup(function()
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.autopep8,
-          null_ls.builtins.formatting.uncrustify.with {
-            extra_args = { "-c", "-" },
-          },
+          -- null_ls.builtins.formatting.uncrustify.with {
+          --   extra_args = { "-c", "-" },
+          -- },
         },
       }
     end,

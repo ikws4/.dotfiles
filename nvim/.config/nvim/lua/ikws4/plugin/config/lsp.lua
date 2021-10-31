@@ -3,8 +3,8 @@ local lsp_installer = require "nvim-lsp-installer"
 
 local on_attach = function(client, bufnr)
   -- Disable builtin formating
-  client.resolved_capabilities.document_formatting = false
-  client.resolved_capabilities.document_range_formatting = false
+  -- client.resolved_capabilities.document_formatting = false
+  -- client.resolved_capabilities.document_range_formatting = false
 
   local nnoremap = vim.keymap.nnoremap
 

@@ -158,7 +158,7 @@ _G.packer_plugins = {
   },
   ["null-ls.nvim"] = {
     after = { "nvim-lsp-installer" },
-    config = { "\27LJ\2\nû\1\0\0\t\0\15\1\0306\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\r\0004\4\5\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\5>\5\2\0049\5\3\0009\5\4\0059\5\a\5>\5\3\0049\5\3\0009\5\4\0059\5\b\0059\5\t\0055\a\v\0005\b\n\0=\b\f\aB\5\2\0?\5\0\0=\4\14\3B\1\2\1K\0\1\0\fsources\1\0\0\15extra_args\1\0\0\1\3\0\0\a-c\6-\twith\15uncrustify\rautopep8\vstylua\rprettier\15formatting\rbuiltins\vconfig\fnull-ls\frequire\t€€À™\4\0" },
+    config = { "\27LJ\2\nª\1\0\0\6\0\n\0\0216\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\b\0004\4\4\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\5>\5\2\0049\5\3\0009\5\4\0059\5\a\5>\5\3\4=\4\t\3B\1\2\1K\0\1\0\fsources\1\0\0\rautopep8\vstylua\rprettier\15formatting\rbuiltins\vconfig\fnull-ls\frequire\0" },
     loaded = true,
     needs_bufread = false,
     path = "/Users/zhipingne/.local/share/nvim/site/pack/packer/opt/null-ls.nvim"
@@ -348,7 +348,7 @@ try_loadstring("\27LJ\2\nØ\1\0\0\n\0\f\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\
 vim.cmd [[ packadd null-ls.nvim ]]
 
 -- Config for: null-ls.nvim
-try_loadstring("\27LJ\2\nû\1\0\0\t\0\15\1\0306\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\r\0004\4\5\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\5>\5\2\0049\5\3\0009\5\4\0059\5\a\5>\5\3\0049\5\3\0009\5\4\0059\5\b\0059\5\t\0055\a\v\0005\b\n\0=\b\f\aB\5\2\0?\5\0\0=\4\14\3B\1\2\1K\0\1\0\fsources\1\0\0\15extra_args\1\0\0\1\3\0\0\a-c\6-\twith\15uncrustify\rautopep8\vstylua\rprettier\15formatting\rbuiltins\vconfig\fnull-ls\frequire\t€€À™\4\0", "config", "null-ls.nvim")
+try_loadstring("\27LJ\2\nª\1\0\0\6\0\n\0\0216\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\b\0004\4\4\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\5>\5\2\0049\5\3\0009\5\4\0059\5\a\5>\5\3\4=\4\t\3B\1\2\1K\0\1\0\fsources\1\0\0\rautopep8\vstylua\rprettier\15formatting\rbuiltins\vconfig\fnull-ls\frequire\0", "config", "null-ls.nvim")
 
 vim.cmd [[ packadd nvim-lsp-installer ]]
 
