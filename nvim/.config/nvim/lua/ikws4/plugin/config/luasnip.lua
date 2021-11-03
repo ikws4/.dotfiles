@@ -100,6 +100,25 @@ ls.snippets = {
         }
       )
     ),
+    s(
+      { trig = "foreach(%l+)", hidden = true, regTrig = true },
+      fmt(
+        [[
+          for (var {a} : {b}) {{
+            {1}
+          }}
+        ]],
+        {
+          a = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          b = f(function(_, snip)
+            return snip.captures[1] .. "s"
+          end, {}),
+          i(1),
+        }
+      )
+    )
   },
 }
 
