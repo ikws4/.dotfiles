@@ -20,17 +20,10 @@ local types = require "luasnip.util.types"
 local conds = require "luasnip.extras.expand_conditions"
 
 ls.config.set_config {
-  history = true,
-  updateevents = "TextChanged,TextChangedI",
-  ext_opts = {
-    [types.choiceNode] = {
-      active = {
-        virt_text = { { "choiceNode", "Comment" } },
-      },
-    },
-  },
-  ext_base_prio = 300,
-  ext_prio_increase = 1,
+  -- history = true,
+  -- updateevents = "TextChanged,TextChangedI",
+  -- ext_base_prio = 300,
+  -- ext_prio_increase = 1,
   enable_autosnippets = true,
 }
 
@@ -41,7 +34,7 @@ ls.snippets = {
       fmt(
         [[
           for (int {a} = {1}; {c} >= {b}; {d}--) {{
-            {2}
+            {}
           }}
         ]],
         {
@@ -64,7 +57,7 @@ ls.snippets = {
           d = f(function(_, snip)
             return snip.captures[1]
           end, {}),
-          i(2),
+          i(0),
         }
       )
     ),
@@ -73,7 +66,7 @@ ls.snippets = {
       fmt(
         [[
           for (int {a} = {b}; {c} < {1}; {d}++) {{
-            {2}
+            {}
           }}
         ]],
         {
@@ -96,7 +89,7 @@ ls.snippets = {
           d = f(function(_, snip)
             return snip.captures[1]
           end, {}),
-          i(2),
+          i(0),
         }
       )
     ),
@@ -105,7 +98,7 @@ ls.snippets = {
       fmt(
         [[
           for (var {a} : {b}) {{
-            {1}
+            {}
           }}
         ]],
         {
@@ -115,7 +108,7 @@ ls.snippets = {
           b = f(function(_, snip)
             return snip.captures[1] .. "s"
           end, {}),
-          i(1),
+          i(0),
         }
       )
     )

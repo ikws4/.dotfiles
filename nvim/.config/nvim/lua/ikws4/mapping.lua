@@ -30,3 +30,6 @@ nnoremap { "<localleader>s", "<cmd>lua vim.o.spell = not vim.o.spell<cr>" }
 
 -- Repeat last command
 nnoremap { "<localleader>r", "@:" }
+
+-- Move cursor to the right
+inoremap { "<M-l>", "<Right>" }
