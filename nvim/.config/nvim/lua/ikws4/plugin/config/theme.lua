@@ -2,6 +2,7 @@ local cmd = vim.cmd
 
 vim.o.fillchars = "eob: ,vert:|"
 vim.g.rose_pine_variant = "moon"
+vim.g.rose_pine_disable_italics = true
 
 function _G.themeOverride()
   local p = require "rose-pine.palette"
