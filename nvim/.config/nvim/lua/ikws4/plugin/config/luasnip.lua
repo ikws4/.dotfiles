@@ -120,6 +120,7 @@ ls.autosnippets = {
   java = {},
 }
 
-require("luasnip.loaders.from_vscode").lazy_load {
+require("luasnip.loaders.from_vscode").load {
   paths = { vim.fn.stdpath "data" .. "/site/pack/packer/opt/friendly-snippets" },
+  include = { "java" }
 }
