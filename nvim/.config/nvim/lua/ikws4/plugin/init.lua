@@ -130,6 +130,7 @@ return packer.startup(function()
   use {
     "nvim-treesitter/nvim-treesitter-refactor",
     after = "nvim-treesitter",
+    disable = true,
   }
 
   -- }}}

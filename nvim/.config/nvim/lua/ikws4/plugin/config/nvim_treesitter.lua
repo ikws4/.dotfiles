@@ -11,20 +11,20 @@ require("nvim-treesitter.configs").setup {
   highlight = {
     enable = true,
   },
-  refactor = {
-    smart_rename = {
-      enable = true,
-      keymaps = {
-        smart_rename = "<leader>lr",
-      },
-    },
-    navigation = {
-      enable = true,
-      keymaps = {
-        goto_definition = "gd",
-      },
-    },
-  },
+  -- refactor = {
+  --   smart_rename = {
+  --     enable = false,
+  --     keymaps = {
+  --       smart_rename = "<leader>lr",
+  --     },
+  --   },
+  --   navigation = {
+  --     enable = false,
+  --     keymaps = {
+  --       goto_definition = "gd",
+  --     },
+  --   },
+  -- },
   incremental_selection = {
     enable = true,
     keymaps = {
