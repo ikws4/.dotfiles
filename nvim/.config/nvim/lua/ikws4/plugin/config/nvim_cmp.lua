@@ -33,7 +33,7 @@ cmp.setup {
       "i",
       "s",
     }),
-    ["<tab>"] = cmp.mapping(function(fallback)
+    ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif has_words_before() then
