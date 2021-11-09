@@ -19,6 +19,7 @@ local on_attach = function(client, bufnr)
   nnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", buffer = bufnr }
 
   vim.keymap.vnoremap { "<leader>la", "<cmd>Telescope lsp_range_code_actions<cr>", buffer = bufnr }
+  vim.keymap.vnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", buffer = bufnr }
 end
 
 --- Setup lsp servers
