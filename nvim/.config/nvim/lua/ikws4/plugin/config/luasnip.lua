@@ -30,6 +30,20 @@ ls.config.set_config {
 ls.snippets = {
   java = {
     s(
+      { trig = "print(%l*)", hidden = true, regTrig = true },
+      fmt(
+        [[
+          System.out.print{a}({});
+        ]],
+        {
+          a = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          i(0),
+        }
+      )
+    ),
+    s(
       { trig = "rfor(%l)(%d*)", hidden = true, regTrig = true },
       fmt(
         [[
@@ -111,7 +125,7 @@ ls.snippets = {
           i(0),
         }
       )
-    )
+    ),
   },
 }
 
@@ -122,5 +136,5 @@ ls.autosnippets = {
 
 require("luasnip.loaders.from_vscode").load {
   paths = { vim.fn.stdpath "data" .. "/site/pack/packer/opt/friendly-snippets" },
-  include = { "java" }
+  include = { "java" },
 }
