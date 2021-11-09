@@ -1,6 +1,7 @@
 local nnoremap = vim.keymap.nnoremap
 local inoremap = vim.keymap.inoremap
 local vnoremap = vim.keymap.vnoremap
+local onoremap = vim.keymap.onoremap
 
 -- inoremap { "jk", "<esc>" }
 
@@ -33,3 +34,10 @@ nnoremap { "<localleader>r", "@:" }
 
 -- Move cursor to the right
 inoremap { "<M-l>", "<Right>" }
+
+-- Create text objects using [z and ]z
+-- https://superuser.com/questions/578432/can-vim-treat-a-folded-section-as-a-motion
+vnoremap { "iz", ":<C-U>silent!normal![zjV]zk<CR>" }
+onoremap { "iz", ":normal Viz<CR>" }
+vnoremap { "az", ":<C-U>silent!normal![zV]z<CR>" }
+onoremap { "az", ":normal Vaz<CR>" }
