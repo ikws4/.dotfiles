@@ -118,13 +118,11 @@ return packer.startup(function()
   -- Treesitter {{{
   use {
     "nvim-treesitter/nvim-treesitter",
-    event = "BufRead",
     config = conf "nvim_treesitter",
   }
 
   use {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    after = "nvim-treesitter",
   }
 
   use {
