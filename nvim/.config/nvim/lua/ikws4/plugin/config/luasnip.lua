@@ -24,7 +24,7 @@ ls.config.set_config {
   -- updateevents = "TextChanged,TextChangedI",
   -- ext_base_prio = 300,
   -- ext_prio_increase = 1,
-  region_check_events = "CursorHold",
+  -- region_check_events = "CursorHold",
   enable_autosnippets = true,
 }
 
