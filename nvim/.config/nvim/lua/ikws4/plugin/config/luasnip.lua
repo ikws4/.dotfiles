@@ -31,6 +31,18 @@ ls.config.set_config {
 ls.snippets = {
   java = {
     s(
+      { trig = "ifreturn", hidden = false, regTrig = false },
+      fmt(
+        [[
+          if ({1}) return {};
+        ]],
+        {
+          i(1),
+          i(0),
+        }
+      )
+    ),
+    s(
       { trig = "print(%l*)", hidden = true, regTrig = true },
       fmt(
         [[
