@@ -146,33 +146,29 @@ ls.snippets = {
 ls.autosnippets = {
   java = {
     s(
-      { trig = "if([%a%.?]*)nu", hidden = true, regTrig = true },
+      { trig = "ifnu", hidden = true, regTrig = true },
       fmt(
       [[
-        if ({condition} == null) {{
+        if ({1} == null) {{
           {}
         }}
       ]],
         {
-          condition = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          i(1),
           i(0),
         }
       )
     ),
     s(
-      { trig = "if([%a%.?]*)!nu", hidden = true, regTrig = true },
+      { trig = "ifnotnu", hidden = true, regTrig = true },
       fmt(
       [[
-        if ({condition} != null) {{
+        if ({1} != null) {{
           {}
         }}
       ]],
         {
-          condition = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          i(1),
           i(0),
         }
       )
