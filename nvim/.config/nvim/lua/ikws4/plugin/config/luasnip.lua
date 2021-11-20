@@ -31,18 +31,6 @@ ls.config.set_config {
 ls.snippets = {
   java = {
     s(
-      { trig = "ifreturn", hidden = false, regTrig = false },
-      fmt(
-        [[
-          if ({1}) return {};
-        ]],
-        {
-          i(1),
-          i(0),
-        }
-      )
-    ),
-    s(
       { trig = "print(%l*)", hidden = true, regTrig = true },
       fmt(
         [[
@@ -146,7 +134,19 @@ ls.snippets = {
 ls.autosnippets = {
   java = {
     s(
-      { trig = "ifnu", hidden = true, regTrig = true },
+      { trig = "ifreturn", hidden = false, regTrig = false },
+      fmt(
+        [[
+          if ({1}) return {};
+        ]],
+        {
+          i(1),
+          i(0),
+        }
+      )
+    ),
+    s(
+      { trig = "ifnu", hidden = true, regTrig = false },
       fmt(
       [[
         if ({1} == null) {{
@@ -160,7 +160,7 @@ ls.autosnippets = {
       )
     ),
     s(
-      { trig = "ifnotnu", hidden = true, regTrig = true },
+      { trig = "ifnotnu", hidden = true, regTrig = false },
       fmt(
       [[
         if ({1} != null) {{
