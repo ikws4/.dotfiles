@@ -132,7 +132,40 @@ ls.snippets = {
 
 -- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
 ls.autosnippets = {
-  java = {},
+  java = {
+    s(
+      { trig = "if([%a%.?]*)nu", hidden = true, regTrig = true },
+      fmt(
+      [[
+        if ({condition} == null) {{
+          {}
+        }}
+      ]],
+        {
+          condition = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          i(0),
+        }
+      )
+    ),
+    s(
+      { trig = "if([%a%.?]*)!nu", hidden = true, regTrig = true },
+      fmt(
+      [[
+        if ({condition} != null) {{
+          {}
+        }}
+      ]],
+        {
+          condition = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          i(0),
+        }
+      )
+    ),
+  },
 }
 
 require("luasnip.loaders.from_vscode").load {
