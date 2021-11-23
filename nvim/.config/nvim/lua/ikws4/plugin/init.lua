@@ -222,14 +222,10 @@ return packer.startup(function()
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
       local cmp = require "cmp"
       local npairs = require("nvim-autopairs")
-      local cond = require('nvim-autopairs.conds')
+      -- local cond = require('nvim-autopairs.conds')
 
       npairs.setup()
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
-
-      npairs.get_rule("(")
-          :with_pair(cond.not_before_text_check("if "))
-          :with_pair(cond.not_before_text_check("while "))
 
     end,
   }
