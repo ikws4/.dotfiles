@@ -134,10 +134,12 @@ ls.snippets = {
 ls.autosnippets = {
   java = {
     s(
-      { trig = "ifreturn", hidden = false, regTrig = false },
+      { trig = "if (", hidden = false, regTrig = false },
       fmt(
         [[
-          if ({1}) return {};
+          if ({1}) {{
+            {}
+          }}
         ]],
         {
           i(1),
@@ -146,27 +148,13 @@ ls.autosnippets = {
       )
     ),
     s(
-      { trig = "ifnu", hidden = true, regTrig = false },
+      { trig = "while (", hidden = true, regTrig = false },
       fmt(
-      [[
-        if ({1} == null) {{
-          {}
-        }}
-      ]],
-        {
-          i(1),
-          i(0),
-        }
-      )
-    ),
-    s(
-      { trig = "ifnotnu", hidden = true, regTrig = false },
-      fmt(
-      [[
-        if ({1} != null) {{
-          {}
-        }}
-      ]],
+        [[
+          while ({1}) {{
+            {}
+          }}
+        ]],
         {
           i(1),
           i(0),
