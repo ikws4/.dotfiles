@@ -247,7 +247,7 @@ return packer.startup(function()
     config = function()
       require("better_escape").setup {
         mapping = { "jk" },
-        clear_empty_lines = true,
+        -- clear_empty_lines = true,
       }
     end,
   }
