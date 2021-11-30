@@ -50,7 +50,7 @@ cmp.setup {
       "i",
       "s",
     }),
-    ["<S-tab>"] = cmp.mapping(function(fallback)
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
