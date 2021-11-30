@@ -45,7 +45,7 @@ ls.snippets = {
       )
     ),
     s(
-      { trig = "rfor(%l*)(%d*)", hidden = true, regTrig = true },
+      { trig = "rfor(%l)(%d*)", hidden = true, regTrig = true },
       fmt(
         [[
           for (int {a} = {1}; {c} >= {b}; {d}--) {{
@@ -77,7 +77,7 @@ ls.snippets = {
       )
     ),
     s(
-      { trig = "for(%l*)(%d*)", hidden = true, regTrig = true },
+      { trig = "for(%l)(%d*)", hidden = true, regTrig = true },
       fmt(
         [[
           for (int {a} = {b}; {c} < {1}; {d}++) {{
