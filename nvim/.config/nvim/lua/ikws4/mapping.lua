@@ -16,8 +16,8 @@ nnoremap { "N", "Nzzzv" }
 nnoremap { "J", "mzJ`z" }
 inoremap { ",", ",<c-g>u" }
 inoremap { ".", ".<c-g>u" }
-vnoremap { "J", "<cmd>m '>+1<CR>gv=gv" }
-vnoremap { "K", "<cmd>m '<-2<CR>gv=gv" }
+-- vnoremap { "J", "<cmd>m '>+1<CR>gv=gv" }
+-- vnoremap { "K", "<cmd>m '<-2<CR>gv=gv" }
 
 -- Save buffer
 nnoremap { "<m-s>", "<cmd>w<cr>" }
