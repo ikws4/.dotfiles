@@ -19,11 +19,6 @@ function _G.themeOverride()
   hi("FocusedWindow", { link = "Normal" })
 
   hi("LightBulbFloatWin", { fg = "#FFCC01" })
-  hi("NeogitDiffAddhighlight", { fg = p.foam, bg = p.highlight_med })
-  hi("NeogitDiffDeletehighlight", { fg = p.love, bg = p.highlight_med })
-  hi("NeogitDiffContexthighlight", { bg = p.highlight_low })
-  hi("NeogitHunkHeader", { bg = p.highlight_low })
-  hi("NeogitHunkHeaderhighlight", { bg = p.highlight_low })
 
   hi("Visual", { bg = p.highlight_low })
 end
