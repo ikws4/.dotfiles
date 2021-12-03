@@ -19,6 +19,8 @@ function _G.themeOverride()
   hi("FocusedWindow", { link = "Normal" })
 
   hi("LightBulbFloatWin", { fg = "#FFCC01" })
+  hi("NormalFloat", { fg = p.text, bg = p.surface })
+  hi("Pmenu", { fg = p.subtle, bg = p.surface })
 
   hi("Visual", { bg = p.highlight_low })
 end
