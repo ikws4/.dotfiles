@@ -38,19 +38,22 @@ lsp_installer.on_server_ready(function(server)
     capabilities = capabilities,
   }
 
-  -- if server.name == "lua" then
-  --   local res = require("lua-dev").setup {
-  --     library = {
-  --       vimruntime = true,
-  --       types = true,
-  --       plugins = true,
-  --     },
-  --   }
-  --   opts = vim.tbl_deep_extend("force", res, opts)
-  -- end
+  if server.name == "sumneko_lua" then
+    opts = vim.tbl_deep_extend("keep", opts, {
+      settings = {
+        Lua = {
+          runtime = {
+            version = "LuaJIT",
+          },
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
+    })
+  end
 
   server:setup(opts)
-  vim.cmd [[ do User LspAttachBuffers ]]
 end)
 
 vim.diagnostic.config {
