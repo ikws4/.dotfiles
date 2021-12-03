@@ -1,7 +1,7 @@
 local g = vim.g
 
 g.dashboard_disable_at_vimenter = 0
-g.dashboard_disable_statusline = 1
+g.dashboard_disable_statusline = 0
 g.dashboard_default_executive = "telescope"
 g.dashboard_custom_header = {
   [[                                                 ]],
@@ -26,10 +26,9 @@ g.dashboard_custom_section = {
   c = { description = { "  Find Word                 SPC s p" }, command = "Telescope live_grep" },
   d = { description = { "洛 New File                  SPC w n" }, command = "DashboardNewFile" },
   e = { description = { "  Bookmarks                 SPC s m" }, command = "Telescope marks" },
+  f = { description = { "  Load Last Session         SPC l  " }, command = "SessionLoad" },
 }
 
 g.dashboard_custom_footer = {
   "   ",
 }
-
-vim.cmd [[ autocmd User dashboardReady Telescope find_files hidden=true ]]
