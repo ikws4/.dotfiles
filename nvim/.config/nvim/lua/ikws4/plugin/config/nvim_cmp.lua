@@ -82,7 +82,10 @@ cmp.setup {
     { name = "luasnip" },
     { name = "nvim_lsp" },
   }, {
+    { name = "calc" },
     { name = "path" },
+  }, {
     { name = "buffer" },
+    { name = "spell" },
   }),
 }
