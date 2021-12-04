@@ -4,25 +4,39 @@ vim.o.fillchars = "eob: ,vert:|"
 vim.g.rose_pine_variant = "moon"
 vim.g.rose_pine_disable_italics = true
 
+local function hi(group, color)
+  local style = color.style and "gui=" .. color.style or "gui=NONE"
+  local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
+  local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
+  local sp = color.sp and "guisp=" .. color.sp or ""
+
+  local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
+
+  vim.cmd(hl)
+  if color.link then
+    vim.cmd("highlight! link " .. group .. " " .. color.link)
+  end
+end
+
 function _G.themeOverride()
   local p = require "rose-pine.palette"
-  local hi = require("rose-pine.util").highlight
 
-  hi("VertSplit", { fg = p.inactive, bg = p.surface })
-  hi("FloatBorder", { fg = p.base, bg = p.base })
-  hi("NormalFloat", { bg = p.surface })
-  hi("TelescopeBorder", { fg = p.base, bg = p.base })
-  hi("StatusLine", { fg = p.text, bg = p.base })
-  hi("StatusLineNC", { fg = p.subtle, bg = p.base })
+  local theme = {
+    VertSplit = { fg = p.inactive, bg = p.surface },
+    FloatBorder = { fg = p.base, bg = p.base },
+    NormalFloat = { bg = p.surface },
+    TelescopeBorder = { fg = p.base, bg = p.base },
+    StatusLine = { fg = p.text, bg = p.base },
+    StatusLineNC = { fg = p.subtle, bg = p.base },
+    UnfocusedWindow = { link = "DarkenedPanel" },
+    FocusedWindow = { link = "Normal" },
+    LightBulbFloatWin = { fg = "#FFCC01" },
+    Visual = { bg = p.highlight_low },
+  }
 
-  hi("UnfocusedWindow", { link = "DarkenedPanel" })
-  hi("FocusedWindow", { link = "Normal" })
-
-  hi("LightBulbFloatWin", { fg = "#FFCC01" })
-  hi("NormalFloat", { fg = p.text, bg = p.surface })
-  hi("Pmenu", { fg = p.subtle, bg = p.surface })
-
-  hi("Visual", { bg = p.highlight_low })
+  for group, color in pairs(theme) do
+    hi(group, color)
+  end
 end
 
 -- Highlight on yank
