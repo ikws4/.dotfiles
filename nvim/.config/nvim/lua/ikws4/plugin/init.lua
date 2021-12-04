@@ -224,9 +224,9 @@ return packer.startup(function()
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
       local cmp = require "cmp"
       local npairs = require "nvim-autopairs"
-      -- local cond = require('nvim-autopairs.conds')
-
       npairs.setup()
+
+      npairs.add_rules(require "nvim-autopairs.rules.endwise-lua")
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
     end,
   }
