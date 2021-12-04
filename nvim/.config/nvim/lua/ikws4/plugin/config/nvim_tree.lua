@@ -1,23 +1,36 @@
+local vim = vim
+
+vim.g.nvim_tree_show_icons = {
+  git = 0,
+  folders = 1,
+  files = 0,
+  folder_arrows = 1,
+}
+vim.g.nvim_tree_icons = {
+  default = "",
+  folder = {
+    arrow_open = "",
+    arrow_closed = "",
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+    symlink_open = "",
+  },
+}
+vim.g.nvim_tree_icon_padding = "" 
+vim.g.nvim_tree_group_empty = 1
+vim.g.nvim_tree_root_folder_modifier = ":t"
+vim.g.nvim_tree_git_hl = 1
+
+
 local action = require("nvim-tree.config").nvim_tree_callback
 local lib = require "nvim-tree.lib"
 
 -- Override winhl
 require("nvim-tree.view").View.winopts.winhl =
   "Normal:FocusedWindow,NormalNC:UnfocusedWindow,EndOfBuffer:NvimTreeEndOfBuffer,CursorLine:NvimTreeCursorLine,VertSplit:NvimTreeVertSplit,SignColumn:NvimTreeNormal"
-
-vim.g.nvim_tree_show_icons = {
-  git = 1,
-  folders = 1,
-  files = 1,
-  folder_arrows = 1,
-}
-vim.g.nvim_tree_special_files = {}
-vim.g.nvim_tree_indent_markers = 0
-vim.g.nvim_tree_group_empty = 1
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_highlight_opened_files = 0
-vim.g.nvim_tree_root_folder_modifier = ":t"
-vim.g.nvim_tree_ignore = { ".DS_Store", ".git", "node_modules" }
 
 function _G.system_open()
   local node = lib.get_node_at_cursor()
@@ -33,6 +46,7 @@ require("nvim-tree").setup {
     ignore_list = {},
   },
   view = {
+    width = 35,
     mappings = {
       custom_only = true,
       list = {
@@ -42,7 +56,8 @@ require("nvim-tree").setup {
 
         { key = "o", cb = "<cmd>lua system_open()<cr>" },
         { key = "a", cb = action "create" },
-        { key = "d", cb = action "remove" },
+        { key = "d", cb = action "trash" },
+        { key = "D", cb = action "remove" },
         { key = "r", cb = action "rename" },
         { key = "<c-r>", cb = action "full_rename" },
         { key = "x", cb = action "cut" },
@@ -60,5 +75,9 @@ require("nvim-tree").setup {
         { key = "?", cb = action "toggle_help" },
       },
     },
+  },
+  trash = {
+    cmd = "trash -F",
+    require_confirm = true,
   },
 }
