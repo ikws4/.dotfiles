@@ -19,11 +19,10 @@ vim.g.nvim_tree_icons = {
     symlink_open = "",
   },
 }
-vim.g.nvim_tree_icon_padding = "" 
+vim.g.nvim_tree_icon_padding = ""
 vim.g.nvim_tree_group_empty = 1
 vim.g.nvim_tree_root_folder_modifier = ":t"
 vim.g.nvim_tree_git_hl = 1
-
 
 local action = require("nvim-tree.config").nvim_tree_callback
 local lib = require "nvim-tree.lib"
