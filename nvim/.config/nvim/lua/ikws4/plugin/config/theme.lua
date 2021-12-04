@@ -32,6 +32,9 @@ function _G.themeOverride()
     FocusedWindow = { link = "Normal" },
     LightBulbFloatWin = { fg = "#FFCC01" },
     Visual = { bg = p.highlight_low },
+
+    -- nvim-tree
+    NvimTreeExecFile = { fg = p.pine, style = "italic" },
   }
 
   for group, color in pairs(theme) do
