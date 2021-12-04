@@ -35,6 +35,10 @@ function _G.themeOverride()
 
     -- nvim-tree
     NvimTreeExecFile = { fg = p.pine, style = "italic" },
+
+    -- nvim-cmp
+    CmpItemKindText = { fg = p.text },
+    CmpItemKindKeyword = { fg = p.text },
   }
 
   for group, color in pairs(theme) do
