@@ -49,7 +49,7 @@ telescope.setup {
     lsp_definitions = ivy_theme,
     lsp_implementations = ivy_theme,
     lsp_workspace_diagnostics = ivy_theme,
-    lsp_code_actions = themes.get_cursor(),
+    -- lsp_code_actions = themes.get_cursor(),
     current_buffer_fuzzy_find = ivy_theme,
     file_browser = {
       sorting_strategy = "ascending",
@@ -66,7 +66,24 @@ telescope.setup {
       override_file_sorter = true,
       case_mode = "smart_case",
     },
+    ["ui-select"] = {
+      themes.get_cursor {
+        layout_config = {
+          width = function(self, _, _)
+            local max_len = 0
+            for _, entry in ipairs(self.finder.results) do
+              max_len = math.max(max_len, #entry.display)
+            end
+            return max_len + 6
+          end,
+          height = function(self, _, _)
+            return math.min(9, #self.finder.results + 4)
+          end,
+        },
+      },
+    },
   },
 }
 
 telescope.load_extension "fzf"
+telescope.load_extension "ui-select"

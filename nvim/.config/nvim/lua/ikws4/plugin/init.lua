@@ -272,7 +272,10 @@ return packer.startup(function()
     "nvim-telescope/telescope.nvim",
     -- module = "telescope",
     -- cmd = "Telescope",
-    requires = { { "nvim-telescope/telescope-fzf-native.nvim", run = "make" } },
+    requires = {
+      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+      { "nvim-telescope/telescope-ui-select.nvim" },
+    },
     setup = function()
       local nnoremap = vim.keymap.nnoremap
 

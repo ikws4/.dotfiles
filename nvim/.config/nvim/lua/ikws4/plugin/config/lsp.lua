@@ -31,11 +31,11 @@ local on_attach = function(client, bufnr)
   nnoremap { "gi", "<cmd>Telescope lsp_implementations<cr>", buffer = bufnr }
   nnoremap { "K", "<cmd>lua vim.lsp.buf.hover()<cr>", buffer = bufnr }
   nnoremap { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", buffer = bufnr }
-  nnoremap { "<leader>la", "<cmd>Telescope lsp_code_actions<cr>", buffer = bufnr }
+  nnoremap { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", buffer = bufnr }
   nnoremap { "<leader>ld", "<cmd>Telescope lsp_workspace_diagnostics<cr>", buffer = bufnr }
   nnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", buffer = bufnr }
 
-  vim.keymap.vnoremap { "<leader>la", "<cmd>Telescope lsp_range_code_actions<cr><esc>", buffer = bufnr }
+  vim.keymap.vnoremap { "<leader>la", "<cmd>lua vim.lsp.buf.range_code_action()<cr><esc>", buffer = bufnr }
   vim.keymap.vnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<cr><esc>", buffer = bufnr }
 end
 
