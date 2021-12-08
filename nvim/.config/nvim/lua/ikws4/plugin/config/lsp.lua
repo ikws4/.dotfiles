@@ -39,18 +39,9 @@ lsp_installer.on_server_ready(function(server)
   }
 
   if server.name == "sumneko_lua" then
-    opts = vim.tbl_deep_extend("keep", opts, {
-      settings = {
-        Lua = {
-          runtime = {
-            version = "LuaJIT",
-          },
-          diagnostics = {
-            globals = { "vim" },
-          },
-        },
-      },
-    })
+    opts = require("lua-dev").setup {
+      lspconfig = opts
+    }
   end
 
   server:setup(opts)

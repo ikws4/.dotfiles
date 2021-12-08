@@ -179,6 +179,10 @@ return packer.startup(function()
   }
 
   use {
+    "folke/lua-dev.nvim",
+  }
+
+  use {
     "williamboman/nvim-lsp-installer",
     after = { "null-ls.nvim", "cmp-nvim-lsp" },
     config = conf "lsp",
