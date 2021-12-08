@@ -1,6 +1,23 @@
 local lspconfig = require "lspconfig"
 local lsp_installer = require "nvim-lsp-installer"
 
+-- override hover
+-- if current line have diagnostics message,
+-- show diagnostics message float window, otherwise
+-- use the normal hover.
+local vim_lsp_buf_hover = vim.lsp.buf.hover
+function vim.lsp.buf.hover()
+  local diagnostics = vim.diagnostic.get(0, {
+    lnum = vim.api.nvim_win_get_cursor(0)[1] - 1,
+  })
+
+  if not vim.tbl_isempty(diagnostics) then
+    vim.diagnostic.open_float()
+  else
+    vim_lsp_buf_hover()
+  end
+end
+
 local on_attach = function(client, bufnr)
   -- Disable builtin formating
   -- client.resolved_capabilities.document_formatting = false
@@ -68,6 +85,13 @@ vim.diagnostic.config {
   underline = true,
   signs = false,
 }
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  signs = false,
+  virtual_text = {
+    prefix = "",
+  },
+})
 
 -- replace the default lsp diagnostic symbols
 -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
