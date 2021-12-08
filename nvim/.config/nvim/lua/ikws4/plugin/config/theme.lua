@@ -39,6 +39,9 @@ function _G.themeOverride()
     -- nvim-cmp
     CmpItemKindText = { fg = p.text },
     CmpItemKindKeyword = { fg = p.text },
+
+    -- lightspeed
+    LightSpeedGreyWash = { link = "Comment" },
   }
 
   for group, color in pairs(theme) do
