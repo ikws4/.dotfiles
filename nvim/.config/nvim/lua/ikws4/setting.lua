@@ -30,9 +30,11 @@ o.clipboard = "unnamedplus"
 o.cmdheight = 1
 o.showmode = false
 
--- number line
+-- number & cursor line
 wo.number = true
 wo.relativenumber = true
+wo.cursorline = true
+wo.cursorlineopt = "number"
 
 -- indent and wrap
 o.breakindent = true
