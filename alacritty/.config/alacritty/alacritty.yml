@@ -32,7 +32,7 @@ font:
   normal:
     family: JetBrainsMono Nerd Font
     style: Regular
-  bold: 
+  bold:
     family: JetBrainsMono Nerd Font
     style: Bold
   italic:
@@ -47,11 +47,11 @@ draw_bold_text_with_bright_colors: false
 
 cursor:
   style:
-    blinking: Always 
-      
+    blinking: Always
+
 mouse:
   hide_when_typing: true
-    
+
 key_bindings:
   - { key: A, mods: Command, chars: "\x1ba" }
   - { key: S, mods: Command, chars: "\x1bs" }
@@ -61,4 +61,4 @@ key_bindings:
   - { key: M, mods: Command, action: None }
   - { key: Q, mods: Command, action: None }
   - { key: W, mods: Command, action: None }
-  - { key: Back,             action: ReceiveChar }
+  - { key: Back, action: ReceiveChar }
