@@ -69,6 +69,7 @@ telescope.setup {
     },
     ["ui-select"] = {
       themes.get_cursor {
+        initial_mode = "normal",
         layout_config = {
           width = function(self, _, _)
             local max_len = 0
