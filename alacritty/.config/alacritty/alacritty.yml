@@ -41,14 +41,17 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
-  size: 15.5
+  size: 16.5
   use_thin_strokes: true
 draw_bold_text_with_bright_colors: false
 
 cursor:
   style:
     blinking: Always 
-
+      
+mouse:
+  hide_when_typing: true
+    
 key_bindings:
   - { key: A, mods: Command, chars: "\x1ba" }
   - { key: S, mods: Command, chars: "\x1bs" }
