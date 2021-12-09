@@ -31,6 +31,7 @@ telescope.setup {
       i = {
         ["<C-x>"] = false,
         ["<C-s>"] = actions.file_split,
+        ["<Esc>"] = actions.close,
       },
       n = {
         ["q"] = actions.close,
