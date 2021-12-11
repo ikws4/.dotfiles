@@ -14,13 +14,15 @@ cmp.setup {
   },
   mapping = {
     ["<M-l>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
+      if luasnip.expandable() then
+        luasnip.expand()
       elseif cmp.visible() then
         cmp.confirm {
           select = true,
           behavior = cmp.ConfirmBehavior.Replace,
         }
+      elseif luasnip.jumpable(1) then
+        luasnip.jump(1)
       else
         fallback()
       end
@@ -28,16 +30,16 @@ cmp.setup {
       "i",
       "s",
     }),
-    -- ["<M-L>"] = cmp.mapping(function(fallback)
-    --   if luasnip.jumpable(-1) then
-    --     luasnip.jump(-1)
-    --   else
-    --     fallback()
-    --   end
-    -- end, {
-    --   "i",
-    --   "s",
-    -- }),
+    ["<M-L>"] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
