@@ -137,5 +137,5 @@ ls.autosnippets = {
 
 require("luasnip.loaders.from_vscode").load {
   paths = { vim.fn.stdpath "data" .. "/site/pack/packer/opt/friendly-snippets" },
-  exclude = { "lua" },
+  exclude = { "lua", "javascript" },
 }
