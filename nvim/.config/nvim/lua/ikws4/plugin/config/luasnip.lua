@@ -128,6 +128,91 @@ ls.snippets = {
       )
     ),
   },
+  javascript = {
+    s(
+      { trig = "rfor(%l)(%d*)", hidden = true, regTrig = true },
+      fmt(
+        [[
+          for (let {a} = {1}; {c} >= {b}; {d}--) {{
+            {}
+          }}
+        ]],
+        {
+          a = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          b = f(function(_, snip)
+            local val = snip.captures[2]
+
+            if val == "" then
+              val = "0"
+            end
+
+            return val
+          end, {}),
+          c = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          i(1, "n - 1"),
+          d = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          i(0),
+        }
+      )
+    ),
+    s(
+      { trig = "for(%l)(%d*)", hidden = true, regTrig = true },
+      fmt(
+        [[
+          for (let {a} = {b}; {c} < {1}; {d}++) {{
+            {}
+          }}
+        ]],
+        {
+          a = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          b = f(function(_, snip)
+            local val = snip.captures[2]
+
+            if val == "" then
+              val = "0"
+            end
+
+            return val
+          end, {}),
+          c = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          i(1, "n"),
+          d = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          i(0),
+        }
+      )
+    ),
+    s(
+      { trig = "foreach(%l+)", hidden = true, regTrig = true },
+      fmt(
+        [[
+          for (const {a} of {b}) {{
+            {}
+          }}
+        ]],
+        {
+          a = f(function(_, snip)
+            return snip.captures[1]
+          end, {}),
+          b = f(function(_, snip)
+            return snip.captures[1] .. "s"
+          end, {}),
+          i(0),
+        }
+      )
+    ),
+  },
 }
 
 -- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
