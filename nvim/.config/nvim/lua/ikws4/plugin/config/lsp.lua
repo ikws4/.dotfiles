@@ -12,10 +12,16 @@ function vim.lsp.buf.hover()
   end
 end
 
+local disable_formatting = {
+  "tsserver",
+}
+
 local on_attach = function(client, bufnr)
   -- Disable builtin formating
-  -- client.resolved_capabilities.document_formatting = false
-  -- client.resolved_capabilities.document_range_formatting = false
+  if vim.tbl_contains(disable_formatting, client.name) then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
 
   local nnoremap = vim.keymap.nnoremap
 
