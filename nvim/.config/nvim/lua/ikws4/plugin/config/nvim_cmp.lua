@@ -72,6 +72,11 @@ cmp.setup {
       select = false,
     },
   },
+  confirmation = {
+    get_commit_characters = function(_)
+      return {}
+    end,
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
