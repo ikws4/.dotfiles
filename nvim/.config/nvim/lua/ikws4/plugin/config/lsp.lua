@@ -6,6 +6,15 @@ local lsp_installer = require "nvim-lsp-installer"
 -- show diagnostics message float window, otherwise
 -- use the normal hover.
 local vim_lsp_buf_hover = vim.lsp.buf.hover
+local vim_lsp_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
+function vim.lsp.util.open_floating_preview(contents, syntax, opts)
+  local floating_bufnr, floating_winnr = vim_lsp_util_open_floating_preview(contents, syntax, opts)
+  -- stylua: ignore
+  vim.api.nvim_buf_set_keymap( floating_bufnr, "n", "<Esc>", "<cmd>bdelete<cr>", { silent = true, noremap = true, nowait = true })
+  return floating_bufnr, floating_winnr
+end
+
 function vim.lsp.buf.hover()
   if not vim.diagnostic.open_float(nil, { scope = "cursor" }) then
     vim_lsp_buf_hover()
