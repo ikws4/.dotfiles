@@ -131,6 +131,12 @@ return packer.startup(function()
     disable = true,
   }
 
+  use {
+    "nvim-treesitter/playground",
+    cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
+    after = "nvim-treesitter",
+  }
+
   -- }}}
 
   -- Git {{{
