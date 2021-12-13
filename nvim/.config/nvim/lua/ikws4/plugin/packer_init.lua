@@ -30,6 +30,9 @@ packer.init {
       }
     end,
     prompt_border = "solid",
+    keybindings = {
+      quit = "<Esc>",
+    },
   },
   clone_timeout = 30,
   auto_clean = true,
