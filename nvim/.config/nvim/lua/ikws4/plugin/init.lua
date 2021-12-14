@@ -155,6 +155,11 @@ return packer.startup(function()
           item = { "", "" },
           hunk = { "", "" },
         },
+        mappings = {
+          status = {
+            ["<Esc>"] = "Close",
+          },
+        },
       }
     end,
   }
