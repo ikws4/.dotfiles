@@ -17,7 +17,7 @@ o.showtabline = 0
 
 -- buffer switch and back
 o.hidden = true
-bo.undofile = true
+bo.undofile = false
 bo.swapfile = false
 
 -- sign
