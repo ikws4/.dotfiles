@@ -1,5 +1,5 @@
 local vim = vim
-local lspconfig = require "lspconfig"
+-- local lspconfig = require "lspconfig"
 local lsp_installer = require "nvim-lsp-installer"
 
 -- override hover
@@ -73,9 +73,9 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, { snippetSupport = false })
 
 -- null-ls
-lspconfig["null-ls"].setup {
-  on_attach = on_attach,
-}
+-- lspconfig["null-ls"].setup {
+--   on_attach = on_attach,
+-- }
 
 -- lsp installer
 lsp_installer.on_server_ready(function(server)
