@@ -175,8 +175,10 @@ return packer.startup(function()
     after = "nvim-lspconfig",
     config = function()
       local null_ls = require "null-ls"
+      local utils = require "ikws4.plugin.config.lsp.utils"
 
       null_ls.setup {
+        on_attach = utils.on_attach,
         sources = {
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.stylua,

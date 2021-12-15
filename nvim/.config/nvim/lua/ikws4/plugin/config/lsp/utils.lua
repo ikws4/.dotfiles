@@ -1,13 +1,17 @@
 local vim = vim
--- local lspconfig = require "lspconfig"
-local lsp_installer = require "nvim-lsp-installer"
 
 -- override hover
 -- if current line have diagnostics message,
 -- show diagnostics message float window, otherwise
 -- use the normal hover.
 local vim_lsp_buf_hover = vim.lsp.buf.hover
-local vim_lsp_util_open_floating_preview = vim.lsp.util.open_floating_preview
+local hover = function()
+  if not vim.diagnostic.open_float(nil, { scope = "cursor" }) then
+    vim_lsp_buf_hover()
+  end
+end
+
+-- Override open_floating_preview
 local lsp_float_border = {
   { "", "LspFloatingPreviewBorder" },
   { "", "LspFloatingPreviewBorder" },
@@ -18,8 +22,8 @@ local lsp_float_border = {
   { "", "LspFloatingPreviewBorder" },
   { " ", "LspFloatingPreviewBorder" },
 }
-
-function vim.lsp.util.open_floating_preview(contents, syntax, opts)
+local vim_lsp_util_open_floating_preview = vim.lsp.util.open_floating_preview
+local open_floating_preview = function(contents, syntax, opts)
   opts.border = opts.border or lsp_float_border
   local floating_bufnr, floating_winnr = vim_lsp_util_open_floating_preview(contents, syntax, opts)
 
@@ -35,16 +39,9 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts)
   return floating_bufnr, floating_winnr
 end
 
-function vim.lsp.buf.hover()
-  if not vim.diagnostic.open_float(nil, { scope = "cursor" }) then
-    vim_lsp_buf_hover()
-  end
-end
-
 local disable_formatting = {
   "tsserver",
 }
-
 local on_attach = function(client, bufnr)
   -- Disable builtin formating
   if vim.tbl_contains(disable_formatting, client.name) then
@@ -68,63 +65,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.vnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<cr><esc>", buffer = bufnr }
 end
 
---- Setup lsp servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, { snippetSupport = false })
-
--- null-ls
--- lspconfig["null-ls"].setup {
---   on_attach = on_attach,
--- }
-
--- lsp installer
-lsp_installer.on_server_ready(function(server)
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-
-  if server.name == "sumneko_lua" then
-    opts = require("lua-dev").setup {
-      lspconfig = opts,
-    }
-  end
-
-  if server.name == "jdtls" then
-    opts = vim.tbl_deep_extend("keep", opts, {
-      settings = {
-        java = {
-          format = {
-            comments = {
-              enabled = false,
-            },
-            settings = {
-              url = "https://gist.githubusercontent.com/ikws4/7880fdcb4e3bf4a38999a628d287b1ab/raw/8e7f86e5ece156345628382cfa5c124322b38b5b/jdtls-formatter-style.xml",
-            },
-          },
-        },
-      },
-    })
-  end
-
-  server:setup(opts)
-end)
-
-vim.diagnostic.config {
-  underline = true,
-  signs = false,
+return {
+  hover = hover,
+  open_floating_preview = open_floating_preview,
+  on_attach = on_attach,
 }
-
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
---   signs = false,
---   virtual_text = {
---     prefix = "",
---   },
--- })
-
--- replace the default lsp diagnostic symbols
--- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
--- for type, icon in pairs(signs) do
---   local hl = "DiagnosticSign" .. type
---   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "LineNr" })
--- end
