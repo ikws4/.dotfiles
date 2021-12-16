@@ -51,6 +51,10 @@ telescope.setup {
     borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
     prompt_prefix = " ",
     selection_caret = " ",
+    path_display = { "smart" },
+    layout_config = {
+      preview_width = 0.6,
+    },
   },
   pickers = {
     lsp_references = ivy_theme_normal,
@@ -59,7 +63,12 @@ telescope.setup {
     diagnostics = ivy_theme_normal,
     -- lsp_workspace_diagnostics = ivy_theme,
     -- lsp_code_actions = themes.get_cursor(),
-    current_buffer_fuzzy_find = ivy_theme,
+    current_buffer_fuzzy_find = themes.get_ivy {
+      previewer = false,
+      layout_config = {
+        height = 0.55,
+      },
+    },
     file_browser = {
       sorting_strategy = "ascending",
       hidden = true,
