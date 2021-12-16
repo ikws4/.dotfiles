@@ -1,31 +1,29 @@
 local p = require "rose-pine.palette"
 
-local disable_filetypes = { "NvimTree" }
-
 local theme = {
   normal = {
-    a = { bg = p.rose, fg = p.base, gui = "bold" },
-    b = { bg = p.overlay, fg = p.rose },
+    a = { bg = p.rose, fg = p.surface, gui = "bold" },
+    b = { bg = p.surface, fg = p.rose },
     c = { bg = p.base, fg = p.text },
   },
   insert = {
-    a = { bg = p.foam, fg = p.base, gui = "bold" },
-    b = { bg = p.overlay, fg = p.foam },
+    a = { bg = p.foam, fg = p.surface, gui = "bold" },
+    b = { bg = p.surface, fg = p.foam },
     c = { bg = p.base, fg = p.text },
   },
   visual = {
-    a = { bg = p.iris, fg = p.base, gui = "bold" },
-    b = { bg = p.overlay, fg = p.iris },
+    a = { bg = p.iris, fg = p.surface, gui = "bold" },
+    b = { bg = p.surface, fg = p.iris },
     c = { bg = p.base, fg = p.text },
   },
   replace = {
-    a = { bg = p.pine, fg = p.base, gui = "bold" },
-    b = { bg = p.overlay, fg = p.pine },
+    a = { bg = p.pine, fg = p.surface, gui = "bold" },
+    b = { bg = p.surface, fg = p.pine },
     c = { bg = p.base, fg = p.text },
   },
   command = {
-    a = { bg = p.love, fg = p.base, gui = "bold" },
-    b = { bg = p.overlay, fg = p.love },
+    a = { bg = p.love, fg = p.surface, gui = "bold" },
+    b = { bg = p.surface, fg = p.love },
     c = { bg = p.base, fg = p.text },
   },
   inactive = {
@@ -39,13 +37,8 @@ require("lualine").setup {
   options = {
     section_separators = { "", "" },
     component_separators = { "", "" },
+    disabled_filetypes = { "NvimTree" },
     theme = theme,
-  },
-  extensions = {
-    {
-      filetypes = disable_filetypes,
-      sections = {},
-    },
   },
   sections = {
     lualine_a = {
@@ -58,15 +51,24 @@ require("lualine").setup {
       },
       {
         "diff",
-        left_padding = 0,
+        padding = {
+          left = 0,
+          right = 1,
+        },
       },
     },
     lualine_c = {
       {
         "filename",
-        path = 1,
+        path = 0,
       },
-      "progress",
+      {
+        "%p%%",
+        padding = {
+          left = 0,
+          right = 1,
+        }
+      },
     },
     lualine_x = {
       "filetype",
