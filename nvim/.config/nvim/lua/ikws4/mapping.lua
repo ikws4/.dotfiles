@@ -43,4 +43,4 @@ onoremap { "iz", ":normal Viz<CR>" }
 vnoremap { "az", ":<C-U>silent!normal![zV]z<CR>" }
 onoremap { "az", ":normal Vaz<CR>" }
 
-nnoremap { "zz", "zt5<C-y>" }
+nnoremap { "zz", "zt10<C-y>" }
