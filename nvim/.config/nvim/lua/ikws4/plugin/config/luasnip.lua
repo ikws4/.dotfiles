@@ -1,128 +1,114 @@
----@diagnostic disable: unused-local
 local ls = require "luasnip"
--- some shorthands...
-local s = ls.snippet
-local sn = ls.snippet_node
-local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
-local c = ls.choice_node
-local d = ls.dynamic_node
-local l = require("luasnip.extras").lambda
-local r = require("luasnip.extras").rep
-local p = require("luasnip.extras").partial
-local m = require("luasnip.extras").match
-local n = require("luasnip.extras").nonempty
-local dl = require("luasnip.extras").dynamic_lambda
 local fmt = require("luasnip.extras.fmt").fmt
-local fmta = require("luasnip.extras.fmt").fmta
-local types = require "luasnip.util.types"
-local conds = require "luasnip.extras.expand_conditions"
+
+local function s(trig, body, opts)
+  return ls.s({ trig = trig, hidden = true, regTrig = true }, body, opts)
+end
+
+local function capture(index, default)
+  return f(function(_, snip)
+    local text = snip.captures[index]
+    if text == "" then
+      return default
+    end
+    return text
+  end, {})
+end
 
 ls.config.set_config {
-  -- history = true,
-  -- updateevents = "TextChanged,TextChangedI",
-  -- ext_base_prio = 300,
-  -- ext_prio_increase = 1,
-  -- region_check_events = "CursorHold",
+  region_check_events = "InsertEnter",
   enable_autosnippets = true,
 }
 
 ls.snippets = {
   java = {
     s(
-      { trig = "print(%l*)", hidden = true, regTrig = true },
+      "print(%l*)",
       fmt(
         [[
-          System.out.print{a}({});
+          System.out.print{}({});
         ]],
         {
-          a = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          capture(1),
           i(0),
         }
       )
     ),
     s(
-      { trig = "rfor(%l)(%d*)", hidden = true, regTrig = true },
+      "while",
       fmt(
         [[
-          for (int {a} = {1}; {c} >= {b}; {d}--) {{
+          while ({}) {{
             {}
           }}
         ]],
         {
-          a = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
-          b = f(function(_, snip)
-            local val = snip.captures[2]
-
-            if val == "" then
-              val = "0"
-            end
-
-            return val
-          end, {}),
-          c = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
-          i(1, "n - 1"),
-          d = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          i(1),
           i(0),
         }
       )
     ),
     s(
-      { trig = "for(%l)(%d*)", hidden = true, regTrig = true },
+      "if",
       fmt(
         [[
-          for (int {a} = {b}; {c} < {1}; {d}++) {{
+          if ({}) {{
             {}
           }}
         ]],
         {
-          a = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
-          b = f(function(_, snip)
-            local val = snip.captures[2]
-
-            if val == "" then
-              val = "0"
-            end
-
-            return val
-          end, {}),
-          c = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          i(1),
+          i(0),
+        }
+      )
+    ),
+    s(
+      "foreach(%a+)",
+      fmt(
+        [[
+          for (var {} : {}s) {{
+            {}
+          }}
+        ]],
+        {
+          capture(1),
+          capture(1),
+          i(0),
+        }
+      )
+    ),
+    s(
+      "for(%l)(%d*)",
+      fmt(
+        [[
+          for (int {} = {}; {} < {}; {}++) {{
+            {}
+          }}
+        ]],
+        {
+          capture(1),
+          capture(2, "0"),
+          capture(1),
           i(1, "n"),
-          d = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          capture(1),
           i(0),
         }
       )
     ),
     s(
-      { trig = "foreach(%l+)", hidden = true, regTrig = true },
+      "rfor(%l)",
       fmt(
         [[
-          for (var {a} : {b}) {{
+          for (int {} = {}; {} >= 0; {}--) {{
             {}
-          }}
-        ]],
+          }} ]],
         {
-          a = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
-          b = f(function(_, snip)
-            return snip.captures[1] .. "s"
-          end, {}),
+          capture(1),
+          i(1, "n - 1"),
+          capture(1),
+          capture(1),
           i(0),
         }
       )
@@ -130,84 +116,51 @@ ls.snippets = {
   },
   javascript = {
     s(
-      { trig = "rfor(%l)(%d*)", hidden = true, regTrig = true },
+      "foreach(%a+)",
       fmt(
         [[
-          for (let {a} = {1}; {c} >= {b}; {d}--) {{
+          for (const {} : {}s) {{
             {}
           }}
         ]],
         {
-          a = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
-          b = f(function(_, snip)
-            local val = snip.captures[2]
-
-            if val == "" then
-              val = "0"
-            end
-
-            return val
-          end, {}),
-          c = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
-          i(1, "n - 1"),
-          d = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          capture(1),
+          capture(1),
           i(0),
         }
       )
     ),
     s(
-      { trig = "for(%l)(%d*)", hidden = true, regTrig = true },
+      "for(%l)(%d*)",
       fmt(
         [[
-          for (let {a} = {b}; {c} < {1}; {d}++) {{
+          for (let {} = {}; {} < {}; {}++) {{
             {}
           }}
         ]],
         {
-          a = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
-          b = f(function(_, snip)
-            local val = snip.captures[2]
-
-            if val == "" then
-              val = "0"
-            end
-
-            return val
-          end, {}),
-          c = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          capture(1),
+          capture(2, "0"),
+          capture(1),
           i(1, "n"),
-          d = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
+          capture(1),
           i(0),
         }
       )
     ),
     s(
-      { trig = "foreach(%l+)", hidden = true, regTrig = true },
+      "rfor(%l)",
       fmt(
         [[
-          for (const {a} of {b}) {{
+          for (let {} = {}; {} >= 0; {}--) {{
             {}
           }}
         ]],
         {
-          a = f(function(_, snip)
-            return snip.captures[1]
-          end, {}),
-          b = f(function(_, snip)
-            return snip.captures[1] .. "s"
-          end, {}),
+          capture(1),
+          i(1, "n - 1"),
+          capture(1),
+          capture(1),
           i(0),
         }
       )
@@ -215,12 +168,7 @@ ls.snippets = {
   },
 }
 
--- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
-ls.autosnippets = {
-  java = { },
-}
-
 require("luasnip.loaders.from_vscode").load {
   paths = { vim.fn.stdpath "data" .. "/site/pack/packer/opt/friendly-snippets" },
-  exclude = { "lua", "javascript" },
+  include = { "NeogitCommitMessage" },
 }
