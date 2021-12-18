@@ -119,7 +119,7 @@ ls.snippets = {
       "foreach(%a+)",
       fmt(
         [[
-          for (const {} : {}s) {{
+          for (const {} of {}s) {{
             {}
           }}
         ]],
