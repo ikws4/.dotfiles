@@ -63,12 +63,7 @@ telescope.setup {
     diagnostics = ivy_theme_normal,
     -- lsp_workspace_diagnostics = ivy_theme,
     -- lsp_code_actions = themes.get_cursor(),
-    current_buffer_fuzzy_find = themes.get_ivy {
-      previewer = false,
-      layout_config = {
-        height = 0.55,
-      },
-    },
+    current_buffer_fuzzy_find = ivy_theme,
     file_browser = {
       sorting_strategy = "ascending",
       hidden = true,
