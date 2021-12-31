@@ -42,6 +42,9 @@ function _G.themeOverride()
 
     -- lightspeed
     LightSpeedGreyWash = { link = "Comment" },
+
+    -- treesitter
+    TSKeywordOperator =  { fg = p.pine },
   }
 
   for group, color in pairs(theme) do
