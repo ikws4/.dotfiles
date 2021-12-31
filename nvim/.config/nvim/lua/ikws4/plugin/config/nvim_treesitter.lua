@@ -8,6 +8,9 @@ require("nvim-treesitter.configs").setup {
     "toml",
     "lua",
   },
+  autotag = {
+    enable = true,
+  },
   highlight = {
     enable = true,
   },

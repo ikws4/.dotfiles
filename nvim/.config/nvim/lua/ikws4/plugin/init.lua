@@ -249,6 +249,10 @@ return packer.startup(function()
   }
 
   use {
+    "windwp/nvim-ts-autotag",
+  }
+
+  use {
     "numToStr/Comment.nvim",
     config = function()
       require("Comment").setup {
