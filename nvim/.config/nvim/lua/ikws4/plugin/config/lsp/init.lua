@@ -8,11 +8,20 @@ vim.lsp.buf.hover = utils.hover
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, { snippetSupport = false })
 
+local needSnippetSupportServers = {
+  "cssls"
+}
+
 lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = utils.on_attach,
     capabilities = capabilities,
   }
+
+  if vim.tbl_contains(needSnippetSupportServers, server.name) then
+    opts.capabilities = vim.tbl_deep_extend("force", opts.capabilities, {})
+    opts.capabilities.textDocument.completion.completionItem.snippetSupport = true
+  end
 
   if server.name == "sumneko_lua" then
     opts = require("lua-dev").setup {
