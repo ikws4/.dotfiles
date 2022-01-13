@@ -90,6 +90,7 @@ return packer.startup(function()
 
   use {
     "glepnir/dashboard-nvim",
+    disable = true,
     config = conf "dashboard",
   }
 
@@ -310,6 +311,14 @@ return packer.startup(function()
 
   use {
     "ThePrimeagen/harpoon",
+    config = function()
+      local nnoremap = vim.keymap.nnoremap
+
+      nnoremap { "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>" }
+      nnoremap { "<leader>hw", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>" }
+      nnoremap { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>" }
+      nnoremap { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>" }
+    end,
   }
   -- }}}
 end)
