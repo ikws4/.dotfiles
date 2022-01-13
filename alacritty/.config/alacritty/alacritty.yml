@@ -50,7 +50,7 @@ cursor:
     blinking: Always
 
 mouse:
-  hide_when_typing: true
+  hide_when_typing: false
 
 key_bindings:
   - { key: A, mods: Command, chars: "\x1ba" }
