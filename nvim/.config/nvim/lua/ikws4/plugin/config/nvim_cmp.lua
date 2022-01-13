@@ -1,11 +1,19 @@
 ---@diagnostic disable: redundant-parameter
 local cmp = require "cmp"
+local api = require "cmp.utils.api"
 local luasnip = require "luasnip"
 local lspkind = require "lspkind"
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+end
+
+local api_get_screen_cursor = api.get_screen_cursor
+api.get_screen_cursor = function()
+  local cursor = api_get_screen_cursor()
+  cursor[2] = math.max(1, cursor[2] - 1)
+  return cursor
 end
 
 cmp.setup {
@@ -98,11 +106,7 @@ cmp.setup {
       maxwidth = 50,
       preset = "codicons",
       with_text = false,
-      before = function(entry, vim_item)
-        return vim_item
-      end,
     },
-    fields = { "kind", "abbr", "menu" },
   },
   sources = cmp.config.sources({
     { name = "luasnip" },
