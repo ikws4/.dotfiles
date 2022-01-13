@@ -34,7 +34,6 @@ require("nvim-tree").setup {
     ignore_list = {},
   },
   view = {
-    width = 35,
     mappings = {
       custom_only = true,
       list = {
