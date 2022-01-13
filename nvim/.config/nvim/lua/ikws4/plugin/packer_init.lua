@@ -50,11 +50,11 @@ packer.init {
   compile_on_sync = true,
 }
 
--- cmd [[
---   augroup PackerCompileAutoGroup
---     autocmd!
---     autocmd BufWritePost */nvim/lua/ikws4/*.lua source <afile> | PackerCompile
---   augroup END
--- ]]
+cmd [[
+  augroup PackerCompileAutoGroup
+    autocmd!
+    autocmd BufWritePost */nvim/lua/ikws4/plugin/init.lua source <afile> | PackerCompile
+  augroup END
+]]
 
 return packer
