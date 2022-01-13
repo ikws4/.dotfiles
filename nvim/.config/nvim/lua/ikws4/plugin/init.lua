@@ -46,16 +46,16 @@ return packer.startup(function()
       nnoremap { "<leader>wf", "<cmd>FocusMaximise<cr>" }
       nnoremap { "<leader>w=", "<cmd>FocusEqualise<cr>" }
 
-      vim.wo.winhighlight = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
+      -- vim.wo.winhighlight = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
     end,
     config = function()
       require("focus").setup {
         cursorline = false,
         signcolumn = false,
-        winhighlight = true,
+        winhighlight = false,
         bufnew = true,
       }
-      vim.wo.winhighlight = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
+      -- vim.wo.winhighlight = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
     end,
   }
 
@@ -103,11 +103,11 @@ return packer.startup(function()
     config = function()
       require("FTerm").setup {
         hl = "Normal",
-        border = "solid",
+        border = "rounded",
         dimensions = {
           height = 0.88,
           width = 0.78,
-          x = 0.45,
+          x = 0.43,
           y = 0.3,
         },
       }
@@ -217,7 +217,8 @@ return packer.startup(function()
   }
 
   use {
-    "hrsh7th/nvim-cmp",
+    "Iron-E/nvim-cmp",
+    branch = "feat/completion-menu-borders",
     wants = "lspkind-nvim",
     config = conf "nvim_cmp",
   }
@@ -305,6 +306,10 @@ return packer.startup(function()
       nnoremap { "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>" }
     end,
     config = conf "telescope",
+  }
+
+  use {
+    "ThePrimeagen/harpoon",
   }
   -- }}}
 end)

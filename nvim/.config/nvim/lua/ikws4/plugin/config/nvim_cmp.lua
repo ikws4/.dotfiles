@@ -1,3 +1,4 @@
+---@diagnostic disable: redundant-parameter
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 local lspkind = require "lspkind"
@@ -8,7 +9,17 @@ local has_words_before = function()
 end
 
 cmp.setup {
-  experimental = { cusom_menu = true, ghost_text = true },
+  experimental = { native_menu = false, ghost_text = true },
+  window = {
+    completion = {
+      border = "rounded",
+      scrollbar = "║",
+    },
+    documentation = {
+      border = "rounded",
+      scrollbar = "║",
+    },
+  },
   completion = {
     completeopt = "menu,menuone,noselect",
   },
@@ -83,7 +94,15 @@ cmp.setup {
     end,
   },
   formatting = {
-    format = lspkind.cmp_format { preset = "codicons", with_text = false },
+    format = lspkind.cmp_format {
+      maxwidth = 50,
+      preset = "codicons",
+      with_text = false,
+      before = function(entry, vim_item)
+        return vim_item
+      end,
+    },
+    fields = { "kind", "abbr", "menu" },
   },
   sources = cmp.config.sources({
     { name = "luasnip" },

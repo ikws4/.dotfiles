@@ -1,3 +1,4 @@
+---@diagnostic disable: redundant-parameter
 local telescope = require "telescope"
 local actions = require "telescope.actions"
 local themes = require "telescope.themes"
@@ -48,7 +49,7 @@ telescope.setup {
     },
     -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     -- borderchars = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙", },
-    borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+    -- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },

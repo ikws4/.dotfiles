@@ -12,29 +12,29 @@ local hover = function()
 end
 
 -- Override open_floating_preview
-local lsp_float_border = {
-  { "", "LspFloatingPreviewBorder" },
-  { "", "LspFloatingPreviewBorder" },
-  { "", "LspFloatingPreviewBorder" },
-  { " ", "LspFloatingPreviewBorder" },
-  { "", "LspFloatingPreviewBorder" },
-  { "", "LspFloatingPreviewBorder" },
-  { "", "LspFloatingPreviewBorder" },
-  { " ", "LspFloatingPreviewBorder" },
-}
+-- local lsp_float_border = {
+--   { "", "LspFloatingPreviewBorder" },
+--   { "", "LspFloatingPreviewBorder" },
+--   { "", "LspFloatingPreviewBorder" },
+--   { " ", "LspFloatingPreviewBorder" },
+--   { "", "LspFloatingPreviewBorder" },
+--   { "", "LspFloatingPreviewBorder" },
+--   { "", "LspFloatingPreviewBorder" },
+--   { " ", "LspFloatingPreviewBorder" },
+-- }
 local vim_lsp_util_open_floating_preview = vim.lsp.util.open_floating_preview
 local open_floating_preview = function(contents, syntax, opts)
-  opts.border = opts.border or lsp_float_border
+  opts.border = opts.border or "rounded"
   local floating_bufnr, floating_winnr = vim_lsp_util_open_floating_preview(contents, syntax, opts)
 
   -- stylua: ignore
   vim.api.nvim_buf_set_keymap(floating_bufnr, "n", "<Esc>", "<cmd>bdelete<cr>", { silent = true, noremap = true, nowait = true })
 
-  if floating_winnr == vim.api.nvim_get_current_win() then
-    vim.cmd "hi! link LspFloatingPreviewBorder FocusedWindow"
-  else
-    vim.cmd "hi! link LspFloatingPreviewBorder UnfocusedWindow"
-  end
+  -- if floating_winnr == vim.api.nvim_get_current_win() then
+  --   vim.cmd "hi! link NormalFloat FocusedWindow"
+  -- else
+  --   vim.cmd "hi! link LspFloatingPreviewBorder UnfocusedWindow"
+  -- end
 
   return floating_bufnr, floating_winnr
 end

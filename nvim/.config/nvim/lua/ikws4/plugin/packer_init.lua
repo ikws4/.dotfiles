@@ -25,11 +25,22 @@ end
 packer.init {
   display = {
     open_fn = function()
+      local cl = vim.o.columns
+      local ln = vim.o.lines
+      local width = math.ceil(cl * 0.78)
+      local height = math.ceil(ln * 0.88 - 4)
+      local col = math.ceil((cl - width) * 0.43)
+      local row = math.ceil((ln - height) * 0.3 - 1)
+
       return require("packer.util").float {
-        border = "solid",
+        border = "rounded",
+        height = height,
+        width = width,
+        col = col,
+        row = row,
       }
     end,
-    prompt_border = "solid",
+    prompt_border = "rounded",
     keybindings = {
       quit = "<Esc>",
     },

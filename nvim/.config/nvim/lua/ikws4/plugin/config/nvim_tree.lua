@@ -17,8 +17,8 @@ local action = require("nvim-tree.config").nvim_tree_callback
 local lib = require "nvim-tree.lib"
 
 -- Override winhl
-require("nvim-tree.view").View.winopts.winhl =
-  "Normal:FocusedWindow,NormalNC:UnfocusedWindow,EndOfBuffer:NvimTreeEndOfBuffer,CursorLine:NvimTreeCursorLine,VertSplit:NvimTreeVertSplit,SignColumn:NvimTreeNormal"
+-- require("nvim-tree.view").View.winopts.winhl =
+--   "Normal:FocusedWindow,NormalNC:UnfocusedWindow,EndOfBuffer:NvimTreeEndOfBuffer,CursorLine:NvimTreeCursorLine,VertSplit:NvimTreeVertSplit,SignColumn:NvimTreeNormal"
 
 function _G.system_open()
   local node = lib.get_node_at_cursor()
