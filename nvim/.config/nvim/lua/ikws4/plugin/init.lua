@@ -284,14 +284,14 @@ return packer.startup(function()
       }
 
       local xnoremap = vim.keymap.xnoremap
-      xnoremap { "(", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>" }
-      xnoremap { ")", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>" }
-      xnoremap { "[", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>" }
-      xnoremap { "]", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>" }
-      xnoremap { "{", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>" }
-      xnoremap { "}", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>" }
-      xnoremap { [["]], [[<esc>gv<cmd>lua require'surround'.surround_add(false, '"')<cr>]] }
-      xnoremap { [[']], [[<esc>gv<cmd>lua require'surround'.surround_add(false, "'")<cr>]] }
+      xnoremap { "(", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>l" }
+      xnoremap { ")", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>l" }
+      xnoremap { "[", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>l" }
+      xnoremap { "]", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>l" }
+      xnoremap { "{", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>l" }
+      xnoremap { "}", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>l" }
+      xnoremap { [["]], [[<esc>gv<cmd>lua require'surround'.surround_add(false, '"')<cr>l]] }
+      xnoremap { [[']], [[<esc>gv<cmd>lua require'surround'.surround_add(false, "'")<cr>l]] }
     end,
   }
   -- }}}
