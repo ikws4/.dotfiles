@@ -2,7 +2,6 @@ local nnoremap = vim.keymap.nnoremap
 local inoremap = vim.keymap.inoremap
 local vnoremap = vim.keymap.vnoremap
 local onoremap = vim.keymap.onoremap
-local xnoremap = vim.keymap.xnoremap
 
 -- inoremap { "jk", "<esc>" }
 
@@ -45,9 +44,3 @@ vnoremap { "az", ":<C-U>silent!normal![zV]z<CR>" }
 onoremap { "az", ":normal Vaz<CR>" }
 
 nnoremap { "zz", "zt10<C-y>" }
-
--- Add parentheses in visual mode
--- local surround = require("ikws4.utils").surround
--- xnoremap { "(", function() surround("(", ")") end }
--- xnoremap { "[", function() surround("[", "]") end }
--- xnoremap { "{", function() surround("{", "}") end }
