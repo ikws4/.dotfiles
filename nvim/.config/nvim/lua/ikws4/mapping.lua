@@ -47,7 +47,7 @@ onoremap { "az", ":normal Vaz<CR>" }
 nnoremap { "zz", "zt10<C-y>" }
 
 -- Add parentheses in visual mode
-local surround = require("ikws4.utils").surround
-xnoremap { "(", function() surround("(", ")") end }
-xnoremap { "[", function() surround("[", "]") end }
-xnoremap { "{", function() surround("{", "}") end }
+-- local surround = require("ikws4.utils").surround
+-- xnoremap { "(", function() surround("(", ")") end }
+-- xnoremap { "[", function() surround("[", "]") end }
+-- xnoremap { "{", function() surround("{", "}") end }

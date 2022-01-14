@@ -275,6 +275,25 @@ return packer.startup(function()
       }
     end,
   }
+
+  use {
+    "blackCauldron7/surround.nvim",
+    config = function()
+      require("surround").setup {
+        load_keymaps = false,
+      }
+
+      local xnoremap = vim.keymap.xnoremap
+      xnoremap { "(", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>" }
+      xnoremap { ")", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>" }
+      xnoremap { "[", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>" }
+      xnoremap { "]", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>" }
+      xnoremap { "{", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>" }
+      xnoremap { "}", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>" }
+      xnoremap { [["]], [[<esc>gv<cmd>lua require'surround'.surround_add(false, '"')<cr>]] }
+      xnoremap { [[']], [[<esc>gv<cmd>lua require'surround'.surround_add(false, "'")<cr>]] }
+    end,
+  }
   -- }}}
 
   -- File navigation {{{
