@@ -34,6 +34,7 @@ function _G.themeOverride()
     -- FocusedWindow = { link = "Normal" },
     -- LightBulbFloatWin = { fg = "#FFCC01" },
     Visual = { bg = p.highlight_low },
+    Pmenu = { fg = p.subtle, bg = p.surface },
 
     -- nvim-tree
     NvimTreeExecFile = { fg = p.pine, style = "italic" },
@@ -41,6 +42,7 @@ function _G.themeOverride()
     -- nvim-cmp
     CmpItemKindText = { fg = p.text },
     CmpItemKindKeyword = { fg = p.text },
+    CmpCompletionWindow = { fg = p.subtle },
 
     -- lightspeed
     LightSpeedGreyWash = { link = "Comment" },
