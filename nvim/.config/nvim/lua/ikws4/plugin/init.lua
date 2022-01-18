@@ -82,6 +82,10 @@ return packer.startup(function()
   use {
     "rlane/pounce.nvim",
     config = function()
+      require("pounce").setup {
+        accept_keys = ";[/PJKHNMU",
+      }
+
       vim.keymap.nnoremap { "s", "<cmd>Pounce<cr>" }
       vim.keymap.nnoremap { "S", "<cmd>Pounce<cr>" }
     end,
