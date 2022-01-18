@@ -76,6 +76,15 @@ return packer.startup(function()
   -- Motion {{{
   use {
     "ggandor/lightspeed.nvim",
+    disable = true,
+  }
+
+  use {
+    "rlane/pounce.nvim",
+    config = function()
+      vim.keymap.nnoremap { "s", "<cmd>Pounce<cr>" }
+      vim.keymap.nnoremap { "S", "<cmd>Pounce<cr>" }
+    end,
   }
   -- }}}
 

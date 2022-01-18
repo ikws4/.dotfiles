@@ -49,6 +49,11 @@ function _G.themeOverride()
 
     -- treesitter
     TSKeywordOperator = { fg = p.pine },
+
+    -- pounce
+    PounceMatch = { link = "Search" },
+    PounceGap = { link = "Search" },
+    PounceAccept = { fg = p.love, bg = p.inactive, style = "italic,bold" },
   }
 
   for group, color in pairs(theme) do
