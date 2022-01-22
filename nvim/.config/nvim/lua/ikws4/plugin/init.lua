@@ -95,6 +95,15 @@ return packer.startup(function()
 
   -- Util {{{
   use {
+    "JuliaEditorSupport/julia-vim",
+    config = function()
+      vim.g.latex_to_unicode_tab = "off"
+      vim.g.latex_to_unicode_auto = 1
+      vim.keymap.nnoremap { ";t", "<cmd>call LaTeXtoUnicode#Toggle()<cr>" }
+    end,
+  }
+
+  use {
     "norcalli/nvim-colorizer.lua",
     event = "BufRead",
     config = function()
