@@ -84,6 +84,7 @@ return packer.startup(function()
     config = function()
       require("pounce").setup {
         accept_keys = ";[/PJKHNMU",
+        accept_best_key = ";",
       }
 
       vim.keymap.nnoremap { "s", "<cmd>Pounce<cr>" }

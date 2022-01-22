@@ -23,7 +23,7 @@ function _G.themeOverride()
   local p = require "rose-pine.palette"
 
   local theme = {
-    VertSplit = { fg = p.inactive, bg = p.base },
+    VertSplit = { fg = p.muted, bg = p.base },
     -- FloatBorder = { link = "TelescopeBorder" },
     TelescopeBorder = { link = "FloatBorder" },
     -- NormalFloat = { bg = p.surface },
@@ -35,6 +35,7 @@ function _G.themeOverride()
     -- LightBulbFloatWin = { fg = "#FFCC01" },
     Visual = { bg = p.highlight_low },
     Pmenu = { fg = p.subtle, bg = p.surface },
+    TermCursor = { link = "Cursor" },
 
     -- nvim-tree
     NvimTreeExecFile = { fg = p.pine, style = "italic" },
@@ -53,7 +54,8 @@ function _G.themeOverride()
     -- pounce
     PounceMatch = { link = "Search" },
     PounceGap = { link = "Search" },
-    PounceAccept = { fg = p.love, bg = p.inactive, style = "italic,bold" },
+    PounceAccept = { fg = p.love, bg = p.muted, style = "italic,bold" },
+    PounceAcceptBest = { fg = p.base, bg = p.text, style = "italic,bold" },
   }
 
   for group, color in pairs(theme) do
