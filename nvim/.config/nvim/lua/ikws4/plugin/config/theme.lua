@@ -54,8 +54,8 @@ function _G.themeOverride()
     -- pounce
     PounceMatch = { link = "Search" },
     PounceGap = { link = "Search" },
-    PounceAccept = { fg = p.love, bg = p.muted, style = "italic,bold" },
-    PounceAcceptBest = { fg = p.base, bg = p.text, style = "italic,bold" },
+    PounceAccept = { fg = p.love, bg = p.highlight_high },
+    PounceAcceptBest = { fg = p.base, bg = p.gold },
   }
 
   for group, color in pairs(theme) do

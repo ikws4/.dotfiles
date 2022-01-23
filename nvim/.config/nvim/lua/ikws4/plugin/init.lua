@@ -83,7 +83,7 @@ return packer.startup(function()
     "rlane/pounce.nvim",
     config = function()
       require("pounce").setup {
-        accept_keys = ";[/PJKHNMU",
+        accept_keys = ";JFKDLSAHGNUVRBYTMICEOXWPQZ",
         accept_best_key = ";",
       }
 
