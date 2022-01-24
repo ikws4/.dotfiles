@@ -95,6 +95,39 @@ return packer.startup(function()
 
   -- Util {{{
   use {
+    "hkupty/iron.nvim",
+    config = function()
+      local view = require "iron.view"
+      vim.g.iron_map_defaults = false
+      vim.g.iron_map_extended = false
+
+      vim.cmd [[
+        nmap <localleader>;    <Plug>(iron-send-line)
+        vmap ;    <Plug>(iron-visual-send)
+      ]]
+
+      require("iron").core.set_config {
+        highlight_last = "CursorColumn",
+        repl_open_cmd = function(buffer)
+          local api = vim.api
+          local win_id = view.openwin("botright vertical 50 split", buffer)
+
+          api.nvim_win_set_option(win_id, "number", false)
+          api.nvim_win_set_option(win_id, "relativenumber", false)
+          api.nvim_win_set_option(win_id, "signcolumn", "no")
+          vim.keymap.tnoremap { "<Esc>", [[<C-\><C-n><cmd>wincmd p<cr>]], buffer = buffer }
+
+          vim.cmd [[
+            autocmd BufWinEnter,WinEnter term://* startinsert
+          ]]
+
+          return win_id
+        end,
+      }
+    end,
+  }
+
+  use {
     "JuliaEditorSupport/julia-vim",
     config = function()
       vim.g.latex_to_unicode_tab = "off"
