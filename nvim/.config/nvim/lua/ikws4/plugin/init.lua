@@ -103,7 +103,8 @@ return packer.startup(function()
 
       vim.cmd [[
         nmap <localleader>;    <Plug>(iron-send-line)
-        vmap ;    <Plug>(iron-visual-send)
+        vmap ;                 <Plug>(iron-visual-send)
+        nmap <localleader>c    <Plug>(iron-clear)
       ]]
 
       require("iron").core.set_config {
