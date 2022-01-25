@@ -6,6 +6,7 @@ DOTFILES="
   fish
   git
   ideavim
+  julia
   karabiner
   nvim
   skhd
