@@ -103,6 +103,7 @@ return packer.startup(function()
 
       vim.cmd [[
         nmap <localleader>;    <Plug>(iron-send-line)
+        nmap <localleader>e    <Plug>(iron-repeat-cmd)
         vmap ;                 <Plug>(iron-visual-send)
         nmap <localleader>c    <Plug>(iron-clear)
       ]]
@@ -111,12 +112,12 @@ return packer.startup(function()
         highlight_last = "CursorColumn",
         repl_open_cmd = function(buffer)
           local api = vim.api
-          local win_id = view.openwin("botright vertical 50 split", buffer)
+          local win_id = view.openwin("rightbelow 10 split", buffer)
 
           api.nvim_win_set_option(win_id, "number", false)
           api.nvim_win_set_option(win_id, "relativenumber", false)
           api.nvim_win_set_option(win_id, "signcolumn", "no")
-          vim.keymap.tnoremap { "<Esc>", [[<C-\><C-n><cmd>wincmd p<cr>]], buffer = buffer }
+          vim.keymap.tnoremap { "<Esc>", [[<C-\><C-n>]], buffer = buffer }
 
           vim.cmd [[
             autocmd BufWinEnter,WinEnter term://* startinsert
@@ -279,6 +280,18 @@ return packer.startup(function()
     "hrsh7th/cmp-path",
     "f3fora/cmp-spell",
     "hrsh7th/cmp-calc",
+  }
+
+  use {
+    "github/copilot.vim",
+    after = "nvim-cmp",
+    config = function()
+      vim.cmd [[
+        imap <silent><script><expr> <C-J> copilot#Accept("")
+        imap <silent><script><expr> <M-l> copilot#Accept("")
+      ]]
+      vim.g.copilot_no_tab_map = true
+    end,
   }
 
   -- }}}
