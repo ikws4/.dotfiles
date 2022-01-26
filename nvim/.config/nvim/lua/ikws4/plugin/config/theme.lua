@@ -56,6 +56,9 @@ function _G.themeOverride()
     PounceGap = { link = "Search" },
     PounceAccept = { fg = p.love, bg = p.highlight_high },
     PounceAcceptBest = { fg = p.base, bg = p.gold },
+
+    -- copilot
+    CopilotSuggestion = { link = "Comment" },
   }
 
   for group, color in pairs(theme) do
