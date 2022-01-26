@@ -43,7 +43,12 @@ cmp.setup {
       elseif luasnip.jumpable(1) then
         luasnip.jump(1)
       else
-        fallback()
+        local copilot_accept_key = vim.fn["copilot#Accept"]()
+        if copilot_accept_key ~= "" then
+          vim.api.nvim_feedkeys(copilot_accept_key, "i", false)
+        else
+          fallback()
+        end
       end
     end, {
       "i",

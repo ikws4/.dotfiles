@@ -284,11 +284,9 @@ return packer.startup(function()
 
   use {
     "github/copilot.vim",
-    after = "nvim-cmp",
     config = function()
       vim.cmd [[
         imap <silent><script><expr> <C-J> copilot#Accept("")
-        imap <silent><script><expr> <M-l> copilot#Accept("")
       ]]
       vim.g.copilot_no_tab_map = true
     end,
