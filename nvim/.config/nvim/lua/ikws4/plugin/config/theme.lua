@@ -51,12 +51,6 @@ function _G.themeOverride()
     -- treesitter
     TSKeywordOperator = { fg = p.pine },
 
-    -- pounce
-    PounceMatch = { link = "Search" },
-    PounceGap = { link = "Search" },
-    PounceAccept = { fg = p.love, bg = p.highlight_high },
-    PounceAcceptBest = { fg = p.base, bg = p.gold },
-
     -- copilot
     CopilotSuggestion = { link = "Comment" },
   }
