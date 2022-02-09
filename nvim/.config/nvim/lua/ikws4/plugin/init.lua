@@ -358,7 +358,7 @@ return packer.startup(function()
   -- File navigation {{{
   use {
     "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
+    -- cmd = "NvimTreeToggle",
     setup = function()
       vim.keymap.nnoremap { "<leader>n", "<cmd>NvimTreeToggle<cr>" }
     end,
