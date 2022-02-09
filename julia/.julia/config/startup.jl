@@ -1,5 +1,3 @@
-try
-  using Revise
-catch e
-  @warn "Error initializing Revise" exception=(e, catch_backtrace())
-end
+using Revise
+
+ENV["PLOTS_DEFAULT_BACKEND"] = "UnicodePlots"
