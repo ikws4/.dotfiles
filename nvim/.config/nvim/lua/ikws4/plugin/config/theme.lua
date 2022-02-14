@@ -1,9 +1,9 @@
 local cmd = vim.cmd
 
 vim.o.fillchars = "eob: ,vert:|"
-vim.g.rose_pine_variant = "moon"
-vim.g.rose_pine_disable_italics = true
-vim.g.rose_pine_disable_float_background = true
+-- vim.g.rose_pine_variant = "moon"
+-- vim.g.rose_pine_disable_italics = true
+-- vim.g.rose_pine_disable_float_background = true
 
 local function hi(group, color)
   local style = color.style and "gui=" .. color.style or "gui=NONE"
@@ -13,9 +13,9 @@ local function hi(group, color)
 
   local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
 
-  vim.cmd(hl)
+  cmd(hl)
   if color.link then
-    vim.cmd("highlight! link " .. group .. " " .. color.link)
+    cmd("highlight! link " .. group .. " " .. color.link)
   end
 end
 
@@ -75,5 +75,11 @@ cmd [[
     autocmd ColorScheme rose-pine lua themeOverride()
   augroup END
 ]]
+
+require("rose-pine").setup {
+  dark_variant = "moon",
+  disable_float_background = true,
+  disable_italics = true,
+}
 
 cmd [[ colorscheme rose-pine ]]
