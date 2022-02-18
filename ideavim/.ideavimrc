@@ -1,9 +1,9 @@
 " Opt
-set showmode
-set incsearch
-set so=0
+set scrolloff=0
 set number
 set relativenumber
+set clipboard+=unnamedplus
+set ignorecase
 
 " Plugins
 Plug 'preservim/nerdtree'
@@ -13,35 +13,39 @@ Plug 'machakann/vim-highlightedyank'
 
 " Maps
 let mapleader=" "
-
+let maplocalleader=";"
 inoremap jk <Esc>
 
-nmap <c-h> <c-w>h
-nmap <c-l> <c-w>l
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
+nnoremap <leader>w <c-w>
 
-nmap [b :action PreviousTab<CR>
-nmap ]b :action NextTab<CR>
+nnoremap <localleader><tab> za
+nnoremap zz zb15<C-e>
 
-nmap K :action QuickJavaDoc<CR>
-nmap gd :action GotoDeclaration<CR>
-nmap gD :action GotoTypeDeclaration<CR>
-nmap gi :action GotoImplementation<CR>
-nmap gr :action GotoDeclaration<CR>
+nnoremap [b :action PreviousTab<CR>
+nnoremap ]b :action NextTab<CR>
 
-nmap <leader>rn :action RenameElement<CR>
-nmap <leader>ca :action ShowIntentionActions<CR>
+imap <M-l> <Action>(EditorChooseLookupItem)
 
-nmap <leader>sf :action GotoFile<CR>
-nmap <leader>z :action ToggleDistractionFreeMode<CR>
+nnoremap K :action QuickJavaDoc<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gD :action GotoTypeDeclaration<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gr :action GotoDeclaration<CR>
+
+nnoremap <leader>lr :action RenameElement<CR>
+nnoremap <leader>lf :action ReformatCode<CR>
+nnoremap <leader>la :action ShowIntentionActions<CR>
+
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+
+nnoremap s /
+nnoremap S ?
+nnoremap cc ddO
 
 " Highlight on yank
-let g:highlightedyank_highlight_duration = "200"
-let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+let g:highlightedyank_highlight_duration = "350"
+let g:highlightedyank_highlight_color = "rgb(42,40,62)"
 
 " Tree
-nmap <leader>n :NERDTreeFocus<CR>
-
-" Commands
-command! Format action ReformatCode
+nnoremap <leader>n :NERDTreeToggle<CR>
