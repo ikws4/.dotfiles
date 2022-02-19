@@ -1,4 +1,5 @@
 " Opt
+set incsearch
 set scrolloff=0
 set number
 set relativenumber
@@ -17,9 +18,13 @@ let maplocalleader=";"
 inoremap jk <Esc>
 
 nnoremap <leader>w <c-w>
+nnoremap <localleader>r @:
+
+nnoremap <C-o> :action Back<CR>
+nnoremap <C-i> :action Forward<CR>
 
 nnoremap <localleader><tab> za
-nnoremap zz zb15<C-e>
+nnoremap zz zb22<C-e>
 
 nnoremap [b :action PreviousTab<CR>
 nnoremap ]b :action NextTab<CR>
@@ -36,7 +41,7 @@ nnoremap <leader>lr :action RenameElement<CR>
 nnoremap <leader>lf :action ReformatCode<CR>
 nnoremap <leader>la :action ShowIntentionActions<CR>
 
-nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>ff :action SearchEverywhere<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
 nnoremap s /
@@ -49,3 +54,7 @@ let g:highlightedyank_highlight_color = "rgb(42,40,62)"
 
 " Tree
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+command! Run1 action Run
+command! Run2 action android.deploy.ApplyChanges
+command! Run3 action android.deploy.CodeSwap
