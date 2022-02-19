@@ -36,7 +36,7 @@ function _G.themeOverride()
     Visual = { bg = p.highlight_low },
     Pmenu = { fg = p.subtle, bg = p.surface },
     TermCursor = { link = "Cursor" },
-    MatchParen = { bg = p.highlight_med },
+    -- MatchParen = { bg = p.highlight_med },
 
     -- nvim-tree
     NvimTreeExecFile = { fg = p.pine, style = "italic" },
