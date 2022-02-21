@@ -53,3 +53,4 @@ yabai -m rule --add app="WeChat" space=^5 manage=off
 
 yabai -m rule --add app="gksqt" layer=above manage=off
 yabai -m rule --add app="Android Studio" manage=off
+yabai -m rule --add app="TencentMeeting" manage=off
