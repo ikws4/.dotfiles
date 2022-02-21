@@ -54,6 +54,9 @@ function _G.themeOverride()
 
     -- copilot
     CopilotSuggestion = { link = "Comment" },
+
+    -- neorg
+    NeorgCodeBlock = { bg = p.base },
   }
 
   for group, color in pairs(theme) do

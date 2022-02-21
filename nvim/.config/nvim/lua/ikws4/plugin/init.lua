@@ -166,34 +166,7 @@ return packer.startup(function()
 
   use {
     "nvim-neorg/neorg",
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.norg.dirman"] = {
-            config = {
-              workspaces = {
-                gtd = "~/dev/github/notes/gtd/",
-                article = "~/dev/github/notes/",
-              },
-              autochdir = true,
-            },
-          },
-          -- ["core.norg.concealer"] = {},
-          ["core.norg.qol.toc"] = {},
-          ["core.norg.completion"] = {
-            config = {
-              engine = "nvim-cmp",
-            },
-          },
-          ["core.gtd.base"] = {
-            config = {
-              workspace = "gtd",
-            },
-          },
-        },
-      }
-    end,
+    config = conf "norg",
   }
   -- }}}
 
