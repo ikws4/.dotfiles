@@ -64,6 +64,9 @@ require("nvim-tree").setup {
       },
     },
   },
+  filters = {
+    custom = { ".DS_Store" },
+  },
   trash = {
     cmd = "trash -F",
     require_confirm = true,
