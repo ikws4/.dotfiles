@@ -13,6 +13,9 @@ require("neorg").setup {
     ["core.norg.concealer"] = {
       config = {
         icons = {
+          todo = {
+            enabled = false,
+          },
           quote = {
             enabled = false,
           },
@@ -69,20 +72,6 @@ require("neorg").setup {
             noremap = true,
           })
 
-          keybinds.map_event_to_mode("toc-split", {
-            n = {
-              { "<CR>", "core.norg.qol.toc.hop-toc-link" },
-
-              -- Keys for closing the current display
-              { "q", "core.norg.qol.toc.close" },
-              { "<Esc>", "core.norg.qol.toc.close" },
-            },
-          }, {
-            silent = true,
-            noremap = true,
-            nowait = true,
-          })
-
           -- Map the below keys on gtd displays
           keybinds.map_event_to_mode("gtd-displays", {
             n = {
@@ -129,7 +118,6 @@ require("neorg").setup {
         end,
       },
     },
-    ["core.norg.qol.toc"] = {},
     -- ["core.norg.manoeuvre"] = {},
     -- ["core.presenter"] = {},
     ["core.norg.completion"] = {
