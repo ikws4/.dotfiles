@@ -62,3 +62,5 @@ key_bindings:
   - { key: Q, mods: Command, action: None }
   - { key: W, mods: Command, action: None }
   - { key: Back, action: ReceiveChar }
+  - { key: LBracket, mods: Command, chars: "\x1b[" }
+  - { key: RBracket, mods: Command, chars: "\x1b]" }
