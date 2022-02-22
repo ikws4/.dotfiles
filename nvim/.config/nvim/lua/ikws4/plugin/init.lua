@@ -38,16 +38,6 @@ return packer.startup(function()
   -- Window {{{
   use {
     "beauwilliams/focus.nvim",
-    cmd = { "FocusSplitNicely", "FocusMaximise", "FocusEqualise" },
-    setup = function()
-      local nnoremap = vim.keymap.nnoremap
-
-      nnoremap { "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>" }
-      nnoremap { "<leader>wf", "<cmd>FocusMaximise<cr>" }
-      nnoremap { "<leader>w=", "<cmd>FocusEqualise<cr>" }
-
-      -- vim.wo.winhighlight = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
-    end,
     config = function()
       require("focus").setup {
         cursorline = false,
@@ -55,7 +45,12 @@ return packer.startup(function()
         winhighlight = false,
         bufnew = true,
       }
-      -- vim.wo.winhighlight = "Normal:FocusedWindow,NormalNC:UnfocusedWindow,SignColumn:NvimTreeNormal"
+
+      local nnoremap = vim.keymap.nnoremap
+
+      nnoremap { "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>" }
+      nnoremap { "<leader>wf", "<cmd>FocusMaximise<cr>" }
+      nnoremap { "<leader>w=", "<cmd>FocusEqualise<cr>" }
     end,
   }
 
