@@ -32,8 +32,7 @@ telescope.setup {
       "node_modules",
       "vendor",
       ".git",
-      "p5.js",
-      "p5.sound.js",
+      ".DS_Store",
     },
     mappings = {
       i = {
