@@ -62,7 +62,7 @@ return packer.startup(function()
     end,
     config = function()
       require("winshift").setup {
-        focused_hl_group = "Normal",
+        focused_hl_group = "Visual",
       }
     end,
   }
