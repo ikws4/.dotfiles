@@ -64,3 +64,4 @@ key_bindings:
   - { key: Back, action: ReceiveChar }
   - { key: LBracket, mods: Command, chars: "\x1b[" }
   - { key: RBracket, mods: Command, chars: "\x1b]" }
+  - { key: Return, mods: Command, chars: "\x1b\x0d" }

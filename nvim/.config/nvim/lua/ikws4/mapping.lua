@@ -44,3 +44,6 @@ vnoremap { "az", ":<C-U>silent!normal![zV]z<CR>" }
 onoremap { "az", ":normal Vaz<CR>" }
 
 nnoremap { "zz", "zt10<C-y>" }
+
+-- Newline without comments
+inoremap { "<M-Return>", "<C-O>o<C-W>" }
