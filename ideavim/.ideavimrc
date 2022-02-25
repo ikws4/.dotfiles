@@ -43,7 +43,7 @@ nnoremap <leader>lf :action ReformatCode<CR>
 nnoremap <leader>la :action ShowIntentionActions<CR>
 nnoremap <leader>lD :action GotoNextError<CR>
 
-nnoremap <leader>ff :action SearchEverywhere<CR>
+nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
 nnoremap Y y$
@@ -56,8 +56,9 @@ nnoremap <localleader><Tab> :action CollapseSelection<CR>
 let g:highlightedyank_highlight_duration = "350"
 let g:highlightedyank_highlight_color = "rgb(42,40,62)"
 
-" Tree
+" Tree & Terminal
 nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>m :action ActivateTerminalToolWindow<CR>
 
 command! Run1 action Run
 command! Run2 action android.deploy.ApplyChanges
