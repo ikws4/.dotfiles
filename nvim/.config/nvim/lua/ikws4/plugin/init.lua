@@ -362,24 +362,26 @@ return packer.startup(function()
     end,
   }
 
-  use {
-    "blackCauldron7/surround.nvim",
-    config = function()
-      require("surround").setup {
-        load_keymaps = false,
-      }
+  use "tpope/vim-surround"
 
-      local xnoremap = vim.keymap.xnoremap
-      xnoremap { "(", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>l" }
-      xnoremap { ")", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>l" }
-      xnoremap { "[", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>l" }
-      xnoremap { "]", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>l" }
-      xnoremap { "{", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>l" }
-      xnoremap { "}", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>l" }
-      xnoremap { [["]], [[<esc>gv<cmd>lua require'surround'.surround_add(false, '"')<cr>l]] }
-      xnoremap { [[']], [[<esc>gv<cmd>lua require'surround'.surround_add(false, "'")<cr>l]] }
-    end,
-  }
+  -- use {
+  --   "blackCauldron7/surround.nvim",
+  --   config = function()
+  --     require("surround").setup {
+  --       load_keymaps = false,
+  --     }
+  --
+  --     local xnoremap = vim.keymap.xnoremap
+  --     xnoremap { "(", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>l" }
+  --     xnoremap { ")", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>l" }
+  --     xnoremap { "[", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>l" }
+  --     xnoremap { "]", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>l" }
+  --     xnoremap { "{", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>l" }
+  --     xnoremap { "}", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>l" }
+  --     xnoremap { [["]], [[<esc>gv<cmd>lua require'surround'.surround_add(false, '"')<cr>l]] }
+  --     xnoremap { [[']], [[<esc>gv<cmd>lua require'surround'.surround_add(false, "'")<cr>l]] }
+  --   end,
+  -- }
   -- }}}
 
   -- File navigation {{{
