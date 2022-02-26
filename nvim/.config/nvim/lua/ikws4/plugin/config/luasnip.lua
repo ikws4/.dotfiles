@@ -11,7 +11,7 @@ local function capture(index, default)
   return f(function(_, snip)
     local text = snip.captures[index]
     if text == "" then
-      return default
+      return default or ""
     end
     return text
   end, {})
