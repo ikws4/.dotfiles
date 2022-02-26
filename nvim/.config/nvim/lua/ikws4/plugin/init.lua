@@ -294,8 +294,8 @@ return packer.startup(function()
   }
 
   use {
-    "Iron-E/nvim-cmp",
-    branch = "feat/completion-menu-borders",
+    "hrsh7th/nvim-cmp",
+    branch = "dev",
     wants = "lspkind-nvim",
     config = conf "nvim_cmp",
   }
@@ -306,7 +306,6 @@ return packer.startup(function()
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "f3fora/cmp-spell",
-    "hrsh7th/cmp-calc",
   }
 
   use {

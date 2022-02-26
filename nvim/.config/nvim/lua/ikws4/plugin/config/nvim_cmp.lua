@@ -119,7 +119,6 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "neorg" },
   }, {
-    { name = "calc" },
     { name = "path" },
   }, {
     { name = "buffer" },
