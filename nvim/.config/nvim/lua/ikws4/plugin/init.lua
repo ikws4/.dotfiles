@@ -272,6 +272,8 @@ return packer.startup(function()
     "folke/lua-dev.nvim",
   }
 
+  use "mfussenegger/nvim-jdtls"
+
   use {
     "williamboman/nvim-lsp-installer",
     after = { "null-ls.nvim", "cmp-nvim-lsp" },
