@@ -66,7 +66,3 @@ o.splitright = true
 
 -- spell
 bo.spelloptions = "camel"
-
--- formatting
-bo.formatoptions = "jocql"
-

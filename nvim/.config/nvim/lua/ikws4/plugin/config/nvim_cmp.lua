@@ -30,23 +30,23 @@ cmp.setup {
   },
   completion = {
     completeopt = "menu,menuone,noselect",
+    autocomplete = false,
   },
   mapping = {
     ["<M-l>"] = cmp.mapping(function(fallback)
       if luasnip.expandable() then
         luasnip.expand()
-      elseif cmp.visible() then
-        cmp.confirm {
-          select = true,
-          behavior = cmp.ConfirmBehavior.Replace,
-        }
-      elseif luasnip.jumpable(1) then
-        luasnip.jump(1)
       else
         local copilot_accept_key = vim.fn["copilot#Accept"] ""
-        print(copilot_accept_key)
         if copilot_accept_key ~= "" then
           vim.api.nvim_feedkeys(copilot_accept_key, "i", false)
+        elseif cmp.visible() then
+          cmp.confirm {
+            select = true,
+            behavior = cmp.ConfirmBehavior.Replace,
+          }
+        elseif luasnip.jumpable(1) then
+          luasnip.jump(1)
         else
           fallback()
         end
@@ -91,7 +91,6 @@ cmp.setup {
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-Space>"] = cmp.mapping.complete(),
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
@@ -126,7 +125,7 @@ cmp.setup {
   }),
 }
 
-vim.cmd [[
-  command! CmpDisable :lua require('cmp').setup.buffer { enabled = false }
-  command! CmpEnable :lua require('cmp').setup.buffer { enabled = true }
-]]
+-- vim.cmd [[
+--   command! CmpDisable :lua require('cmp').setup.buffer { enabled = false }
+--   command! CmpEnable :lua require('cmp').setup.buffer { enabled = true }
+-- ]]
