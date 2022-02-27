@@ -29,6 +29,7 @@ end
 require("nvim-tree").setup {
   hijack_cursor = true,
   update_cwd = false,
+  auto_close = true,
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
