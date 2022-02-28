@@ -29,9 +29,9 @@ telescope.setup {
       "--smart-case",
     },
     file_ignore_patterns = {
-      "node_modules",
-      "vendor",
-      ".git",
+      "^node_modules/",
+      "^vendor/",
+      "^.git/",
       ".DS_Store",
     },
     mappings = {
