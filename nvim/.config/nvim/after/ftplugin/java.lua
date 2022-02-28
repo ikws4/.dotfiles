@@ -10,7 +10,7 @@ end
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   on_attach = function(client, bufnr)
-    require('jdtls.setup').add_commands()
+    require("jdtls.setup").add_commands()
     lsp_utils.on_attach(client, bufnr)
   end,
 
@@ -30,7 +30,7 @@ local config = {
           enabled = false,
         },
         settings = {
-          url = "https://gist.githubusercontent.com/ikws4/7880fdcb4e3bf4a38999a628d287b1ab/raw/8e7f86e5ece156345628382cfa5c124322b38b5b/jdtls-formatter-style.xml",
+          url = "https://gist.githubusercontent.com/ikws4/7880fdcb4e3bf4a38999a628d287b1ab/raw/9005c451ed1ff629679d6100e22d63acc805e170/jdtls-formatter-style.xml",
         },
       },
     },
