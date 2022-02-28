@@ -30,7 +30,7 @@ cmp.setup {
   },
   completion = {
     completeopt = "menu,menuone,noselect",
-    autocomplete = false,
+    -- autocomplete = false,
   },
   mapping = {
     ["<M-l>"] = cmp.mapping(function(fallback)
@@ -55,24 +55,24 @@ cmp.setup {
       "i",
       "s",
     }),
-    ["<M-L>"] = cmp.mapping(function(fallback)
-      if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
+    -- ["<M-L>"] = cmp.mapping(function(fallback)
+    --   -- if luasnip.jumpable(-1) then
+    --   --   luasnip.jump(-1)
+    --   -- else
+    --   fallback()
+    --   -- end
+    -- end, {
+    --   "i",
+    --   "s",
+    -- }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif has_words_before() then
         cmp.complete()
-        vim.defer_fn(function()
-          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "i", false)
-        end, 100)
+        -- vim.defer_fn(function()
+        --   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "i", false)
+        -- end, 100)
       else
         fallback()
       end
