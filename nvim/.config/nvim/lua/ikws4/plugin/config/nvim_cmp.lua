@@ -70,6 +70,9 @@ cmp.setup {
         cmp.select_next_item()
       elseif has_words_before() then
         cmp.complete()
+        vim.defer_fn(function()
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "i", false)
+        end, 100)
       else
         fallback()
       end
