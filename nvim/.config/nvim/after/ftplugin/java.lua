@@ -12,6 +12,9 @@ local config = {
   on_attach = function(client, bufnr)
     require("jdtls.setup").add_commands()
     lsp_utils.on_attach(client, bufnr)
+    vim.cmd [[
+      au BufWritePost *.java lua vim.lsp.buf.formatting_sync() require'jdtls'.organize_imports()
+    ]]
   end,
 
   -- The command that starts the language server
