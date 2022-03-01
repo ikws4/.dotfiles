@@ -13,7 +13,8 @@ local config = {
     require("jdtls.setup").add_commands()
     lsp_utils.on_attach(client, bufnr)
     vim.cmd [[
-      au BufWritePost *.java lua vim.lsp.buf.formatting_sync() require'jdtls'.organize_imports()
+      au BufWritePre *.java lua vim.lsp.buf.formatting_sync()
+      au BufWritePost *.java lua require'jdtls'.organize_imports()
     ]]
   end,
 
