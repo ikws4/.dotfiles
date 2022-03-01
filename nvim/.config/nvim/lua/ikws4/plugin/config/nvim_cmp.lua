@@ -55,6 +55,13 @@ cmp.setup {
       "i",
       "s",
     }),
+    ["<M-]>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.abort()
+      else
+        fallback()
+      end
+    end),
     -- ["<M-L>"] = cmp.mapping(function(fallback)
     --   -- if luasnip.jumpable(-1) then
     --   --   luasnip.jump(-1)
