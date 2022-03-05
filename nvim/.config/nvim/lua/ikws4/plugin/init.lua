@@ -44,6 +44,7 @@ return packer.startup(function()
         signcolumn = false,
         winhighlight = false,
         bufnew = true,
+        excluded_filetypes = { "harpoon" },
       }
 
       local nnoremap = vim.keymap.nnoremap
