@@ -34,6 +34,9 @@ set -gx MANPAGER 'nvim +Man!'
 set -gx MANWIDTH 999
 set -gx LANG 'en_US.UTF-8'
 set -gx EDITOR nvim
+set -gx all_proxy 'socks5://127.0.0.1:7890'
+set -gx http_proxy $all_proxy
+set -gx https_proxy $all_proxy
 
 fish_add_path /Users/zhipingne/.cargo/bin
 fish_add_path /Users/zhipingne/.npm-global/bin
