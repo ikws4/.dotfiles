@@ -299,6 +299,7 @@ return packer.startup(function()
   use {
     "hrsh7th/nvim-cmp",
     branch = "dev",
+    commit = "8428166e308b5bad9cfee55f850de8b6a2f2b1ce",
     wants = "lspkind-nvim",
     config = conf "nvim_cmp",
   }
