@@ -47,3 +47,9 @@ nnoremap { "zz", "zt10<C-y>" }
 
 -- Newline without comments
 inoremap { "<M-CR>", "<End><Enter><C-[>cc" }
+
+-- Window resize
+nnoremap { "<C-H>", ":vertical resize -2<CR>"}
+nnoremap { "<C-L>", ":vertical resize +2<CR>"}
+nnoremap { "<C-J>", ":resize +2<CR>"}
+nnoremap { "<C-K>", ":resize -2<CR>"}

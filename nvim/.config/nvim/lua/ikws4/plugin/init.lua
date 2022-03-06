@@ -40,6 +40,7 @@ return packer.startup(function()
     "beauwilliams/focus.nvim",
     config = function()
       require("focus").setup {
+        autoresize = false,
         cursorline = false,
         signcolumn = false,
         winhighlight = false,
@@ -55,18 +56,18 @@ return packer.startup(function()
     end,
   }
 
-  use {
-    "sindrets/winshift.nvim",
-    cmd = "WinShift",
-    setup = function()
-      vim.keymap.nnoremap { "<leader>wm", "<cmd>WinShift<cr>" }
-    end,
-    config = function()
-      require("winshift").setup {
-        focused_hl_group = "Visual",
-      }
-    end,
-  }
+  -- use {
+  --   "sindrets/winshift.nvim",
+  --   cmd = "WinShift",
+  --   setup = function()
+  --     vim.keymap.nnoremap { "<leader>wm", "<cmd>WinShift<cr>" }
+  --   end,
+  --   config = function()
+  --     require("winshift").setup {
+  --       focused_hl_group = "Visual",
+  --     }
+  --   end,
+  -- }
   -- }}}
 
   -- Motion {{{
