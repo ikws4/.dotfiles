@@ -41,7 +41,7 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
-  size: 16.5
+  size: 20.5
   use_thin_strokes: true
 draw_bold_text_with_bright_colors: false
 
