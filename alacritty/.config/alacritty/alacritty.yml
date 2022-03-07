@@ -61,6 +61,7 @@ key_bindings:
   - { key: M, mods: Command, action: None }
   - { key: Q, mods: Command, action: None }
   - { key: W, mods: Command, action: None }
+  - { key: Semicolon, mods: Command, chars: "\x1b;" }
   - { key: Back, action: ReceiveChar }
   - { key: LBracket, mods: Command, chars: "\x1b[" }
   - { key: RBracket, mods: Command, chars: "\x1b]" }
