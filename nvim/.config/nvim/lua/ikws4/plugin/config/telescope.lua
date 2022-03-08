@@ -6,6 +6,7 @@ local themes = require "telescope.themes"
 local ivy_theme = themes.get_ivy {
   layout_config = {
     height = 0.55,
+    preview_width = 0.4
   },
 }
 
