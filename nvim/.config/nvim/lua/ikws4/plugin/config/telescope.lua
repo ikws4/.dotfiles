@@ -9,12 +9,12 @@ local ivy_theme = themes.get_ivy {
   },
 }
 
-local ivy_theme_normal = themes.get_ivy {
-  initial_mode = "normal",
-  layout_config = {
-    height = 0.55,
-  },
-}
+-- local ivy_theme_normal = themes.get_ivy {
+--   initial_mode = "normal",
+--   layout_config = {
+--     height = 0.55,
+--   },
+-- }
 
 telescope.setup {
   defaults = {
@@ -57,10 +57,10 @@ telescope.setup {
     },
   },
   pickers = {
-    lsp_references = ivy_theme_normal,
-    lsp_definitions = ivy_theme_normal,
-    lsp_implementations = ivy_theme_normal,
-    diagnostics = ivy_theme_normal,
+    lsp_references = ivy_theme,
+    lsp_definitions = ivy_theme,
+    lsp_implementations = ivy_theme,
+    diagnostics = ivy_theme,
     -- lsp_workspace_diagnostics = ivy_theme,
     -- lsp_code_actions = themes.get_cursor(),
     current_buffer_fuzzy_find = ivy_theme,
@@ -81,7 +81,7 @@ telescope.setup {
     },
     ["ui-select"] = {
       themes.get_cursor {
-        initial_mode = "normal",
+        -- initial_mode = "normal",
         scroll_strategy = "limit",
         layout_config = {
           width = function(self, _, _)
