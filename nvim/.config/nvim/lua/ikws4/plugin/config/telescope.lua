@@ -90,7 +90,7 @@ telescope.setup {
             for _, entry in ipairs(self.finder.results) do
               max_len = math.max(max_len, #entry.display)
             end
-            return math.min(40, max_len + 6)
+            return math.max(35, max_len + 6)
           end,
           height = function(self, _, _)
             return math.min(9, #self.finder.results + 4)
