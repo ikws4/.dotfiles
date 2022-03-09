@@ -1,4 +1,5 @@
 local nnoremap = vim.keymap.nnoremap
+local snoremap = vim.keymap.snoremap
 local inoremap = vim.keymap.inoremap
 local vnoremap = vim.keymap.vnoremap
 local xnoremap = vim.keymap.xnoremap
@@ -37,7 +38,7 @@ nnoremap { "<localleader>r", "@:" }
 inoremap { "<M-l>", "<End>" }
 -- inoremap { "<Home>", "<C-o>I" }
 inoremap { "<M-;>", "<End>;" }
-nnoremap { "<M-;>", "A;<ESC>" }
+snoremap { "<M-;>", "<ESC>A;" }
 
 -- Create text objects using [z and ]z
 -- https://superuser.com/questions/578432/can-vim-treat-a-folded-section-as-a-motion
