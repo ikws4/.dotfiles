@@ -256,6 +256,9 @@ return packer.startup(function()
         text = {
           spinner = "dots",
         },
+        window = {
+          relative = "editor",
+        },
         fmt = {
           leftpad = true,
           stack_upwards = false,
