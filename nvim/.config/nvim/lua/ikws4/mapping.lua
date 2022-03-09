@@ -37,6 +37,7 @@ nnoremap { "<localleader>r", "@:" }
 inoremap { "<M-l>", "<End>" }
 -- inoremap { "<Home>", "<C-o>I" }
 inoremap { "<M-;>", "<End>;" }
+nnoremap { "<M-;>", "A;<ESC>" }
 
 -- Create text objects using [z and ]z
 -- https://superuser.com/questions/578432/can-vim-treat-a-folded-section-as-a-motion
