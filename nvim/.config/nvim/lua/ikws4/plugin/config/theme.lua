@@ -57,6 +57,10 @@ function _G.themeOverride()
 
     -- neorg
     NeorgCodeBlock = { bg = p.base },
+
+    -- harpoon
+    HarpoonBorder = { link = "FloatBorder" },
+    HarpoonWindow = { link = "Comment" },
   }
 
   for group, color in pairs(theme) do
