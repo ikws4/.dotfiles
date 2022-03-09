@@ -34,8 +34,8 @@ nnoremap { "<localleader>s", "<cmd>lua vim.o.spell = not vim.o.spell<cr>" }
 nnoremap { "<localleader>r", "@:" }
 
 -- Move cursor to the right
-inoremap { "<M-l>", "<Right>" }
-inoremap { "<Home>", "<C-o>I" }
+-- inoremap { "<M-l>", "<End>" }
+-- inoremap { "<Home>", "<C-o>I" }
 inoremap { "<M-;>", "<End>;" }
 
 -- Create text objects using [z and ]z
@@ -51,7 +51,7 @@ nnoremap { "zz", "zt10<C-y>" }
 inoremap { "<M-CR>", "<End><Enter><C-[>cc" }
 
 -- Window resize
-nnoremap { "<C-H>", "<cmd>vertical resize -2<CR>"}
-nnoremap { "<C-L>", "<cmd>vertical resize +2<CR>"}
-nnoremap { "<C-J>", "<cmd>resize +2<CR>"}
-nnoremap { "<C-K>", "<cmd>resize -2<CR>"}
+nnoremap { "<Left>", "<cmd>vertical resize -2<CR>" }
+nnoremap { "<Right>", "<cmd>vertical resize +2<CR>" }
+nnoremap { "<Down>", "<cmd>resize +2<CR>" }
+nnoremap { "<Up>", "<cmd>resize -2<CR>" }

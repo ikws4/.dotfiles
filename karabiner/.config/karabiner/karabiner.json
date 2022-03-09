@@ -159,25 +159,12 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": ["command", "shift"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "home"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "h",
-            "modifiers": {
               "mandatory": ["command"]
             }
           },
           "to": [
             {
-              "key_code": "delete_or_backspace"
+              "key_code": "backspace"
             }
           ]
         },
@@ -185,7 +172,7 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["command", "shift"]
+              "mandatory": ["command"]
             }
           },
           "to": [
