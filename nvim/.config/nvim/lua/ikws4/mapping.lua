@@ -34,7 +34,7 @@ nnoremap { "<localleader>s", "<cmd>lua vim.o.spell = not vim.o.spell<cr>" }
 nnoremap { "<localleader>r", "@:" }
 
 -- Move cursor to the right
--- inoremap { "<M-l>", "<End>" }
+inoremap { "<M-l>", "<End>" }
 -- inoremap { "<Home>", "<C-o>I" }
 inoremap { "<M-;>", "<End>;" }
 
