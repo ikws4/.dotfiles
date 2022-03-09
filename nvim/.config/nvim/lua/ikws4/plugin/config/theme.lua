@@ -5,22 +5,23 @@ vim.o.fillchars = "eob: ,vert:|"
 -- vim.g.rose_pine_disable_italics = true
 -- vim.g.rose_pine_disable_float_background = true
 
-local function hi(group, color)
-  local style = color.style and "gui=" .. color.style or "gui=NONE"
-  local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
-  local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
-  local sp = color.sp and "guisp=" .. color.sp or ""
-
-  local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
-
-  cmd(hl)
-  if color.link then
-    cmd("highlight! link " .. group .. " " .. color.link)
-  end
-end
-
+-- local function hi(group, color)
+--   local style = color.style and "gui=" .. color.style or "gui=NONE"
+--   local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
+--   local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
+--   local sp = color.sp and "guisp=" .. color.sp or ""
+--
+--   local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
+--
+--   cmd(hl)
+--   if color.link then
+--     cmd("highlight! link " .. group .. " " .. color.link)
+--   end
+-- end
+--
 function _G.themeOverride()
   local p = require "rose-pine.palette"
+  local hi = require("rose-pine.util").highlight
 
   local theme = {
     VertSplit = { fg = p.muted, bg = p.base },
@@ -61,6 +62,12 @@ function _G.themeOverride()
     -- harpoon
     HarpoonBorder = { link = "FloatBorder" },
     HarpoonWindow = { link = "Comment" },
+
+    -- diagnostics
+    -- DiagnosticUnderlineError = { bg = blend(p.love, p.base, 0.5) },
+    -- DiagnosticUnderlineWarn = { bg = blend(p.gold, p.base, 0.5) },
+    -- DiagnosticUnderlineHint = { bg = blend(p.iris, p.base, 0.5) },
+    -- DiagnosticUnderlineInfo = { bg = blend(p.foam, p.base, 0.5) },
   }
 
   for group, color in pairs(theme) do
