@@ -1,6 +1,7 @@
 local nnoremap = vim.keymap.nnoremap
 local inoremap = vim.keymap.inoremap
 local vnoremap = vim.keymap.vnoremap
+local xnoremap = vim.keymap.xnoremap
 local onoremap = vim.keymap.onoremap
 
 -- inoremap { "jk", "<esc>" }
@@ -16,8 +17,8 @@ nnoremap { "N", "Nzzzv" }
 nnoremap { "J", "mzJ`z" }
 inoremap { ",", ",<c-g>u" }
 inoremap { ".", ".<c-g>u" }
-vnoremap { "J", ":move '>+1<CR>gv" }
-vnoremap { "K", ":move '<-2<CR>gv" }
+xnoremap { "J", ":move '>+1<CR>gv" }
+xnoremap { "K", ":move '<-2<CR>gv" }
 
 -- Save buffer
 nnoremap { "<m-s>", "<cmd>w<cr>" }
