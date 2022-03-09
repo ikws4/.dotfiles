@@ -32,6 +32,7 @@ cmp.setup {
     completeopt = "menu,menuone,noselect",
     -- autocomplete = false,
   },
+  preselect = cmp.PreselectMode.None,
   mapping = {
     ["<M-l>"] = cmp.mapping(function(fallback)
       if luasnip.expandable() then
