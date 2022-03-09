@@ -37,6 +37,8 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 vim.diagnostic.config {
-  underline = true,
+  underline = false,
   signs = false,
+  virtual_text = true,
+  severity_sort = true,
 }
