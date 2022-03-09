@@ -66,3 +66,8 @@ o.splitright = true
 
 -- spell
 bo.spelloptions = "camel"
+
+vim.cmd [[
+  au BufEnter * set formatoptions-=r
+  au BufEnter * set tabstop=2 shiftwidth=2
+]]
