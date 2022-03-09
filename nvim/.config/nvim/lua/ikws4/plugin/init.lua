@@ -250,6 +250,33 @@ return packer.startup(function()
   }
 
   use {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup {
+        text = {
+          spinner = "dots",
+        },
+        fmt = {
+          leftpad = true,
+          stack_upwards = false,
+          max_width = 0,
+          fidget = function(fidget_name, spinner)
+            return string.format("%s %s ", spinner, fidget_name)
+          end,
+          task = function(task_name, message, percentage)
+            return string.format(
+              "%s%s [%s] ",
+              message,
+              percentage and string.format(" (%s%%)", percentage) or "",
+              task_name
+            )
+          end,
+        },
+      }
+    end,
+  }
+
+  use {
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lspconfig",
     config = function()
