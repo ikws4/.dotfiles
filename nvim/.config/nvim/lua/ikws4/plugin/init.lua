@@ -333,18 +333,9 @@ return packer.startup(function()
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
       local cmp = require "cmp"
       local npairs = require "nvim-autopairs"
-      local rule = require "nvim-autopairs.rule"
-      local cond = require "nvim-autopairs.conds"
       npairs.setup()
 
       npairs.add_rules(require "nvim-autopairs.rules.endwise-lua")
-      npairs.add_rule(
-        rule("<", ">")
-          :with_pair(cond.not_add_quote_inside_quote())
-          :with_pair(cond.is_bracket_line())
-          :with_move(cond.is_bracket_line_move())
-          :use_undo(true)
-      )
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
     end,
   }
