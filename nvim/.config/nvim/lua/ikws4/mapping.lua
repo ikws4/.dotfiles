@@ -35,10 +35,11 @@ nnoremap { "<localleader>s", "<cmd>lua vim.o.spell = not vim.o.spell<cr>" }
 nnoremap { "<localleader>r", "@:" }
 
 -- Move cursor to the right
-inoremap { "<M-l>", "<End>" }
+inoremap { "<M-l>", "<Right>" }
 -- inoremap { "<Home>", "<C-o>I" }
-inoremap { "<M-;>", "<End>;" }
-snoremap { "<M-;>", "<ESC>A;" }
+-- inoremap { "<M-;>", "<End>" }
+-- nnoremap { "<M-;>", "<End>" }
+-- snoremap { "<M-;>", "<End>" }
 
 -- Create text objects using [z and ]z
 -- https://superuser.com/questions/578432/can-vim-treat-a-folded-section-as-a-motion
