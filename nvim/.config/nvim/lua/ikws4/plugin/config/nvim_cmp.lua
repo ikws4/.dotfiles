@@ -17,7 +17,7 @@ api.get_screen_cursor = function()
 end
 
 cmp.setup {
-  experimental = { native_menu = false, ghost_text = true },
+  experimental = { native_menu = false, ghost_text = false },
   window = {
     completion = {
       border = "rounded",
