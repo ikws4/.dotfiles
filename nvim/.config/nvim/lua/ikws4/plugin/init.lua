@@ -51,8 +51,8 @@ return packer.startup(function()
       local nnoremap = vim.keymap.nnoremap
 
       nnoremap { "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>" }
-      nnoremap { "<leader>wf", "<cmd>FocusMaximise<cr>" }
-      nnoremap { "<leader>w=", "<cmd>FocusEqualise<cr>" }
+      nnoremap { "<leader>wf", "<cmd>FocusMaxOrEqual<cr>" }
+      -- nnoremap { "<leader>w=", "<cmd>FocusEqualise<cr>" }
     end,
   }
 
