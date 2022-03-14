@@ -125,9 +125,9 @@ return packer.startup(function()
           api.nvim_win_set_option(win_id, "signcolumn", "no")
           vim.keymap.tnoremap { "<Esc>", [[<C-\><C-n>]], buffer = buffer }
 
-          vim.cmd [[
-            autocmd BufWinEnter,WinEnter term://* startinsert
-          ]]
+          -- vim.cmd [[
+          --   autocmd BufWinEnter,WinEnter term://* startinsert
+          -- ]]
 
           return win_id
         end,
