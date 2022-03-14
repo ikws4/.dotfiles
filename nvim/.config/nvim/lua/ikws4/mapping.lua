@@ -54,7 +54,7 @@ nnoremap { "zz", "zt10<C-y>" }
 inoremap { "<M-CR>", "<End><Enter><C-[>cc" }
 
 -- Window resize
-nnoremap { "<Left>", "<cmd>vertical resize -2<CR>" }
-nnoremap { "<Right>", "<cmd>vertical resize +2<CR>" }
-nnoremap { "<Down>", "<cmd>resize +2<CR>" }
-nnoremap { "<Up>", "<cmd>resize -2<CR>" }
+nnoremap { "<Left>", "<cmd>vertical resize -1<CR>" }
+nnoremap { "<Right>", "<cmd>vertical resize +1<CR>" }
+nnoremap { "<Down>", "<cmd>resize +1<CR>" }
+nnoremap { "<Up>", "<cmd>resize -1<CR>" }
