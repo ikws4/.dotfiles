@@ -48,14 +48,8 @@ return packer.startup(function()
         excluded_filetypes = { "harpoon" },
       }
 
-      -- local nnoremap = vim.keymap.nnoremap
-      --
-      -- nnoremap { "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>" }
-      -- nnoremap { "<leader>wf", "<cmd>FocusMaxOrEqual<cr>" }
-
-      vim.keymap.set("n", "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>")
-      vim.keymap.set("n", "<leader>wf", "<cmd>FocusMaxOrEqual<cr>")
-      -- nnoremap { "<leader>w=", "<cmd>FocusEqualise<cr>" }
+      vim.keymap.set("n", "<leader>wn", "<Cmd>FocusSplitNicely<CR><Cmd>Telescope find_files hidden=true<CR>")
+      vim.keymap.set("n", "<leader>wf", "<Cmd>FocusMaxOrEqual<CR>")
     end,
   }
 
@@ -63,7 +57,7 @@ return packer.startup(function()
   --   "sindrets/winshift.nvim",
   --   cmd = "WinShift",
   --   setup = function()
-  --     vim.keymap.nnoremap { "<leader>wm", "<cmd>WinShift<cr>" }
+  --     vim.keymap.nnoremap { "<leader>wm", "<Cmd>WinShift<CR>" }
   --   end,
   --   config = function()
   --     require("winshift").setup {
@@ -83,14 +77,12 @@ return packer.startup(function()
     "rlane/pounce.nvim",
     config = function()
       require("pounce").setup {
-        accept_keys = "JFKDLSAHGNUVRBYTMICEOXWPQZ",
-        -- accept_best_key = ";",
+        accept_keys = ";FKDLSAHGNUVRBYTMICEOXWPQZ",
+        accept_best_key = ";",
       }
 
-      -- vim.keymap.nnoremap { "s", "<cmd>Pounce<cr>" }
-      -- vim.keymap.nnoremap { "S", "<cmd>Pounce<cr>" }
-      vim.keymap.set("n", "s", "<cmd>Pounce<cr>")
-      vim.keymap.set("n", "S", "<cmd>Pounce<cr>")
+      vim.keymap.set("n", "s", "<Cmd>Pounce<CR>")
+      vim.keymap.set("n", "S", "<Cmd>Pounce<CR>")
     end,
   }
   -- }}}
@@ -112,12 +104,10 @@ return packer.startup(function()
       vim.g.iron_map_defaults = false
       vim.g.iron_map_extended = false
 
-      vim.cmd [[
-        nmap <localleader>;    <Plug>(iron-send-line)
-        nmap <localleader>e    <Plug>(iron-repeat-cmd)
-        vmap ;                 <Plug>(iron-visual-send)
-        nmap <localleader>c    <Plug>(iron-clear)
-      ]]
+      vim.keymap.set("n", ";", "<Plug>(iron-send-line)", { remap = true })
+      vim.keymap.set("n", "e", "<Plug>(iron-repeat-cmd)", { remap = true })
+      vim.keymap.set("v", ";", "<Plug>(iron-visual-send)", { remap = true })
+      vim.keymap.set("n", "c", "<Plug>(iron-clear)", { remap = true })
 
       require("iron").core.set_config {
         highlight_last = "CursorColumn",
@@ -128,11 +118,7 @@ return packer.startup(function()
           api.nvim_win_set_option(win_id, "number", false)
           api.nvim_win_set_option(win_id, "relativenumber", false)
           api.nvim_win_set_option(win_id, "signcolumn", "no")
-          vim.keymap.tnoremap { "<Esc>", [[<C-\><C-n>]], buffer = buffer }
-
-          -- vim.cmd [[
-          --   autocmd BufWinEnter,WinEnter term://* startinsert
-          -- ]]
+          vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { buffer = buffer })
 
           return win_id
         end,
@@ -158,11 +144,10 @@ return packer.startup(function()
     "numtostr/FTerm.nvim",
     module = "FTerm",
     setup = function()
-      -- vim.keymap.nnoremap { "<leader>m", "<cmd>lua require('FTerm').open()<cr>" }
-      -- vim.keymap.tnoremap { "<esc>", "<cmd>lua require('FTerm').close()<cr>" }
-
-      vim.keymap.set("n", "<leader>m", "<cmd>lua require('FTerm').open()<cr>")
-      vim.keymap.set("t", "<esc>", "<cmd>lua require('FTerm').close()<cr>")
+      -- stylua: ignore start
+      vim.keymap.set("n", "<leader>m", function() require("FTerm").open() end)
+      vim.keymap.set("t", "<esc>", function() require("FTerm").close() end)
+      -- stylua: ignore end
     end,
     config = function()
       require("FTerm").setup {
@@ -186,28 +171,26 @@ return packer.startup(function()
   use {
     "jbyuki/venn.nvim",
     config = function()
-      -- venn.nvim: enable or disable keymappings
-      function _G.Toggle_venn()
+      -- toggle keymappings for venn using <leader>v
+      vim.keymap.set("n", "<leader>v", function()
         local venn_enabled = vim.inspect(vim.b.venn_enabled)
         if venn_enabled == "nil" then
           vim.b.venn_enabled = true
           vim.cmd [[setlocal ve=all]]
           -- draw a line on HJKL keystokes
-          vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
-          vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
-          vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
-          vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
-          -- draw a box by pressing "f" with visual selection
-          vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+          vim.keymap.set("n", "J", "<C-v>j:VBox<CR>", { buffer = 0 })
+          vim.keymap.set("n", "K", "<C-v>k:VBox<CR>", { buffer = 0 })
+          vim.keymap.set("n", "L", "<C-v>l:VBox<CR>", { buffer = 0 })
+          vim.keymap.set("n", "H", "<C-v>h:VBox<CR>", { buffer = 0 })
 
+          -- draw a box by pressing "f" with visual selection
+          vim.keymap.set("v", "f", ":VBox<CR>", { buffer = 0 })
         else
           vim.cmd [[setlocal ve=]]
           vim.cmd [[mapclear <buffer>]]
           vim.b.venn_enabled = nil
         end
-      end
-      -- toggle keymappings for venn using <leader>v
-      vim.api.nvim_set_keymap("n", "<localleader>v", ":lua Toggle_venn()<CR>", { noremap = true })
+      end)
     end,
   }
   -- }}}
@@ -241,8 +224,7 @@ return packer.startup(function()
     "TimUntersberger/neogit",
     cmd = "Neogit",
     setup = function()
-      -- vim.keymap.nnoremap { "<leader>gg", "<cmd>Neogit<cr>" }
-      vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
+      vim.keymap.set("n", "<leader>gg", "<Cmd>Neogit<CR>")
     end,
     config = function()
       require("neogit").setup {
@@ -365,9 +347,7 @@ return packer.startup(function()
   use {
     "github/copilot.vim",
     config = function()
-      vim.cmd [[
-        imap <silent><script><expr> <C-J> copilot#Accept("")
-      ]]
+      vim.keymap.set("i", "<C-J>", "copilot#Accept('')", { silent = true, expr = true, remap = true })
       vim.g.copilot_no_tab_map = true
     end,
   }
@@ -425,14 +405,14 @@ return packer.startup(function()
   --     }
   --
   --     local xnoremap = vim.keymap.xnoremap
-  --     xnoremap { "(", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>l" }
-  --     xnoremap { ")", "<esc>gv<cmd>lua require'surround'.surround_add(false, ')')<cr>l" }
-  --     xnoremap { "[", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>l" }
-  --     xnoremap { "]", "<esc>gv<cmd>lua require'surround'.surround_add(false, ']')<cr>l" }
-  --     xnoremap { "{", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>l" }
-  --     xnoremap { "}", "<esc>gv<cmd>lua require'surround'.surround_add(false, '}')<cr>l" }
-  --     xnoremap { [["]], [[<esc>gv<cmd>lua require'surround'.surround_add(false, '"')<cr>l]] }
-  --     xnoremap { [[']], [[<esc>gv<cmd>lua require'surround'.surround_add(false, "'")<cr>l]] }
+  --     xnoremap { "(", "<esc>gv<Cmd>lua require'surround'.surround_add(false, ')')<CR>l" }
+  --     xnoremap { ")", "<esc>gv<Cmd>lua require'surround'.surround_add(false, ')')<CR>l" }
+  --     xnoremap { "[", "<esc>gv<Cmd>lua require'surround'.surround_add(false, ']')<CR>l" }
+  --     xnoremap { "]", "<esc>gv<Cmd>lua require'surround'.surround_add(false, ']')<CR>l" }
+  --     xnoremap { "{", "<esc>gv<Cmd>lua require'surround'.surround_add(false, '}')<CR>l" }
+  --     xnoremap { "}", "<esc>gv<Cmd>lua require'surround'.surround_add(false, '}')<CR>l" }
+  --     xnoremap { [["]], [[<esc>gv<Cmd>lua require'surround'.surround_add(false, '"')<CR>l]] }
+  --     xnoremap { [[']], [[<esc>gv<Cmd>lua require'surround'.surround_add(false, "'")<CR>l]] }
   --   end,
   -- }
   -- }}}
@@ -442,8 +422,7 @@ return packer.startup(function()
     "kyazdani42/nvim-tree.lua",
     -- cmd = "NvimTreeToggle",
     setup = function()
-      -- vim.keymap.nnoremap { "<leader>n", "<cmd>NvimTreeToggle<cr>" }
-      vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<cr>")
+      vim.keymap.set("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>")
     end,
     config = conf "nvim_tree",
   }
@@ -457,23 +436,14 @@ return packer.startup(function()
       { "nvim-telescope/telescope-ui-select.nvim" },
     },
     setup = function()
-      -- local nnoremap = vim.keymap.nnoremap
-      --
-      -- nnoremap { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>" }
-      -- nnoremap { "<leader>fr", "<cmd>Telescope oldfiles<cr>" }
-      -- nnoremap { "<leader>bb", "<cmd>Telescope buffers<cr>" }
-      -- nnoremap { "<leader>sh", "<cmd>Telescope help_tags<cr>" }
-      -- nnoremap { "<leader>sp", "<cmd>Telescope live_grep<cr>" }
-      -- nnoremap { "<leader>sm", "<cmd>Telescope marks<cr>" }
-      -- nnoremap { "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>" }
-
-      vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>")
-      vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>")
-      vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>")
-      vim.keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<cr>")
-      vim.keymap.set("n", "<leader>sp", "<cmd>Telescope live_grep<cr>")
-      vim.keymap.set("n", "<leader>sm", "<cmd>Telescope marks<cr>")
-      vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+      -- stylua: ignore start
+      vim.keymap.set("n", "<leader>ff", "<Cmd>Telescope find_files hidden=true<CR>")
+      vim.keymap.set("n", "<leader>fr", "<Cmd>Telescope oldfiles<CR>")
+      vim.keymap.set("n", "<leader>bb", "<Cmd>Telescope buffers<CR>")
+      vim.keymap.set("n", "<leader>sh", "<Cmd>Telescope help_tags<CR>")
+      vim.keymap.set("n", "<leader>sp", "<Cmd>Telescope live_grep<CR>")
+      vim.keymap.set("n", "/", "<Cmd>Telescope current_buffer_fuzzy_find<CR>")
+      -- stylua: ignore end
     end,
     config = conf "telescope",
   }
@@ -481,26 +451,18 @@ return packer.startup(function()
   use {
     "ThePrimeagen/harpoon",
     config = function()
-      -- local nnoremap = vim.keymap.nnoremap
-
-      -- nnoremap { "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>" }
-      -- nnoremap { "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>" }
-      -- nnoremap { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>" }
-      -- nnoremap { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>" }
-      -- nnoremap { "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>" }
-      -- nnoremap { "<leader>h2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>" }
-      -- nnoremap { "<leader>h3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>" }
-      -- nnoremap { "<leader>h4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>" }
-      vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>")
-      vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
-      vim.keymap.set("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>")
-      vim.keymap.set("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
-      vim.keymap.set("n", "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
-      vim.keymap.set("n", "<leader>h2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
-      vim.keymap.set("n", "<leader>h3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
-      vim.keymap.set("n", "<leader>h4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
-      vim.keymap.set("n", "<leader>h5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>")
-      vim.keymap.set("n", "<leader>h6", "<cmd>lua require('harpoon.ui').nav_file(6)<cr>")
+      -- stylua: ignore start
+      vim.keymap.set("n", "<leader>ha", function() require("harpoon.mark").add_file() end)
+      vim.keymap.set("n", "<leader>hh", function() require("harpoon.ui").toggle_quick_menu() end)
+      vim.keymap.set("n", "<leader>hn", function() require("harpoon.ui").nav_next() end)
+      vim.keymap.set("n", "<leader>hp", function() require("harpoon.ui").nav_prev() end)
+      vim.keymap.set("n", "<leader>h1", function() require("harpoon.ui").nav_file(1) end)
+      vim.keymap.set("n", "<leader>h2", function() require("harpoon.ui").nav_file(2) end)
+      vim.keymap.set("n", "<leader>h3", function() require("harpoon.ui").nav_file(3) end)
+      vim.keymap.set("n", "<leader>h4", function() require("harpoon.ui").nav_file(4) end)
+      vim.keymap.set("n", "<leader>h5", function() require("harpoon.ui").nav_file(5) end)
+      vim.keymap.set("n", "<leader>h6", function() require("harpoon.ui").nav_file(6) end)
+      -- stylua: ignore end
     end,
   }
   -- }}}
