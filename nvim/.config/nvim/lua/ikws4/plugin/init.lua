@@ -84,10 +84,10 @@ return packer.startup(function()
       vim.g.iron_map_defaults = false
       vim.g.iron_map_extended = false
 
-      vim.keymap.set("n", ";", "<Plug>(iron-send-line)", { remap = true })
-      vim.keymap.set("n", "e", "<Plug>(iron-repeat-cmd)", { remap = true })
+      vim.keymap.set("n", "<localleader>;", "<Plug>(iron-send-line)", { remap = true })
+      vim.keymap.set("n", "<localleader>e", "<Plug>(iron-repeat-cmd)", { remap = true })
       vim.keymap.set("v", ";", "<Plug>(iron-visual-send)", { remap = true })
-      vim.keymap.set("n", "c", "<Plug>(iron-clear)", { remap = true })
+      vim.keymap.set("n", "<localleader>c", "<Plug>(iron-clear)", { remap = true })
 
       require("iron").core.set_config {
         highlight_last = "CursorColumn",
