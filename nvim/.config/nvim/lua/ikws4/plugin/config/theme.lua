@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 
-vim.o.fillchars = "eob: ,vert:|"
+vim.o.fillchars = "eob: ,"
 -- vim.g.rose_pine_variant = "moon"
 -- vim.g.rose_pine_disable_italics = true
 -- vim.g.rose_pine_disable_float_background = true
