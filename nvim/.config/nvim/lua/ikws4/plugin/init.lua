@@ -14,8 +14,6 @@ return packer.startup(function()
   -- Dependencies {{{
   use "wbthomason/packer.nvim"
 
-  -- use "tjdevries/astronauta.nvim"
-
   use "nvim-lua/plenary.nvim"
 
   use "kyazdani42/nvim-web-devicons"
@@ -52,27 +50,9 @@ return packer.startup(function()
       vim.keymap.set("n", "<leader>wf", "<Cmd>FocusMaxOrEqual<CR>")
     end,
   }
-
-  -- use {
-  --   "sindrets/winshift.nvim",
-  --   cmd = "WinShift",
-  --   setup = function()
-  --     vim.keymap.nnoremap { "<leader>wm", "<Cmd>WinShift<CR>" }
-  --   end,
-  --   config = function()
-  --     require("winshift").setup {
-  --       focused_hl_group = "Visual",
-  --     }
-  --   end,
-  -- }
   -- }}}
 
   -- Motion {{{
-  use {
-    "ggandor/lightspeed.nvim",
-    disable = true,
-  }
-
   use {
     "rlane/pounce.nvim",
     config = function()
@@ -132,12 +112,6 @@ return packer.startup(function()
     config = function()
       require("colorizer").setup({ "*" }, { names = false })
     end,
-  }
-
-  use {
-    "glepnir/dashboard-nvim",
-    disable = true,
-    config = conf "dashboard",
   }
 
   use {
@@ -203,12 +177,6 @@ return packer.startup(function()
 
   use {
     "nvim-treesitter/nvim-treesitter-textobjects",
-  }
-
-  use {
-    "nvim-treesitter/nvim-treesitter-refactor",
-    after = "nvim-treesitter",
-    disable = true,
   }
 
   use {
@@ -396,25 +364,6 @@ return packer.startup(function()
   }
 
   use "tpope/vim-surround"
-
-  -- use {
-  --   "blackCauldron7/surround.nvim",
-  --   config = function()
-  --     require("surround").setup {
-  --       load_keymaps = false,
-  --     }
-  --
-  --     local xnoremap = vim.keymap.xnoremap
-  --     xnoremap { "(", "<esc>gv<Cmd>lua require'surround'.surround_add(false, ')')<CR>l" }
-  --     xnoremap { ")", "<esc>gv<Cmd>lua require'surround'.surround_add(false, ')')<CR>l" }
-  --     xnoremap { "[", "<esc>gv<Cmd>lua require'surround'.surround_add(false, ']')<CR>l" }
-  --     xnoremap { "]", "<esc>gv<Cmd>lua require'surround'.surround_add(false, ']')<CR>l" }
-  --     xnoremap { "{", "<esc>gv<Cmd>lua require'surround'.surround_add(false, '}')<CR>l" }
-  --     xnoremap { "}", "<esc>gv<Cmd>lua require'surround'.surround_add(false, '}')<CR>l" }
-  --     xnoremap { [["]], [[<esc>gv<Cmd>lua require'surround'.surround_add(false, '"')<CR>l]] }
-  --     xnoremap { [[']], [[<esc>gv<Cmd>lua require'surround'.surround_add(false, "'")<CR>l]] }
-  --   end,
-  -- }
   -- }}}
 
   -- File navigation {{{
