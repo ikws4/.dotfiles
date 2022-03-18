@@ -14,7 +14,7 @@ return packer.startup(function()
   -- Dependencies {{{
   use "wbthomason/packer.nvim"
 
-  use "tjdevries/astronauta.nvim"
+  -- use "tjdevries/astronauta.nvim"
 
   use "nvim-lua/plenary.nvim"
 
@@ -48,10 +48,13 @@ return packer.startup(function()
         excluded_filetypes = { "harpoon" },
       }
 
-      local nnoremap = vim.keymap.nnoremap
+      -- local nnoremap = vim.keymap.nnoremap
+      --
+      -- nnoremap { "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>" }
+      -- nnoremap { "<leader>wf", "<cmd>FocusMaxOrEqual<cr>" }
 
-      nnoremap { "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>" }
-      nnoremap { "<leader>wf", "<cmd>FocusMaxOrEqual<cr>" }
+      vim.keymap.set("n", "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>")
+      vim.keymap.set("n", "<leader>wf", "<cmd>FocusMaxOrEqual<cr>")
       -- nnoremap { "<leader>w=", "<cmd>FocusEqualise<cr>" }
     end,
   }
@@ -84,8 +87,10 @@ return packer.startup(function()
         -- accept_best_key = ";",
       }
 
-      vim.keymap.nnoremap { "s", "<cmd>Pounce<cr>" }
-      vim.keymap.nnoremap { "S", "<cmd>Pounce<cr>" }
+      -- vim.keymap.nnoremap { "s", "<cmd>Pounce<cr>" }
+      -- vim.keymap.nnoremap { "S", "<cmd>Pounce<cr>" }
+      vim.keymap.set("n", "s", "<cmd>Pounce<cr>")
+      vim.keymap.set("n", "S", "<cmd>Pounce<cr>")
     end,
   }
   -- }}}
@@ -99,7 +104,7 @@ return packer.startup(function()
     end,
     ft = { "markdown" },
   }
-  
+
   use {
     "hkupty/iron.nvim",
     config = function()
@@ -153,8 +158,11 @@ return packer.startup(function()
     "numtostr/FTerm.nvim",
     module = "FTerm",
     setup = function()
-      vim.keymap.nnoremap { "<leader>m", "<cmd>lua require('FTerm').open()<cr>" }
-      vim.keymap.tnoremap { "<esc>", "<cmd>lua require('FTerm').close()<cr>" }
+      -- vim.keymap.nnoremap { "<leader>m", "<cmd>lua require('FTerm').open()<cr>" }
+      -- vim.keymap.tnoremap { "<esc>", "<cmd>lua require('FTerm').close()<cr>" }
+
+      vim.keymap.set("n", "<leader>m", "<cmd>lua require('FTerm').open()<cr>")
+      vim.keymap.set("t", "<esc>", "<cmd>lua require('FTerm').close()<cr>")
     end,
     config = function()
       require("FTerm").setup {
@@ -191,6 +199,7 @@ return packer.startup(function()
           vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
           -- draw a box by pressing "f" with visual selection
           vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+
         else
           vim.cmd [[setlocal ve=]]
           vim.cmd [[mapclear <buffer>]]
@@ -232,7 +241,8 @@ return packer.startup(function()
     "TimUntersberger/neogit",
     cmd = "Neogit",
     setup = function()
-      vim.keymap.nnoremap { "<leader>gg", "<cmd>Neogit<cr>" }
+      -- vim.keymap.nnoremap { "<leader>gg", "<cmd>Neogit<cr>" }
+      vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
     end,
     config = function()
       require("neogit").setup {
@@ -432,7 +442,8 @@ return packer.startup(function()
     "kyazdani42/nvim-tree.lua",
     -- cmd = "NvimTreeToggle",
     setup = function()
-      vim.keymap.nnoremap { "<leader>n", "<cmd>NvimTreeToggle<cr>" }
+      -- vim.keymap.nnoremap { "<leader>n", "<cmd>NvimTreeToggle<cr>" }
+      vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<cr>")
     end,
     config = conf "nvim_tree",
   }
@@ -446,15 +457,23 @@ return packer.startup(function()
       { "nvim-telescope/telescope-ui-select.nvim" },
     },
     setup = function()
-      local nnoremap = vim.keymap.nnoremap
+      -- local nnoremap = vim.keymap.nnoremap
+      --
+      -- nnoremap { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>" }
+      -- nnoremap { "<leader>fr", "<cmd>Telescope oldfiles<cr>" }
+      -- nnoremap { "<leader>bb", "<cmd>Telescope buffers<cr>" }
+      -- nnoremap { "<leader>sh", "<cmd>Telescope help_tags<cr>" }
+      -- nnoremap { "<leader>sp", "<cmd>Telescope live_grep<cr>" }
+      -- nnoremap { "<leader>sm", "<cmd>Telescope marks<cr>" }
+      -- nnoremap { "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>" }
 
-      nnoremap { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>" }
-      nnoremap { "<leader>fr", "<cmd>Telescope oldfiles<cr>" }
-      nnoremap { "<leader>bb", "<cmd>Telescope buffers<cr>" }
-      nnoremap { "<leader>sh", "<cmd>Telescope help_tags<cr>" }
-      nnoremap { "<leader>sp", "<cmd>Telescope live_grep<cr>" }
-      nnoremap { "<leader>sm", "<cmd>Telescope marks<cr>" }
-      nnoremap { "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>" }
+      vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>")
+      vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>")
+      vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>")
+      vim.keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<cr>")
+      vim.keymap.set("n", "<leader>sp", "<cmd>Telescope live_grep<cr>")
+      vim.keymap.set("n", "<leader>sm", "<cmd>Telescope marks<cr>")
+      vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
     end,
     config = conf "telescope",
   }
@@ -462,16 +481,26 @@ return packer.startup(function()
   use {
     "ThePrimeagen/harpoon",
     config = function()
-      local nnoremap = vim.keymap.nnoremap
+      -- local nnoremap = vim.keymap.nnoremap
 
-      nnoremap { "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>" }
-      nnoremap { "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>" }
-      nnoremap { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>" }
-      nnoremap { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>" }
-      nnoremap { "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>" }
-      nnoremap { "<leader>h2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>" }
-      nnoremap { "<leader>h3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>" }
-      nnoremap { "<leader>h4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>" }
+      -- nnoremap { "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>" }
+      -- nnoremap { "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>" }
+      -- nnoremap { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>" }
+      -- nnoremap { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>" }
+      -- nnoremap { "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>" }
+      -- nnoremap { "<leader>h2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>" }
+      -- nnoremap { "<leader>h3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>" }
+      -- nnoremap { "<leader>h4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>" }
+      vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>")
+      vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
+      vim.keymap.set("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>")
+      vim.keymap.set("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
+      vim.keymap.set("n", "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
+      vim.keymap.set("n", "<leader>h2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
+      vim.keymap.set("n", "<leader>h3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
+      vim.keymap.set("n", "<leader>h4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
+      vim.keymap.set("n", "<leader>h5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>")
+      vim.keymap.set("n", "<leader>h6", "<cmd>lua require('harpoon.ui').nav_file(6)<cr>")
     end,
   }
   -- }}}

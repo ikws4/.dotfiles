@@ -49,21 +49,35 @@ local on_attach = function(client, bufnr)
     client.resolved_capabilities.document_range_formatting = false
   end
 
-  local nnoremap = vim.keymap.nnoremap
+  -- local nnoremap = vim.keymap.nnoremap
 
-  nnoremap { "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", buffer = bufnr }
-  nnoremap { "gd", "<cmd>Telescope lsp_definitions<cr>", buffer = bufnr }
-  nnoremap { "gr", "<cmd>Telescope lsp_references<cr>", buffer = bufnr }
-  nnoremap { "gi", "<cmd>Telescope lsp_implementations<cr>", buffer = bufnr }
-  nnoremap { "K", "<cmd>lua vim.lsp.buf.hover()<cr>", buffer = bufnr }
-  nnoremap { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", buffer = bufnr }
-  nnoremap { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", buffer = bufnr }
-  nnoremap { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", buffer = bufnr }
-  nnoremap { "<leader>lD", "<cmd>lua vim.diagnostic.goto_next()<cr>", buffer = bufnr }
-  nnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", buffer = bufnr }
+  -- nnoremap { "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", buffer = bufnr }
+  -- nnoremap { "gd", "<cmd>Telescope lsp_definitions<cr>", buffer = bufnr }
+  -- nnoremap { "gr", "<cmd>Telescope lsp_references<cr>", buffer = bufnr }
+  -- nnoremap { "gi", "<cmd>Telescope lsp_implementations<cr>", buffer = bufnr }
+  -- nnoremap { "K", "<cmd>lua vim.lsp.buf.hover()<cr>", buffer = bufnr }
+  -- nnoremap { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", buffer = bufnr }
+  -- nnoremap { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", buffer = bufnr }
+  -- nnoremap { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", buffer = bufnr }
+  -- nnoremap { "<leader>lD", "<cmd>lua vim.diagnostic.goto_next()<cr>", buffer = bufnr }
+  -- nnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", buffer = bufnr }
 
-  vim.keymap.vnoremap { "<leader>la", "<cmd>lua vim.lsp.buf.range_code_action()<cr><esc>", buffer = bufnr }
-  vim.keymap.vnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<cr><esc>", buffer = bufnr }
+  vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "<leader>lD", "<cmd>lua vim.diagnostic.goto_next()<cr>", { buffer = bufnr })
+  vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", { buffer = bufnr })
+  
+
+  -- vim.keymap.vnoremap { "<leader>la", "<cmd>lua vim.lsp.buf.range_code_action()<cr><esc>", buffer = bufnr }
+  -- vim.keymap.vnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<cr><esc>", buffer = bufnr }
+  vim.keymap.set("v", "<leader>la", "<cmd>lua vim.lsp.buf.range_code_action()<cr><esc>", { buffer = bufnr })
+  vim.keymap.set("v", "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<cr><esc>", { buffer = bufnr })
 end
 
 return {
