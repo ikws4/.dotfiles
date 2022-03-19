@@ -1,64 +1,62 @@
 local cmd = vim.cmd
 
-vim.o.fillchars = "eob: ,"
-function _G.themeOverride()
-  local p = require "rose-pine.palette"
-  local hi = require("rose-pine.util").highlight
+-- Theme Override
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    local p = require "rose-pine.palette"
+    local hi = require("rose-pine.util").highlight
 
-  local theme = {
-    VertSplit = { fg = p.overlay, bg = p.base },
-    TelescopeBorder = { link = "FloatBorder" },
-    StatusLine = { fg = p.text, bg = p.base },
-    StatusLineNC = { fg = p.subtle, bg = p.base },
-    Visual = { bg = p.highlight_low },
-    Pmenu = { fg = p.subtle, bg = p.surface },
-    TermCursor = { link = "Cursor" },
+    local theme = {
+      VertSplit = { fg = p.overlay, bg = p.base },
+      StatusLine = { fg = p.text, bg = p.base },
+      StatusLineNC = { fg = p.subtle, bg = p.base },
+      Visual = { bg = p.highlight_low },
+      Pmenu = { fg = p.subtle, bg = p.surface },
+      TermCursor = { link = "Cursor" },
 
-    -- nvim-tree
-    NvimTreeExecFile = { fg = p.pine, style = "italic" },
+      -- nvim-tree
+      NvimTreeExecFile = { fg = p.pine, style = "italic" },
 
-    -- nvim-cmp
-    CmpItemKindText = { fg = p.text },
-    CmpItemKindKeyword = { fg = p.text },
-    CmpCompletionWindow = { fg = p.subtle },
+      -- nvim-cmp
+      CmpItemKindText = { fg = p.text },
+      CmpItemKindKeyword = { fg = p.text },
+      CmpCompletionWindow = { fg = p.subtle },
 
-    -- lightspeed
-    LightSpeedGreyWash = { link = "Comment" },
+      -- lightspeed
+      LightSpeedGreyWash = { link = "Comment" },
 
-    -- treesitter
-    TSKeywordOperator = { fg = p.pine },
+      -- treesitter
+      TSKeywordOperator = { fg = p.pine },
 
-    -- copilot
-    CopilotSuggestion = { link = "Comment" },
+      -- copilot
+      CopilotSuggestion = { link = "Comment" },
 
-    -- neorg
-    NeorgCodeBlock = { bg = p.base },
+      -- neorg
+      NeorgCodeBlock = { bg = p.base },
 
-    -- harpoon
-    HarpoonBorder = { link = "FloatBorder" },
-    HarpoonWindow = { link = "Comment" },
-  }
+      -- harpoon
+      HarpoonBorder = { link = "FloatBorder" },
+      HarpoonWindow = { link = "Comment" },
+    }
 
-  for group, color in pairs(theme) do
-    hi(group, color)
-  end
-end
+    for group, color in pairs(theme) do
+      hi(group, color)
+    end
+  end,
+  pattern = "rose-pine",
+  group = vim.api.nvim_create_augroup("ThemeOverride", {}),
+})
 
 -- Highlight on yank
-cmd [[
-  augroup TextyankPostAutoGroup
-    autocmd!
-    autocmd TextYankPost * lua vim.highlight.on_yank { higroup = 'Visual',timeout = 350 }
-  augroup END
-]]
-
--- Theme Override
-cmd [[
-  augroup ThemeOverride
-    autocmd!
-    autocmd ColorScheme rose-pine lua themeOverride()
-  augroup END
-]]
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank {
+      higroup = "Visual",
+      timeout = 350,
+    }
+  end,
+  group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
+})
 
 require("rose-pine").setup {
   dark_variant = "moon",
