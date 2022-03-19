@@ -60,7 +60,7 @@ require("nvim-tree").setup {
         { key = "R", cb = action "refresh" },
 
         { key = "-", cb = action "dir_up" },
-        { key = "+", cb = action "cd" },
+        { key = "=", cb = action "cd" },
         { key = ".", cb = action "toggle_dotfiles" },
         { key = "?", cb = action "toggle_help" },
       },
