@@ -6,7 +6,7 @@ function _G.themeOverride()
   local hi = require("rose-pine.util").highlight
 
   local theme = {
-    VertSplit = { fg = p.muted, bg = p.base },
+    VertSplit = { fg = p.overlay, bg = p.base },
     -- FloatBorder = { link = "TelescopeBorder" },
     TelescopeBorder = { link = "FloatBorder" },
     -- NormalFloat = { bg = p.surface },
