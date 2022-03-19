@@ -7,19 +7,12 @@ function _G.themeOverride()
 
   local theme = {
     VertSplit = { fg = p.overlay, bg = p.base },
-    -- FloatBorder = { link = "TelescopeBorder" },
     TelescopeBorder = { link = "FloatBorder" },
-    -- NormalFloat = { bg = p.surface },
-    -- TelescopeBorder = { fg = p.base, bg = p.base },
     StatusLine = { fg = p.text, bg = p.base },
     StatusLineNC = { fg = p.subtle, bg = p.base },
-    -- UnfocusedWindow = { link = "DarkenedPanel" },
-    -- FocusedWindow = { link = "Normal" },
-    -- LightBulbFloatWin = { fg = "#FFCC01" },
     Visual = { bg = p.highlight_low },
     Pmenu = { fg = p.subtle, bg = p.surface },
     TermCursor = { link = "Cursor" },
-    -- MatchParen = { bg = p.highlight_med },
 
     -- nvim-tree
     NvimTreeExecFile = { fg = p.pine, style = "italic" },
