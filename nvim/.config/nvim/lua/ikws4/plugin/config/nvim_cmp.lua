@@ -30,7 +30,6 @@ cmp.setup {
   },
   completion = {
     completeopt = "menu,menuone,noselect",
-    -- autocomplete = false,
   },
   preselect = cmp.PreselectMode.None,
   mapping = {
@@ -135,8 +134,3 @@ cmp.setup {
     { name = "spell" },
   }),
 }
-
--- vim.cmd [[
---   command! CmpDisable :lua require('cmp').setup.buffer { enabled = false }
---   command! CmpEnable :lua require('cmp').setup.buffer { enabled = true }
--- ]]
