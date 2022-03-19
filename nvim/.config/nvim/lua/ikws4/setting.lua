@@ -13,7 +13,17 @@ o.mouse = "a"
 o.updatetime = 250
 o.guicursor = "n-c-sm:block,i-ci-ve:ver25,v-r-cr-o:hor20"
 
-o.fillchars = "eob: ,"
+-- o.fillchars = "eob: ,"
+o.fillchars = {
+  eob = " ",
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+}
 
 -- tabline
 o.showtabline = 0
