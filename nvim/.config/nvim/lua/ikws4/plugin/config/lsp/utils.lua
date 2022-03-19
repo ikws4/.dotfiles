@@ -12,30 +12,11 @@ local hover = function()
 end
 
 -- Override open_floating_preview
--- local lsp_float_border = {
---   { "", "LspFloatingPreviewBorder" },
---   { "", "LspFloatingPreviewBorder" },
---   { "", "LspFloatingPreviewBorder" },
---   { " ", "LspFloatingPreviewBorder" },
---   { "", "LspFloatingPreviewBorder" },
---   { "", "LspFloatingPreviewBorder" },
---   { "", "LspFloatingPreviewBorder" },
---   { " ", "LspFloatingPreviewBorder" },
--- }
 local vim_lsp_util_open_floating_preview = vim.lsp.util.open_floating_preview
 local open_floating_preview = function(contents, syntax, opts)
   opts.border = opts.border or "rounded"
   local floating_bufnr, floating_winnr = vim_lsp_util_open_floating_preview(contents, syntax, opts)
-
-  -- stylua: ignore
-  vim.api.nvim_buf_set_keymap(floating_bufnr, "n", "<Esc>", "<cmd>bdelete<cr>", { silent = true, noremap = true, nowait = true })
-
-  -- if floating_winnr == vim.api.nvim_get_current_win() then
-  --   vim.cmd "hi! link NormalFloat FocusedWindow"
-  -- else
-  --   vim.cmd "hi! link LspFloatingPreviewBorder UnfocusedWindow"
-  -- end
-
+  vim.keymap.set("n", "<Esc>", "<Cmd>bdelete<CR>", { buffer = floating_bufnr })
   return floating_bufnr, floating_winnr
 end
 
@@ -49,35 +30,23 @@ local on_attach = function(client, bufnr)
     client.resolved_capabilities.document_range_formatting = false
   end
 
-  -- local nnoremap = vim.keymap.nnoremap
+  local builtin = require "telescope.builtin"
 
-  -- nnoremap { "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", buffer = bufnr }
-  -- nnoremap { "gd", "<cmd>Telescope lsp_definitions<cr>", buffer = bufnr }
-  -- nnoremap { "gr", "<cmd>Telescope lsp_references<cr>", buffer = bufnr }
-  -- nnoremap { "gi", "<cmd>Telescope lsp_implementations<cr>", buffer = bufnr }
-  -- nnoremap { "K", "<cmd>lua vim.lsp.buf.hover()<cr>", buffer = bufnr }
-  -- nnoremap { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", buffer = bufnr }
-  -- nnoremap { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", buffer = bufnr }
-  -- nnoremap { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", buffer = bufnr }
-  -- nnoremap { "<leader>lD", "<cmd>lua vim.diagnostic.goto_next()<cr>", buffer = bufnr }
-  -- nnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", buffer = bufnr }
+  -- stylua: ignore start
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
+  vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = bufnr })
+  vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = bufnr })
+  vim.keymap.set("n", "gi", builtin.lsp_implementations, { buffer = bufnr })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+  vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = bufnr })
+  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr })
+  vim.keymap.set("n", "<leader>ld", function() builtin.diagnostics { no_sign = true } end, { buffer = bufnr })
+  vim.keymap.set("n", "<leader>lD", vim.diagnostic.goto_next, { buffer = bufnr })
+  vim.keymap.set("n", "<leader>lf", vim.lsp.buf.formatting, { buffer = bufnr })
 
-  vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "<leader>lD", "<cmd>lua vim.diagnostic.goto_next()<cr>", { buffer = bufnr })
-  vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", { buffer = bufnr })
-  
-
-  -- vim.keymap.vnoremap { "<leader>la", "<cmd>lua vim.lsp.buf.range_code_action()<cr><esc>", buffer = bufnr }
-  -- vim.keymap.vnoremap { "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<cr><esc>", buffer = bufnr }
-  vim.keymap.set("v", "<leader>la", "<cmd>lua vim.lsp.buf.range_code_action()<cr><esc>", { buffer = bufnr })
-  vim.keymap.set("v", "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<cr><esc>", { buffer = bufnr })
+  vim.keymap.set("v", "<leader>la", "<Cmd>lua vim.lsp.buf.range_code_action()<CR><ESC>", { buffer = bufnr })
+  vim.keymap.set("v", "<leader>lf", "<Cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>", { buffer = bufnr })
+  -- stylua: ignore end
 end
 
 return {
