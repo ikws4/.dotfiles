@@ -46,3 +46,6 @@ vim.keymap.set("n", "<Up>", "<Cmd>resize -1<CR>")
 
 -- center cursor
 vim.keymap.set("n", "zz", "zt10<C-y>")
+
+-- Newline
+vim.keymap.set("i", "<M-CR>", "<End><Enter>")
