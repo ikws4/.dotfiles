@@ -8,8 +8,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("i", ",", ",<C-g>u")
 vim.keymap.set("i", ".", ".<C-g>u")
-vim.keymap.set("x", "J", "<Cmd>move '>+1<CR>gv")
-vim.keymap.set("x", "K", "<Cmd>move '<-2<CR>gv")
+vim.keymap.set("x", "J", ":move '>+1<CR>gv")
+vim.keymap.set("x", "K", ":move '<-2<CR>gv")
 
 -- Save buffer
 vim.keymap.set("n", "<M-s>", "<Cmd>w<CR>")
