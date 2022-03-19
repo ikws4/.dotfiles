@@ -16,9 +16,6 @@ vim.g.nvim_tree_git_hl = 1
 local action = require("nvim-tree.config").nvim_tree_callback
 local lib = require "nvim-tree.lib"
 
--- Override winhl
--- require("nvim-tree.view").View.winopts.winhl =
---   "Normal:FocusedWindow,NormalNC:UnfocusedWindow,EndOfBuffer:NvimTreeEndOfBuffer,CursorLine:NvimTreeCursorLine,VertSplit:NvimTreeVertSplit,SignColumn:NvimTreeNormal"
 require("nvim-tree.view").View.winopts.cursorline = false
 
 function _G.system_open()
@@ -35,7 +32,11 @@ require("nvim-tree").setup {
     update_cwd = false,
     ignore_list = {},
   },
+  git = {
+    enable = false,
+  },
   view = {
+    preserve_window_proportions = true,
     mappings = {
       custom_only = true,
       list = {
@@ -43,7 +44,7 @@ require("nvim-tree").setup {
 
         { key = "<tab>", cb = action "edit" },
 
-        { key = "o", cb = "<cmd>lua system_open()<cr>" },
+        { key = "o", cb = "<Cmd>lua system_open()<CR>" },
         { key = "a", cb = action "create" },
         { key = "d", cb = action "trash" },
         { key = "D", cb = action "remove" },
