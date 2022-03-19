@@ -39,6 +39,11 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       -- harpoon
       HarpoonBorder = { link = "FloatBorder" },
       HarpoonWindow = { link = "Comment" },
+
+      -- telescope
+      TelescopeSelection = { link = "Visual" },
+      TelescopeSelectionCaret = { fg = p.rose, bg = p.highlight_low },
+      TelescopeResultsSpecialComment = { link = "LineNr" },
     }
 
     for group, color in pairs(theme) do
