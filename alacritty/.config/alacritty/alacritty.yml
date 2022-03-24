@@ -14,18 +14,19 @@ env:
 
 # Window Customizations
 window:
-  dimensions:
-    columns: 140
-    lines: 38
+  # dimensions:
+  #   columns: 140
+  #   lines: 38
   padding:
     x: 0
     y: 0
   dynamic_padding: false
   decorations: none
+  startup_mode: Maximized
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 1
+# background_opacity: 1
 
 # Font configuration
 font:
