@@ -57,8 +57,8 @@ return packer.startup(function()
     "rlane/pounce.nvim",
     config = function()
       require("pounce").setup {
-        accept_keys = ";FKDLSAHGNUVRBYTMICEOXWPQZ",
-        accept_best_key = ";",
+        accept_keys = "JFKDLSAHGNUVRBYTMICEOXWPQZ",
+        -- accept_best_key = "",
       }
 
       vim.keymap.set("n", "s", "<Cmd>Pounce<CR>")
