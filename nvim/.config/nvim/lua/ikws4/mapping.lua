@@ -49,3 +49,7 @@ vim.keymap.set("n", "zz", "zt10<C-y>")
 
 -- Newline
 vim.keymap.set("i", "<M-CR>", "<End><Enter>")
+
+-- Big cursor move
+vim.keymap.set("n", "<M-j>", "8j")
+vim.keymap.set("n", "<M-k>", "8k")

@@ -59,7 +59,8 @@ key_bindings:
   - { key: L, mods: Command, chars: "\x1bl" }
   # - { key: L, mods: Command|Shift, chars: "\x1bL" }
   - { key: H, mods: Command, action: None }
-  - { key: K, mods: Command, action: None }
+  - { key: J, mods: Command, chars: "\x1bj" }
+  - { key: K, mods: Command, chars: "\x1bk" }
   - { key: M, mods: Command, action: None }
   - { key: Q, mods: Command, action: None }
   - { key: W, mods: Command, action: None }
