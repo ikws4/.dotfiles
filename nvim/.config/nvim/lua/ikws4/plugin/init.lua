@@ -68,6 +68,8 @@ return packer.startup(function()
   -- }}}
 
   -- Util {{{
+  use "tpope/vim-repeat"
+
   use {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
