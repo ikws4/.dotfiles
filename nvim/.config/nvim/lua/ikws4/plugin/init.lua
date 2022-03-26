@@ -191,6 +191,11 @@ return packer.startup(function()
 
   -- Git {{{
   use {
+    "tpope/vim-fugitive",
+    config = function() end,
+  }
+
+  use {
     "TimUntersberger/neogit",
     cmd = "Neogit",
     setup = function()
