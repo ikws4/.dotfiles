@@ -54,7 +54,7 @@ nnoremap <localleader><Tab> :action CollapseSelection<CR>
 
 " Highlight on yank
 let g:highlightedyank_highlight_duration = "350"
-let g:highlightedyank_highlight_color = "rgb(42,40,62)"
+let g:highlightedyank_highlight_color = "rgba(42, 40, 62, 255)"
 
 " Tree & Terminal
 nnoremap <leader>n :NERDTreeToggle<CR>
