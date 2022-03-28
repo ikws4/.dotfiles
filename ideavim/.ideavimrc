@@ -30,7 +30,8 @@ nnoremap zz zb22<C-e>
 nnoremap [b :action PreviousTab<CR>
 nnoremap ]b :action NextTab<CR>
 
-imap <M-l> <Action>(EditorChooseLookupItem)
+" imap <M-l> <Action>(EditorChooseLookupItem)
+" imap <M-l> <Action>(copilot.applyInlays)
 
 nnoremap K :action QuickJavaDoc<CR>
 nnoremap gd :action GotoDeclaration<CR>
@@ -60,6 +61,6 @@ let g:highlightedyank_highlight_color = "rgba(42, 40, 62, 255)"
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>m :action ActivateTerminalToolWindow<CR>
 
-command! Run1 action Run
-command! Run2 action android.deploy.ApplyChanges
-command! Run3 action android.deploy.CodeSwap
+command! Make action Run
+" command! Run2 action android.deploy.ApplyChanges
+" command! Run3 action android.deploy.CodeSwap
