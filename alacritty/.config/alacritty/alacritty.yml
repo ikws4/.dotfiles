@@ -43,9 +43,12 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
   size: 18.0
+  offset:
+    x: 0
+    y: 6 
   glyph_offset:
     x: 0
-    y: 5
+    y: 3 
   use_thin_strokes: true
 draw_bold_text_with_bright_colors: false
 
@@ -67,7 +70,7 @@ key_bindings:
   - { key: M, mods: Command, action: None }
   - { key: Q, mods: Command, action: None }
   - { key: W, mods: Command, action: None }
-  - { key: Semicolon, mods: Command, chars: "\x1b;" }
+  # - { key: Semicolon, mods: Command, chars: "\x1b;" }
   - { key: Back, action: ReceiveChar }
   - { key: LBracket, mods: Command, chars: "\x1b[" }
   - { key: RBracket, mods: Command, chars: "\x1b]" }
