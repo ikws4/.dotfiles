@@ -22,151 +22,150 @@ ls.config.set_config {
   enable_autosnippets = true,
 }
 
-ls.snippets = {
-  java = {
-    s(
-      "print(%l*)",
-      fmt(
-        [[
+ls.add_snippets("java", {
+  s(
+    "print(%l*)",
+    fmt(
+      [[
           System.out.print{}({});
         ]],
-        {
-          capture(1),
-          i(0),
-        }
-      )
-    ),
-    s(
-      "while",
-      fmt(
-        [[
+      {
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "while",
+    fmt(
+      [[
           while ({}) {{
             {}
           }}
         ]],
-        {
-          i(1),
-          i(0),
-        }
-      )
-    ),
-    s(
-      "if",
-      fmt(
-        [[
+      {
+        i(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "if",
+    fmt(
+      [[
           if ({}) {{
             {}
           }}
         ]],
-        {
-          i(1),
-          i(0),
-        }
-      )
-    ),
-    s(
-      "foreach(%a+)",
-      fmt(
-        [[
+      {
+        i(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "foreach(%a+)",
+    fmt(
+      [[
           for (var {} : {}s) {{
             {}
           }}
         ]],
-        {
-          capture(1),
-          capture(1),
-          i(0),
-        }
-      )
-    ),
-    s(
-      "for(%l)(%d*)",
-      fmt(
-        [[
+      {
+        capture(1),
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "for(%l)(%d*)",
+    fmt(
+      [[
           for (int {} = {}; {} < {}; {}++) {{
             {}
           }}
         ]],
-        {
-          capture(1),
-          capture(2, "0"),
-          capture(1),
-          i(1, "n"),
-          capture(1),
-          i(0),
-        }
-      )
-    ),
-    s(
-      "rfor(%l)",
-      fmt(
-        [[
+      {
+        capture(1),
+        capture(2, "0"),
+        capture(1),
+        i(1, "n"),
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "rfor(%l)",
+    fmt(
+      [[
           for (int {} = {}; {} >= 0; {}--) {{
             {}
           }} ]],
-        {
-          capture(1),
-          i(1, "n - 1"),
-          capture(1),
-          capture(1),
-          i(0),
-        }
-      )
-    ),
-  },
-  javascript = {
-    s(
-      "foreach(%a+)",
-      fmt(
-        [[
+      {
+        capture(1),
+        i(1, "n - 1"),
+        capture(1),
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+})
+
+ls.add_snippets("javascript", {
+  s(
+    "foreach(%a+)",
+    fmt(
+      [[
           for (const {} of {}s) {{
             {}
           }}
         ]],
-        {
-          capture(1),
-          capture(1),
-          i(0),
-        }
-      )
-    ),
-    s(
-      "for(%l)(%d*)",
-      fmt(
-        [[
+      {
+        capture(1),
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "for(%l)(%d*)",
+    fmt(
+      [[
           for (let {} = {}; {} < {}; {}++) {{
             {}
           }}
         ]],
-        {
-          capture(1),
-          capture(2, "0"),
-          capture(1),
-          i(1, "n"),
-          capture(1),
-          i(0),
-        }
-      )
-    ),
-    s(
-      "rfor(%l)",
-      fmt(
-        [[
+      {
+        capture(1),
+        capture(2, "0"),
+        capture(1),
+        i(1, "n"),
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "rfor(%l)",
+    fmt(
+      [[
           for (let {} = {}; {} >= 0; {}--) {{
             {}
           }}
         ]],
-        {
-          capture(1),
-          i(1, "n - 1"),
-          capture(1),
-          capture(1),
-          i(0),
-        }
-      )
-    ),
-  },
-}
+      {
+        capture(1),
+        i(1, "n - 1"),
+        capture(1),
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+})
 
 require("luasnip.loaders.from_vscode").load {
   paths = { vim.fn.stdpath "data" .. "/site/pack/packer/opt/friendly-snippets" },
