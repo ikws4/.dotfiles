@@ -1,6 +1,6 @@
 initscript {
   dependencies {
-    classpath files("/Users/zhipingne/dev/Github/gradle-android-eclipse/build/libs/gradle-android-eclipse-1.2.jar")
+    classpath files("plugins/gradle-android-eclipse-1.2.jar")
   }
 }
 
