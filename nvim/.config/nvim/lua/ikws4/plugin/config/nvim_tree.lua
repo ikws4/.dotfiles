@@ -27,7 +27,7 @@ require("nvim-tree").setup {
   hijack_cursor = true,
   update_cwd = false,
   update_focused_file = {
-    enable = true,
+    enable = false,
     update_cwd = false,
     ignore_list = {},
   },
