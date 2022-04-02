@@ -6,15 +6,16 @@ local themes = require "telescope.themes"
 local ivy_theme = themes.get_ivy {
   layout_config = {
     height = 0.55,
-    preview_width = 0.4
+    preview_width = 0.4,
   },
 }
 
 local dropdown_theme = themes.get_dropdown {
   layout_config = {
-    anchor = "N",
+    -- anchor = "N",
+    width = 0.6,
+    height = 0.5,
   },
-  previewer = false,
 }
 
 -- local ivy_theme_normal = themes.get_ivy {
