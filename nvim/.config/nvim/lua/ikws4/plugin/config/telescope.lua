@@ -41,6 +41,11 @@ telescope.setup {
       "^vendor/",
       "^.git/",
       ".DS_Store",
+      ".gradle/",
+      "gradle/",
+      ".idea/",
+      ".settings/",
+      "eclipse_dependencies/",
     },
     mappings = {
       i = {
