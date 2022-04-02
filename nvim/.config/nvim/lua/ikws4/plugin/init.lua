@@ -304,6 +304,7 @@ return packer.startup(function()
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "f3fora/cmp-spell",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
   }
 
   use {
