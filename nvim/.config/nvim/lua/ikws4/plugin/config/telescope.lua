@@ -10,6 +10,13 @@ local ivy_theme = themes.get_ivy {
   },
 }
 
+local dropdown_theme = themes.get_dropdown {
+  layout_config = {
+    anchor = "N",
+  },
+  previewer = false,
+}
+
 -- local ivy_theme_normal = themes.get_ivy {
 --   initial_mode = "normal",
 --   layout_config = {
@@ -53,15 +60,17 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    layout_config = {
-      preview_width = 0.6,
-    },
+    -- layout_config = {
+    --   preview_width = 0.6,
+    -- },
   },
   pickers = {
     lsp_references = ivy_theme,
     lsp_definitions = ivy_theme,
     lsp_implementations = ivy_theme,
+    lsp_document_symbols = dropdown_theme,
     diagnostics = ivy_theme,
+    find_files = dropdown_theme,
     -- lsp_workspace_diagnostics = ivy_theme,
     -- lsp_code_actions = themes.get_cursor(),
     current_buffer_fuzzy_find = ivy_theme,
