@@ -5,6 +5,7 @@ DOTFILES="
   clash
   fish
   git
+  gradle
   ideavim
   julia
   karabiner

@@ -1,0 +1,24 @@
+initscript {
+  dependencies {
+    classpath files("/Users/zhipingne/dev/Github/gradle-android-eclipse/build/libs/gradle-android-eclipse-1.2.jar")
+  }
+}
+
+allprojects {
+  apply plugin: "eclipse"
+  apply plugin: com.greensopinion.gradle.android.eclipse.EclipseGeneratorPlugin
+  
+  configurations {
+    eclipseApi.extendsFrom api
+    eclipseImplementation.extendsFrom implementation
+    eclipseTestImplementation.extendsFrom testImplementation
+    ecliseAndroidTestImplementation.extendsFrom androidTestImplementation
+  }
+
+  eclipse {
+    classpath {
+      plusConfigurations += [ configurations.eclipseApi, configurations.eclipseImplementation, configurations.eclipseTestImplementation, configurations.ecliseAndroidTestImplementation ]
+      downloadSources = true
+    }
+  }
+}
