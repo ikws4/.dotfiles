@@ -68,7 +68,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 require("rose-pine").setup {
   dark_variant = "moon",
   disable_float_background = true,
-  disable_italics = true,
+  disable_italics = false,
 }
 
 cmd [[ colorscheme rose-pine ]]
