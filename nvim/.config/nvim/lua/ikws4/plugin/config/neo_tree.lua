@@ -39,7 +39,7 @@ require("neo-tree").setup {
     {
       event = "neo_tree_buffer_leave",
       handler = function()
-        vim.wo.cursorlineopt = "number"
+        -- vim.wo.cursorlineopt = "number"
       end,
     },
   },
@@ -49,7 +49,8 @@ require("neo-tree").setup {
     mappings = {
       ["<Tab>"] = "open",
       ["<CR>"] = "open",
-      ["o"] = function(state)
+      ["o"] = "open",
+      ["O"] = function(state)
         local node = state.tree:get_node()
         local path = vim.fn.fnameescape(node.path)
         vim.fn.system { "qlmanage", "-p", path }
