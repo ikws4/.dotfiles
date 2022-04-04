@@ -12,10 +12,11 @@ local ivy_theme = themes.get_ivy {
 
 local dropdown_theme = themes.get_dropdown {
   layout_config = {
-    -- anchor = "N",
+    anchor = "N",
     width = 0.6,
-    height = 0.5,
+    height = 0.7,
   },
+  previewer = false,
 }
 
 -- local ivy_theme_normal = themes.get_ivy {
@@ -64,8 +65,8 @@ telescope.setup {
     -- borderchars = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙", },
     -- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
     prompt_prefix = " ",
-    selection_caret = " ",
-    path_display = { "smart" },
+    selection_caret = "  ",
+    path_display = { "absolute" },
     -- layout_config = {
     --   preview_width = 0.6,
     -- },
@@ -80,6 +81,7 @@ telescope.setup {
     -- lsp_workspace_diagnostics = ivy_theme,
     -- lsp_code_actions = themes.get_cursor(),
     current_buffer_fuzzy_find = ivy_theme,
+    help_tags = dropdown_theme,
     file_browser = {
       sorting_strategy = "ascending",
       hidden = true,
