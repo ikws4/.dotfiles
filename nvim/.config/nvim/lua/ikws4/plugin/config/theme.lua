@@ -44,6 +44,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       TelescopeSelection = { link = "Visual" },
       TelescopeSelectionCaret = { fg = p.rose, bg = p.highlight_low },
       TelescopeResultsSpecialComment = { link = "LineNr" },
+
+      -- neotree
+      NeoTreeExpander = { fg = p.subtle },
+      NeoTreeDimText = { fg = p.muted },
+      NeoTreeDotfile = { link = "NeoTreeDimText" },
+      NeoTreeFileIcon = { fg = p.text },
     }
 
     for group, color in pairs(theme) do

@@ -364,11 +364,27 @@ return packer.startup(function()
   -- File navigation {{{
   use {
     "kyazdani42/nvim-tree.lua",
+    disable = true,
     -- cmd = "NvimTreeToggle",
     setup = function()
-      vim.keymap.set("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>")
+      -- vim.keymap.set("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>")
     end,
     config = conf "nvim_tree",
+  }
+
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
+    setup = function()
+      vim.keymap.set("n", "<leader>n", "<Cmd>Neotree toggle<CR>")
+      vim.keymap.set("n", "<leader>b", "<Cmd>Neotree toggle buffers<CR>")
+    end,
+    config = conf "neo_tree",
   }
 
   use {
@@ -382,8 +398,6 @@ return packer.startup(function()
     setup = function()
       -- stylua: ignore start
       vim.keymap.set("n", "<leader>ff", "<Cmd>Telescope find_files hidden=true<CR>")
-      vim.keymap.set("n", "<leader>fr", "<Cmd>Telescope oldfiles<CR>")
-      vim.keymap.set("n", "<leader>bb", "<Cmd>Telescope buffers<CR>")
       vim.keymap.set("n", "<leader>sh", "<Cmd>Telescope help_tags<CR>")
       vim.keymap.set("n", "<leader>sp", "<Cmd>Telescope live_grep<CR>")
       vim.keymap.set("n", "/", "<Cmd>Telescope current_buffer_fuzzy_find<CR>")
