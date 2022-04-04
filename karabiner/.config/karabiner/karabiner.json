@@ -172,16 +172,17 @@
                 },
                 {
                     "from": {
-                        "key_code": "semicolon",
+                        "key_code": "h",
                         "modifiers": {
                             "mandatory": [
-                                "command"
+                                "command",
+                                "shift"
                             ]
                         }
                     },
                     "to": [
                         {
-                            "key_code": "end"
+                            "key_code": "delete_forward"
                         }
                     ]
                 }
