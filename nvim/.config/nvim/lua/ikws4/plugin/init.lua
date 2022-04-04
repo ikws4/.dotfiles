@@ -31,6 +31,37 @@ return packer.startup(function()
     after = "rose-pine",
     config = conf "statusline",
   }
+
+  use {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup {
+        input = {
+          enabled = true,
+          winblend = 0,
+        },
+        select = {
+          enabled = true,
+          backend = { "telescope" },
+          telescope = require("telescope.themes").get_cursor {
+            scroll_strategy = "limit",
+            layout_config = {
+              width = function(self, _, _)
+                local max_len = 0
+                for _, entry in ipairs(self.finder.results) do
+                  max_len = math.max(max_len, #entry.display)
+                end
+                return math.max(35, max_len + 6)
+              end,
+              height = function(self, _, _)
+                return math.min(9, #self.finder.results + 4)
+              end,
+            },
+          },
+        },
+      }
+    end,
+  }
   -- }}}
 
   -- Window {{{
@@ -393,7 +424,7 @@ return packer.startup(function()
     -- cmd = "Telescope",
     requires = {
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-      { "nvim-telescope/telescope-ui-select.nvim" },
+      -- { "nvim-telescope/telescope-ui-select.nvim" },
     },
     setup = function()
       -- stylua: ignore start

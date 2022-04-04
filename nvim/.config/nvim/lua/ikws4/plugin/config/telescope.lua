@@ -97,26 +97,26 @@ telescope.setup {
       override_file_sorter = true,
       case_mode = "smart_case",
     },
-    ["ui-select"] = {
-      themes.get_cursor {
-        -- initial_mode = "normal",
-        scroll_strategy = "limit",
-        layout_config = {
-          width = function(self, _, _)
-            local max_len = 0
-            for _, entry in ipairs(self.finder.results) do
-              max_len = math.max(max_len, #entry.display)
-            end
-            return math.max(35, max_len + 6)
-          end,
-          height = function(self, _, _)
-            return math.min(9, #self.finder.results + 4)
-          end,
-        },
-      },
-    },
+    -- ["ui-select"] = {
+    --   themes.get_cursor {
+    --     -- initial_mode = "normal",
+    --     scroll_strategy = "limit",
+    --     layout_config = {
+    --       width = function(self, _, _)
+    --         local max_len = 0
+    --         for _, entry in ipairs(self.finder.results) do
+    --           max_len = math.max(max_len, #entry.display)
+    --         end
+    --         return math.max(35, max_len + 6)
+    --       end,
+    --       height = function(self, _, _)
+    --         return math.min(9, #self.finder.results + 4)
+    --       end,
+    --     },
+    --   },
+    -- },
   },
 }
 
 telescope.load_extension "fzf"
-telescope.load_extension "ui-select"
+-- telescope.load_extension "ui-select"

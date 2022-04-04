@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       TermCursor = { link = "Cursor" },
       FoldColumn = { fg = p.base, bg = p.base },
       MatchParen = { fg = p.subtle, bg = p.base },
+      FloatTitle = { fg = p.subtle },
 
       -- nvim-tree
       NvimTreeExecFile = { fg = p.pine, style = "italic" },
