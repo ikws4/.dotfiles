@@ -38,6 +38,7 @@ return packer.startup(function()
       require("dressing").setup {
         input = {
           enabled = true,
+          anchor = "NW",
           winblend = 0,
         },
         select = {
