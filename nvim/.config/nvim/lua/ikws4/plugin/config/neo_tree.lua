@@ -1,7 +1,5 @@
-vim.g.neo_tree_remove_legacy_commands = 1
-
 require("neo-tree").setup {
-  -- resize_timer_interval = 1000,
+  resize_timer_interval = 1000,
   close_if_last_window = true,
   popup_border_style = "rounded",
   enable_git_status = false,
@@ -36,16 +34,19 @@ require("neo-tree").setup {
         vim.wo.cursorlineopt = "line"
       end,
     },
-    {
-      event = "neo_tree_buffer_leave",
-      handler = function()
-        -- vim.wo.cursorlineopt = "number"
-      end,
-    },
   },
   window = {
-    position = "left",
-    width = 35,
+    position = "float",
+    popup = {
+      size = {
+        height = "80%",
+        width = "78.5%",
+      },
+      position = {
+        col = "45%",
+        row = "30%",
+      },
+    },
     mappings = {
       ["<Tab>"] = "open",
       ["<CR>"] = "open",
@@ -71,12 +72,14 @@ require("neo-tree").setup {
       ["c"] = "copy",
       ["m"] = "move",
       ["q"] = "close_window",
+      ["R"] = "refresh",
       ["/"] = "fuzzy_finder",
       ["."] = "toggle_hidden",
     },
   },
   nesting_rules = {},
   filesystem = {
+    async_directory_scan = false,
     filtered_items = {
       visible = false,
       hide_dotfiles = true,
@@ -89,19 +92,11 @@ require("neo-tree").setup {
       },
     },
     follow_current_file = false,
-    use_libuv_file_watcher = true,
+    use_libuv_file_watcher = false,
     window = {
       mappings = {
         ["f"] = "filter_on_submit",
         ["<c-x>"] = "clear_filter",
-      },
-    },
-  },
-  buffers = {
-    show_unloaded = true,
-    window = {
-      mappings = {
-        ["bd"] = "buffer_delete",
       },
     },
   },

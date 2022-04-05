@@ -51,6 +51,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       NeoTreeDimText = { fg = p.muted },
       NeoTreeDotfile = { link = "NeoTreeDimText" },
       NeoTreeFileIcon = { fg = p.text },
+      NeoTreeFloatBorder = { link = "TelescopeBorder" },
+      NeoTreeFloatTitle = { link = "TelescopeTitle" },
     }
 
     for group, color in pairs(theme) do

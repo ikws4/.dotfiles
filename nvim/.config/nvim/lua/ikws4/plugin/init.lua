@@ -413,8 +413,8 @@ return packer.startup(function()
       "MunifTanjim/nui.nvim",
     },
     setup = function()
-      vim.keymap.set("n", "<leader>n", "<Cmd>Neotree toggle<CR>")
-      vim.keymap.set("n", "<leader>b", "<Cmd>Neotree toggle buffers<CR>")
+      vim.g.neo_tree_remove_legacy_commands = 1
+      vim.keymap.set("n", "<leader>n", "<Cmd>Neotree<CR>")
     end,
     config = conf "neo_tree",
   }
