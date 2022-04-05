@@ -164,7 +164,7 @@ return packer.startup(function()
         dimensions = {
           height = 0.88,
           width = 0.78,
-          x = 0.43,
+          x = 0.45,
           y = 0.3,
         },
       }

@@ -43,7 +43,7 @@ require("neo-tree").setup {
         width = "78.5%",
       },
       position = {
-        col = "45%",
+        col = "47%",
         row = "30%",
       },
     },
