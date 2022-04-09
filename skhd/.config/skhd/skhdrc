@@ -7,6 +7,10 @@ alt - l : yabai -m window --focus east
 # mission controll
 alt - n : yabai -m space --focus next || yabai -m space --focus first
 alt - p : yabai -m space --focus prev || yabai -m space --focus last
+alt - w : yabai -m space --focus recent
+
+# Display
+alt - q : yabai -m display --focus recent
 
 # space
 alt - 1 : yabai -m space --focus 1
