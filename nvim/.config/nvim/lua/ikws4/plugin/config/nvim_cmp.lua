@@ -17,20 +17,21 @@ api.get_screen_cursor = function()
 end
 
 cmp.setup {
-  experimental = { native_menu = false, ghost_text = false },
+  -- experimental = { native_menu = false, ghost_text = false },
   window = {
-    completion = {
-      border = "rounded",
-      scrollbar = "║",
-    },
     documentation = {
       border = "rounded",
-      scrollbar = "║",
+      winhighlight = "FloatBorder:FloatBorder",
     },
+    completion = {
+      border = "rounded",
+      winhighlight = "FloatBorder:FloatBorder",
+    },
+    a
   },
-  completion = {
-    completeopt = "menu,menuone,noselect",
-  },
+  -- completion = {
+  --   completeopt = "menu,menuone,noselect",
+  -- },
   preselect = cmp.PreselectMode.None,
   mapping = {
     ["<M-l>"] = cmp.mapping(function(fallback)
