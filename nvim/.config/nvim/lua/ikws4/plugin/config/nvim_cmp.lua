@@ -27,7 +27,6 @@ cmp.setup {
       border = "rounded",
       winhighlight = "FloatBorder:FloatBorder",
     },
-    a
   },
   -- completion = {
   --   completeopt = "menu,menuone,noselect",
