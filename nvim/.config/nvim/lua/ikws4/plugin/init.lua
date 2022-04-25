@@ -224,14 +224,17 @@ return packer.startup(function()
   -- Git {{{
   use {
     "tpope/vim-fugitive",
-    config = function() end,
+    config = function()
+      vim.keymap.set("n", "<leader>gg", "<Cmd>tab Git<CR>")
+    end,
   }
 
   use {
     "TimUntersberger/neogit",
     cmd = "Neogit",
+    disable = true,
     setup = function()
-      vim.keymap.set("n", "<leader>gg", "<Cmd>Neogit<CR>")
+      -- vim.keymap.set("n", "<leader>gg", "<Cmd>Neogit<CR>")
     end,
     config = function()
       require("neogit").setup {
