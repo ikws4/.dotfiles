@@ -51,5 +51,5 @@ vim.keymap.set("n", "zz", "zt10<C-y>")
 vim.keymap.set("i", "<M-CR>", "<End><Enter>")
 
 -- Big cursor move
-vim.keymap.set("n", "<M-j>", "8j")
-vim.keymap.set("n", "<M-k>", "8k")
+vim.keymap.set("n", "<M-j>", "5j")
+vim.keymap.set("n", "<M-k>", "5k")
