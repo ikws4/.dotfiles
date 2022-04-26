@@ -394,6 +394,30 @@ return packer.startup(function()
   }
 
   use "tpope/vim-surround"
+
+  use {
+    "ziontee113/syntax-tree-surfer",
+    config = function()
+      vim.keymap.set("x", "J", function()
+        require("syntax-tree-surfer").surf("next", "visual", true)
+      end)
+
+      vim.keymap.set("x", "K", function()
+        require("syntax-tree-surfer").surf("prev", "visual", true)
+      end)
+
+      vim.keymap.set("x", "H", function()
+        require("syntax-tree-surfer").surf("prev", "visual", true)
+      end)
+
+      vim.keymap.set("x", "L", function()
+        require("syntax-tree-surfer").surf("next", "visual", true)
+      end)
+
+      vim.keymap.set("n", "vx", require("syntax-tree-surfer").select)
+      vim.keymap.set("n", "vn", require("syntax-tree-surfer").select_current_node)
+    end,
+  }
   -- }}}
 
   -- File navigation {{{
