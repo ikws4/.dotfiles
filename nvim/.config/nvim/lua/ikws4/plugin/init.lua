@@ -397,6 +397,7 @@ return packer.startup(function()
 
   use {
     "ziontee113/syntax-tree-surfer",
+    disable = true,
     config = function()
       vim.keymap.set("x", "J", function()
         require("syntax-tree-surfer").surf("next", "visual", true)

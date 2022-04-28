@@ -8,11 +8,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("i", ",", ",<C-g>u")
 vim.keymap.set("i", ".", ".<C-g>u")
--- vim.keymap.set("x", "J", ":move '>+1<CR>gv")
+vim.keymap.set("n", "<M-s>", "<Cmd>w<CR>")
 -- vim.keymap.set("x", "K", ":move '<-2<CR>gv")
+-- vim.keymap.set("x", "J", ":move '>+1<CR>gv")
 
 -- Save buffer
-vim.keymap.set("n", "<M-s>", "<Cmd>w<CR>")
 vim.keymap.set("i", "<M-s>", "<C-[><Cmd>w<CR>a")
 
 -- Toggle folding
