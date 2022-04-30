@@ -33,6 +33,24 @@ lsp_installer.on_server_ready(function(server)
     }
   end
 
+  if server.name == "rust_analyzer" then
+    require("rust-tools").setup {
+      server = vim.tbl_deep_extend("force", server:get_default_options(), opts, {
+        settings = {
+          ["rust-analyzer"] = {
+            completion = {
+              postfix = {
+                enable = false,
+              },
+            },
+          },
+        },
+      }),
+    }
+    server:attach_buffers()
+    return
+  end
+
   server:setup(opts)
 end)
 
