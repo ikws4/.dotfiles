@@ -24,12 +24,6 @@ local disable_formatting = {
   "tsserver",
 }
 local on_attach = function(client, bufnr)
-  -- Disable builtin formating
-  if vim.tbl_contains(disable_formatting, client.name) then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end
-
   local builtin = require "telescope.builtin"
 
   -- stylua: ignore start
@@ -39,14 +33,17 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gi", builtin.lsp_implementations, { buffer = bufnr })
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
   vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr })
   vim.keymap.set("n", "<leader>ld", function() builtin.diagnostics { no_sign = true } end, { buffer = bufnr })
   vim.keymap.set("n", "<leader>lD", function() vim.diagnostic.goto_next { severity = vim.diagnostic.severity.E } end, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>lf", vim.lsp.buf.formatting, { buffer = bufnr })
   vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { buffer = bufnr })
 
+  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr })
   vim.keymap.set("v", "<leader>la", "<Cmd>lua vim.lsp.buf.range_code_action()<CR><ESC>", { buffer = bufnr })
-  vim.keymap.set("v", "<leader>lf", "<Cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>", { buffer = bufnr })
+
+  if not vim.tbl_contains(disable_formatting, client.name) then
+    vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end, { buffer = bufnr })
+    vim.keymap.set("v", "<leader>lf", "<Cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>", { buffer = bufnr })
+  end
   -- stylua: ignore end
 end
 

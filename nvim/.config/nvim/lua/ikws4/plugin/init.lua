@@ -293,23 +293,6 @@ return packer.startup(function()
 
   use {
     "jose-elias-alvarez/null-ls.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      local null_ls = require "null-ls"
-      local utils = require "ikws4.plugin.config.lsp.utils"
-
-      null_ls.setup {
-        on_attach = utils.on_attach,
-        sources = {
-          null_ls.builtins.formatting.prettier,
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.autopep8,
-          -- null_ls.builtins.formatting.uncrustify.with {
-          --   extra_args = { "-c", "-" },
-          -- },
-        },
-      }
-    end,
   }
 
   use {

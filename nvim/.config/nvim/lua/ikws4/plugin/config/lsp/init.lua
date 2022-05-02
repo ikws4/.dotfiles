@@ -1,58 +1,100 @@
-local lsp_installer = require "nvim-lsp-installer"
-local utils = require "ikws4.plugin.config.lsp.utils"
+require("nvim-lsp-installer").setup {
+  ensure_installed = { "rust_analyzer", "sumneko_lua", "jdtls", "tsserver" },
+}
 
-vim.lsp.util.open_floating_preview = utils.open_floating_preview
-vim.lsp.buf.hover = utils.hover
+local lspconfig = require "lspconfig"
+local utils = require "ikws4.plugin.config.lsp.utils"
 
 --- Setup lsp servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, { snippetSupport = false })
 
-local needSnippetSupportServers = {
-  "cssls",
-}
-
-lsp_installer.on_server_ready(function(server)
-  if server.name == "jdtls" then
-    return
-  end
-
-  local opts = {
+lspconfig.sumneko_lua.setup(require("lua-dev").setup {
+  lspconfig = {
     on_attach = utils.on_attach,
     capabilities = capabilities,
-  }
+  },
+})
 
-  if vim.tbl_contains(needSnippetSupportServers, server.name) then
-    opts.capabilities = vim.tbl_deep_extend("force", opts.capabilities, {})
-    opts.capabilities.textDocument.completion.completionItem.snippetSupport = true
-  end
+lspconfig.tsserver.setup {
+  on_attach = utils.on_attach,
+  capabilities = capabilities,
+}
 
-  if server.name == "sumneko_lua" then
-    opts = require("lua-dev").setup {
-      lspconfig = opts,
-    }
-  end
-
-  if server.name == "rust_analyzer" then
-    require("rust-tools").setup {
-      server = vim.tbl_deep_extend("force", server:get_default_options(), opts, {
-        settings = {
-          ["rust-analyzer"] = {
-            completion = {
-              postfix = {
-                enable = false,
-              },
-            },
+require("rust-tools").setup {
+  server = {
+    on_attach = utils.on_attach,
+    capabilities = capabilities,
+    settings = {
+      ["rust-analyzer"] = {
+        completion = {
+          postfix = {
+            enable = false,
           },
         },
-      }),
-    }
-    server:attach_buffers()
-    return
-  end
+      },
+    },
+  },
+}
 
-  server:setup(opts)
-end)
+-- local needSnippetSupportServers = {
+--   "cssls",
+-- }
+--
+-- lsp_installer.on_server_ready(function(server)
+--   if server.name == "jdtls" then
+--     return
+--   end
+--
+--   local opts = {
+--     on_attach = utils.on_attach,
+--     capabilities = capabilities,
+--   }
+--
+--   if vim.tbl_contains(needSnippetSupportServers, server.name) then
+--     opts.capabilities = vim.tbl_deep_extend("force", opts.capabilities, {})
+--     opts.capabilities.textDocument.completion.completionItem.snippetSupport = true
+--   end
+--
+--   if server.name == "sumneko_lua" then
+--     opts = require("lua-dev").setup {
+--       lspconfig = opts,
+--     }
+--   end
+--
+--   if server.name == "rust_analyzer" then
+--     require("rust-tools").setup {
+--       server = vim.tbl_deep_extend("force", server:get_default_options(), opts, {
+--         settings = {
+--           ["rust-analyzer"] = {
+--             completion = {
+--               postfix = {
+--                 enable = false,
+--               },
+--             },
+--           },
+--         },
+--       }),
+--     }
+--     server:attach_buffers()
+--     return
+--   end
+--
+--   server:setup(opts)
+-- end)
+
+local null_ls = require "null-ls"
+
+null_ls.setup {
+  on_attach = utils.on_attach,
+  sources = {
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.stylua,
+  },
+}
+
+vim.lsp.util.open_floating_preview = utils.open_floating_preview
+vim.lsp.buf.hover = utils.hover
 
 vim.diagnostic.config {
   underline = true,
