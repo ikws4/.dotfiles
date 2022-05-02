@@ -23,26 +23,32 @@ end
 local disable_formatting = {
   "tsserver",
 }
+
 local on_attach = function(client, bufnr)
   local builtin = require "telescope.builtin"
 
-  -- stylua: ignore start
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
-  vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = bufnr })
-  vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = bufnr })
-  vim.keymap.set("n", "gi", builtin.lsp_implementations, { buffer = bufnr })
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>ld", function() builtin.diagnostics { no_sign = true } end, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>lD", function() vim.diagnostic.goto_next { severity = vim.diagnostic.severity.E } end, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { buffer = bufnr })
+  local function buf_set_keymap(mode, lhs, rhs)
+    vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true })
+  end
 
-  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr })
-  vim.keymap.set("v", "<leader>la", "<Cmd>lua vim.lsp.buf.range_code_action()<CR><ESC>", { buffer = bufnr })
+  -- stylua: ignore start
+  buf_set_keymap("n", "gD", vim.lsp.buf.declaration)
+  buf_set_keymap("n", "gd", builtin.lsp_definitions)
+  buf_set_keymap("n", "gr", builtin.lsp_references)
+  buf_set_keymap("n", "gi", builtin.lsp_implementations)
+  buf_set_keymap("n", "K", vim.lsp.buf.hover)
+  buf_set_keymap("i", "<C-K>", vim.lsp.buf.signature_help)
+  buf_set_keymap("n", "<leader>lr", vim.lsp.buf.rename)
+  buf_set_keymap("n", "<leader>ld", function() builtin.diagnostics { no_sign = true } end)
+  buf_set_keymap("n", "<leader>lD", function() vim.diagnostic.goto_next { severity = vim.diagnostic.severity.E } end)
+  buf_set_keymap("n", "<leader>ls", builtin.lsp_document_symbols)
+
+  buf_set_keymap("n", "<leader>la", vim.lsp.buf.code_action)
+  buf_set_keymap("v", "<leader>la", "<Cmd>lua vim.lsp.buf.range_code_action()<CR><ESC>")
 
   if not vim.tbl_contains(disable_formatting, client.name) then
-    vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end, { buffer = bufnr })
-    vim.keymap.set("v", "<leader>lf", "<Cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>", { buffer = bufnr })
+    buf_set_keymap("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end)
+    buf_set_keymap("v", "<leader>lf", "<Cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>")
   end
   -- stylua: ignore end
 end
