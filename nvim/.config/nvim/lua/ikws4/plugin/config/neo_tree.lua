@@ -80,6 +80,7 @@ require("neo-tree").setup {
   nesting_rules = {},
   filesystem = {
     async_directory_scan = false,
+    group_empty_dirs = true,
     filtered_items = {
       visible = false,
       hide_dotfiles = true,
