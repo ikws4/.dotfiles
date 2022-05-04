@@ -25,8 +25,9 @@ require("rust-tools").setup {
   tools = {
     hover_with_actions = false,
     inlay_hints = {
-      show_parameter_hints = false,
-      other_hints_prefix = ": ",
+      show_parameter_hints = true,
+      parameter_hints_prefix = "",
+      other_hints_prefix = "=> ",
     },
   },
   server = {
