@@ -30,7 +30,9 @@ set -U fish_pager_color_prefix        'white' '--bold' '--underline'
 set -U fish_pager_color_progress      'brwhite' '--background=cyan'
 
 set -gx NO_PROXY localhost,127.0.0.1
-set -gx ANDROID_HOME $HOME/Library/Android/sdk
+# set -gx ANDROID_HOME $HOME/Library/Android/sdk
+set -gx ANDROID_SDK_ROOT $HOME/Library/Android/sdk
+set -gx ANDROID_NDK_ROOT $ANDROID_SDK_ROOT/ndk/21.1.6352462
 set -gx MANPAGER 'nvim +Man!'
 set -gx MANWIDTH 999
 set -gx LANG 'en_US.UTF-8'
