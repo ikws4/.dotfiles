@@ -72,5 +72,5 @@ bo.spelloptions = "camel"
 
 vim.cmd [[
   au BufEnter * set formatoptions-=ro
-  au BufEnter * set tabstop=2 shiftwidth=2
+  " au BufEnter * set tabstop=2 shiftwidth=2
 ]]
