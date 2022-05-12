@@ -27,8 +27,8 @@ ls.add_snippets("java", {
     "print(%l*)",
     fmt(
       [[
-          System.out.print{}({});
-        ]],
+        System.out.print{}({});
+      ]],
       {
         capture(1),
         i(0),
@@ -39,10 +39,10 @@ ls.add_snippets("java", {
     "while",
     fmt(
       [[
-          while ({}) {{
-            {}
-          }}
-        ]],
+        while ({}) {{
+          {}
+        }}
+      ]],
       {
         i(1),
         i(0),
@@ -53,10 +53,10 @@ ls.add_snippets("java", {
     "if",
     fmt(
       [[
-          if ({}) {{
-            {}
-          }}
-        ]],
+        if ({}) {{
+          {}
+        }}
+      ]],
       {
         i(1),
         i(0),
@@ -67,10 +67,10 @@ ls.add_snippets("java", {
     "foreach(%a+)",
     fmt(
       [[
-          for (var {} : {}s) {{
-            {}
-          }}
-        ]],
+        for (var {} : {}s) {{
+          {}
+        }}
+      ]],
       {
         capture(1),
         capture(1),
@@ -82,10 +82,10 @@ ls.add_snippets("java", {
     "for(%l)(%d*)",
     fmt(
       [[
-          for (int {} = {}; {} < {}; {}++) {{
-            {}
-          }}
-        ]],
+        for (int {} = {}; {} < {}; {}++) {{
+          {}
+        }}
+      ]],
       {
         capture(1),
         capture(2, "0"),
@@ -100,9 +100,10 @@ ls.add_snippets("java", {
     "rfor(%l)",
     fmt(
       [[
-          for (int {} = {}; {} >= 0; {}--) {{
-            {}
-          }} ]],
+        for (int {} = {}; {} >= 0; {}--) {{
+          {}
+        }}
+      ]],
       {
         capture(1),
         i(1, "n - 1"),
@@ -119,10 +120,10 @@ ls.add_snippets("javascript", {
     "foreach(%a+)",
     fmt(
       [[
-          for (const {} of {}s) {{
-            {}
-          }}
-        ]],
+        for (const {} of {}s) {{
+          {}
+        }}
+      ]],
       {
         capture(1),
         capture(1),
@@ -134,10 +135,10 @@ ls.add_snippets("javascript", {
     "for(%l)(%d*)",
     fmt(
       [[
-          for (let {} = {}; {} < {}; {}++) {{
-            {}
-          }}
-        ]],
+        for (let {} = {}; {} < {}; {}++) {{
+          {}
+        }}
+      ]],
       {
         capture(1),
         capture(2, "0"),
@@ -152,10 +153,10 @@ ls.add_snippets("javascript", {
     "rfor(%l)",
     fmt(
       [[
-          for (let {} = {}; {} >= 0; {}--) {{
-            {}
-          }}
-        ]],
+        for (let {} = {}; {} >= 0; {}--) {{
+          {}
+        }}
+      ]],
       {
         capture(1),
         i(1, "n - 1"),
@@ -167,7 +168,67 @@ ls.add_snippets("javascript", {
   ),
 })
 
+ls.add_snippets("rust", {
+  s(
+    "b_(%w+)_component",
+    fmt(
+      [[
+        #[derive(Component)]
+        pub struct {} {{
+            {}
+        }}
+      ]],
+      {
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "b_([%w_]+)_system",
+    fmt(
+      [[
+        fn {}_system(
+            {}
+        ) {{
+            {}
+        }}
+      ]],
+      {
+        capture(1),
+        i(1),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "b_(%w+)_plugin",
+    fmt(
+      [[
+        use bevy::prelude::*;
+        
+        pub struct {};
+
+        impl Plugin for {} {{
+            fn build(&self, app: &mut App) {{
+
+            }}
+        }}
+
+        {}
+      ]],
+      {
+        capture(1),
+        capture(1),
+        i(0),
+      }
+    )
+  ),
+}, {
+  type = "autosnippets",
+})
+
 require("luasnip.loaders.from_vscode").load {
   paths = { vim.fn.stdpath "data" .. "/site/pack/packer/opt/friendly-snippets" },
-  include = { "NeogitCommitMessage" },
+  include = { "gitcommit" },
 }
