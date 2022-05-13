@@ -263,14 +263,14 @@ return packer.startup(function()
   use {
     "simrat39/rust-tools.nvim",
     config = function()
-      vim.api.nvim_create_autocmd("InsertLeave", {
-        pattern = "*.rs",
-        callback = function()
-          vim.schedule(function()
-            vim.cmd "w"
-          end)
-        end,
-      })
+      -- vim.api.nvim_create_autocmd("InsertLeave", {
+      --   pattern = "*.rs",
+      --   callback = function()
+      --     vim.schedule(function()
+      --       vim.cmd "w"
+      --     end)
+      --   end,
+      -- })
     end,
   }
 

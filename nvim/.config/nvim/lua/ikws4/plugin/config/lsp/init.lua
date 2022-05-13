@@ -40,6 +40,9 @@ require("rust-tools").setup {
             enable = false,
           },
         },
+        checkOnSave = {
+          command = "clippy"
+        }
       },
     },
   },
