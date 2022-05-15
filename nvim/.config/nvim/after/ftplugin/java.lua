@@ -1,3 +1,8 @@
+-- Settings
+vim.bo.tabstop = 2
+vim.bo.shiftwidth = 2
+
+-- Lsp
 local lsp_utils = require "ikws4.plugin.config.lsp.utils"
 local lsp_installer = require "nvim-lsp-installer"
 local ok, jdtls = lsp_installer.get_server "jdtls"
@@ -7,22 +12,14 @@ if ok == false then
   return
 end
 
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   on_attach = function(client, bufnr)
     require("jdtls.setup").add_commands()
     lsp_utils.on_attach(client, bufnr)
   end,
 
-  -- The command that starts the language server
-  -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = jdtls:get_default_options().cmd,
-
   root_dir = jdtls:get_default_options().root_dir,
-
-  -- Here you can configure eclipse.jdt.ls specific settings
-  -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
-  -- for a list of options
   settings = {
     java = {
       format = {
@@ -35,33 +32,16 @@ local config = {
       },
     },
   },
-
-  -- Language server `initializationOptions`
-  -- You need to extend the `bundles` with paths to jar files
-  -- if you want to use additional eclipse.jdt.ls plugins.
-  --
-  -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
-  --
-  -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
     bundles = {},
   },
 }
--- This starts a new client & server,
--- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
 
-
-
-
-
-
-
-
-
-
-
-
-
-vim.bo.tabstop = 2
-vim.bo.shiftwidth = 2
+-- Format on save
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.java",
+  callback = function()
+    require("jdtls").organize_imports()
+  end
+})
