@@ -39,9 +39,23 @@ local config = {
 require("jdtls").start_or_attach(config)
 
 -- Format on save
-vim.api.nvim_create_autocmd("BufWritePost", {
+vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.java",
   callback = function()
-    require("jdtls").organize_imports()
-  end
+    local params = vim.lsp.util.makerange_params()
+    local bufnr = vim.api.nvim_get_current_buf()
+    params.context = {
+      diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr),
+    }
+    local result, err = vim.lsp.buf_request_sync(0, "java/organizeImports", params)
+
+    if err then
+      print("Error on organize imports: " .. err)
+      return
+    end
+
+    if result and result[1].result then
+      vim.lsp.util.apply_workspace_edit(result[1].result, "utf-16")
+    end
+  end,
 })
