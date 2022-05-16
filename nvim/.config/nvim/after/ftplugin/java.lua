@@ -38,11 +38,11 @@ local config = {
 }
 require("jdtls").start_or_attach(config)
 
--- Format on save
+-- Organize import on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.java",
   callback = function()
-    local params = vim.lsp.util.makerange_params()
+    local params = vim.lsp.util.make_range_params()
     local bufnr = vim.api.nvim_get_current_buf()
     params.context = {
       diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr),
