@@ -21,6 +21,11 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
 }
 
+lspconfig.clangd.setup {
+  on_attach = utils.on_attach,
+  capabilities = capabilities,
+}
+
 require("rust-tools").setup {
   tools = {
     hover_with_actions = false,
