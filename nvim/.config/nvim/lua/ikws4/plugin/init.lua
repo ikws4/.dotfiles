@@ -347,6 +347,11 @@ return packer.startup(function()
     end,
   }
 
+  use {
+    "akinsho/flutter-tools.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  }
+
   -- }}}
 
   -- Editing support {{{

@@ -228,7 +228,9 @@ ls.add_snippets("rust", {
   type = "autosnippets",
 })
 
+require("luasnip").filetype_extend("dart", { "flutter" })
+
 require("luasnip.loaders.from_vscode").load {
   paths = { vim.fn.stdpath "data" .. "/site/pack/packer/opt/friendly-snippets" },
-  include = { "gitcommit" },
+  include = { "gitcommit", "flutter" },
 }

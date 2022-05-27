@@ -44,6 +44,7 @@ set -gx https_proxy $all_proxy
 fish_add_path /Users/zhipingne/.cargo/bin
 fish_add_path /Users/zhipingne/.npm-global/bin
 fish_add_path /Users/zhipingne/.gem/ruby/2.6.0/bin
+fish_add_path /Users/zhipingne/dev/flutter/bin
 
 alias nvim 'TERM=alacritty command nvim'
 

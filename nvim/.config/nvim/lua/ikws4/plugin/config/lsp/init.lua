@@ -46,10 +46,22 @@ require("rust-tools").setup {
           },
         },
         checkOnSave = {
-          command = "clippy"
-        }
+          command = "clippy",
+        },
       },
     },
+  },
+}
+
+require("flutter-tools").setup {
+  lsp = {
+    on_attach = utils.on_attach,
+    capabilities = capabilities,
+    settings = {
+      showTodos = false,
+      completeFunctionCalls = true,
+      enableSnippets = false,
+    }
   },
 }
 
