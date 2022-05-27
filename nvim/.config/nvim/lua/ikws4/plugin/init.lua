@@ -50,6 +50,8 @@ return packer.startup(function()
               width = function(self, _, _)
                 local max_len = 0
                 for _, entry in ipairs(self.finder.results) do
+                  -- https://github.com/stevearc/dressing.nvim/commit/e3b31d45bc65d1b1c48615110373e7e375104d6f
+                  entry.display = entry.ordinal
                   max_len = math.max(max_len, #entry.display)
                 end
                 return math.max(35, max_len + 6)
