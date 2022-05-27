@@ -43,6 +43,7 @@ nnoremap <leader>lr :action RenameElement<CR>
 nnoremap <leader>lf :action ReformatCode<CR>
 nnoremap <leader>la :action ShowIntentionActions<CR>
 nnoremap <leader>lD :action GotoNextError<CR>
+inoremap <C-k> <Esc>:action ParameterInfo<CR>a
 
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
@@ -52,6 +53,10 @@ nnoremap s /
 nnoremap S ?
 nnoremap cc ddO
 nnoremap <localleader><Tab> :action CollapseSelection<CR>
+
+
+nnoremap <M-j> 5j
+nnoremap <M-k> 5k
 
 " Highlight on yank
 let g:highlightedyank_highlight_duration = "350"
