@@ -54,6 +54,10 @@ require("rust-tools").setup {
 }
 
 require("flutter-tools").setup {
+  ui = {
+    border = "rounded",
+    notification_style = "plugin",
+  },
   lsp = {
     on_attach = utils.on_attach,
     capabilities = capabilities,
@@ -61,7 +65,7 @@ require("flutter-tools").setup {
       showTodos = false,
       completeFunctionCalls = true,
       enableSnippets = false,
-    }
+    },
   },
 }
 
