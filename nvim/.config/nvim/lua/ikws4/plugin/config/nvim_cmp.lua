@@ -103,7 +103,7 @@ cmp.setup {
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      select = false,
     },
   },
   confirmation = {
