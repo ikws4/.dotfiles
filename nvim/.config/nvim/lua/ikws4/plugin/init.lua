@@ -173,11 +173,11 @@ return packer.startup(function()
     end,
   }
 
-  use {
-    "nvim-neorg/neorg",
-    config = conf "norg",
-    disable = true,
-  }
+  -- use {
+  --   "nvim-neorg/neorg",
+  --   config = conf "norg",
+  --   disable = true,
+  -- }
 
   use {
     "jbyuki/venn.nvim",
@@ -216,11 +216,11 @@ return packer.startup(function()
     "nvim-treesitter/nvim-treesitter-textobjects",
   }
 
-  use {
-    "nvim-treesitter/playground",
-    cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
-    after = "nvim-treesitter",
-  }
+  -- use {
+  --   "nvim-treesitter/playground",
+  --   cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
+  --   after = "nvim-treesitter",
+  -- }
 
   -- }}}
 
@@ -232,30 +232,30 @@ return packer.startup(function()
     end,
   }
 
-  use {
-    "TimUntersberger/neogit",
-    cmd = "Neogit",
-    disable = true,
-    setup = function()
-      -- vim.keymap.set("n", "<leader>gg", "<Cmd>Neogit<CR>")
-    end,
-    config = function()
-      require("neogit").setup {
-        disable_commit_confirmation = true,
-        disable_builtin_notifications = true,
-        signs = {
-          section = { "", "" },
-          item = { "", "" },
-          hunk = { "", "" },
-        },
-        mappings = {
-          status = {
-            ["<Esc>"] = "Close",
-          },
-        },
-      }
-    end,
-  }
+  -- use {
+  --   "TimUntersberger/neogit",
+  --   cmd = "Neogit",
+  --   disable = true,
+  --   setup = function()
+  --     -- vim.keymap.set("n", "<leader>gg", "<Cmd>Neogit<CR>")
+  --   end,
+  --   config = function()
+  --     require("neogit").setup {
+  --       disable_commit_confirmation = true,
+  --       disable_builtin_notifications = true,
+  --       signs = {
+  --         section = { "", "" },
+  --         item = { "", "" },
+  --         hunk = { "", "" },
+  --       },
+  --       mappings = {
+  --         status = {
+  --           ["<Esc>"] = "Close",
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- }
   -- }}}
 
   -- LSP {{{
@@ -372,9 +372,9 @@ return packer.startup(function()
     end,
   }
 
-  use {
-    "windwp/nvim-ts-autotag",
-  }
+  -- use {
+  --   "windwp/nvim-ts-autotag",
+  -- }
 
   use {
     "numToStr/Comment.nvim",
@@ -400,42 +400,42 @@ return packer.startup(function()
 
   use "tpope/vim-surround"
 
-  use {
-    "ziontee113/syntax-tree-surfer",
-    disable = true,
-    config = function()
-      vim.keymap.set("x", "J", function()
-        require("syntax-tree-surfer").surf("next", "visual", true)
-      end)
-
-      vim.keymap.set("x", "K", function()
-        require("syntax-tree-surfer").surf("prev", "visual", true)
-      end)
-
-      vim.keymap.set("x", "H", function()
-        require("syntax-tree-surfer").surf("prev", "visual", true)
-      end)
-
-      vim.keymap.set("x", "L", function()
-        require("syntax-tree-surfer").surf("next", "visual", true)
-      end)
-
-      vim.keymap.set("n", "vx", require("syntax-tree-surfer").select)
-      vim.keymap.set("n", "vn", require("syntax-tree-surfer").select_current_node)
-    end,
-  }
+  -- use {
+  --   "ziontee113/syntax-tree-surfer",
+  --   disable = true,
+  --   config = function()
+  --     vim.keymap.set("x", "J", function()
+  --       require("syntax-tree-surfer").surf("next", "visual", true)
+  --     end)
+  --
+  --     vim.keymap.set("x", "K", function()
+  --       require("syntax-tree-surfer").surf("prev", "visual", true)
+  --     end)
+  --
+  --     vim.keymap.set("x", "H", function()
+  --       require("syntax-tree-surfer").surf("prev", "visual", true)
+  --     end)
+  --
+  --     vim.keymap.set("x", "L", function()
+  --       require("syntax-tree-surfer").surf("next", "visual", true)
+  --     end)
+  --
+  --     vim.keymap.set("n", "vx", require("syntax-tree-surfer").select)
+  --     vim.keymap.set("n", "vn", require("syntax-tree-surfer").select_current_node)
+  --   end,
+  -- }
   -- }}}
 
   -- File navigation {{{
-  use {
-    "kyazdani42/nvim-tree.lua",
-    disable = true,
-    -- cmd = "NvimTreeToggle",
-    setup = function()
-      -- vim.keymap.set("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>")
-    end,
-    config = conf "nvim_tree",
-  }
+  -- use {
+  --   "kyazdani42/nvim-tree.lua",
+  --   disable = true,
+  --   -- cmd = "NvimTreeToggle",
+  --   setup = function()
+  --     -- vim.keymap.set("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>")
+  --   end,
+  --   config = conf "nvim_tree",
+  -- }
 
   use {
     "nvim-neo-tree/neo-tree.nvim",
