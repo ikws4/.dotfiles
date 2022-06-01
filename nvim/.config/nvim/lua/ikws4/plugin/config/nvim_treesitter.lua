@@ -39,7 +39,7 @@ require("nvim-treesitter.configs").setup {
   },
   indent = {
     enable = true,
-    disable = { "python", "java" },
+    disable = { "python", "java", "dart" },
   },
   textobjects = {
     select = {
