@@ -113,34 +113,34 @@ return packer.startup(function()
   --   ft = { "markdown" },
   -- }
 
-  use {
-    "hkupty/iron.nvim",
-    config = function()
-      local view = require "iron.view"
-      vim.g.iron_map_defaults = false
-      vim.g.iron_map_extended = false
-
-      vim.keymap.set("n", "<localleader>;", "<Plug>(iron-send-line)", { remap = true })
-      vim.keymap.set("n", "<localleader>e", "<Plug>(iron-repeat-cmd)", { remap = true })
-      vim.keymap.set("v", ";", "<Plug>(iron-visual-send)", { remap = true })
-      vim.keymap.set("n", "<localleader>c", "<Plug>(iron-clear)", { remap = true })
-
-      require("iron").core.set_config {
-        highlight_last = "CursorColumn",
-        repl_open_cmd = function(buffer)
-          local api = vim.api
-          local win_id = view.openwin("rightbelow 10 split", buffer)
-
-          api.nvim_win_set_option(win_id, "number", false)
-          api.nvim_win_set_option(win_id, "relativenumber", false)
-          api.nvim_win_set_option(win_id, "signcolumn", "no")
-          vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { buffer = buffer })
-
-          return win_id
-        end,
-      }
-    end,
-  }
+  -- use {
+  --   "hkupty/iron.nvim",
+  --   config = function()
+  --     local view = require "iron.view"
+  --     vim.g.iron_map_defaults = false
+  --     vim.g.iron_map_extended = false
+  --
+  --     vim.keymap.set("n", "<localleader>;", "<Plug>(iron-send-line)", { remap = true })
+  --     vim.keymap.set("n", "<localleader>e", "<Plug>(iron-repeat-cmd)", { remap = true })
+  --     vim.keymap.set("v", ";", "<Plug>(iron-visual-send)", { remap = true })
+  --     vim.keymap.set("n", "<localleader>c", "<Plug>(iron-clear)", { remap = true })
+  --
+  --     require("iron").core.set_config {
+  --       highlight_last = "CursorColumn",
+  --       repl_open_cmd = function(buffer)
+  --         local api = vim.api
+  --         local win_id = view.openwin("rightbelow 10 split", buffer)
+  --
+  --         api.nvim_win_set_option(win_id, "number", false)
+  --         api.nvim_win_set_option(win_id, "relativenumber", false)
+  --         api.nvim_win_set_option(win_id, "signcolumn", "no")
+  --         vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { buffer = buffer })
+  --
+  --         return win_id
+  --       end,
+  --     }
+  --   end,
+  -- }
 
   use {
     "norcalli/nvim-colorizer.lua",
