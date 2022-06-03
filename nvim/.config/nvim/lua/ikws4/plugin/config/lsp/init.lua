@@ -28,6 +28,7 @@ lspconfig.clangd.setup {
 
 require("rust-tools").setup {
   tools = {
+    autoSetHints = false,
     hover_with_actions = false,
     inlay_hints = {
       show_parameter_hints = true,
