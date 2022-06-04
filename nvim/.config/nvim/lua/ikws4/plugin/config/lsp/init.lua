@@ -37,6 +37,7 @@ require("rust-tools").setup {
     },
   },
   server = {
+    autostart = false,
     on_attach = utils.on_attach,
     capabilities = capabilities,
     settings = {
