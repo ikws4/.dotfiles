@@ -41,10 +41,10 @@ set -gx all_proxy 'socks5://127.0.0.1:7890'
 set -gx http_proxy $all_proxy
 set -gx https_proxy $all_proxy
 
-fish_add_path /Users/zhipingne/.cargo/bin
-fish_add_path /Users/zhipingne/.npm-global/bin
-fish_add_path /Users/zhipingne/.gem/ruby/2.6.0/bin
-fish_add_path /Users/zhipingne/dev/flutter/bin
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.npm-global/bin
+fish_add_path $HOME/.gem/ruby/2.6.0/bin
+fish_add_path $HOME/dev/flutter/bin
 
 alias nvim 'TERM=alacritty command nvim'
 
