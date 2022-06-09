@@ -26,6 +26,11 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
 }
 
+lspconfig.pyright.setup {
+  on_attach = utils.on_attach,
+  capabilities = capabilities,
+}
+
 require("rust-tools").setup {
   tools = {
     autoSetHints = false,
