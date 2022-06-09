@@ -20,6 +20,9 @@ alt - 4 : yabai -m space --focus 4
 alt - 5 : yabai -m space --focus 5
 alt - 6 : yabai -m space --focus 6
 
+# display
+alt - e : yabai -m display --focus recent
+
 # toggle window zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
 
