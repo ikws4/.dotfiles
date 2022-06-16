@@ -54,6 +54,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       return
     end
 
+    result = vim.tbl_values(result)
     if result and result[1].result then
       vim.lsp.util.apply_workspace_edit(result[1].result, "utf-16")
     end
