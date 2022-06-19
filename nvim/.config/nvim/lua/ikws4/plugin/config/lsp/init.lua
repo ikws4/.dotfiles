@@ -7,7 +7,13 @@ local utils = require "ikws4.plugin.config.lsp.utils"
 
 --- Setup lsp servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, { snippetSupport = false })
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, {
+  snippetSupport = false
+})
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 
 lspconfig.sumneko_lua.setup(require("lua-dev").setup {
   lspconfig = {
@@ -129,7 +135,7 @@ null_ls.setup {
   sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.taplo
+    null_ls.builtins.formatting.taplo,
   },
 }
 

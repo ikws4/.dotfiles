@@ -60,7 +60,7 @@ o.expandtab = true
 -- folding
 -- wo.foldexpr = "nvim_treesitter#foldexpr()"
 -- wo.foldmethod = "expr"
-wo.foldmethod = "marker"
+-- wo.foldmethod = "marker"
 o.foldlevelstart = 99
 
 -- split
