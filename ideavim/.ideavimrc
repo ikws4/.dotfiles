@@ -1,8 +1,8 @@
 " Opt
 set incsearch
 set scrolloff=0
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 set clipboard+=unnamedplus
 set ignorecase
 set ideajoin
@@ -19,6 +19,7 @@ let maplocalleader=";"
 inoremap jk <Esc>
 
 nnoremap <leader>w <c-w>
+nnoremap <leader>wn <c-w>v :action GotoFile<CR>
 nnoremap <localleader>r @:
 
 nnoremap <C-o> :action Back<CR>
@@ -47,6 +48,7 @@ inoremap <C-k> <Esc>:action ParameterInfo<CR>a
 
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>sp :action FindInPath<CR>
+
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
 nnoremap Y y$
@@ -63,9 +65,11 @@ nnoremap <M-k> 5k
 let g:highlightedyank_highlight_duration = "350"
 let g:highlightedyank_highlight_color = "rgba(42, 40, 62, 255)"
 
-" Tree & Terminal
-nnoremap <leader>n :NERDTreeFocus<CR>
+" Terminal
 nnoremap <leader>m :action ActivateTerminalToolWindow<CR>
+
+" Tree
+nnoremap <leader>n :NERDTreeFocus<CR>
 
 command! Make action Run
 " command! Run2 action android.deploy.ApplyChanges
