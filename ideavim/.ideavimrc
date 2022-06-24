@@ -46,6 +46,7 @@ nnoremap <leader>lD :action GotoNextError<CR>
 inoremap <C-k> <Esc>:action ParameterInfo<CR>a
 
 nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>sp :action FindInPath<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
 nnoremap Y y$
@@ -63,7 +64,7 @@ let g:highlightedyank_highlight_duration = "350"
 let g:highlightedyank_highlight_color = "rgba(42, 40, 62, 255)"
 
 " Tree & Terminal
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <leader>m :action ActivateTerminalToolWindow<CR>
 
 command! Make action Run
