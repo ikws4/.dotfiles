@@ -37,6 +37,11 @@ lspconfig.pyright.setup {
   capabilities = capabilities,
 }
 
+lspconfig.texlab.setup {
+  on_attach = utils.on_attach,
+  capabilities = capabilities,
+}
+
 require("rust-tools").setup {
   tools = {
     autoSetHints = false,

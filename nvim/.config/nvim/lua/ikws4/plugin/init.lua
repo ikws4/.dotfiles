@@ -112,6 +112,11 @@ return packer.startup(function()
     end,
   }
 
+  use {
+    "lervag/vimtex",
+    config = function() end,
+  }
+
   -- use {
   --   "iamcco/markdown-preview.nvim",
   --   run = "cd app && npm install",
