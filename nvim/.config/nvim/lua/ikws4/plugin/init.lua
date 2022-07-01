@@ -114,7 +114,9 @@ return packer.startup(function()
 
   use {
     "lervag/vimtex",
-    config = function() end,
+    config = function()
+      vim.g.vimtex_view_method = "skim"
+    end,
   }
 
   -- use {
