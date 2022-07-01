@@ -51,8 +51,8 @@ shift + alt - 6 : yabai -m window --space 6
 # adjust widow ratio
 alt - right : yabai -m window --ratio rel:0.01
 alt - left  : yabai -m window --ratio rel:-0.01 
-alt - up    : yabai -m window --ratio rel:0.01
-alt - down  : yabai -m window --ratio rel:-0.01 
+alt - up    : yabai -m window --ratio rel:-0.01
+alt - down  : yabai -m window --ratio rel:0.01 
 
 # focus windows
 alt - m : yabai -m window --focus first
