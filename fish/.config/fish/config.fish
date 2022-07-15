@@ -48,6 +48,10 @@ fish_add_path $HOME/.gem/ruby/2.6.0/bin
 fish_add_path $HOME/dev/flutter/bin
 fish_add_path $HOME/.npm-global/bin
 
+# brew install ruby
+fish_add_path /opt/homebrew/opt/ruby/bin
+fish_add_path /opt/homebrew/lib/ruby/gems/3.1.0/bin/
+
 alias nvim 'TERM=alacritty command nvim'
 
 function fish_greeting

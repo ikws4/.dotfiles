@@ -112,6 +112,8 @@ return packer.startup(function()
     end,
   }
 
+  use 'habamax/vim-asciidoctor'
+
   use {
     "lervag/vimtex",
     config = function()
