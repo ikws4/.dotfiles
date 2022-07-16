@@ -1,3 +1,5 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 starship init fish | source
 
 # Auto color from terminal config
