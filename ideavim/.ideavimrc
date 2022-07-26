@@ -21,6 +21,8 @@ inoremap jk <Esc>
 nnoremap <leader>w <c-w>
 nnoremap <leader>wn <c-w>v :action GotoFile<CR>
 nnoremap ;r :Make<CR>
+nnoremap 0 ^
+vnoremap 0 ^
 
 nnoremap <C-o> :action Back<CR>
 nnoremap <C-i> :action Forward<CR>
