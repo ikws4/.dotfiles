@@ -20,7 +20,7 @@ inoremap jk <Esc>
 
 nnoremap <leader>w <c-w>
 nnoremap <leader>wn <c-w>v :action GotoFile<CR>
-nnoremap <localleader>r @:
+nnoremap ;r :Make<CR>
 
 nnoremap <C-o> :action Back<CR>
 nnoremap <C-i> :action Forward<CR>
