@@ -42,7 +42,7 @@ set -gx EDITOR nvim
 set -gx all_proxy 'socks5://127.0.0.1:7890'
 set -gx http_proxy 'http://127.0.0.1:7890'
 set -gx https_proxy 'http://127.0.0.1:7890'
-set -gx JAVA_HOME $(/usr/libexec/java_home -v 11)
+set -gx JAVA_HOME $(/usr/libexec/java_home -v 17)
 
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.npm-global/bin

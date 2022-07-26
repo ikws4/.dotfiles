@@ -4,22 +4,32 @@ vim.bo.shiftwidth = 2
 
 -- Lsp
 local lsp_utils = require "ikws4.plugin.config.lsp.utils"
-local lsp_installer = require "nvim-lsp-installer"
-local ok, jdtls = lsp_installer.get_server "jdtls"
+local mason_lspconfig = require "mason-lspconfig"
+
+local function get_server(name)
+  local servers = mason_lspconfig.get_installed_servers()
+  if vim.tbl_contains(servers, name) then
+    return true, require("lspconfig")[name]
+  end
+  return false, nil
+end
+
+local ok, jdtls = get_server "jdtls"
 
 if ok == false then
-  vim.notify("lsp_installer: jdtls not found, please install it first", vim.log.levels.ERROR)
+  vim.notify("mason-lspconfig: jdtls not found, please install it first", vim.log.levels.ERROR)
   return
 end
+
+local default_config = jdtls.document_config.default_config
 
 local config = {
   on_attach = function(client, bufnr)
     require("jdtls.setup").add_commands()
     lsp_utils.on_attach(client, bufnr)
   end,
-
-  cmd = jdtls:get_default_options().cmd,
-  root_dir = jdtls:get_default_options().root_dir,
+  cmd = default_config.cmd,
+  root_dir = default_config.root_dir(),
   settings = {
     java = {
       format = {

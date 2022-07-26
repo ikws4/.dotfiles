@@ -112,7 +112,7 @@ return packer.startup(function()
     end,
   }
 
-  use 'habamax/vim-asciidoctor'
+  use "habamax/vim-asciidoctor"
 
   use {
     "lervag/vimtex",
@@ -321,9 +321,19 @@ return packer.startup(function()
 
   use "mfussenegger/nvim-jdtls"
 
+  -- use {
+  --   "williamboman/nvim-lsp-installer",
+  --   after = { "null-ls.nvim", "cmp-nvim-lsp" },
+  --   config = conf "lsp",
+  -- }
+
   use {
-    "williamboman/nvim-lsp-installer",
-    after = { "null-ls.nvim", "cmp-nvim-lsp" },
+    "williamboman/mason.nvim",
+  }
+
+  use {
+    "williamboman/mason-lspconfig.nvim",
+    after = { "mason.nvim", "null-ls.nvim", "cmp-nvim-lsp" },
     config = conf "lsp",
   }
 
