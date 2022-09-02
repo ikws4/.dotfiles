@@ -373,6 +373,7 @@ return packer.startup(function()
     config = function()
       vim.keymap.set("i", "<C-J>", "copilot#Accept('')", { silent = true, expr = true, remap = true })
       vim.g.copilot_no_tab_map = true
+      vim.g.copilot_enabled = false
     end,
   }
 
