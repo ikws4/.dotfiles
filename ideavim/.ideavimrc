@@ -21,6 +21,7 @@ inoremap jk <Esc>
 nnoremap <leader>w <c-w>
 nnoremap <leader>wn <c-w>v :action GotoFile<CR>
 nnoremap ;r :Make<CR>
+nnoremap ;a :action android.deploy.CodeSwap<CR>
 nnoremap 0 ^
 vnoremap 0 ^
 
