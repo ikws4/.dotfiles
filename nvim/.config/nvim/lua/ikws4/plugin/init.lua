@@ -249,6 +249,13 @@ return packer.startup(function()
     end,
   }
 
+  use {
+    "akinsho/git-conflict.nvim",
+    config = function()
+      require("git-conflict").setup()
+    end,
+  }
+
   -- use {
   --   "TimUntersberger/neogit",
   --   cmd = "Neogit",
