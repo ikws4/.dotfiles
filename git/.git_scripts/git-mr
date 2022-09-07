@@ -1,0 +1,107 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+  echo "usage: git mr <version>"
+  exit 1
+fi
+  
+version=$1
+current_branch=$(git branch --show-current)
+base_branch="dev_${version}"
+working_branch="${base_branch}_$(whoami)"
+mergebase=$(git merge-base $base_branch $working_branch)
+
+function create_mr() {
+  host=$(git config remote.origin.url | perl -snle "print m/:((?!\.git)(.*)+)\.git/")
+  open "https://git.17zjh.com/$host/-/merge_requests/new?merge_request%5Bsource_branch%5D=${working_branch}&merge_request%5Btarget_branch%5D=${base_branch}"
+}
+
+if [[ $working_branch != $current_branch ]]; then
+  echo "On the wrong branch, please checkout to $working_branch"
+  exit 1
+fi
+
+if [[ -n $(git ls-remote origin $working_branch) ]]; then
+  echo "Remote branch(origin/$working_branch) has not been merged yet..."
+  
+  while true; do
+    read -p "Do you want to create a MR? (y/n): " confirm
+    if [[ $confirm == y ]]; then
+      create_mr
+      exit 1
+    elif [[ $confirm == n ]]; then
+      exit 1
+    fi
+  done
+fi
+
+if [[ -z $(git branch -a | grep "origin/$working_branch") ]]; then
+  
+  if [[ -z $(git log --oneline ${current_branch}...${base_branch}) ]]; then
+    echo "No new commits"
+    exit 1
+  else
+    echo "These commits have not been pushed yet..."
+    git log --pretty=format:"%C(yellow)%h%Creset %s" ${current_branch}...${base_branch}
+    echo
+
+    while true; do
+      read -p "Do you want to push them? (y/n): " confirm
+      if [[ $confirm == y ]]; then
+        git push -u origin $working_branch > /dev/null 2>&1
+        break
+      elif [[ $confirm == n ]]; then
+        exit 1
+      fi
+    done
+  fi
+  
+  
+  while true; do
+    read -p "Do you want to create a merge-request? (y/n): " confirm
+    if [[ $confirm == y ]]; then
+      create_mr
+      exit 1
+    elif [[ $confirm == n ]]; then
+      exit 1
+    fi
+  done
+fi
+
+# Sync with remote branch
+git fetch -q origin $base_branch:$base_branch
+
+local_changes=$(git status -suno)
+
+# Save current changes
+if [[ -n $local_changes ]]; then
+  git stash -q
+fi
+
+# Rebase to base branch
+# 
+#  o---o---o---o---o---o---o (dev_5.3)
+#       \         /
+#        o---o---o---A---B (dev_5.3_zhipingyu/HEAD)
+#         \     
+#          o---o---o (origin/dev_5.3_zhipingyu)
+#
+#  $ git rebase –-onto <new-parent> <old-parent> <head-of-new-parent>
+#
+#  o---o---o---o---o---o---o (dev_5.3)
+#                           \
+#                            A---B  (dev_5.3_zhipingyu)
+git rebase -q --onto $base_branch origin/$working_branch
+
+# Load current changes
+if [[ -n $local_changes ]]; then
+  git stash pop -q
+fi
+
+# Delete old remote track
+git branch -q -rd origin/$working_branch
+git branch --unset-upstream
+
+echo "Successfully rebased $base_branch onto $working_branch"
+
+git mr $version

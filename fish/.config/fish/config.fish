@@ -49,6 +49,7 @@ fish_add_path $HOME/.npm-global/bin
 fish_add_path $HOME/.gem/ruby/2.6.0/bin
 fish_add_path $HOME/dev/flutter/bin
 fish_add_path $HOME/.npm-global/bin
+fish_add_path $HOME/.git_scripts/
 
 # brew install ruby
 fish_add_path /opt/homebrew/opt/ruby/bin
