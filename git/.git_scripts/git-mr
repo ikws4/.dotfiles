@@ -11,13 +11,19 @@ function test_origin_working_branch_exist() {
   return 1
 }
 
+function test_remote_origin_working_branch_exist() {
+  if [[ -n $(git ls-remote origin $WORKING_BRANCH) ]]; then
+    return 0
+  fi
+  return 1
+}
+
 function sync() {
-  test_origin_working_branch_exist
-  if (( $? == 1 )); then
+  if ! test_origin_working_branch_exist; then
     return 1
   fi
   
-  if [[ -n $(git ls-remote origin $WORKING_BRANCH) ]]; then
+  if test_remote_origin_working_branch_exist; then
     return 1
   fi
 
@@ -61,8 +67,7 @@ function status() {
   
   LOCAL_START_COMMIT=${BASE_BRANCH}
   REMOTE_START_COMMIT=$(git merge-base ${WORKING_BRANCH} ${BASE_BRANCH})
-  test_origin_working_branch_exist
-  if (( $? == 0 )); then
+  if test_origin_working_branch_exist; then
     LOCAL_START_COMMIT="origin/${WORKING_BRANCH}"
   fi
   
@@ -78,8 +83,8 @@ function status() {
 function push() {
   sync
   
-  test_origin_working_branch_exist
-  if (( $? == 0 )); then
+  
+  if test_origin_working_branch_exist; then
     git push
   else
     git push -u origin $WORKING_BRANCH
@@ -87,7 +92,7 @@ function push() {
 }
 
 function create() {
-  if [[ -z $(git ls-remote origin $WORKING_BRANCH) ]]; then
+  if ! test_remote_origin_working_branch_exist; then
     echo    "Branch ${WORKING_BRANCH} have not been pushed to remote repo yet."
     echo -e "Use \033[33mgit mr push $VERSION\033[0m to push them"
     exit 1
