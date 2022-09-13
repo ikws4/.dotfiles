@@ -1,22 +1,10 @@
-# Import additional configuration files
-#
-# Imports are loaded in order, skipping all missing files, with the importing
-# file being loaded last. If a field is already present in a previous import, it
-# will be replaced.
-#
-# All imports must either be absolute paths starting with `/`, or paths relative
-# to the user's home directory starting with `~/`.
 import:
   - ~/.config/alacritty/rose-pine.yml
 
 env:
   TERM: alacritty-direct
 
-# Window Customizations
 window:
-  # dimensions:
-  #   columns: 140
-  #   lines: 38
   padding:
     x: 0
     y: 0
@@ -26,9 +14,7 @@ window:
 scrolling:
   history: 10000
   multiplier: 3
-# background_opacity: 1
 
-# Font configuration
 font:
   normal:
     family: JetBrainsMono Nerd Font
@@ -64,14 +50,12 @@ key_bindings:
   - { key: A, mods: Command, chars: "\x1ba" }
   - { key: S, mods: Command, chars: "\x1bs" }
   - { key: L, mods: Command, chars: "\x1bl" }
-  # - { key: L, mods: Command|Shift, chars: "\x1bL" }
   - { key: H, mods: Command, action: None }
   - { key: J, mods: Command, chars: "\x1bj" }
   - { key: K, mods: Command, chars: "\x1bk" }
   - { key: M, mods: Command, action: None }
   - { key: Q, mods: Command, action: None }
   - { key: W, mods: Command, action: None }
-  # - { key: Semicolon, mods: Command, chars: "\x1b;" }
   - { key: Back, action: ReceiveChar }
   - { key: LBracket, mods: Command, chars: "\x1b[" }
   - { key: RBracket, mods: Command, chars: "\x1b]" }
