@@ -50,6 +50,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       -- neotree
       NeoTreeExpander = { fg = p.subtle },
       NeoTreeDimText = { fg = p.muted },
+      NeoTreeMessage = { fg = p.muted },
       NeoTreeDotfile = { link = "NeoTreeDimText" },
       NeoTreeFileIcon = { fg = p.text },
       NeoTreeFloatBorder = { link = "TelescopeBorder" },
