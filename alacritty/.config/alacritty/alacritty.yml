@@ -21,7 +21,7 @@ window:
     x: 0
     y: 0
   dynamic_padding: false
-  decorations: none
+  decorations: buttonless
   startup_mode: Maximized
 scrolling:
   history: 10000
