@@ -57,3 +57,13 @@ vim.keymap.set("n", "<M-k>", "5k")
 -- move to head
 vim.keymap.set("n", "0", "^")
 vim.keymap.set("v", "0", "^")
+
+-- editing helper
+vim.keymap.set("i", ";", function()
+  local api = vim.api
+  local row, col = unpack(api.nvim_win_get_cursor(0))
+  row = row - 1
+
+  local char = api.nvim_buf_get_text(0, row, col, row, col + 2, {})[1]
+  return char == ")" and "<Right>;" or ";"
+end, { expr = true })
