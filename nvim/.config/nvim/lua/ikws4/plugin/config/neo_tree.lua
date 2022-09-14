@@ -71,7 +71,7 @@ require("neo-tree").setup {
       ["p"] = "paste_from_clipboard",
       ["c"] = "copy",
       ["m"] = "move",
-      ["q"] = "close_window",
+      ["<Esc>"] = "close_window",
       ["R"] = "refresh",
       ["/"] = "fuzzy_finder",
       ["."] = "toggle_hidden",
