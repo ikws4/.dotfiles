@@ -45,12 +45,8 @@ lspconfig.texlab.setup {
 
 require("rust-tools").setup {
   tools = {
-    autoSetHints = false,
-    hover_with_actions = false,
     inlay_hints = {
-      show_parameter_hints = true,
-      parameter_hints_prefix = "",
-      other_hints_prefix = "=> ",
+      only_current_line = true,
     },
   },
   server = {
