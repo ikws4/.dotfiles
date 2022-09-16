@@ -73,6 +73,7 @@ nnoremap <leader>m :action ActivateTerminalToolWindow<CR>
 
 " Tree
 nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader>N :NERDTreeFind<CR>
 
 command! Make action Run
 " command! Run2 action android.deploy.ApplyChanges
