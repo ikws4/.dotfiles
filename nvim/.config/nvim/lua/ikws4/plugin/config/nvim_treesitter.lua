@@ -5,8 +5,11 @@ require("nvim-treesitter.configs").setup {
     "javascript",
     "typescript",
     "bash",
+    "fish",
     "toml",
     "lua",
+    "rust",
+    "markdown"
   },
   -- autotag = {
   --   enable = true,

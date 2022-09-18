@@ -43,6 +43,11 @@ lspconfig.texlab.setup {
   capabilities = capabilities,
 }
 
+lspconfig.wgsl_analyzer.setup {
+  on_attach = utils.on_attach,
+  capabilities = capabilities,
+}
+
 require("rust-tools").setup {
   tools = {
     inlay_hints = {

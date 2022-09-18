@@ -1,236 +1,52 @@
-local ls = require "luasnip"
-local i = ls.insert_node
-local f = ls.function_node
-local fmt = require("luasnip.extras.fmt").fmt
+local luasnip = require "luasnip"
 
-local function s(trig, body, opts)
-  return ls.s({ trig = trig, hidden = true, regTrig = true }, body, opts)
-end
-
-local function capture(index, default)
-  return f(function(_, snip)
-    local text = snip.captures[index]
-    if text == "" then
-      return default or ""
-    end
-    return text
-  end, {})
-end
-
-ls.config.set_config {
+luasnip.setup {
+  history = false,
   region_check_events = "InsertEnter",
   enable_autosnippets = true,
+  snip_env = {
+    s = require("luasnip.nodes.snippet").S,
+    sn = require("luasnip.nodes.snippet").SN,
+    sh = function(trig, body, opts)
+      return luasnip.s({ trig = trig, hidden = true, regTrig = true }, body, opts)
+    end,
+    t = require("luasnip.nodes.textNode").T,
+    f = require("luasnip.nodes.functionNode").F,
+    i = require("luasnip.nodes.insertNode").I,
+    c = require("luasnip.nodes.choiceNode").C,
+    d = require("luasnip.nodes.dynamicNode").D,
+    r = require("luasnip.nodes.restoreNode").R,
+    l = require("luasnip.extras").lambda,
+    rep = require("luasnip.extras").rep,
+    p = require("luasnip.extras").partial,
+    pfx = require "luasnip.extras.postfix",
+    m = require("luasnip.extras").match,
+    n = require("luasnip.extras").nonempty,
+    cap = function(index, default)
+      return luasnip.f(function(_, snip)
+        local text = snip.captures[index]
+        if text == "" then
+          return default or ""
+        end
+        return text
+      end, {})
+    end,
+    dl = require("luasnip.extras").dynamic_lambda,
+    fmt = require("luasnip.extras.fmt").fmt,
+    fmta = require("luasnip.extras.fmt").fmta,
+    conds = require "luasnip.extras.expand_conditions",
+    types = require "luasnip.util.types",
+    events = require "luasnip.util.events",
+    parse = require("luasnip.util.parser").parse_snippet,
+    ai = require "luasnip.nodes.absolute_indexer",
+  },
 }
 
-ls.add_snippets("java", {
-  s(
-    "print(%l*)",
-    fmt(
-      [[
-        System.out.print{}({});
-      ]],
-      {
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "while",
-    fmt(
-      [[
-        while ({}) {{
-          {}
-        }}
-      ]],
-      {
-        i(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "if",
-    fmt(
-      [[
-        if ({}) {{
-          {}
-        }}
-      ]],
-      {
-        i(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "foreach(%a+)",
-    fmt(
-      [[
-        for (var {} : {}s) {{
-          {}
-        }}
-      ]],
-      {
-        capture(1),
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "for(%l)(%d*)",
-    fmt(
-      [[
-        for (int {} = {}; {} < {}; {}++) {{
-          {}
-        }}
-      ]],
-      {
-        capture(1),
-        capture(2, "0"),
-        capture(1),
-        i(1, "n"),
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "rfor(%l)",
-    fmt(
-      [[
-        for (int {} = {}; {} >= 0; {}--) {{
-          {}
-        }}
-      ]],
-      {
-        capture(1),
-        i(1, "n - 1"),
-        capture(1),
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-})
-
-ls.add_snippets("javascript", {
-  s(
-    "foreach(%a+)",
-    fmt(
-      [[
-        for (const {} of {}s) {{
-          {}
-        }}
-      ]],
-      {
-        capture(1),
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "for(%l)(%d*)",
-    fmt(
-      [[
-        for (let {} = {}; {} < {}; {}++) {{
-          {}
-        }}
-      ]],
-      {
-        capture(1),
-        capture(2, "0"),
-        capture(1),
-        i(1, "n"),
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "rfor(%l)",
-    fmt(
-      [[
-        for (let {} = {}; {} >= 0; {}--) {{
-          {}
-        }}
-      ]],
-      {
-        capture(1),
-        i(1, "n - 1"),
-        capture(1),
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-})
-
-ls.add_snippets("rust", {
-  s(
-    "b_(%w+)_component",
-    fmt(
-      [[
-        #[derive(Component)]
-        pub struct {} {{
-            {}
-        }}
-      ]],
-      {
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "b_([%w_]+)_system",
-    fmt(
-      [[
-        fn {}_system(
-            {}
-        ) {{
-            {}
-        }}
-      ]],
-      {
-        capture(1),
-        i(1),
-        i(0),
-      }
-    )
-  ),
-  s(
-    "b_(%w+)_plugin",
-    fmt(
-      [[
-        use bevy::prelude::*;
-        
-        pub struct {};
-
-        impl Plugin for {} {{
-            fn build(&self, app: &mut App) {{
-
-            }}
-        }}
-
-        {}
-      ]],
-      {
-        capture(1),
-        capture(1),
-        i(0),
-      }
-    )
-  ),
-}, {
-  type = "autosnippets",
-})
-
-require("luasnip").filetype_extend("dart", { "flutter" })
+luasnip.filetype_extend("dart", { "flutter" })
 
 require("luasnip.loaders.from_vscode").load {
   paths = { vim.fn.stdpath "data" .. "/site/pack/packer/opt/friendly-snippets" },
   include = { "gitcommit", "flutter", "tex", "rust" },
 }
+
+require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/ikws4/snippets" }
