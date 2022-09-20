@@ -57,3 +57,27 @@ vim.keymap.set("n", "<M-k>", "5k")
 -- move to head
 -- vim.keymap.set("n", "0", "^")
 -- vim.keymap.set("v", "0", "^")
+
+vim.keymap.set("i", "<M-CR>", function()
+  if vim.tbl_contains({ "java", "rust" }, vim.bo.filetype) then
+    local line = vim.api.nvim_get_current_line()
+    local last_char = line:sub(#line, #line)
+    return last_char == ")" and "<End>;<Enter>" or "<End><Enter>"
+  end
+  return "<End><Enter>"
+end, { expr = true })
+
+vim.keymap.set("i", ";", function()
+  if vim.tbl_contains({ "java", "rust" }, vim.bo.filetype) then
+    local line = vim.api.nvim_get_current_line()
+    local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+    local last_char = line:sub(#line, #line)
+
+    if last_char ~= ";" then
+      if col + 1 == #line and last_char == ")" then
+        return "<End>;"
+      end
+    end
+  end
+  return ";"
+end, { expr = true })

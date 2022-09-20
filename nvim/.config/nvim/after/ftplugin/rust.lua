@@ -1,4 +1,25 @@
-vim.keymap.set("i", "<M-CR>",function ()
-  local line = vim.api.nvim_get_current_line()
-  return line:sub(#line, #line) == ";" and "<End><Enter>" or "<End>;<Enter>"
-end , { expr = true })
+-- vim.keymap.set("i", "<M-CR>", function()
+--   if not vim.tbl_contains({ "java", "rust" }, vim.bo.filetype) then
+--     return
+--   end
+--
+--   local line = vim.api.nvim_get_current_line()
+--   return line:sub(#line, #line) == ";" and "<End><Enter>" or "<End>;<Enter>"
+-- end, { expr = true })
+--
+-- vim.keymap.set("i", ";", function()
+--   if not vim.tbl_contains({ "java", "rust" }, vim.bo.filetype) then
+--     return
+--   end
+--
+--   local line = vim.api.nvim_get_current_line()
+--   local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+--   local last_char = line:sub(#line, #line)
+--
+--   if last_char ~= ";" then
+--     if col + 1 == #line - 1 and last_char == ")" then
+--       return "<End>;"
+--     end
+--   end
+--   return ";"
+-- end, { expr = true })
