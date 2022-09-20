@@ -1,20 +1,17 @@
 return {
   parse("print", "System.out.print(${1});"),
   parse("println", "System.out.println(${1});"),
-  parse("while", "wihle (${1}) {\n\t${2}\n}"),
   parse(
     "while",
     [[
-      while (${1}) {
-        ${2}
+      while (${1}${0}) {
       }
     ]]
   ),
   parse(
     "if",
     [[
-      if (${1}) {
-        ${2}
+      if (${1}${0}) {
       }
     ]]
   ),
