@@ -483,6 +483,7 @@ return packer.startup(function()
     setup = function()
       vim.g.neo_tree_remove_legacy_commands = 1
       vim.keymap.set("n", "<leader>n", "<Cmd>Neotree<CR>")
+      vim.keymap.set("n", "<leader>N", "<Cmd>Neotree reveal<CR>")
     end,
     config = conf "neo_tree",
   }
