@@ -30,7 +30,7 @@ function sync() {
   # Sync with remote branch
   git fetch origin $BASE_BRANCH:$BASE_BRANCH
 
-  local_changes=$(git status -s)
+  local_changes=$(git status -s --ignore-submodules)
 
   # Save current changes
   if [[ -n $local_changes ]]; then
