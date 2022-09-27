@@ -68,7 +68,7 @@ vim.keymap.set("i", "<M-CR>", function()
 end, { expr = true })
 
 vim.keymap.set("i", ";", function()
-  if vim.tbl_contains({ "java", "rust" }, vim.bo.filetype) then
+  if vim.tbl_contains({ "java", "rust", "vhdl" }, vim.bo.filetype) then
     local line = vim.api.nvim_get_current_line()
     local _, col = unpack(vim.api.nvim_win_get_cursor(0))
     local last_char = line:sub(#line, #line)
