@@ -39,9 +39,9 @@ set -gx MANPAGER 'nvim +Man!'
 set -gx MANWIDTH 999
 set -gx LANG 'en_US.UTF-8'
 set -gx EDITOR nvim
-set -gx all_proxy 'socks5://127.0.0.1:49162'
-set -gx http_proxy 'http://127.0.0.1:49162'
-set -gx https_proxy 'http://127.0.0.1:49162'
+set -gx all_proxy 'socks5://127.0.0.1:7890'
+set -gx http_proxy 'http://127.0.0.1:7890'
+set -gx https_proxy 'http://127.0.0.1:7890'
 set -gx JAVA_HOME $(/usr/libexec/java_home -v 11)
 
 fish_add_path $HOME/.cargo/bin

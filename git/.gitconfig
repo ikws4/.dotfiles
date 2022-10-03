@@ -14,9 +14,5 @@
 	ui = auto
 [merge]
 	conflictstyle = diff3
-[http]
-  proxy = http://127.0.0.1:49162
-[https]
-  proxy = http://127.0.0.1:49162
 [init]
 	defaultBranch = main
