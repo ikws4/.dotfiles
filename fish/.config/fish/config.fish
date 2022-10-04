@@ -51,9 +51,9 @@ fish_add_path $HOME/dev/flutter/bin
 fish_add_path $HOME/.npm-global/bin
 fish_add_path $HOME/.git_scripts/
 
-# brew install ruby
-fish_add_path /opt/homebrew/opt/ruby/bin
-fish_add_path /opt/homebrew/lib/ruby/gems/3.1.0/bin/
+# brew install ruby@3.0
+fish_add_path /opt/homebrew/opt/ruby@3.0/bin
+fish_add_path /opt/homebrew/lib/ruby/gems/3.0.0/bin/
 
 alias nvim 'TERM=alacritty JAVA_HOME=$(/usr/libexec/java_home -v 17) command nvim'
 
