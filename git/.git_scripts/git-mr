@@ -102,8 +102,8 @@ function create() {
     exit 1
   fi
 
-  host=$(git config remote.origin.url | perl -snle "print m/:((?!\.git)(.*)+)\.git/")
-  open "https://git.17zjh.com/$host/-/merge_requests/new?merge_request%5Bsource_branch%5D=${WORKING_BRANCH}&merge_request%5Btarget_branch%5D=${BASE_BRANCH}"
+  url=$(git config remote.origin.url | perl -snle "print m/@((?!\.git)(.*)+)\.git/" | sed "s/:/\//")
+  open "https://$url/-/merge_requests/new?merge_request%5Bsource_branch%5D=${WORKING_BRANCH}&merge_request%5Btarget_branch%5D=${BASE_BRANCH}"
 }
 
 COMMAND=$1
