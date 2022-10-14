@@ -9,6 +9,7 @@ CONFIGS="
   julia
   karabiner
   nvim
+  omnisharp
   skhd
   tmux
   vim

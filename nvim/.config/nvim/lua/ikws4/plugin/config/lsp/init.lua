@@ -9,11 +9,11 @@ local utils = require "ikws4.plugin.config.lsp.utils"
 --- Setup lsp servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, {
-  snippetSupport = false
+  snippetSupport = false,
 })
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
 }
 
 lspconfig.sumneko_lua.setup(require("lua-dev").setup {
@@ -46,6 +46,20 @@ lspconfig.texlab.setup {
 lspconfig.wgsl_analyzer.setup {
   on_attach = utils.on_attach,
   capabilities = capabilities,
+}
+
+lspconfig.omnisharp_mono.setup {
+  on_attach = utils.on_attach,
+  organize_imports_on_format = true,
+  capabilities = capabilities,
+  handlers = {
+    ["textDocument/definition"] = require("omnisharp_extended").handler,
+  },
+  settings = {
+    omnisharp = {
+      useModernNet = false,
+    },
+  },
 }
 
 require("rust-tools").setup {

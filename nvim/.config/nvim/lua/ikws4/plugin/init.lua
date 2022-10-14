@@ -349,6 +349,20 @@ return packer.startup(function()
   }
 
   use {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    config = function()
+      require("omnisharp_extended").get_omnisharp_client = function()
+        local clients = vim.lsp.buf_get_clients(0)
+        for _, client in pairs(clients) do
+          if client.name == "omnisharp_mono" then
+            return client
+          end
+        end
+      end
+    end,
+  }
+
+  use {
     "rafamadriz/friendly-snippets",
     event = "InsertEnter",
   }
