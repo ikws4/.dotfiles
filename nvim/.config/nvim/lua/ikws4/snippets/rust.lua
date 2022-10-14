@@ -24,5 +24,14 @@ return {
           ${3}
       }
     ]]
+  ),
+  parse(
+    "component",
+    [[
+      #[derive(Component)]
+      struct ${1} {
+        ${2}
+      }
+    ]]
   )
 }
