@@ -13,7 +13,7 @@ o.clipboard = "unnamedplus"
 
 -- keymappings
 local function k(...)
-  local args = table.pack(...)
+  local args = { ... }
   return function()
     for _, cmd in ipairs(args) do
       vim.cmd("call " .. "VSCodeNotify('" .. cmd .. "')")
