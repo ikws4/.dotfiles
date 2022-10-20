@@ -88,6 +88,9 @@ require("neo-tree").setup {
       hide_by_name = {
         ".DS_Store",
       },
+      hide_by_pattern = {
+        "*.meta",
+      },
       never_show = {
         ".DS_Store",
       },
