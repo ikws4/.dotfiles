@@ -233,11 +233,11 @@ return packer.startup(function()
     "nvim-treesitter/nvim-treesitter-textobjects",
   }
 
-  -- use {
-  --   "nvim-treesitter/playground",
-  --   cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
-  --   after = "nvim-treesitter",
-  -- }
+  use {
+    "nvim-treesitter/playground",
+    cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
+    after = "nvim-treesitter",
+  }
 
   -- }}}
 

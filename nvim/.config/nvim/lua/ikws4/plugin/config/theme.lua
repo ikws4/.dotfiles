@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
       -- treesitter
       TSKeywordOperator = { fg = p.pine },
+      ["@keyword.operator"] = { fg = p.pine },
 
       -- copilot
       CopilotSuggestion = { link = "Comment" },
