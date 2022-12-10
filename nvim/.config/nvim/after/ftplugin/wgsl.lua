@@ -1,2 +1,2 @@
-vim.cmd "so $VIMRUNTIM/indent/rust.vim"
-vim.cmd "so $VIMRUNTIM/ftplugin/rust.vim"
+vim.cmd "so $VIMRUNTIME/indent/rust.vim"
+vim.cmd "so $VIMRUNTIME/ftplugin/rust.vim"
