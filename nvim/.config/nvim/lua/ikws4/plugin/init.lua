@@ -39,7 +39,9 @@ return packer.startup(function()
         input = {
           enabled = true,
           anchor = "NW",
-          winblend = 0,
+          win_options = {
+            winblend = 0,
+          },
         },
         select = {
           enabled = true,
@@ -288,6 +290,18 @@ return packer.startup(function()
   }
 
   use {
+    "lvimuser/lsp-inlayhints.nvim",
+    config = function()
+      require("lsp-inlayhints").setup {
+        inlay_hints = {
+          highlight = "Comment",
+          enabled_at_startup = false,
+        },
+      }
+    end,
+  }
+
+  use {
     "simrat39/rust-tools.nvim",
     config = function()
       -- vim.api.nvim_create_autocmd("InsertLeave", {
@@ -414,21 +428,17 @@ return packer.startup(function()
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
       local cmp = require "cmp"
       local npairs = require "nvim-autopairs"
-      local Rule = require('nvim-autopairs.rule')
-      local cond = require('nvim-autopairs.conds')
+      local Rule = require "nvim-autopairs.rule"
+      local cond = require "nvim-autopairs.conds"
       npairs.setup()
 
       npairs.add_rules(require "nvim-autopairs.rules.endwise-lua")
-      npairs.add_rule(
-        Rule("<", ">", { 'rust', 'java' })
-        :with_pair(cond.not_before_regex(" "))
-        :with_move(function (opts)
-          if opts.char == opts.next_char then
-            return
-          end
-          return false
-        end)
-      )
+      npairs.add_rule(Rule("<", ">", { "rust", "java" }):with_pair(cond.not_before_regex " "):with_move(function(opts)
+        if opts.char == opts.next_char then
+          return
+        end
+        return false
+      end))
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
     end,
   }

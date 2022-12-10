@@ -6,21 +6,28 @@ require("mason-lspconfig").setup {
 local lspconfig = require "lspconfig"
 local utils = require "ikws4.plugin.config.lsp.utils"
 
+
 --- Setup lsp servers
-local capabilities = require("cmp_nvim_lsp").default_capabilities({
+local capabilities = require("cmp_nvim_lsp").default_capabilities {
   snippetSupport = false,
-})
+}
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
 
-lspconfig.sumneko_lua.setup(require("neodev").setup {
-  lspconfig = {
-    on_attach = utils.on_attach,
-    capabilities = capabilities,
+require("neodev").setup()
+lspconfig.sumneko_lua.setup {
+  on_attach = utils.on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      hint = {
+        enable = true,
+      },
+    },
   },
-})
+}
 
 lspconfig.tsserver.setup {
   on_attach = utils.on_attach,
@@ -64,12 +71,14 @@ lspconfig.omnisharp_mono.setup {
 require("rust-tools").setup {
   tools = {
     inlay_hints = {
-      only_current_line = true,
+      auto = false,
     },
   },
   server = {
     autostart = false,
-    on_attach = utils.on_attach,
+    on_attach = function(...)
+      utils.on_attach(...)
+    end,
     capabilities = capabilities,
     settings = {
       ["rust-analyzer"] = {

@@ -25,6 +25,8 @@ local disable_formatting = {
 }
 
 local on_attach = function(client, bufnr)
+  require("lsp-inlayhints").on_attach(client, bufnr)
+
   local builtin = require "telescope.builtin"
 
   local function buf_set_keymap(mode, lhs, rhs)
@@ -50,6 +52,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end)
     buf_set_keymap("v", "<leader>lf", "<Cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>")
   end
+
+  buf_set_keymap("n", "<leader>li", require('lsp-inlayhints').toggle)
   -- stylua: ignore end
 end
 
