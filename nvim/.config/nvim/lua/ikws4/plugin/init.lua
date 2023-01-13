@@ -328,6 +328,11 @@ return packer.startup(function()
         fmt = {
           stack_upwards = false,
         },
+        sources = {
+          ["jdtls"] = {
+            ignore = true,
+          },
+        },
       }
     end,
   }
