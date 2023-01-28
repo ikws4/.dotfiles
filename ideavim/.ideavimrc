@@ -61,6 +61,8 @@ nnoremap cc ddO
 nnoremap <localleader><Tab> :action CollapseSelection<CR>
 
 
+nnoremap <D-j> 5j
+nnoremap <D-k> 5k
 nnoremap <M-j> 5j
 nnoremap <M-k> 5k
 
@@ -83,5 +85,5 @@ command! Make action Run
 " A work around when before ideavim v2.0.0 in Rider
 " https://youtrack.jetbrains.com/issue/VIM-1758?_gl=1*12r3r7p*_ga*OTcxMDU4NTUxLjE2NDgxMDk4MTM.*_ga_9J976DJZ68*MTY2ODM0MDE2NS4yNy4xLjE2NjgzNDA2OTguMC4wLjA.&_ga=2.146329971.637471792.1668329819-971058551.1648109813
 " https://youtrack.jetbrains.com/issue/RIDER-38359
-nnoremap gcc :action CommentByLineComment<CR>
-xnoremap gc :action CommentByLineComment<CR>
+" nnoremap gcc :action CommentByLineComment<CR>
+" xnoremap gc :action CommentByLineComment<CR>
