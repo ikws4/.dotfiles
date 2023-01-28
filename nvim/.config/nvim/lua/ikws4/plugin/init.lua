@@ -97,8 +97,8 @@ return packer.startup(function()
         accept_best_key = ";",
       }
 
-      vim.keymap.set("n", "s", "<Cmd>Pounce<CR>")
-      vim.keymap.set("n", "S", "<Cmd>Pounce<CR>")
+      vim.keymap.set("n", "?", "<Cmd>Pounce<CR>")
+      -- vim.keymap.set("n", "?", "<Cmd>Pounce<CR>")
     end,
   }
   -- }}}
@@ -408,12 +408,20 @@ return packer.startup(function()
     "f3fora/cmp-spell",
   }
 
+  -- use {
+  --   "github/copilot.vim",
+  --   config = function()
+  --     vim.keymap.set("i", "<C-J>", "copilot#Accept('')", { silent = true, expr = true, remap = true })
+  --     vim.g.copilot_no_tab_map = true
+  --     vim.g.copilot_enabled = false
+  --   end,
+  -- }
+
   use {
-    "github/copilot.vim",
+    "Exafunction/codeium.vim",
     config = function()
-      vim.keymap.set("i", "<C-J>", "copilot#Accept('')", { silent = true, expr = true, remap = true })
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_enabled = false
+      vim.keymap.set("i", "<C-J>", "codeium#Accept()", { silent = true, expr = true, remap = true })
+      vim.g.codeium_enabled = false
     end,
   }
 

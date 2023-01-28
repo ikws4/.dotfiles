@@ -34,8 +34,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       ["@keyword.operator"] = { fg = p.pine },
       ["@type.qualifier"] = { fg = p.pine },
 
-      -- copilot
-      CopilotSuggestion = { link = "Comment" },
+      -- codeium
+      CodeiumSuggestion = { link = "Comment" },
 
       -- neorg
       NeorgCodeBlock = { bg = p.base },

@@ -37,9 +37,9 @@ cmp.setup {
       if luasnip.expandable() then
         luasnip.expand()
       else
-        local copilot_accept_key = vim.fn["copilot#Accept"] ""
-        if copilot_accept_key ~= "" then
-          vim.api.nvim_feedkeys(copilot_accept_key, "i", false)
+        local codeium_accept_key = vim.fn["codeium#Accept"]()
+        if codeium_accept_key ~= "" then
+          vim.api.nvim_feedkeys(codeium_accept_key, "i", false)
         elseif cmp.visible() then
           cmp.confirm {
             select = true,
