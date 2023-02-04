@@ -1,10 +1,6 @@
-local g = vim.g
 local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
-
-g.mapleader = " "
-g.maplocalleader = ";"
 
 o.termguicolors = true
 
@@ -64,13 +60,10 @@ o.expandtab = true
 o.foldlevelstart = 99
 
 -- split
-o.splitbelow = true
+o.plitbelow = true
 o.splitright = true
 
 -- spell
 bo.spelloptions = "camel"
 
-vim.cmd [[
-  au BufEnter * set formatoptions-=ro
-  " au BufEnter * set tabstop=2 shiftwidth=2
-]]
+o.cmdheight = 0

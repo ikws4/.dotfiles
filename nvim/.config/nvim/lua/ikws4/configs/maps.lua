@@ -81,3 +81,5 @@ vim.keymap.set("i", ";", function()
   end
   return ";"
 end, { expr = true })
+
+vim.keymap.set("v", "<leader>l", "<Cmd>'<,'>!cat -n<CR>gv<gv<gv<")
