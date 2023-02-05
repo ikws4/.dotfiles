@@ -38,10 +38,10 @@ local capabilities = {
         },
       },
     },
-  },
-  foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
+    foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    },
   },
 }
 
@@ -124,6 +124,7 @@ return {
         },
       },
       "folke/neodev.nvim", -- should load before lspconfig
+    "kevinhwang91/nvim-ufo",
     },
     config = function()
       require("mason").setup()
@@ -133,7 +134,6 @@ return {
         "jdtls",
         "rust_analyzer",
       }
-      -- local mason_lspconfig =
       for _, server in pairs(require("mason-lspconfig").get_installed_servers()) do
         if not vim.tbl_contains(special_servers, server) then
           lspconfig[server].setup {
@@ -146,7 +146,7 @@ return {
       vim.lsp.util.open_floating_preview = function(contents, syntax, opts)
         opts.border = opts.border or "rounded"
         local floating_bufnr, floating_winnr = vim_lsp_util_open_floating_preview(contents, syntax, opts)
-        vim.keymap.set("n", "<Esc>", "<Cmd>bdelete<CR>", { buffer = floating_bufnr })
+        vim.keymap.set("n", "<esc>", "<cmd>bdelete<cr>", { buffer = floating_bufnr })
         return floating_bufnr, floating_winnr
       end
 

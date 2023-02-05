@@ -65,7 +65,6 @@ return {
         end
       end,
       pattern = "rose-pine",
-      group = vim.api.nvim_create_augroup("ThemeOverride", {}),
     })
 
     require("rose-pine").setup {

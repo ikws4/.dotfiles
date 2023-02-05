@@ -9,7 +9,7 @@ o.mouse = "a"
 o.updatetime = 250
 o.guicursor = "n-c-sm:block,i-ci-ve:ver25,v-r-cr-o:hor20"
 
-o.fillchars = "eob: "
+o.fillchars = "eob: ,foldsep: ,foldclose: ,foldopen: "
 
 -- tabline
 o.showtabline = 0
@@ -57,10 +57,12 @@ o.expandtab = true
 -- wo.foldexpr = "nvim_treesitter#foldexpr()"
 -- wo.foldmethod = "expr"
 -- wo.foldmethod = "marker"
+o.foldlevel = 99
 o.foldlevelstart = 99
+o.foldenable = true;
 
 -- split
-o.plitbelow = true
+o.splitbelow = true
 o.splitright = true
 
 -- spell

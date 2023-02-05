@@ -65,31 +65,18 @@ return {
   },
 
   {
-    "TimUntersberger/neogit",
-    cmd = "Neogit",
+    "tpope/vim-fugitive",
+    cmd = { "G", "Git" },
     keys = {
-      { "<leader>gg", "<Cmd>Neogit<CR>", desc = "Open Neogit" },
-    },
-    config = {
-      disable_hint = true,
-      disable_commit_confirmation = true,
-      disable_builtin_notifications = true,
-      signs = {
-        section = { "", "" },
-        item = { "", "" },
-        hunk = { "", "" },
-      },
-      mappings = {
-        status = {
-          ["<Esc>"] = "Close",
-        },
-      },
+      { "<leader>gg", "<cmd>tab Git<cr>", desc = "Open git" },
     },
   },
 
   {
     "kevinhwang91/nvim-ufo",
-    dependencies = { "kevinhwang91/promise-async" },
-    config = {},
+    dependencies = {
+      "kevinhwang91/promise-async",
+      "neovim/nvim-lspconfig",
+    },
   },
 }
