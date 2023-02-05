@@ -50,7 +50,7 @@ return {
 
   {
     "simrat39/rust-tools.nvim",
-    config = {
+    opts = {
       tools = {
         inlay_hints = {
           auto = false,
@@ -114,7 +114,7 @@ return {
       "williamboman/mason.nvim",
       {
         "williamboman/mason-lspconfig.nvim",
-        config = {
+        opts = {
           ensure_installed = {
             "rust_analyzer",
             "sumneko_lua",

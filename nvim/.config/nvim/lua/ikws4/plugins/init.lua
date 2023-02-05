@@ -1,7 +1,7 @@
 return {
   {
     "numToStr/Comment.nvim",
-    config = {
+    opts = {
       mappings = {
         extra = false,
       },
@@ -11,7 +11,7 @@ return {
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
-    config = {
+    opts = {
       mapping = { "jk" },
     },
   },
@@ -20,7 +20,7 @@ return {
 
   {
     "j-hui/fidget.nvim",
-    config = {
+    opts = {
       text = {
         spinner = "dots",
       },
@@ -44,7 +44,7 @@ return {
       { "<leader>wn", "<cmd>FocusSplitNicely<cr><cmd>Telescope find_files hidden=true<cr>" },
       { "<leader>wf", "<cmd>FocusMaxOrEqual<cr>", desc = "Maximize current buffer" },
     },
-    config = {
+    opts = {
       autoresize = false,
       cursorline = false,
       signcolumn = false,
@@ -55,7 +55,7 @@ return {
 
   {
     "akinsho/git-conflict.nvim",
-    config = {
+    opts = {
       highlights = {
         current = "DiffText",
         incoming = "DiffAdd",
