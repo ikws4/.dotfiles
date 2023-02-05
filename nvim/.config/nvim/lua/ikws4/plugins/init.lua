@@ -17,6 +17,13 @@ return {
   },
 
   "tpope/vim-surround",
+  "tpope/vim-repeat",
+  {
+    "tpope/vim-unimpaired",
+    config = function()
+      vim.cmd [[set completeopt-=preview]]
+    end,
+  },
 
   {
     "j-hui/fidget.nvim",
@@ -50,25 +57,6 @@ return {
       signcolumn = false,
       winhighlight = false,
       bufnew = true,
-    },
-  },
-
-  {
-    "akinsho/git-conflict.nvim",
-    opts = {
-      highlights = {
-        current = "DiffText",
-        incoming = "DiffAdd",
-        ancestor = "DiffChanged",
-      },
-    },
-  },
-
-  {
-    "tpope/vim-fugitive",
-    cmd = { "G", "Git" },
-    keys = {
-      { "<leader>gg", "<cmd>tab Git<cr>", desc = "Open git" },
     },
   },
 

@@ -6,6 +6,9 @@ return {
       callback = function()
         local p = require "rose-pine.palette"
         local hi = require("rose-pine.util").highlight
+        local alpha = function(color, a)
+          return require("rose-pine.util").blend(color, p.base, a)
+        end
 
         local theme = {
           VertSplit = { fg = p.overlay, bg = p.base },
@@ -58,6 +61,11 @@ return {
           NeoTreeFileIcon = { fg = p.text },
           NeoTreeFloatBorder = { link = "TelescopeBorder" },
           NeoTreeFloatTitle = { link = "TelescopeTitle" },
+
+          -- conflict-marker.vim
+          ConflictMarkerCurrent = { bg = alpha(p.foam, 0.2) },
+          ConflictMarkerAncestor = { bg = alpha(p.subtle, 0.2) },
+          ConflictMarkerIncoming = { bg = alpha(p.pine, 0.2) },
         }
 
         for group, color in pairs(theme) do

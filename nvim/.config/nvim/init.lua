@@ -14,13 +14,17 @@ if not vim.g.vscode then
   vim.g.mapleader = " "
   vim.g.maplocalleader = ";"
 
-  require("lazy").setup "ikws4.plugins"
+  require("lazy").setup("ikws4.plugins", {
+    ui = {
+      border = "rounded",
+      custom_keys = {
+        ["<esc>"] = function(_)
+          vim.cmd "<cmd>q<cr>"
+        end,
+      },
+    },
+  })
   require "ikws4.configs"
-
-  -- require "ikws4.disable_builtin"
-  -- require "ikws4.setting"
-  -- require "ikws4.mapping"
-  -- require "ikws4.plugin"
 else
   require "ikws4.vscode"
 end

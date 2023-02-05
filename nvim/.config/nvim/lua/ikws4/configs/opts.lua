@@ -1,6 +1,6 @@
 local o = vim.o
-local bo = vim.bo
-local wo = vim.wo
+-- local bo = vim.bo
+-- local wo = vim.wo
 
 o.termguicolors = true
 
@@ -16,12 +16,12 @@ o.showtabline = 0
 
 -- buffer switch and back
 o.hidden = true
-bo.undofile = false
-bo.swapfile = false
+o.undofile = false
+o.swapfile = false
 
 -- sign
-wo.foldcolumn = "1"
-wo.signcolumn = "yes:1"
+o.foldcolumn = "1"
+o.signcolumn = "yes:1"
 
 -- sync with system clipboard
 o.clipboard = "unnamedplus"
@@ -31,12 +31,11 @@ o.cmdheight = 1
 o.showmode = false
 
 -- number & cursor line
-wo.number = true
-wo.relativenumber = true
-wo.cursorline = true
-wo.cursorlineopt = "number"
+o.number = true
+o.relativenumber = true
+o.cursorline = false
+o.cursorlineopt = "number"
 
--- indent and wrap
 o.breakindent = true
 o.wrap = false
 
@@ -66,6 +65,6 @@ o.splitbelow = true
 o.splitright = true
 
 -- spell
-bo.spelloptions = "camel"
+o.spelloptions = "camel"
 
 o.cmdheight = 0
