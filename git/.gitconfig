@@ -3,7 +3,7 @@
 	email = zhipingne@gmail.com
 [core]
 	autocrlf = input
-	excludesfile = /Users/zhipingne/.gitignore_global
+	excludesfile = /Users/zhipingyu/.gitignore_global
 	editor = nvim
 	pager = less
 	clean = git-lfs clean -- %f
@@ -16,3 +16,13 @@
 	conflictstyle = diff3
 [init]
 	defaultBranch = main
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/zhipingyu/.stCommitMsg
+[pull]
+	rebase = true

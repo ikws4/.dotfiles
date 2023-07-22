@@ -8,13 +8,20 @@ return {
     "hrsh7th/cmp-path",
     "f3fora/cmp-spell",
     "L3MON4D3/LuaSnip",
+    -- {
+    --   "Exafunction/codeium.vim",
+    --   config = function()
+    --     vim.keymap.set("i", "<C-J>", "codeium#Accept()", { silent = true, expr = true, remap = true })
+    --     vim.g.codeium_enabled = false
+    --   end,
+    -- },
     {
-      "Exafunction/codeium.vim",
+      "github/copilot.vim",
       config = function()
-        vim.keymap.set("i", "<C-J>", "codeium#Accept()", { silent = true, expr = true, remap = true })
-        vim.g.codeium_enabled = false
-      end,
-    },
+        vim.keymap.set("i", "<C-J>", "copilot#Accept()", { silent = true, expr = true, remap = true })
+        vim.g.copilot_enabled = true
+      end
+    }
   },
   config = function()
     local cmp = require "cmp"
@@ -55,9 +62,9 @@ return {
           if luasnip.expandable() then
             luasnip.expand()
           else
-            local codeium_accept_key = vim.fn["codeium#Accept"]()
-            if codeium_accept_key ~= "" then
-              vim.api.nvim_feedkeys(codeium_accept_key, "i", false)
+            local accept_key = vim.fn["copilot#Accept"]()
+            if accept_key ~= "" then
+              vim.api.nvim_feedkeys(accept_key, "i", false)
             elseif cmp.visible() then
               cmp.confirm {
                 select = true,

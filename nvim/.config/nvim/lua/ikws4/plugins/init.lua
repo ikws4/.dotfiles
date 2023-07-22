@@ -67,4 +67,18 @@ return {
       "neovim/nvim-lspconfig",
     },
   },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+
+  {
+    "jakewvincent/mkdnflow.nvim",
+    opts = {
+
+    }
+  },
 }

@@ -6,6 +6,7 @@ set relativenumber
 set clipboard+=unnamedplus
 set ignorecase
 set ideajoin
+set hidden
 
 " Plugins
 Plug 'preservim/nerdtree'
@@ -42,15 +43,27 @@ nnoremap gd :action GotoDeclaration<CR>
 nnoremap gD :action GotoTypeDeclaration<CR>
 nnoremap gi :action GotoImplementation<CR>
 nnoremap gr :action GotoDeclaration<CR>
+nnoremap gp :action QuickImplementations<CR>
+nnoremap gu :action GotoSuperMethod<CR>
+nnoremap yoh :action ToggleInlayHintsGloballyAction<CR>
 
 nnoremap <leader>lr :action RenameElement<CR>
 nnoremap <leader>lf :action ReformatCode<CR>
+xnoremap <leader>lf :action ReformatCode<CR>
 nnoremap <leader>la :action ShowIntentionActions<CR>
+xnoremap <leader>la :action ShowIntentionActions<CR>
 nnoremap <leader>lD :action GotoNextError<CR>
+nnoremap <leader>lc :action RiderShowIncomingCalls<CR>
 inoremap <C-k> <Esc>:action ParameterInfo<CR>a
+
+nnoremap co :action GitConflict.Operation.CurrentChange<CR>
+nnoremap ct :action GitConflict.Operation.IncomingChange<CR>
+nnoremap cb :action GitConflict.Operation.BothChanges<CR>
+nnoremap yoc :action GitConflict.Highlight<CR>
 
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>sp :action FindInPath<CR>
+" nnoremap <leader>sp :action TextSearchAction<CR>
 
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 

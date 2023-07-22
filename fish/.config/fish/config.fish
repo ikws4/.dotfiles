@@ -52,6 +52,7 @@ fish_add_path $HOME/.gem/ruby/2.6.0/bin
 fish_add_path $HOME/dev/flutter/bin
 fish_add_path $HOME/.npm-global/bin
 fish_add_path $HOME/.git_scripts/
+fish_add_path $HOME/.config/emacs/bin
 
 # brew install ruby@3.0
 fish_add_path /opt/homebrew/opt/ruby@3.0/bin

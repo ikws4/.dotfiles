@@ -115,16 +115,16 @@ return {
       {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-          ensure_installed = {
-            "rust_analyzer",
-            "sumneko_lua",
-            "jdtls",
-            "tsserver",
-          },
+          -- ensure_installed = {
+          --   "rust_analyzer",
+          --   "sumneko_lua",
+          --   "jdtls",
+          --   "tsserver",
+          -- },
         },
       },
       "folke/neodev.nvim", -- should load before lspconfig
-    "kevinhwang91/nvim-ufo",
+      "kevinhwang91/nvim-ufo",
     },
     config = function()
       require("mason").setup()

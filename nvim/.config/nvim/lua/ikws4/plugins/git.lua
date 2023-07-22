@@ -22,11 +22,11 @@ return {
     "akinsho/git-conflict.nvim",
     version = "v1.0.0",
     opts = {
-      highlights = {
-        current = "ConflictMarkerCurrent",
-        ancestor = "ConflictMarkerAncestor",
-        incoming = "ConflictMarkerIncoming",
-      },
+      -- highlights = {
+      --   current = "ConflictMarkerCurrent",
+      --   ancestor = "ConflictMarkerAncestor",
+      --   incoming = "ConflictMarkerIncoming",
+      -- },
     },
   },
 }

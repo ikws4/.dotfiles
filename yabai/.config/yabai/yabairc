@@ -14,14 +14,16 @@ yabai -m config normal_window_opacity        0.5
 yabai -m config window_border                off
 
 yabai -m config layout                       bsp
-yabai -m config top_padding                  0
-yabai -m config bottom_padding               0
-yabai -m config left_padding                 0
-yabai -m config right_padding                0
-yabai -m config window_gap                   0
+yabai -m config top_padding                  8
+yabai -m config bottom_padding               8
+yabai -m config left_padding                 8
+yabai -m config right_padding                8
+yabai -m config window_gap                   8
 
 yabai -m space 5 --layout float
 
 yabai -m rule --add app="Digital Color Meter" manage=off
-yabai -m rule --add app="Android Studio|Rider|Unity|Unity Hub|Godot|Blender" manage=off opacity=1.0
+yabai -m rule --add app="Android Studio|Rider|Unity|Unity Hub|Godot|Blender|Sourcetree|Terminal|Finder|Notes" manage=off opacity=1.0
+yabai -m rule --add app="Unity|Unity Hub" space=3 
+yabai -m rule --add app="Rider|Android Studio" space=4
 yabai -m rule --add app="QQ|WeChat|DingTalk|Lark|OBS" manage=off opacity=1.0 grid=11:7:1:1:5:9 space=5 

@@ -1,5 +1,6 @@
 return {
   "rose-pine/neovim",
+  commit = "845a6ad5443e3559dde42910c4523a5835c9233b",
   priority = 1000,
   config = function()
     vim.api.nvim_create_autocmd("ColorScheme", {
@@ -40,6 +41,7 @@ return {
 
           -- codeium
           CodeiumSuggestion = { link = "Comment" },
+          CopilotSuggestion = { link = "Comment" },
 
           -- neorg
           NeorgCodeBlock = { bg = p.base },

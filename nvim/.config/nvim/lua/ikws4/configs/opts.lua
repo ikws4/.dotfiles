@@ -33,7 +33,7 @@ o.showmode = false
 -- number & cursor line
 o.number = true
 o.relativenumber = true
-o.cursorline = false
+o.cursorline = true
 o.cursorlineopt = "number"
 
 o.breakindent = true
