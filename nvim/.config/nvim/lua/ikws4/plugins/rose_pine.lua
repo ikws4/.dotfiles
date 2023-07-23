@@ -68,6 +68,26 @@ return {
           ConflictMarkerCurrent = { bg = alpha(p.foam, 0.2) },
           ConflictMarkerAncestor = { bg = alpha(p.subtle, 0.2) },
           ConflictMarkerIncoming = { bg = alpha(p.pine, 0.2) },
+
+          -- TS
+          ['@property'] = { fg = p.foam },
+
+          -- LSP Semantic Token Groups
+          ["@lsp.type.comment"] = {},
+          ["@lsp.type.enum"] = { link = "@type" },
+          ["@lsp.type.keyword"] = { link = "@keyword" },
+          ["@lsp.type.interface"] = { link = "@interface" },
+          ["@lsp.type.namespace"] = { link = "@namespace" },
+          ["@lsp.type.parameter"] = { link = "@parameter" },
+          ["@lsp.type.property"] = { link = "@property" },
+          ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
+          ["@lsp.typemod.function.defaultLibrary"] = { link = "Special" },
+          ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
+
+          -- LSP Injected Groups
+          ["@lsp.typemod.operator.injected"] = { link = "@operator" },
+          ["@lsp.typemod.string.injected"] = { link = "@string" },
+          ["@lsp.typemod.variable.injected"] = { link = "@variable" },
         }
 
         for group, color in pairs(theme) do
